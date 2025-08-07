@@ -7,7 +7,6 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
-    2: typeof import('./../src/layouts/SideblockLayout copy 2.vue')['default']
     AccordionCollapseDocumentation: typeof import('./../documentation/collapse/accordion-collapse-documentation.md')['default']
     AccordionCollapsePropsDocumentation: typeof import('./../documentation/collapse/accordion-collapse-props-documentation.md')['default']
     AccordionCollapseSlotsDocumentation: typeof import('./../documentation/collapse/accordion-collapse-slots-documentation.md')['default']

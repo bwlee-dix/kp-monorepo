@@ -175,6 +175,7 @@ export default defineConfig({
      * @see https://github.com/vuejs/rfcs/blob/ad69da2aee9242ef88f036713db68f3ef274bb1b/active-rfcs/0000-router-use-loader.md
      */
     VueRouter({
+      // routesFolder: 'src/pages',
       routesFolder: 'src/page-developer',
       dts: './types/router.d.ts',
 
