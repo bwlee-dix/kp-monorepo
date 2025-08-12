@@ -3,58 +3,17 @@
   "version": "2.8.1",
   "private": true,
   "type": "module",
-  "license": "SEE LICENSE IN LICENSE.md",
-  "author": {
-    "name": "cssninjaStudio <hello@cssninja.io> (https://cssninja.io)"
-  },
   "engines": {
     "node": ">=16.15.0",
     "npm": ">=8"
   },
-  "gitHooks": {
-    "pre-commit": "lint-staged",
-    "commit-msg": "commitlint -e -V "
-  },
-  "lint-staged": {
-    "*.ts": [
-      "prettier --write",
-      "eslint --fix"
-    ],
-    "*.scss": [
-      "prettier --write",
-      "stylelint"
-    ],
-    "*.md": [
-      "prettier --write",
-      "eslint --fix"
-    ],
-    "*.vue": [
-      "prettier --write",
-      "eslint --fix"
-    ]
-  },
   "scripts": {
-    "prepare": "jiti ./scripts/prepare-shiki.ts",
     "dev": "run-p dev:vite",
     "dev:vite": "vite --open",
     "build": "run-s build:*",
     "build:update-bulma-colors": "bulma-css-vars",
     "build:vite": "cross-env NODE_ENV=production vite build",
-    "preview:vite": "serve dist -s -p 5000",
-    "lint": "run-s lint:doc:fix lint:prettier:fix lint:eslint:fix lint:stylelint:fix ",
-    "lint:prettier": "prettier --check \"./src/**/*.(ts|vue|css|scss)\"",
-    "lint:prettier:fix": "prettier --write \"./src/**/*.(ts|vue|css|scss)\"",
-    "lint:eslint": "eslint --ext .ts,.vue ./src",
-    "lint:eslint:fix": "eslint --fix --ext .ts,.vue ./src",
-    "lint:stylelint": "stylelint ./src/**/*.{vue,css,scss}",
-    "lint:stylelint:fix": "stylelint ./src/**/*.{vue,css,scss} --fix",
-    "lint:doc:fix": "run-s lint:doc:fix:*",
-    "lint:doc:fix:prettier": "prettier --write \"./documentation/**/*.(md)\"",
-    "lint:doc:fix:eslint": "eslint --fix --ext .md ./documentation",
-    "test": "run-p test:lint test:tsc test:e2e",
-    "test:tsc": "vue-tsc --noEmit",
-    "test:lint": "run-p lint:eslint lint:stylelint",
-    "test:unit": "echo \"[warning] no unit test implemented yet\""
+    "preview:vite": "serve dist -s -p 5000"
   },
   "dependencies": {
     "@ckeditor/ckeditor5-build-classic": "39.0.1",
@@ -122,7 +81,7 @@
     "@iconify/json": "2.2.106",
     "@intlify/unplugin-vue-i18n": "0.12.3",
     "@nuxt/devalue": "2.0.2",
-    "@stefanprobst/remark-shiki": "2.2.1",
+    "@stefanprobst/remark-npm": "2.2.1",
     "@types/dragula": "3.7.1",
     "@types/fs-extra": "11.0.1",
     "@types/js-yaml": "4.0.5",
@@ -137,7 +96,6 @@
     "@typescript-eslint/parser": "6.4.1",
     "@unhead/addons": "1.3.7",
     "@vitejs/plugin-vue": "4.3.3",
-    "commitlint": "17.7.1",
     "compression": "1.7.4",
     "cross-env": "7.0.3",
     "eslint": "8.48.0",
@@ -177,13 +135,6 @@
     "scule": "1.0.0",
     "serve": "14.2.1",
     "serve-static": "1.15.0",
-    "shiki": "0.14.3",
-    "stylelint": "15.10.3",
-    "stylelint-config-recommended-vue": "1.5.0",
-    "stylelint-config-standard": "34.0.0",
-    "stylelint-config-standard-scss": "10.0.0",
-    "stylelint-prettier": "4.0.2",
-    "stylelint-scss": "5.1.0",
     "typescript": "5.2.2",
     "unified": "11.0.2",
     "unplugin-auto-import": "0.16.6",

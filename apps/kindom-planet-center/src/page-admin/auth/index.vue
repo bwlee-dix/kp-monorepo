@@ -25,7 +25,7 @@ const handleLogin = async () => {
     notyf.dismissAll()
     notyf.success('Welcome back, Erik Kovalsky')
 
-    router.replace('/register')
+    router.replace('/group')
 
 
     isLoading.value = false

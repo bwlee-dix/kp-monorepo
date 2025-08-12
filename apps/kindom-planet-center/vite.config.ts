@@ -106,7 +106,6 @@ export default defineConfig({
       'tiny-slider/src/tiny-slider',
       'vue-accessible-color-picker',
       'zod',
-      '@stefanprobst/remark-shiki',
       'rehype-external-links',
       'rehype-raw',
       'rehype-sanitize',
@@ -116,7 +115,6 @@ export default defineConfig({
       'remark-gfm',
       'remark-parse',
       'remark-rehype',
-      'shiki',
       'unified',
       'workbox-window',
       'textarea-markdown-editor/dist/esm/bootstrap',
@@ -176,7 +174,8 @@ export default defineConfig({
      */
     VueRouter({
       // routesFolder: 'src/pages',
-      routesFolder: 'src/page-developer',
+      // routesFolder: 'src/page-developer',
+      routesFolder: 'src/page-admin',
       dts: './types/router.d.ts',
 
       /**
@@ -203,29 +202,6 @@ export default defineConfig({
     AutoImport({
       dts: './types/imports.d.ts',
       imports: ['vue', '@vueuse/core', VueRouterAutoImports, unheadVueComposablesImports],
-    }),
-
-    /**
-     * This is an internal vite plugin that load markdown files as vue components.
-     *
-     * @see /documentation
-     * @see /vite-plugin-vuero-doc
-     * @see /src/components/partials/documentation/DocumentationItem.vue
-     * @see /src/composable/useMarkdownToc.ts
-     */
-    VitePluginVueroDoc({
-      pathPrefix: 'documentation',
-      wrapperComponent: 'DocumentationItem',
-      shiki: {
-        theme: {
-          light: 'min-light',
-          dark: 'github-dark',
-        },
-      },
-      sourceMeta: {
-        enabled: true,
-        editProtocol: 'vscode://vscode-remote/wsl+Ubuntu', // or 'vscode://file'
-      },
     }),
 
     /**
