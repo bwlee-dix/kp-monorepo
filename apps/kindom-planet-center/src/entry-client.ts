@@ -19,17 +19,17 @@ import { createApp } from './app'
  *
  * @see /@src/app.ts for more detailed informations
  */
-createApp().then(async (vuero) => {
+createApp().then(async (kp) => {
   // @ts-ignore
-  const initialState = window.__vuero__
+  const initialState = window.__kp__
   // restore pinia state from SSR if any
   if (typeof initialState?.pinia === 'object') {
-    vuero.pinia.state.value = { ...initialState.pinia }
+    kp.pinia.state.value = { ...initialState.pinia }
   }
 
   // wait for the app to be ready
-  await vuero.router.isReady()
+  await kp.router.isReady()
 
   // finaly mount the app to the DOM
-  vuero.app.mount('#app')
+  kp.app.mount('#app')
 })

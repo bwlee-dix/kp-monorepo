@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import { useViewWrapper } from '/@vuero/stores/viewWrapper'
+import { useViewWrapper } from '/@dds/stores/viewWrapper'
 
 const viewWrapper = useViewWrapper()
 viewWrapper.setPageTitle('API')
@@ -233,12 +233,12 @@ const cancelSelection = () => {
           <template #image>
             <img
               class="light-image"
-              src="/@vuero/assets/illustrations/placeholders/search-1.svg"
+              src="/@dds/sets/illustrations/placeholders/search-1.svg"
               alt=""
             >
             <img
               class="dark-image"
-              src="/@vuero/assets/illustrations/placeholders/search-1-dark.svg"
+              src="/@dds/sets/illustrations/placeholders/search-1-dark.svg"
               alt=""
             >
           </template>
@@ -366,7 +366,7 @@ const cancelSelection = () => {
 </template>
 
 <style lang="scss">
-@import '/@vuero/scss/abstracts/all';
+@import '/@dds/scss/abstracts/all';
 
 .list-view-v1 {
   .list-view-item {

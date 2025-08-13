@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import { useViewWrapper } from '/@vuero/stores/viewWrapper'
+import { useViewWrapper } from '/@dds/stores/viewWrapper'
 
 
 
@@ -283,8 +283,8 @@ const onSubmit = () => {
 </template>
 
 <style lang="scss">
-@import '/@vuero/scss/abstracts/all';
-@import '/@vuero/scss/components/forms-outer';
+@import '/@dds/scss/abstracts/all';
+@import '/@dds/scss/components/forms-outer';
 
 .form-layout {
   max-width: 740px;

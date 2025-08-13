@@ -16,4 +16,4 @@ import 'tippy.js/dist/border.css'
 import 'tippy.js/dist/backdrop.css'
 import 'tippy.js/themes/light.css'
 
-import '/@vuero/scss/main.scss'
+import '/@dds/scss/main.scss'

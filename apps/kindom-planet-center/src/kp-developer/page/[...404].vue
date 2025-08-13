@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
-import { useDarkmode } from '/@vuero/stores/darkmode'
+import { useDarkmode } from '/@dds/stores/darkmode'
 
 const darkmode = useDarkmode()
 const { t } = useI18n()
 
 useHead({
-  title: `${t('pages.not-found.page-title')} - Vuero`,
+  title: `${t('pages.not-found.page-title')} - Kingdom Planet Center`,
   meta: [
     { name: 'robots', content: 'noindex' },
   ],

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import { useViewWrapper } from '/@vuero/stores/viewWrapper'
+import { useViewWrapper } from '/@dds/stores/viewWrapper'
 
 const viewWrapper = useViewWrapper()
 viewWrapper.setPageTitle('Dashboard')

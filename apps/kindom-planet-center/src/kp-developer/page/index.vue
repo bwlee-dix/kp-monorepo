@@ -3,7 +3,6 @@ import { onMounted } from 'vue'
 
 
 const router = useRouter()
-const route = useRoute()
 
 
 onMounted(() => {

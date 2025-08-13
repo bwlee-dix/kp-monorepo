@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
-import { initDarkmode } from './vuero/stores/darkmode'
+import { initDarkmode } from '/@dds/stores/darkmode'
 
 const { locale } = useI18n()
 

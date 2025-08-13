@@ -1,11 +1,11 @@
 <script setup lang="ts">
 
-import { useViewWrapper } from '/@vuero/stores/viewWrapper'
-import VTag from '/@vuero/components/base/tags/VTag.vue'
-import FlexTableDropdown from '/@vuero/components/partials/dropdowns/FlexTableDropdown.vue'
-import VAvatarStack from '/@vuero/components/base/avatar/VAvatarStack.vue'
-import { flexRowsAdvanced } from '/@vuero/data/documentation/table'
-import { onceImageErrored } from '/@vuero/utils/via-placeholder'
+import { useViewWrapper } from '/@dds/stores/viewWrapper'
+import VTag from '/@dds/mponents/base/tags/VTag.vue'
+import FlexTableDropdown from '/@dds/mponents/partials/dropdowns/FlexTableDropdown.vue'
+import VAvatarStack from '/@dds/mponents/base/avatar/VAvatarStack.vue'
+import { flexRowsAdvanced } from '/@dds/ta/documentation/table'
+import { onceImageErrored } from '/@dds/utils/via-placeholder'
 import { RouterLink } from 'vue-router/auto'
 
 
@@ -303,7 +303,7 @@ const exampleColumns = {
             <a class="project-grid-item">
               <img
                 class="project-avatar"
-                src="/@vuero/assets/illustrations/dashboards/flights/company1.svg"
+                src="/@dds/sets/illustrations/dashboards/flights/company1.svg"
                 alt=""
                 @error.once="onceImageErrored(150)"
               >

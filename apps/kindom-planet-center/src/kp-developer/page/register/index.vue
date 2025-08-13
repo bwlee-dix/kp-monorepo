@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { useDarkmode } from '/@vuero/stores/darkmode'
-import sleep from '/@vuero/utils/sleep'
+import { useDarkmode } from '/@dds/stores/darkmode'
+import sleep from '/@dds/utils/sleep'
 
 const isLoading = ref(false)
 const darkmode = useDarkmode()
@@ -258,8 +258,8 @@ if (!isLoading.value) {
 </template>
 
 <style lang="scss">
-@import '/@vuero/scss/abstracts/all';
-@import '/@vuero/scss/components/forms-outer';
+@import '/@dds/scss/abstracts/all';
+@import '/@dds/scss/components/forms-outer';
 
 .form-layout {
   max-width: 740px;

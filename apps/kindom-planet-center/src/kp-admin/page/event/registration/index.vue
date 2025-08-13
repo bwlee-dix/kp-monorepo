@@ -1,10 +1,10 @@
 <script setup lang="ts">
 
-import { useViewWrapper } from '/@vuero/stores/viewWrapper'
+import { useViewWrapper } from '/@dds/stores/viewWrapper'
 
-import { userList } from '/@vuero/data/layouts/datatable-v1'
+import { userList } from '/@dds/ta/layouts/datatable-v1'
 
-import type { VAvatarProps } from '/@vuero/components/base/avatar/VAvatar.vue'
+import type { VAvatarProps } from '/@dds/mponents/base/avatar/VAvatar.vue'
 
 
 const viewWrapper = useViewWrapper()
@@ -128,12 +128,12 @@ const clickRegistration = (id: string) => {
             <template #image>
               <img
                 class="light-image"
-                src="/@vuero/assets/illustrations/placeholders/search-7.svg"
+                src="/@dds/sets/illustrations/placeholders/search-7.svg"
                 alt=""
               >
               <img
                 class="dark-image"
-                src="/@vuero/assets/illustrations/placeholders/search-7-dark.svg"
+                src="/@dds/sets/illustrations/placeholders/search-7-dark.svg"
                 alt=""
               >
             </template>

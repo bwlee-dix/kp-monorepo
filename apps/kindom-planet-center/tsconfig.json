@@ -26,7 +26,7 @@
         "./node_modules/photoswipe/dist/types/lightbox/lightbox.d.ts"
       ],
       "/@src/*": ["./src/*"],
-      "/@vuero/*": ["./src/vuero/*"]
+      "/@dds/*": ["./src/dds/*"]
     }
   },
   "include": [
@@ -35,7 +35,6 @@
     "types/**/*.d.ts",
     "auto-imports.d.ts",
     "typed-router.d.ts",
-    "build-ssg.ts",
     "components.d.ts",
     "components-global.d.ts",
     "src/**/*.js",

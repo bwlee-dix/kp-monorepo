@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import type { VAvatarProps, VAvatarColor } from '/@vuero/components/base/avatar/VAvatar.vue'
-import { projects } from '/@vuero/data/layouts/card-grid-v3'
+import type { VAvatarProps, VAvatarColor } from '/@dds/components/base/avatar/VAvatar.vue'
+import { projects } from '/@dds/data/layouts/card-grid-v3'
 
 
-import { useDarkmode } from '/@vuero/stores/darkmode'
-import sleep from '/@vuero/utils/sleep'
+import { useDarkmode } from '/@dds/stores/darkmode'
+import sleep from '/@dds/utils/sleep'
 
 const isLoading = ref(false)
 const darkmode = useDarkmode()
@@ -139,12 +139,12 @@ const  clickApp =(id: string) =>{
             <template #image>
               <img
                 class="light-image"
-                src="/@vuero/assets/illustrations/placeholders/search-3.svg"
+                src="/@dds/sets/illustrations/placeholders/search-3.svg"
                 alt=""
               >
               <img
                 class="dark-image"
-                src="/@vuero/assets/illustrations/placeholders/search-3-dark.svg"
+                src="/@dds/sets/illustrations/placeholders/search-3-dark.svg"
                 alt=""
               >
             </template>
@@ -441,8 +441,8 @@ const  clickApp =(id: string) =>{
 </template>
 
 <style lang="scss" scoped>
-@import '/@vuero/scss/abstracts/all';
-@import '/@vuero/scss/components/forms-outer';
+@import '/@dds/scss/abstracts/all';
+@import '/@dds/scss/components/forms-outer';
 
 .form-layout {
   max-width: 740px;

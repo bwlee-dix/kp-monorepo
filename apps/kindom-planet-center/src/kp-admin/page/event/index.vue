@@ -1,9 +1,9 @@
 <script setup lang="ts">
 
-import { useViewWrapper } from '/@vuero/stores/viewWrapper'
+import { useViewWrapper } from '/@dds/stores/viewWrapper'
 
-import { offers } from '/@vuero/data/layouts/view-list-v3'
-import { onceImageErrored } from '/@vuero/utils/via-placeholder'
+import { offers } from '/@dds/data/layouts/view-list-v3'
+import { onceImageErrored } from '/@dds/utils/via-placeholder'
 
 const router = useRouter()
 
@@ -104,12 +104,12 @@ const clickEvent = (id: string) => {
               <template #image>
                 <img
                   class="light-image"
-                  src="/@vuero/assets/illustrations/placeholders/search-3.svg"
+                  src="/@dds/assets/illustrations/placeholders/search-3.svg"
                   alt=""
                 >
                 <img
                   class="dark-image"
-                  src="/@vuero/assets/illustrations/placeholders/search-3-dark.svg"
+                  src="/@dds/assets/illustrations/placeholders/search-3-dark.svg"
                   alt=""
                 >
               </template>
@@ -219,12 +219,12 @@ const clickEvent = (id: string) => {
                   <template #image>
                     <img
                       class="light-image"
-                      src="/@vuero/assets/illustrations/placeholders/thinking-canvas.svg"
+                      src="/@dds/assets/illustrations/placeholders/thinking-canvas.svg"
                       alt=""
                     >
                     <img
                       class="dark-image"
-                      src="/@vuero/assets/illustrations/placeholders/thinking-canvas-dark.svg"
+                      src="/@dds/assets/illustrations/placeholders/thinking-canvas-dark.svg"
                       alt=""
                     >
                   </template>
@@ -239,7 +239,7 @@ const clickEvent = (id: string) => {
 </template>
 
 <style lang="scss">
-@import '/@vuero/scss/abstracts/all';
+@import '/@dds/scss/abstracts/all';
 
 .list-view-v3 {
   .list-view-item {
