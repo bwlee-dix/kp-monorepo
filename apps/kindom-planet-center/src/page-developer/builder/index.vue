@@ -6,6 +6,18 @@ import { useDarkmode } from '/@src/stores/darkmode'
 import VueScrollTo from 'vue-scrollto'
 import { useNotyf } from '/@src/composable/useNotyf'
 import sleep from '/@src/utils/sleep'
+import { ref, watch, nextTick } from 'vue'
+import { useRouter } from 'vue-router'
+
+// Field interface
+interface Field {
+  id: string
+  name: string
+  description: string
+  type: string
+  required: boolean
+  options?: string[]
+}
 
 const router = useRouter()
 const notyf = useNotyf()
@@ -13,10 +25,6 @@ const { scrollTo } = VueScrollTo
 
 const currentStep = ref(0)
 const currentHelp = ref(-1)
-const controlType = ref('')
-const storageType = ref('')
-const taxType = ref('')
-const taxStatements = ref('')
 const isB2C = ref(true);
 const type = ref('')
 const options = ref<string[]>([])
@@ -25,14 +33,13 @@ const options = ref<string[]>([])
 const fieldName = ref('')
 const fieldDescription = ref('')
 const fieldRequired = ref(false)
-const fields = ref<Array<{
-  id: string
-  name: string
-  description: string
-  type: string
-  required: boolean
-  options?: string[]
-}>>([])
+
+// Page management
+const pages = ref<Array<{ id: string; name: string; description: string; fields: Field[] }>>([])
+const currentPageId = ref<string>('')
+const newPageName = ref('')
+const newPageDescription = ref('')
+const showAddPageModal = ref(false)
 
 // Edit mode
 const isEditMode = ref(false)
@@ -60,7 +67,29 @@ const date = ref({
 })
 
 const validateStep = async () => {
-  if (currentStep.value === 2) {
+  if (currentStep.value === 1) {
+    // Validate that at least one page exists
+    if (pages.value.length === 0) {
+      notyf.error('Please add at least one page before proceeding')
+      return
+    }
+    
+    if (isLoading.value) {
+      return
+    }
+
+    isLoading.value = true
+    await sleep(400)
+    currentStep.value += 1
+
+    nextTick(() => {
+      scrollTo(`#form-step-${currentStep.value}`, 1000)
+      isLoading.value = false
+    })
+    return
+  }
+  
+  if (currentStep.value === 3) {
     if (isLoading.value) {
       return
     }
@@ -131,28 +160,121 @@ const validateFieldForm = () => {
   return errors
 }
 
+const resetForm = () => {
+  fieldName.value = ''
+  fieldDescription.value = ''
+  type.value = ''
+  fieldRequired.value = false
+  options.value = []
+  isEditMode.value = false
+  editingFieldId.value = null
+  isValidationInProgress.value = false
+  currentExecutionId.value = null
+  isExecuting.value = false
+}
+
+// Page management functions
+const addNewPage = () => {
+  console.log('addNewPage executed', new Date().getTime())
+  
+  if (!newPageName.value.trim()) {
+    notyf.error('Page name is required')
+    return
+  }
+
+  const newPage = {
+    id: Date.now().toString(),
+    name: newPageName.value.trim(),
+    description: newPageDescription.value.trim(),
+    fields: []
+  }
+
+  pages.value.push(newPage)
+  
+  // Set as current page if it's the first page
+  if (pages.value.length === 1) {
+    currentPageId.value = newPage.id
+  }
+  
+  // Reset form
+  newPageName.value = ''
+  newPageDescription.value = ''
+  
+  notyf.success('Page added successfully!')
+}
+
+const switchPage = (pageId: string) => {
+  currentPageId.value = pageId
+  // Clear current field form when switching pages
+  resetForm()
+}
+
+const getCurrentPage = () => {
+  return pages.value.find(page => page.id === currentPageId.value)
+}
+
+const getCurrentPageFields = () => {
+  const currentPage = getCurrentPage()
+  return currentPage ? currentPage.fields : []
+}
+
+const editPage = (page: any) => {
+  newPageName.value = page.name
+  newPageDescription.value = page.description
+  // Set edit mode for page
+  editingPageId.value = page.id
+}
+
+const updatePage = () => {
+  if (!newPageName.value.trim()) {
+    notyf.error('Page name is required')
+    return
+  }
+
+  const index = pages.value.findIndex(page => page.id === editingPageId.value)
+  if (index > -1) {
+    pages.value[index] = {
+      ...pages.value[index],
+      name: newPageName.value.trim(),
+      description: newPageDescription.value.trim()
+    }
+    
+    // Reset form
+    newPageName.value = ''
+    newPageDescription.value = ''
+    editingPageId.value = null
+    
+    notyf.success('Page updated successfully!')
+  }
+}
+
+const cancelPageEdit = () => {
+  newPageName.value = ''
+  newPageDescription.value = ''
+  editingPageId.value = null
+}
+
+const removePage = (pageId: string) => {
+  const index = pages.value.findIndex(page => page.id === pageId)
+  if (index > -1) {
+    pages.value.splice(index, 1)
+    if (currentPageId.value === pageId) {
+      currentPageId.value = pages.value.length > 0 ? pages.value[0].id : '1'
+    }
+    notyf.success('Page removed successfully!')
+  }
+}
+
+// Add editingPageId for page editing
+const editingPageId = ref<string | null>(null)
+
+// Update field management to work with current page
 const addField = async () => {
-  // Synchronous check to prevent race conditions
-  if (isExecuting.value) {
-    console.log('addField blocked - synchronous execution guard')
+  // Prevent multiple executions
+  if (isLoading.value || isValidationInProgress.value) {
     return
   }
   
-  // Set execution flag immediately
-  isExecuting.value = true
-  
-  const executionId = Date.now().toString() + '-' + Math.random().toString(36).substr(2, 9)
-  console.log('addField called at:', new Date().toISOString(), 'Execution ID:', executionId, 'Stack:', new Error().stack)
-  
-  // Additional async checks
-  if (isLoading.value || isValidationInProgress.value || currentExecutionId.value) {
-    console.log('addField blocked - async state checks. Current ID:', currentExecutionId.value, 'New ID:', executionId)
-    isExecuting.value = false
-    return
-  }
-  
-  console.log('addField proceeding with execution. ID:', executionId)
-  currentExecutionId.value = executionId
   isValidationInProgress.value = true
   isLoading.value = true
   
@@ -175,7 +297,11 @@ const addField = async () => {
       options: type.value === 'Radio' || type.value === 'Multi-Select' ? [...options.value] : undefined
     }
 
-    fields.value.push(newField)
+    // Add field to current page
+    const currentPage = getCurrentPage()
+    if (currentPage) {
+      currentPage.fields.push(newField)
+    }
     
     // Reset form
     resetForm()
@@ -183,24 +309,7 @@ const addField = async () => {
   } finally {
     isLoading.value = false
     isValidationInProgress.value = false
-    currentExecutionId.value = null
-    isExecuting.value = false
   }
-}
-
-const editField = (field: any) => {
-  isEditMode.value = true
-  editingFieldId.value = field.id
-  fieldName.value = field.name
-  fieldDescription.value = field.description
-  type.value = field.type
-  options.value = field.options ? [...field.options] : []
-  fieldRequired.value = field.required
-  
-  // Scroll to form
-  nextTick(() => {
-    scrollTo('#form-step-1', 800, { offset: -150 })
-  })
 }
 
 const updateField = async () => {
@@ -222,19 +331,22 @@ const updateField = async () => {
       return
     }
 
-    const index = fields.value.findIndex(field => field.id === editingFieldId.value)
-    if (index > -1) {
-      fields.value[index] = {
-        ...fields.value[index],
-        name: fieldName.value.trim(),
-        description: fieldDescription.value.trim(),
-        type: type.value,
-        required: fieldRequired.value,
-        options: type.value === 'Radio' || type.value === 'Multi-Select' ? [...options.value] : undefined
+    const currentPage = getCurrentPage()
+    if (currentPage) {
+      const index = currentPage.fields.findIndex(field => field.id === editingFieldId.value)
+      if (index > -1) {
+        currentPage.fields[index] = {
+          ...currentPage.fields[index],
+          name: fieldName.value.trim(),
+          description: fieldDescription.value.trim(),
+          type: type.value,
+          required: fieldRequired.value,
+          options: type.value === 'Radio' || type.value === 'Multi-Select' ? [...options.value] : undefined
+        }
+        
+        resetForm()
+        notyf.success('Field updated successfully!')
       }
-      
-      resetForm()
-      notyf.success('Field updated successfully!')
     }
   } finally {
     isLoading.value = false
@@ -267,47 +379,78 @@ const getTypeColor = (type: string) => {
   }
 }
 
-const resetForm = () => {
-  fieldName.value = ''
-  fieldDescription.value = ''
-  type.value = ''
-  fieldRequired.value = false
-  options.value = []
-  isEditMode.value = false
-  editingFieldId.value = null
-  isValidationInProgress.value = false
-  currentExecutionId.value = null
-  isExecuting.value = false
-}
-
-const handleAddField = (event: Event) => {
-  // Prevent default and stop propagation
-  event.preventDefault()
-  event.stopPropagation()
+const handleAddField = () => {
+  console.log('handleAddField called', new Date().getTime())
+  console.log('isExecuting:', isExecuting.value)
   
-  // Only call addField if not already executing
-  if (!isExecuting.value) {
+  // Immediately set executing flag to prevent duplicate calls
+  if (isExecuting.value) {
+    console.log('Already executing, skipping...')
+    return
+  }
+  
+  isExecuting.value = true
+  console.log('Setting isExecuting to true')
+  
+  try {
     addField()
+  } finally {
+    // Ensure flag is reset after execution
+    setTimeout(() => {
+      isExecuting.value = false
+      console.log('Reset isExecuting to false')
+    }, 100)
   }
 }
 
-const handleUpdateField = (event: Event) => {
-  // Prevent default and stop propagation
-  event.preventDefault()
-  event.stopPropagation()
+const handleUpdateField = () => {
+  console.log('handleUpdateField called', new Date().getTime())
+  console.log('isExecuting:', isExecuting.value)
   
-  // Only call updateField if not already executing
-  if (!isExecuting.value) {
+  // Immediately set executing flag to prevent duplicate calls
+  if (isExecuting.value) {
+    console.log('Already executing, skipping...')
+    return
+  }
+  
+  isExecuting.value = true
+  console.log('Setting isExecuting to true')
+  
+  try {
     updateField()
+  } finally {
+    // Ensure flag is reset after execution
+    setTimeout(() => {
+      isExecuting.value = false
+      console.log('Reset isExecuting to false')
+    }, 100)
   }
 }
 
 const removeField = (fieldId: string) => {
-  const index = fields.value.findIndex(field => field.id === fieldId)
-  if (index > -1) {
-    fields.value.splice(index, 1)
-    notyf.success('Field removed successfully!')
+  const currentPage = getCurrentPage()
+  if (currentPage) {
+    const index = currentPage.fields.findIndex(field => field.id === fieldId)
+    if (index > -1) {
+      currentPage.fields.splice(index, 1)
+      notyf.success('Field removed successfully!')
+    }
   }
+}
+
+const editField = (field: any) => {
+  isEditMode.value = true
+  editingFieldId.value = field.id
+  fieldName.value = field.name
+  fieldDescription.value = field.description
+  type.value = field.type
+  fieldRequired.value = field.required
+  options.value = field.options ? [...field.options] : []
+  
+  // Scroll to form (Form Items step)
+  nextTick(() => {
+    scrollTo('#form-step-2', 400, { offset: 150 })
+  })
 }
 
 
@@ -318,6 +461,47 @@ useHead({
   title: 'Register Developer - Kingdom Planet',
 })
 
+const handleAddPage = () => {
+  console.log('handleAddPage called', new Date().getTime())
+  console.log('isExecuting:', isExecuting.value)
+  
+  // Immediately set executing flag to prevent duplicate calls
+  if (isExecuting.value) {
+    console.log('Already executing, skipping...')
+    return
+  }
+  
+  isExecuting.value = true
+  console.log('Setting isExecuting to true')
+  
+  try {
+    addNewPage()
+  } finally {
+    // Ensure flag is reset after execution
+    setTimeout(() => {
+      isExecuting.value = false
+      console.log('Reset isExecuting to false')
+    }, 100)
+  }
+}
+
+const handleUpdatePage = () => {
+  // Immediately set executing flag to prevent duplicate calls
+  if (isExecuting.value) {
+    return
+  }
+  
+  isExecuting.value = true
+  
+  try {
+    updatePage()
+  } finally {
+    // Ensure flag is reset after execution
+    setTimeout(() => {
+      isExecuting.value = false
+    }, 100)
+  }
+}
 
 </script>
 
@@ -397,7 +581,7 @@ useHead({
                 </a>
               </li>
 
-              <!-- <li
+              <li
                 :class="[currentStep === 2 && 'is-active']"
                 class="steps-segment"
               >
@@ -412,38 +596,6 @@ useHead({
                   <p class="step-number">Step 3</p>
                 </a>
               </li>
-
-              <li
-                :class="[currentStep === 3 && 'is-active']"
-                class="steps-segment"
-              >
-                <span class="steps-marker" />
-                <a
-                  href="#"
-                  class="steps-content"
-                  @click.prevent="
-                    currentStep >= 3 && scrollTo('#form-step-3', 800, { offset: -150 })
-                  "
-                >
-                  <p class="step-number">Step 4</p>
-                </a>
-              </li>
-
-              <li
-                :class="[currentStep === 4 && 'is-active']"
-                class="steps-segment"
-              >
-                <span class="steps-marker" />
-                <a
-                  href="#"
-                  class="steps-content"
-                  @click.prevent="
-                    currentStep >= 4 && scrollTo('#form-step-4', 800, { offset: -150 })
-                  "
-                >
-                  <p class="step-number">Step 5</p>
-                </a>
-              </li> -->
             </ul>
           </div>
           <div class="stepper-form">
@@ -479,7 +631,7 @@ useHead({
                         <VControl>
                           <VInput
                             type="text"
-                            placeholder="A cool project"
+                            placeholder="Ex: A cool project"
                           />
                         </VControl>
                       </VField>
@@ -536,7 +688,7 @@ useHead({
                   class="form-section is-active"
                 >
                   <h3 class="form-section-title">
-                    <span>Form Items</span>
+                    <span>Page Configuration</span>
                     <button
                       type="button"
                       class="help-button"
@@ -552,6 +704,184 @@ useHead({
                       />
                     </button>
                   </h3>
+
+                  <div class="form-section-inner">
+                    <div class="fieldset">
+                      <div class="column is-12">
+                        <VField label="Page Name *">
+                          <VControl>
+                            <VInput
+                              v-model="newPageName"
+                              type="text"
+                              placeholder="Enter page name"
+                            />
+                          </VControl>
+                        </VField>
+                      </div>
+                      
+                      <div class="column is-12">
+                        <VField label="Page Description">
+                          <VControl fullwidth>
+                            <VTextarea
+                              v-model="newPageDescription"
+                              class="textarea"
+                              rows="3"
+                              placeholder="Enter page description"
+                            />
+                          </VControl>
+                        </VField>
+                      </div>
+
+                      <div class="column is-12">
+                        <VButton
+                          v-if="!editingPageId"
+                          type="button"
+                          color="primary"
+                          bold
+                          fullwidth
+                          icon="feather:plus"
+                          @click.once="handleAddPage"
+                        >
+                          Add Page
+                        </VButton>
+
+                        <div
+                          v-else
+                          class="edit-actions"
+                        >
+                          <div class="columns is-multiline">
+                            <div class="column is-6">
+                              <VButton
+                                type="button"
+                                color="success"
+                                bold
+                                fullwidth
+                                icon="feather:check"
+                                @click.once="handleUpdatePage"
+                              >
+                                Update Page
+                              </VButton>
+                            </div>
+                            
+                            <div class="column is-6">
+                              <VButton
+                                type="button"
+                                color="light"
+                                fullwidth
+                                icon="feather:x"
+                                @click.once="cancelPageEdit"
+                              >
+                                Cancel
+                              </VButton>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Page List -->
+                  <div class="form-section-output">
+                    <div
+                      v-for="page in pages"
+                      :key="page.id"
+                      class="output"
+                    >
+                      <i
+                        aria-hidden="true"
+                        class="iconify"
+                        data-icon="feather:file-text"
+                      />
+                      <div class="field-info">
+                        <div class="field-main">
+                          <span class="field-name">{{ page.name }}</span>
+                          <!-- <VTag
+                            v-if="page.id === currentPageId"
+                            color="success"
+                            size="tiny"
+                          >
+                            Current
+                          </VTag> -->
+                        </div>
+                        <span
+                          v-if="page.description"
+                          class="field-description"
+                        >{{ page.description }}</span>
+                      </div>
+                      <div class="actions">
+                        <VIconButton 
+                          icon="feather:edit-2"
+                          color="info"
+                          @click="editPage(page)"
+                        />
+                        <VIconButton 
+                          icon="feather:trash-2"
+                          color="danger"
+                          @click="removePage(page.id)"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      v-if="pages.length === 0"
+                      class="no-fields"
+                    >
+                      <i
+                        aria-hidden="true"
+                        class="iconify"
+                        data-icon="feather:info"
+                      />
+                      <span>No pages added yet. Add your first page above.</span>
+                    </div>
+                  </div>
+                </div>
+              </Transition>
+
+              <Transition name="fade-slow">
+                <div
+                  v-if="currentStep >= 2"
+                  id="form-step-2"
+                  class="form-section is-active"
+                >
+                  <h3 class="form-section-title">
+                    <span>Form Items</span>
+                    <button
+                      type="button"
+                      class="help-button"
+                      @keydown.space.prevent="
+                        currentHelp === 2 ? (currentHelp = -1) : (currentHelp = 2)
+                      "
+                      @click="currentHelp === 2 ? (currentHelp = -1) : (currentHelp = 2)"
+                    >
+                      <i
+                        aria-hidden="true"
+                        class="iconify"
+                        data-icon="feather:help-circle"
+                      />
+                    </button>
+                  </h3>
+
+                  <!-- Page Selection UI - Only show when pages exist -->
+                  <div
+                    v-if="pages.length > 0"
+                    class="page-selection"
+                  >
+                    <div class="page-selector">
+                      <VField label="Current Page">
+                        <VControl>
+                          <Multiselect
+                            v-model="currentPageId"
+                            :options="pages.map(page => ({ value: page.id, label: page.name }))"
+                            placeholder="Select a page"
+                            @update:model-value="switchPage"
+                          />
+                        </VControl>
+                      </VField>
+                    </div>
+                    
+                    <div class="page-info">
+                      <span class="page-count">{{ getCurrentPageFields().length }} fields</span>
+                    </div>
+                  </div>
 
                   <div class="form-section-inner">
                     <div class="fieldset">
@@ -666,51 +996,49 @@ useHead({
                       <!-- Add Field Button -->
                       <div class="column is-12">
                         <div class="field-actions">
-                          <button
+                          <VButton
                             v-if="!isEditMode"
                             type="button"
-                            class="button is-primary is-bold is-fullwidth"
+                            color="primary"
+                            bold
+                            fullwidth
+                            icon="feather:plus"
                             :disabled="isLoading || isValidationInProgress || isExecuting"
-                            @click="handleAddField"
+                            @click.once="handleAddField"
                           >
-                            <i
-                              aria-hidden="true"
-                              class="iconify"
-                              data-icon="feather:plus"
-                            />
                             {{ isLoading || isValidationInProgress || isExecuting ? 'Adding...' : 'Add Field' }}
-                          </button>
-                          
+                          </VButton>
+
                           <div
                             v-else
-                            class="edit-actions"
                           >
-                            <button
-                              type="button"
-                              class="button is-success is-bold is-fullwidth"
-                              :disabled="isLoading || isValidationInProgress || isExecuting"
-                              @click="handleUpdateField"
-                            >
-                              <i
-                                aria-hidden="true"
-                                class="iconify"
-                                data-icon="feather:check"
-                              />
-                              {{ isLoading || isValidationInProgress || isExecuting ? 'Updating...' : 'Update Field' }}
-                            </button>
+                            <div class="columns is-multiline">
+                              <div class="column is-6">
+                                <VButton
+                                  type="button"
+                                  color="success"
+                                  bold
+                                  fullwidth
+                                  icon="feather:check"
+                                  :disabled="isLoading || isValidationInProgress || isExecuting"
+                                  @click.once="handleUpdateField"
+                                >
+                                  {{ isLoading || isValidationInProgress || isExecuting ? 'Updating...' : 'Update Field' }}
+                                </VButton>
+                              </div>
                             
-                            <button
-                              type="button"
-                              class="button is-light is-fullwidth"
-                              @click="cancelEdit"
-                            >
-                              <i
-                                aria-hidden="true"
-                                class="iconify"
-                                data-icon="feather:x"
-                              />
-                              Cancel
-                            </button>
+                              <div class="column is-6">
+                                <VButton
+                                  type="button"
+                                  color="light"
+                                  fullwidth
+                                  icon="feather:x"
+                                  @click.once="cancelEdit"
+                                >
+                                  Cancel
+                                </VButton>
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -774,7 +1102,7 @@ useHead({
 
                   <div class="form-section-output">
                     <div
-                      v-for="field in fields"
+                      v-for="field in getCurrentPageFields()"
                       :key="field.id"
                       class="output"
                     >
@@ -813,7 +1141,7 @@ useHead({
                       </div>
                     </div>
                     <div
-                      v-if="fields.length === 0"
+                      v-if="getCurrentPageFields().length === 0"
                       class="no-fields"
                     >
                       <i
@@ -829,8 +1157,8 @@ useHead({
 
               <Transition name="fade-slow">
                 <div
-                  v-if="currentStep >= 2"
-                  id="form-step-2"
+                  v-if="currentStep >= 3"
+                  id="form-step-3"
                   class="form-section is-active"
                 >
                   <h3 class="form-section-title">
@@ -839,9 +1167,9 @@ useHead({
                       type="button"
                       class="help-button"
                       @keydown.space.prevent="
-                        currentHelp === 2 ? (currentHelp = -1) : (currentHelp = 2)
+                        currentHelp === 3 ? (currentHelp = -1) : (currentHelp = 3)
                       "
-                      @click="currentHelp === 2 ? (currentHelp = -1) : (currentHelp = 2)"
+                      @click="currentHelp === 3 ? (currentHelp = -1) : (currentHelp = 3)"
                     >
                       <i
                         aria-hidden="true"
@@ -864,211 +1192,7 @@ useHead({
                 </div>
               </Transition>
 
-              <Transition name="fade-slow">
-                <div
-                  v-if="currentStep >= 3"
-                  id="form-step-3"
-                  class="form-section is-active"
-                >
-                  <h3 class="form-section-title">
-                    <span>Options</span>
-                    <button
-                      type="button"
-                      class="help-button"
-                      @keydown.space.prevent="
-                        currentHelp === 3 ? (currentHelp = -1) : (currentHelp = 3)
-                      "
-                      @click="currentHelp === 3 ? (currentHelp = -1) : (currentHelp = 3)"
-                    >
-                      <i
-                        aria-hidden="true"
-                        class="iconify"
-                        data-icon="feather:help-circle"
-                      />
-                    </button>
-                  </h3>
-
-                  <div class="form-section-inner">
-                    <div class="options">
-                      <VField class="option">
-                        <VInput
-                          raw
-                          type="checkbox"
-                        />
-                        <div class="indicator">
-                          <i
-                            aria-hidden="true"
-                            class="iconify"
-                            data-icon="feather:check"
-                          />
-                        </div>
-                        <div class="option-inner">
-                          <i
-                            aria-hidden="true"
-                            class="lnil lnil-consulting"
-                          />
-                          <h4>Double check</h4>
-                          <p>Second control pass</p>
-                        </div>
-                      </VField>
-
-                      <VField class="option">
-                        <VInput
-                          raw
-                          type="checkbox"
-                        />
-                        <div class="indicator">
-                          <i
-                            aria-hidden="true"
-                            class="iconify"
-                            data-icon="feather:check"
-                          />
-                        </div>
-                        <div class="option-inner">
-                          <i
-                            aria-hidden="true"
-                            class="lnil lnil-tie"
-                          />
-                          <h4>Agent</h4>
-                          <p>Dedicated agent</p>
-                        </div>
-                      </VField>
-
-                      <VField class="option">
-                        <VInput
-                          raw
-                          type="checkbox"
-                        />
-                        <div class="indicator">
-                          <i
-                            aria-hidden="true"
-                            class="iconify"
-                            data-icon="feather:check"
-                          />
-                        </div>
-                        <div class="option-inner">
-                          <i
-                            aria-hidden="true"
-                            class="lnil lnil-handshake"
-                          />
-                          <h4>Insurance</h4>
-                          <p>Level 1-3 goods</p>
-                        </div>
-                      </VField>
-
-                      <VField class="option">
-                        <VInput
-                          raw
-                          type="checkbox"
-                        />
-                        <div class="indicator">
-                          <i
-                            aria-hidden="true"
-                            class="iconify"
-                            data-icon="feather:check"
-                          />
-                        </div>
-                        <div class="option-inner">
-                          <i
-                            aria-hidden="true"
-                            class="lnil lnil-licencse"
-                          />
-                          <h4>Extension</h4>
-                          <p>License extension</p>
-                        </div>
-                      </VField>
-
-                      <VField class="option">
-                        <VInput
-                          raw
-                          type="checkbox"
-                        />
-                        <div class="indicator">
-                          <i
-                            aria-hidden="true"
-                            class="iconify"
-                            data-icon="feather:check"
-                          />
-                        </div>
-                        <div class="option-inner">
-                          <i
-                            aria-hidden="true"
-                            class="lnil lnil-pie-chart-alt"
-                          />
-                          <h4>BI Reports</h4>
-                          <p>Custom made reports</p>
-                        </div>
-                      </VField>
-
-                      <VField class="option">
-                        <VInput
-                          raw
-                          type="checkbox"
-                        />
-                        <div class="indicator">
-                          <i
-                            aria-hidden="true"
-                            class="iconify"
-                            data-icon="feather:check"
-                          />
-                        </div>
-                        <div class="option-inner">
-                          <i
-                            aria-hidden="true"
-                            class="lnil lnil-customer"
-                          />
-                          <h4>Metrics</h4>
-                          <p>Setup live metrics</p>
-                        </div>
-                      </VField>
-                    </div>
-                  </div>
-                </div>
-              </Transition>
-
-              <Transition name="fade-slow">
-                <div
-                  v-if="currentStep >= 4"
-                  id="form-step-4"
-                  class="form-section is-active"
-                >
-                  <h3 class="form-section-title">
-                    <span>Validation</span>
-                    <button
-                      type="button"
-                      class="help-button"
-                      @keydown.space.prevent="
-                        currentHelp === 4 ? (currentHelp = -1) : (currentHelp = 4)
-                      "
-                      @click="currentHelp === 4 ? (currentHelp = -1) : (currentHelp = 4)"
-                    >
-                      <i
-                        aria-hidden="true"
-                        class="iconify"
-                        data-icon="feather:help-circle"
-                      />
-                    </button>
-                  </h3>
-                  <div class="form-section-inner">
-                    <div class="validation-box">
-                      <div class="box-content">
-                        <h3>Excellent</h3>
-                        <p>
-                          Before submitting the form, make sure you've filled all the required
-                          fields. Once submitted, you won't be able to change the info for this
-                          shipment.
-                        </p>
-                      </div>
-                      <div class="box-illustration">
-                        <img
-                          src="/@src/assets/illustrations/plants/1.svg"
-                          alt=""
-                        >
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </Transition>
+              
 
               <div class="navigation-buttons">
                 <div class="buttons is-right">
@@ -1138,7 +1262,7 @@ useHead({
                       STEP 2
                     </p>
                     <p class="step-info">
-                      Form Items
+                      Page Configuration
                     </p>
                   </div>
                 </li>
@@ -1164,11 +1288,11 @@ useHead({
                       STEP 3
                     </p>
                     <p class="step-info">
-                      Domain Name
+                      Form Items
                     </p>
                   </div>
                 </li>
-                <!-- <li
+                <li
                   id="step-segment-3"
                   :class="[currentStep === 3 && 'is-active']"
                   class="steps-segment"
@@ -1190,11 +1314,11 @@ useHead({
                       STEP 4
                     </p>
                     <p class="step-info">
-                      Options
+                      Domain Name
                     </p>
                   </div>
                 </li>
-                <li
+                <!--<li
                   id="step-segment-4"
                   :class="[currentStep === 4 && 'is-active']"
                   class="steps-segment"
@@ -1468,6 +1592,50 @@ useHead({
       </div>
     </div>
   </div>
+
+  <!-- Add Page Modal -->
+  <VModal
+    v-model="showAddPageModal"
+    title="Add New Page"
+    size="medium"
+  >
+    <div class="modal-content">
+      <VField label="Page Name *">
+        <VControl>
+          <VInput
+            v-model="newPageName"
+            type="text"
+            placeholder="Enter page name"
+          />
+        </VControl>
+      </VField>
+      
+      <VField label="Page Description">
+        <VControl>
+          <VTextarea
+            v-model="newPageDescription"
+            rows="3"
+            placeholder="Enter page description"
+          />
+        </VControl>
+      </VField>
+    </div>
+    
+    <template #footer>
+      <VButton
+        color="light"
+        @click="showAddPageModal = false"
+      >
+        Cancel
+      </VButton>
+      <VButton
+        color="primary"
+        @click="addNewPage"
+      >
+        Add Page
+      </VButton>
+    </template>
+  </VModal>
 </template>
 
 <style lang="scss" scoped>
@@ -1947,6 +2115,29 @@ useHead({
   padding-top: 3rem;
   max-width: 880px;
   margin: 0 auto;
+
+  .page-selection {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: var(--widget-grey-dark-3);
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+
+    .page-selector {
+      flex: 1;
+      margin-right: 1rem;
+    }
+
+    .page-info {
+      flex-shrink: 0;
+      font-size: 0.9rem;
+      color: var(--light-text);
+    }
+  }
+
 
   .form-sections {
     flex-grow: 2;
@@ -2439,6 +2630,12 @@ useHead({
   .stepper-form {
     .form-sections {
       .form-section {
+
+        .page-selection {
+          background: var(--dark-sidebar-dark-2);
+          border-color: var(--dark-sidebar-light-12);
+        }
+
         .form-section-title {
           span {
             color: var(--dark-dark-text);
@@ -2761,3 +2958,4 @@ useHead({
   }
 }
 </style>
+
