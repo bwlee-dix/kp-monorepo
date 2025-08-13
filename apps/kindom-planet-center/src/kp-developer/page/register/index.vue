@@ -2,7 +2,7 @@
 import { useDarkmode } from '/@dds/stores/darkmode'
 import sleep from '/@dds/utils/sleep'
 
-const isLoading = ref(false)
+const isLoading = ref<boolean>(false)
 const darkmode = useDarkmode()
 const router = useRouter()
 
@@ -10,15 +10,13 @@ useHead({
   title: 'Register Developer - Kingdom Planet',
 })
 
-const companySize = ref('')
-const businessType = ref('')
+const companySize = ref<string>('')
+const businessType = ref<string>('')
 
 const onSubmit = async () => {
   if (!isLoading.value) {
     isLoading.value = true
-
-    await sleep(1000)
-
+    await sleep(500)
     router.push('/app-list')
 
     isLoading.value = false
@@ -29,14 +27,8 @@ const onSubmit = async () => {
 <template>
   <div class="auth-wrapper">
     <div class="register-wrapper-inner is-single">
-      <!--Fake navigation-->
       <div class="auth-nav">
         <div class="left" />
-        <div class="center">
-          <RouterLink to="/" class="header-item">
-            <AnimatedLogo width="38px" height="38px" />
-          </RouterLink>
-        </div>
         <div class="right">
           <label
             class="ml-auto dark-mode"
@@ -55,17 +47,14 @@ const onSubmit = async () => {
         </div>
       </div>
 
-      <!--Single Centered Form-->
       <div class="single-form-wrap">
         <div class="inner-wrap">
-          <!--Form Title-->
           <div class="auth-head">
             <h2>Hello Developer.</h2>
             <p>Please sign in to your account</p>
             <RouterLink to="/auth/signup-3"> I do not have an account yet </RouterLink>
           </div>
 
-          <!--Form-->
           <div class="form-card">
             <form method="post" novalidate class="form-layout" @submit.prevent="onSubmit">
               <div class="form-outer">
@@ -76,14 +65,6 @@ const onSubmit = async () => {
                     </div>
                     <div class="right">
                       <div class="buttons">
-                        <!-- <VButton
-                          icon="lnir lnir-arrow-left rem-100"
-                          to="/sidebar/layouts/profile-view"
-                          light
-                          dark-outlined
-                        >
-                          Cancel
-                        </VButton> -->
                         <VButton
                           :loading="isLoading"
                           type="submit"
@@ -97,7 +78,6 @@ const onSubmit = async () => {
                   </div>
                 </div>
                 <div class="form-body">
-                  <!--Fieldset-->
                   <div class="form-fieldset">
                     <div class="fieldset-heading">
                       <h4>Personal Info</h4>
@@ -144,7 +124,6 @@ const onSubmit = async () => {
                       </div>
                     </div>
                   </div>
-                  <!--Fieldset-->
                   <div class="form-fieldset">
                     <div class="fieldset-heading">
                       <h4>Company Info</h4>
@@ -519,11 +498,6 @@ const onSubmit = async () => {
             a {
               color: var(--primary);
             }
-          }
-
-          .form-card {
-            background: var(--dark-sidebar-dark-4);
-            border-color: var(--dark-sidebar-light-1);
           }
         }
       }

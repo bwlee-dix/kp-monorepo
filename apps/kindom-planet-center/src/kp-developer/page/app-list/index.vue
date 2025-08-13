@@ -37,14 +37,13 @@ function getAvatarData(user: any): VAvatarProps {
 
 const clickNewAppSubmit = async () => {
   isLoading.value = true
-
   await sleep(1000)
-
   router.push('/app')
   isLoading.value = false
 }
+
 const clickApp = (id: string) => {
-  router.push('/dashboard')
+  router.push('/body/dashboard')
 }
 </script>
 
