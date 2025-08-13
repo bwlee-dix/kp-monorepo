@@ -44,21 +44,12 @@ useHead({
     <div class="inbox-wrapper">
       <div class="wrapper-inner">
         <!--Inbox sidebar-->
-        <div
-          class="inbox-sidebar"
-          :class="[mobileSidebarOpen && 'mobile-active']"
-        >
+        <div class="inbox-sidebar" :class="[mobileSidebarOpen && 'mobile-active']">
           <!-- Header -->
           <div class="header-area">
             <div class="inbox-title">
-              <RouterLink
-                to="/"
-                class="inbox-brand"
-              >
-                <AnimatedLogo
-                  width="36px"
-                  height="36px"
-                />
+              <RouterLink to="/" class="inbox-brand">
+                <AnimatedLogo width="36px" height="36px" />
               </RouterLink>
               <span>Inbox</span>
 
@@ -68,7 +59,7 @@ useHead({
                   type="checkbox"
                   :checked="!darkmode.isDark"
                   @change="darkmode.onChange"
-                >
+                />
                 <span />
               </label>
             </div>
@@ -77,10 +68,7 @@ useHead({
               class="dropdown inbox-dropdown dropdown-trigger is-right"
             >
               <div>
-                <button
-                  class="button"
-                  @click="dropdown1.toggle"
-                >
+                <button class="button" @click="dropdown1.toggle">
                   <span class="icon is-small">
                     <i
                       aria-hidden="true"
@@ -101,27 +89,15 @@ useHead({
                     <span>Refresh</span>
                   </a>
                   <a class="dropdown-item">
-                    <i
-                      aria-hidden="true"
-                      class="iconify"
-                      data-icon="feather:bell"
-                    />
+                    <i aria-hidden="true" class="iconify" data-icon="feather:bell" />
                     <span>Notifications</span>
                   </a>
                   <a class="dropdown-item">
-                    <i
-                      aria-hidden="true"
-                      class="iconify"
-                      data-icon="feather:user-plus"
-                    />
+                    <i aria-hidden="true" class="iconify" data-icon="feather:user-plus" />
                     <span>Invite People</span>
                   </a>
                   <a class="dropdown-item">
-                    <i
-                      aria-hidden="true"
-                      class="iconify"
-                      data-icon="feather:settings"
-                    />
+                    <i aria-hidden="true" class="iconify" data-icon="feather:settings" />
                     <span>Settings</span>
                   </a>
                 </div>
@@ -135,11 +111,7 @@ useHead({
               @keydown.space.prevent="mobileSidebarOpen = false"
               @click="mobileSidebarOpen = false"
             >
-              <i
-                aria-hidden="true"
-                class="iconify"
-                data-icon="feather:x"
-              />
+              <i aria-hidden="true" class="iconify" data-icon="feather:x" />
             </a>
           </div>
           <!--Inner-->
@@ -157,11 +129,7 @@ useHead({
                       @keydown.space.prevent="activeTab = 'inbox'"
                       @click="activeTab = 'inbox'"
                     >
-                      <i
-                        aria-hidden="true"
-                        class="iconify"
-                        data-icon="feather:mail"
-                      />
+                      <i aria-hidden="true" class="iconify" data-icon="feather:mail" />
                       <span>Inbox</span>
                       <span class="tag">24</span>
                     </a>
@@ -191,11 +159,7 @@ useHead({
                       @keydown.space.prevent="activeTab = 'sent'"
                       @click="activeTab = 'sent'"
                     >
-                      <i
-                        aria-hidden="true"
-                        class="iconify"
-                        data-icon="feather:send"
-                      />
+                      <i aria-hidden="true" class="iconify" data-icon="feather:send" />
                       <span>Sent</span>
                       <span class="tag">7</span>
                     </a>
@@ -208,11 +172,7 @@ useHead({
                       @keydown.space.prevent="activeTab = 'trash'"
                       @click="activeTab = 'trash'"
                     >
-                      <i
-                        aria-hidden="true"
-                        class="iconify"
-                        data-icon="feather:trash-2"
-                      />
+                      <i aria-hidden="true" class="iconify" data-icon="feather:trash-2" />
                       <span>Trash</span>
                       <span class="tag">18</span>
                     </a>
@@ -240,24 +200,14 @@ useHead({
             <!--Scroll menu-->
             <div class="scroll-menu">
               <div class="title-wrap">
-                <h3 :class="[contactSearchOpen && 'is-hidden']">
-                  Contacts
-                </h3>
+                <h3 :class="[contactSearchOpen && 'is-hidden']">Contacts</h3>
                 <div
                   :class="[!contactSearchOpen && 'is-hidden']"
                   class="control has-icon"
                 >
-                  <input
-                    type="text"
-                    class="input"
-                    placeholder="Search Contacts..."
-                  >
+                  <input type="text" class="input" placeholder="Search Contacts..." />
                   <div class="form-icon">
-                    <i
-                      aria-hidden="true"
-                      class="iconify"
-                      data-icon="feather:search"
-                    />
+                    <i aria-hidden="true" class="iconify" data-icon="feather:search" />
                   </div>
                 </div>
                 <a
@@ -272,11 +222,7 @@ useHead({
                     @keydown.space.prevent="contactSearchOpen = true"
                     @click="contactSearchOpen = true"
                   >
-                    <i
-                      aria-hidden="true"
-                      class="iconify"
-                      data-icon="feather:search"
-                    />
+                    <i aria-hidden="true" class="iconify" data-icon="feather:search" />
                   </span>
                 </a>
                 <a
@@ -291,11 +237,7 @@ useHead({
                     @keydown.space.prevent="contactSearchOpen = true"
                     @click="contactSearchOpen = false"
                   >
-                    <i
-                      aria-hidden="true"
-                      class="iconify"
-                      data-icon="feather:x"
-                    />
+                    <i aria-hidden="true" class="iconify" data-icon="feather:x" />
                   </span>
                 </a>
               </div>
@@ -306,7 +248,7 @@ useHead({
                     src="/demo/avatars/7.jpg"
                     alt=""
                     @error.once="onceImageErrored(150)"
-                  >
+                  />
                   <div class="contact-meta">
                     <span>Alice Carasca</span>
                     <span>alice@dds.io</span>
@@ -318,7 +260,7 @@ useHead({
                     src="/demo/avatars/25.jpg"
                     alt=""
                     @error.once="onceImageErrored(150)"
-                  >
+                  />
                   <div class="contact-meta">
                     <span>Melany Wallace</span>
                     <span>melany@dds.io</span>
@@ -330,7 +272,7 @@ useHead({
                     src="/demo/avatars/18.jpg"
                     alt=""
                     @error.once="onceImageErrored(150)"
-                  >
+                  />
                   <div class="contact-meta">
                     <span>Esteban Castellanos</span>
                     <span>esteban@dds.io</span>
@@ -342,7 +284,7 @@ useHead({
                     src="/demo/avatars/32.jpg"
                     alt=""
                     @error.once="onceImageErrored(150)"
-                  >
+                  />
                   <div class="contact-meta">
                     <span>Jonathan Krugger</span>
                     <span>jonathan@dds.io</span>
@@ -354,7 +296,7 @@ useHead({
                     src="/demo/avatars/38.jpg"
                     alt=""
                     @error.once="onceImageErrored(150)"
-                  >
+                  />
                   <div class="contact-meta">
                     <span>Christie Dallas</span>
                     <span>christie@dds.io</span>
@@ -377,11 +319,7 @@ useHead({
                 @keydown.space.prevent="mobileSidebarOpen = true"
                 @click="mobileSidebarOpen = true"
               >
-                <i
-                  aria-hidden="true"
-                  class="iconify"
-                  data-icon="feather:chevron-right"
-                />
+                <i aria-hidden="true" class="iconify" data-icon="feather:chevron-right" />
               </a>
               <a
                 class="inbox-action check-all-action"
@@ -392,11 +330,7 @@ useHead({
                 @keydown.space.prevent="toggleSelection"
                 @click="toggleSelection"
               >
-                <i
-                  aria-hidden="true"
-                  class="iconify"
-                  data-icon="feather:check"
-                />
+                <i aria-hidden="true" class="iconify" data-icon="feather:check" />
               </a>
             </div>
             <div class="actions">
@@ -405,13 +339,9 @@ useHead({
                   type="text"
                   class="input is-rounded"
                   placeholder="Search Inbox..."
-                >
+                />
                 <div class="form-icon">
-                  <i
-                    aria-hidden="true"
-                    class="iconify"
-                    data-icon="feather:search"
-                  />
+                  <i aria-hidden="true" class="iconify" data-icon="feather:search" />
                 </div>
               </div>
 
@@ -420,10 +350,7 @@ useHead({
                 class="dropdown inbox-dropdown dropdown-trigger is-right"
               >
                 <div>
-                  <button
-                    class="button"
-                    @click="dropdown2.toggle"
-                  >
+                  <button class="button" @click="dropdown2.toggle">
                     <span class="icon is-small">
                       <i
                         aria-hidden="true"
@@ -436,22 +363,14 @@ useHead({
                 <div class="dropdown-menu">
                   <div class="dropdown-content">
                     <a class="dropdown-item">
-                      <i
-                        aria-hidden="true"
-                        class="iconify"
-                        data-icon="feather:check"
-                      />
+                      <i aria-hidden="true" class="iconify" data-icon="feather:check" />
                       <span>Mark all as read</span>
                     </a>
                     <a class="dropdown-item">
-                      <i
-                        aria-hidden="true"
-                        class="iconify"
-                        data-icon="feather:eye-off"
-                      />
+                      <i aria-hidden="true" class="iconify" data-icon="feather:eye-off" />
                       <span>Hide read</span>
                     </a>
-                    <hr class="dropdown-divider">
+                    <hr class="dropdown-divider" />
                     <a class="dropdown-item">
                       <i
                         aria-hidden="true"
@@ -461,11 +380,7 @@ useHead({
                       <span>Sort by date</span>
                     </a>
                     <a class="dropdown-item">
-                      <i
-                        aria-hidden="true"
-                        class="iconify"
-                        data-icon="feather:user"
-                      />
+                      <i aria-hidden="true" class="iconify" data-icon="feather:user" />
                       <span>Sort by user</span>
                     </a>
                   </div>

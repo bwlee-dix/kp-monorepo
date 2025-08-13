@@ -26,10 +26,7 @@ const themeClasses = computed(() => {
 </script>
 
 <template>
-  <div
-    class="sidebar-block is-active"
-    :class="[themeClasses]"
-  >
+  <div class="sidebar-block is-active" :class="[themeClasses]">
     <div class="sidebar-block-header">
       <slot name="header" />
     </div>
@@ -110,7 +107,7 @@ const themeClasses = computed(() => {
 
   .sidebar-block-menu {
     padding: 0 2.5rem;
-  } 
+  }
 
   .sidebar-block-inner {
     position: relative;

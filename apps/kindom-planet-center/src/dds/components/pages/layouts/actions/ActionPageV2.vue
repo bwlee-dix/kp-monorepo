@@ -37,9 +37,7 @@ const accept = async () => {
               project.
             </h3>
             <div class="sender-message is-dark-card-bordered is-dark-bg-4">
-              <h4 class="dark-inverted">
-                Message from Jason
-              </h4>
+              <h4 class="dark-inverted">Message from Jason</h4>
               <p>
                 Hey Erik, It would be really cool if you could give us a hand on this
                 project. There are a lot of tasks popping out every day and I feel the
@@ -50,15 +48,8 @@ const accept = async () => {
             <div class="people-wrap">
               <div class="people">
                 <div>
-                  <Tippy
-                    class="has-help-cursor"
-                    interactive
-                    placement="bottom"
-                  >
-                    <VAvatar
-                      size="small"
-                      picture="/demo/avatars/21.jpg"
-                    />
+                  <Tippy class="has-help-cursor" interactive placement="bottom">
+                    <VAvatar size="small" picture="/demo/avatars/21.jpg" />
                     <template #content>
                       <UserPopoverContent :user="popovers.user21" />
                     </template>
@@ -66,16 +57,8 @@ const accept = async () => {
                 </div>
 
                 <div>
-                  <Tippy
-                    class="has-help-cursor"
-                    interactive
-                    placement="bottom"
-                  >
-                    <VAvatar
-                      size="small"
-                      color="h-purple"
-                      initials="SC"
-                    />
+                  <Tippy class="has-help-cursor" interactive placement="bottom">
+                    <VAvatar size="small" color="h-purple" initials="SC" />
                     <template #content>
                       <UserPopoverContent :user="popovers.user120" />
                     </template>
@@ -83,15 +66,8 @@ const accept = async () => {
                 </div>
 
                 <div>
-                  <Tippy
-                    class="has-help-cursor"
-                    interactive
-                    placement="bottom"
-                  >
-                    <VAvatar
-                      size="small"
-                      picture="/demo/avatars/39.jpg"
-                    />
+                  <Tippy class="has-help-cursor" interactive placement="bottom">
+                    <VAvatar size="small" picture="/demo/avatars/39.jpg" />
                     <template #content>
                       <UserPopoverContent :user="popovers.user39" />
                     </template>
@@ -103,9 +79,7 @@ const accept = async () => {
               </div>
             </div>
             <div class="buttons">
-              <VButton dark-outlined>
-                Decline
-              </VButton>
+              <VButton dark-outlined> Decline </VButton>
               <VButton
                 color="primary"
                 :loading="isLoading"
@@ -124,9 +98,7 @@ const accept = async () => {
       <div class="side-wrapper">
         <div class="side-inner">
           <div class="side-title">
-            <h3 class="dark-inverted">
-              Additional Instructions
-            </h3>
+            <h3 class="dark-inverted">Additional Instructions</h3>
             <p>Jason has sent some additional instructions</p>
           </div>
 

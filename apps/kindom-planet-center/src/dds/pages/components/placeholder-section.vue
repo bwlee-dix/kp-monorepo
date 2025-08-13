@@ -66,9 +66,7 @@ useHead({
             >
               <template #action>
                 <VButtons align="centered">
-                  <VButton color="primary">
-                    View plans
-                  </VButton>
+                  <VButton color="primary"> View plans </VButton>
                 </VButtons>
               </template>
             </VPlaceholderSection>
@@ -79,10 +77,7 @@ useHead({
 
         <VPlaceholderSectionSlotsDocumentation />
       </div>
-      <div
-        v-if="toc.length"
-        class="column is-3 toc-column"
-      >
+      <div v-if="toc.length" class="column is-3 toc-column">
         <DocumentationToc :toc="toc" />
       </div>
     </div>

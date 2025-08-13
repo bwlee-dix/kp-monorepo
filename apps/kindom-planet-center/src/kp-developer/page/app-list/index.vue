@@ -2,7 +2,6 @@
 import type { VAvatarProps, VAvatarColor } from '/@dds/components/base/avatar/VAvatar.vue'
 import { projects } from '/@dds/data/layouts/card-grid-v3'
 
-
 import { useDarkmode } from '/@dds/stores/darkmode'
 import sleep from '/@dds/utils/sleep'
 
@@ -14,10 +13,9 @@ useHead({
   title: 'Register Developer - Kingdom Planet',
 })
 
-
 const isBigFormOpen = ref(false)
 const filters = ref('')
-const isB2C = ref(true);
+const isB2C = ref(true)
 const filteredData = computed(() => {
   if (!filters.value) {
     return projects
@@ -49,17 +47,15 @@ function getAvatarData(user: any): VAvatarProps {
 }
 
 const clickNewAppSubmit = async () => {
-    isLoading.value = true;
+  isLoading.value = true
 
-    await sleep(1000)
+  await sleep(1000)
 
-    router.push("/app")
-    isLoading.value = false;
-
-
+  router.push('/app')
+  isLoading.value = false
 }
-const  clickApp =(id: string) =>{
-  router.push("/dashboard")
+const clickApp = (id: string) => {
+  router.push('/dashboard')
 }
 </script>
 
@@ -70,14 +66,8 @@ const  clickApp =(id: string) =>{
       <div class="auth-nav">
         <div class="left" />
         <div class="center">
-          <RouterLink
-            to="/"
-            class="header-item"
-          >
-            <AnimatedLogo
-              width="38px"
-              height="38px"
-            />
+          <RouterLink to="/" class="header-item">
+            <AnimatedLogo width="38px" height="38px" />
           </RouterLink>
         </div>
         <div class="right">
@@ -92,7 +82,7 @@ const  clickApp =(id: string) =>{
               type="checkbox"
               :checked="!darkmode.isDark"
               @change="darkmode.onChange"
-            >
+            />
             <span />
           </label>
         </div>
@@ -106,20 +96,13 @@ const  clickApp =(id: string) =>{
               v-model="filters"
               class="input custom-text-filter"
               placeholder="Search..."
-            >
+            />
           </VControl>
 
           <div class="buttons">
-            <VButton
-              color="primary"
-              raised
-              @click="isBigFormOpen = true"
-            >
+            <VButton color="primary" raised @click="isBigFormOpen = true">
               <span class="icon">
-                <i
-                  aria-hidden="true"
-                  class="fas fa-plus"
-                />
+                <i aria-hidden="true" class="fas fa-plus" />
               </span>
               <span>New App</span>
             </VButton>
@@ -141,12 +124,12 @@ const  clickApp =(id: string) =>{
                 class="light-image"
                 src="/@dds/sets/illustrations/placeholders/search-3.svg"
                 alt=""
-              >
+              />
               <img
                 class="dark-image"
                 src="/@dds/sets/illustrations/placeholders/search-3-dark.svg"
                 alt=""
-              >
+              />
             </template>
           </VPlaceholderPage>
 
@@ -157,11 +140,7 @@ const  clickApp =(id: string) =>{
             class="columns is-multiline is-flex-tablet-p is-half-tablet-p"
           >
             <!--Grid Item-->
-            <div
-              v-for="item in filteredData"
-              :key="item.id"
-              class="column is-4 app"
-            >
+            <div v-for="item in filteredData" :key="item.id" class="column is-4 app">
               <div
                 class="card-grid-item"
                 tabindex="0"
@@ -169,37 +148,19 @@ const  clickApp =(id: string) =>{
                 @click="clickApp(item.id)"
                 @keydown.enter="clickApp(item.id)"
               >
-                <label
-                  v-if="item.lockable"
-                  class="h-toggle"
-                >
-                  <input
-                    type="checkbox"
-                    :checked="item.locked"
-                  >
+                <label v-if="item.lockable" class="h-toggle">
+                  <input type="checkbox" :checked="item.locked" />
                   <span class="toggler">
                     <span class="active">
-                      <i
-                        aria-hidden="true"
-                        class="iconify"
-                        data-icon="feather:lock"
-                      />
+                      <i aria-hidden="true" class="iconify" data-icon="feather:lock" />
                     </span>
                     <span class="inactive">
-                      <i
-                        aria-hidden="true"
-                        class="iconify"
-                        data-icon="feather:check"
-                      />
+                      <i aria-hidden="true" class="iconify" data-icon="feather:check" />
                     </span>
                   </span>
                 </label>
 
-                <img
-                  style="width: 140px;"
-                  :src="item.image"
-                  alt=""
-                >
+                <img style="width: 140px" :src="item.image" alt="" />
                 <h3 class="dark-inverted">
                   {{ item.name }}
                 </h3>
@@ -235,10 +196,7 @@ const  clickApp =(id: string) =>{
             <div class="column is-12">
               <VField label="App Name *">
                 <VControl>
-                  <VInput
-                    type="text"
-                    placeholder="Ex: A cool project"
-                  />
+                  <VInput type="text" placeholder="Ex: A cool project" />
                 </VControl>
               </VField>
             </div>
@@ -268,10 +226,7 @@ const  clickApp =(id: string) =>{
               </VField>
             </div>
             <div class="column is-6">
-              <VField
-                class="is-image-select"
-                label="App Member"
-              >
+              <VField class="is-image-select" label="App Member">
                 <VControl>
                   <Multiselect
                     placeholder="Select employees"
@@ -319,20 +274,12 @@ const  clickApp =(id: string) =>{
                   >
                     <template #singlelabel="{ value }">
                       <div class="multiselect-single-label">
-                        <img
-                          class="select-label-icon"
-                          :src="value.image"
-                          alt=""
-                        >
+                        <img class="select-label-icon" :src="value.image" alt="" />
                         {{ value.name }}
                       </div>
                     </template>
                     <template #option="{ option }">
-                      <img
-                        class="select-option-icon"
-                        :src="option.image"
-                        alt=""
-                      >
+                      <img class="select-option-icon" :src="option.image" alt="" />
                       {{ option.name }}
                     </template>
                   </Multiselect>
@@ -340,10 +287,7 @@ const  clickApp =(id: string) =>{
               </VField>
             </div>
             <div class="column is-6">
-              <VField
-                class="is-image-select"
-                label="App Type *"
-              >
+              <VField class="is-image-select" label="App Type *">
                 <VControl>
                   <Multiselect
                     placeholder="Select language"
@@ -371,20 +315,12 @@ const  clickApp =(id: string) =>{
                   >
                     <template #singlelabel="{ value }">
                       <div class="multiselect-single-label">
-                        <img
-                          class="select-label-icon"
-                          :src="value.image"
-                          alt=""
-                        >
+                        <img class="select-label-icon" :src="value.image" alt="" />
                         {{ value.name }}
                       </div>
                     </template>
                     <template #option="{ option }">
-                      <img
-                        class="select-option-icon"
-                        :src="option.image"
-                        alt=""
-                      >
+                      <img class="select-option-icon" :src="option.image" alt="" />
                       {{ option.name }}
                     </template>
                   </Multiselect>
@@ -394,10 +330,7 @@ const  clickApp =(id: string) =>{
             <div class="column is-6">
               <VField label="Project Budget *">
                 <VControl>
-                  <VInput
-                    type="text"
-                    placeholder="Ex: $3,500"
-                  />
+                  <VInput type="text" placeholder="Ex: $3,500" />
                 </VControl>
               </VField>
             </div>
@@ -415,10 +348,7 @@ const  clickApp =(id: string) =>{
             <div class="column is-12">
               <VField label="Description *">
                 <VControl>
-                  <VTextarea
-                    rows="3"
-                    placeholder="Details about the project..."
-                  />
+                  <VTextarea rows="3" placeholder="Details about the project..." />
                 </VControl>
               </VField>
             </div>
@@ -802,13 +732,11 @@ const  clickApp =(id: string) =>{
   }
 }
 
-
 .card-grid {
   .columns {
     margin-inline-start: -0.5rem !important;
     margin-inline-end: -0.5rem !important;
     margin-top: -0.5rem !important;
-
   }
 
   .column {

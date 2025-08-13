@@ -25,10 +25,7 @@ const optionsSingle = ['All Posts', 'Recent Posts', 'Older Posts', 'Popular Post
   <div>
     <div class="tile-grid-toolbar">
       <VControl icon="feather:search">
-        <input
-          class="input custom-text-filter"
-          placeholder="Search..."
-        >
+        <input class="input custom-text-filter" placeholder="Search..." />
       </VControl>
 
       <div class="buttons">
@@ -42,15 +39,9 @@ const optionsSingle = ['All Posts', 'Recent Posts', 'Older Posts', 'Popular Post
             />
           </VControl>
         </VField>
-        <VButton
-          color="primary"
-          raised
-        >
+        <VButton color="primary" raised>
           <span class="icon">
-            <i
-              aria-hidden="true"
-              class="fas fa-plus"
-            />
+            <i aria-hidden="true" class="fas fa-plus" />
           </span>
           <span>Add User</span>
         </VButton>
@@ -72,34 +63,28 @@ const optionsSingle = ['All Posts', 'Recent Posts', 'Older Posts', 'Popular Post
             class="light-image"
             src="/@dds/sets/illustrations/placeholders/search-6.svg"
             alt=""
-          >
+          />
           <img
             class="dark-image"
             src="/@dds/sets/illustrations/placeholders/search-6-dark.svg"
             alt=""
-          >
+          />
         </template>
       </VPlaceholderPage>
 
       <!--Tile Grid v3-->
       <div class="tile is-ancestor">
         <div class="tile is-parent">
-          <a
-            href="#"
-            class="tile is-child tile-grid-item is-medium"
-          >
+          <a href="#" class="tile is-child tile-grid-item is-medium">
             <div class="tile-grid-item-inner">
               <img
                 src="/demo/photos/11.jpg"
                 alt=""
                 @error.once="onceImageErrored(400, 300)"
-              >
+              />
               <div class="meta">
                 <div class="tile-title">
-                  <h3
-                    class="dark-inverted"
-                    data-filter-match
-                  >
+                  <h3 class="dark-inverted" data-filter-match>
                     How to serve coffee at the office the proper way
                   </h3>
                   <p class="h-hidden-tablet-l h-hidden-desktop">
@@ -108,15 +93,9 @@ const optionsSingle = ['All Posts', 'Recent Posts', 'Older Posts', 'Popular Post
                   </p>
                 </div>
                 <div class="tile-meta">
-                  <VAvatar
-                    picture="/demo/avatars/39.jpg"
-                    size="small"
-                  />
+                  <VAvatar picture="/demo/avatars/39.jpg" size="small" />
                   <div class="meta-inner">
-                    <span
-                      class="dark-inverted"
-                      data-filter-match
-                    > Alejandro B.</span>
+                    <span class="dark-inverted" data-filter-match> Alejandro B.</span>
                     <span>30 minutes ago</span>
                   </div>
                 </div>
@@ -125,22 +104,16 @@ const optionsSingle = ['All Posts', 'Recent Posts', 'Older Posts', 'Popular Post
           </a>
         </div>
         <div class="tile is-parent">
-          <a
-            href="#"
-            class="tile is-child tile-grid-item is-medium"
-          >
+          <a href="#" class="tile is-child tile-grid-item is-medium">
             <div class="tile-grid-item-inner">
               <img
                 src="/demo/photos/12.jpg"
                 alt=""
                 @error.once="onceImageErrored(400, 300)"
-              >
+              />
               <div class="meta">
                 <div class="tile-title">
-                  <h3
-                    class="dark-inverted"
-                    data-filter-match
-                  >
+                  <h3 class="dark-inverted" data-filter-match>
                     Teamwork can dramatically increase productivity
                   </h3>
                   <p class="h-hidden-tablet-l h-hidden-desktop">
@@ -149,15 +122,9 @@ const optionsSingle = ['All Posts', 'Recent Posts', 'Older Posts', 'Popular Post
                   </p>
                 </div>
                 <div class="tile-meta">
-                  <VAvatar
-                    picture="/demo/avatars/15.jpg"
-                    size="small"
-                  />
+                  <VAvatar picture="/demo/avatars/15.jpg" size="small" />
                   <div class="meta-inner">
-                    <span
-                      class="dark-inverted"
-                      data-filter-match
-                    > Hilde V.</span>
+                    <span class="dark-inverted" data-filter-match> Hilde V.</span>
                     <span>4 hours ago</span>
                   </div>
                 </div>
@@ -166,22 +133,16 @@ const optionsSingle = ['All Posts', 'Recent Posts', 'Older Posts', 'Popular Post
           </a>
         </div>
         <div class="tile is-parent">
-          <a
-            href="#"
-            class="tile is-child tile-grid-item is-medium"
-          >
+          <a href="#" class="tile is-child tile-grid-item is-medium">
             <div class="tile-grid-item-inner">
               <img
                 src="/demo/photos/13.jpg"
                 alt=""
                 @error.once="onceImageErrored(400, 300)"
-              >
+              />
               <div class="meta">
                 <div class="tile-title">
-                  <h3
-                    class="dark-inverted"
-                    data-filter-match
-                  >
+                  <h3 class="dark-inverted" data-filter-match>
                     Is team building a scam or the next thing?
                   </h3>
                   <p class="h-hidden-tablet-l h-hidden-desktop">
@@ -190,15 +151,9 @@ const optionsSingle = ['All Posts', 'Recent Posts', 'Older Posts', 'Popular Post
                   </p>
                 </div>
                 <div class="tile-meta">
-                  <VAvatar
-                    picture="/demo/avatars/24.jpg"
-                    size="small"
-                  />
+                  <VAvatar picture="/demo/avatars/24.jpg" size="small" />
                   <div class="meta-inner">
-                    <span
-                      class="dark-inverted"
-                      data-filter-match
-                    > Sandrine C.</span>
+                    <span class="dark-inverted" data-filter-match> Sandrine C.</span>
                     <span>5 hours ago</span>
                   </div>
                 </div>
@@ -212,22 +167,16 @@ const optionsSingle = ['All Posts', 'Recent Posts', 'Older Posts', 'Popular Post
         <div class="tile is-vertical is-8">
           <div class="tile">
             <div class="tile is-parent is-vertical">
-              <a
-                href="#"
-                class="tile is-child tile-grid-item is-medium"
-              >
+              <a href="#" class="tile is-child tile-grid-item is-medium">
                 <div class="tile-grid-item-inner">
                   <img
                     src="/demo/photos/14.jpg"
                     alt=""
                     @error.once="onceImageErrored(400, 300)"
-                  >
+                  />
                   <div class="meta">
                     <div class="tile-title">
-                      <h3
-                        class="dark-inverted"
-                        data-filter-match
-                      >
+                      <h3 class="dark-inverted" data-filter-match>
                         3 things you should know when applying for developer jobs
                       </h3>
                       <p class="h-hidden-tablet-l h-hidden-desktop">
@@ -236,37 +185,25 @@ const optionsSingle = ['All Posts', 'Recent Posts', 'Older Posts', 'Popular Post
                       </p>
                     </div>
                     <div class="tile-meta">
-                      <VAvatar
-                        picture="/demo/avatars/27.jpg"
-                        size="small"
-                      />
+                      <VAvatar picture="/demo/avatars/27.jpg" size="small" />
                       <div class="meta-inner">
-                        <span
-                          class="dark-inverted"
-                          data-filter-match
-                        > Carmen E.</span>
+                        <span class="dark-inverted" data-filter-match> Carmen E.</span>
                         <span>8 hours ago</span>
                       </div>
                     </div>
                   </div>
                 </div>
               </a>
-              <a
-                href="#"
-                class="tile is-child tile-grid-item is-medium"
-              >
+              <a href="#" class="tile is-child tile-grid-item is-medium">
                 <div class="tile-grid-item-inner">
                   <img
                     src="/demo/photos/15.jpg"
                     alt=""
                     @error.once="onceImageErrored(400, 300)"
-                  >
+                  />
                   <div class="meta">
                     <div class="tile-title">
-                      <h3
-                        class="dark-inverted"
-                        data-filter-match
-                      >
+                      <h3 class="dark-inverted" data-filter-match>
                         The construction business massively invests in mobile apps
                       </h3>
                       <p class="h-hidden-tablet-l h-hidden-desktop">
@@ -275,15 +212,9 @@ const optionsSingle = ['All Posts', 'Recent Posts', 'Older Posts', 'Popular Post
                       </p>
                     </div>
                     <div class="tile-meta">
-                      <VAvatar
-                        picture="/demo/avatars/10.jpg"
-                        size="small"
-                      />
+                      <VAvatar picture="/demo/avatars/10.jpg" size="small" />
                       <div class="meta-inner">
-                        <span
-                          class="dark-inverted"
-                          data-filter-match
-                        > Henry G.</span>
+                        <span class="dark-inverted" data-filter-match> Henry G.</span>
                         <span>1 day ago</span>
                       </div>
                     </div>
@@ -292,22 +223,16 @@ const optionsSingle = ['All Posts', 'Recent Posts', 'Older Posts', 'Popular Post
               </a>
             </div>
             <div class="tile is-parent">
-              <a
-                href="#"
-                class="tile is-child tile-grid-item is-large"
-              >
+              <a href="#" class="tile is-child tile-grid-item is-large">
                 <div class="tile-grid-item-inner">
                   <img
                     src="/demo/photos/16.jpg"
                     alt=""
                     @error.once="onceImageErrored(400, 300)"
-                  >
+                  />
                   <div class="meta">
                     <div class="tile-title">
-                      <h3
-                        class="dark-inverted"
-                        data-filter-match
-                      >
+                      <h3 class="dark-inverted" data-filter-match>
                         Finding the right spot for your startup
                       </h3>
                       <p class="h-hidden-tablet-l h-hidden-desktop">
@@ -316,15 +241,9 @@ const optionsSingle = ['All Posts', 'Recent Posts', 'Older Posts', 'Popular Post
                       </p>
                     </div>
                     <div class="tile-meta">
-                      <VAvatar
-                        picture="/demo/avatars/22.jpg"
-                        size="small"
-                      />
+                      <VAvatar picture="/demo/avatars/22.jpg" size="small" />
                       <div class="meta-inner">
-                        <span
-                          class="dark-inverted"
-                          data-filter-match
-                        > Jimmy H.</span>
+                        <span class="dark-inverted" data-filter-match> Jimmy H.</span>
                         <span>1 day ago</span>
                       </div>
                     </div>
@@ -334,22 +253,16 @@ const optionsSingle = ['All Posts', 'Recent Posts', 'Older Posts', 'Popular Post
             </div>
           </div>
           <div class="tile is-parent">
-            <a
-              href="#"
-              class="tile is-child tile-grid-item is-wide"
-            >
+            <a href="#" class="tile is-child tile-grid-item is-wide">
               <div class="tile-grid-item-inner">
                 <img
                   src="/demo/photos/18.jpg"
                   alt=""
                   @error.once="onceImageErrored(400, 300)"
-                >
+                />
                 <div class="meta">
                   <div class="tile-title">
-                    <h3
-                      class="dark-inverted"
-                      data-filter-match
-                    >
+                    <h3 class="dark-inverted" data-filter-match>
                       4 tips to make your business lunches awesome
                     </h3>
                     <p>
@@ -362,15 +275,9 @@ const optionsSingle = ['All Posts', 'Recent Posts', 'Older Posts', 'Popular Post
                     </p>
                   </div>
                   <div class="tile-meta">
-                    <VAvatar
-                      picture="/demo/avatars/16.jpg"
-                      size="small"
-                    />
+                    <VAvatar picture="/demo/avatars/16.jpg" size="small" />
                     <div class="meta-inner">
-                      <span
-                        class="dark-inverted"
-                        data-filter-match
-                      > Jason G.</span>
+                      <span class="dark-inverted" data-filter-match> Jason G.</span>
                       <span>2 days ago</span>
                     </div>
                   </div>
@@ -380,22 +287,16 @@ const optionsSingle = ['All Posts', 'Recent Posts', 'Older Posts', 'Popular Post
           </div>
         </div>
         <div class="tile is-parent">
-          <a
-            href="#"
-            class="tile is-child tile-grid-item is-tall"
-          >
+          <a href="#" class="tile is-child tile-grid-item is-tall">
             <div class="tile-grid-item-inner">
               <img
                 src="/demo/photos/19.jpg"
                 alt=""
                 @error.once="onceImageErrored(400, 300)"
-              >
+              />
               <div class="meta">
                 <div class="tile-title">
-                  <h3
-                    class="dark-inverted"
-                    data-filter-match
-                  >
+                  <h3 class="dark-inverted" data-filter-match>
                     Setting up a design system for your app project
                   </h3>
                   <p>
@@ -408,15 +309,9 @@ const optionsSingle = ['All Posts', 'Recent Posts', 'Older Posts', 'Popular Post
                   </p>
                 </div>
                 <div class="tile-meta">
-                  <VAvatar
-                    picture="/demo/avatars/26.jpg"
-                    size="small"
-                  />
+                  <VAvatar picture="/demo/avatars/26.jpg" size="small" />
                   <div class="meta-inner">
-                    <span
-                      class="dark-inverted"
-                      data-filter-match
-                    > Courtney W.</span>
+                    <span class="dark-inverted" data-filter-match> Courtney W.</span>
                     <span>2 days ago</span>
                   </div>
                 </div>
@@ -428,22 +323,16 @@ const optionsSingle = ['All Posts', 'Recent Posts', 'Older Posts', 'Popular Post
 
       <div class="tile is-ancestor">
         <div class="tile is-parent">
-          <a
-            href="#"
-            class="tile is-child tile-grid-item is-wide"
-          >
+          <a href="#" class="tile is-child tile-grid-item is-wide">
             <div class="tile-grid-item-inner">
               <img
                 src="/demo/photos/20.jpg"
                 alt=""
                 @error.once="onceImageErrored(400, 300)"
-              >
+              />
               <div class="meta">
                 <div class="tile-title">
-                  <h3
-                    class="dark-inverted"
-                    data-filter-match
-                  >
+                  <h3 class="dark-inverted" data-filter-match>
                     Foundation of a great E-Learning system
                   </h3>
                   <p>
@@ -452,15 +341,9 @@ const optionsSingle = ['All Posts', 'Recent Posts', 'Older Posts', 'Popular Post
                   </p>
                 </div>
                 <div class="tile-meta">
-                  <VAvatar
-                    picture="/images/avatars/svg/vuero-1.svg"
-                    size="small"
-                  />
+                  <VAvatar picture="/images/avatars/svg/vuero-1.svg" size="small" />
                   <div class="meta-inner">
-                    <span
-                      class="dark-inverted"
-                      data-filter-match
-                    >Erik K.</span>
+                    <span class="dark-inverted" data-filter-match>Erik K.</span>
                     <span>2 days ago</span>
                   </div>
                 </div>
@@ -469,22 +352,16 @@ const optionsSingle = ['All Posts', 'Recent Posts', 'Older Posts', 'Popular Post
           </a>
         </div>
         <div class="tile is-parent is-6">
-          <a
-            href="#"
-            class="tile is-child tile-grid-item is-wide"
-          >
+          <a href="#" class="tile is-child tile-grid-item is-wide">
             <div class="tile-grid-item-inner">
               <img
                 src="/demo/photos/23.jpg"
                 alt=""
                 @error.once="onceImageErrored(400, 300)"
-              >
+              />
               <div class="meta">
                 <div class="tile-title">
-                  <h3
-                    class="dark-inverted"
-                    data-filter-match
-                  >
+                  <h3 class="dark-inverted" data-filter-match>
                     Why it pays to profile your customers
                   </h3>
                   <p>
@@ -493,15 +370,9 @@ const optionsSingle = ['All Posts', 'Recent Posts', 'Older Posts', 'Popular Post
                   </p>
                 </div>
                 <div class="tile-meta">
-                  <VAvatar
-                    picture="/demo/avatars/40.jpg"
-                    size="small"
-                  />
+                  <VAvatar picture="/demo/avatars/40.jpg" size="small" />
                   <div class="meta-inner">
-                    <span
-                      class="dark-inverted"
-                      data-filter-match
-                    > Jeanne M.</span>
+                    <span class="dark-inverted" data-filter-match> Jeanne M.</span>
                     <span>3 days ago</span>
                   </div>
                 </div>
@@ -513,22 +384,16 @@ const optionsSingle = ['All Posts', 'Recent Posts', 'Older Posts', 'Popular Post
 
       <div class="tile is-ancestor">
         <div class="tile is-parent">
-          <a
-            href="#"
-            class="tile is-child tile-grid-item is-medium"
-          >
+          <a href="#" class="tile is-child tile-grid-item is-medium">
             <div class="tile-grid-item-inner">
               <img
                 src="/demo/photos/22.jpg"
                 alt=""
                 @error.once="onceImageErrored(400, 300)"
-              >
+              />
               <div class="meta">
                 <div class="tile-title">
-                  <h3
-                    class="dark-inverted"
-                    data-filter-match
-                  >
+                  <h3 class="dark-inverted" data-filter-match>
                     Using flashy colors in your websites and apps
                   </h3>
                   <p class="h-hidden-tablet-l h-hidden-desktop">
@@ -537,15 +402,9 @@ const optionsSingle = ['All Posts', 'Recent Posts', 'Older Posts', 'Popular Post
                   </p>
                 </div>
                 <div class="tile-meta">
-                  <VAvatar
-                    picture="/demo/avatars/9.jpg"
-                    size="small"
-                  />
+                  <VAvatar picture="/demo/avatars/9.jpg" size="small" />
                   <div class="meta-inner">
-                    <span
-                      class="dark-inverted"
-                      data-filter-match
-                    >Ana B.</span>
+                    <span class="dark-inverted" data-filter-match>Ana B.</span>
                     <span>3 days ago</span>
                   </div>
                 </div>
@@ -554,22 +413,16 @@ const optionsSingle = ['All Posts', 'Recent Posts', 'Older Posts', 'Popular Post
           </a>
         </div>
         <div class="tile is-parent">
-          <a
-            href="#"
-            class="tile is-child tile-grid-item is-medium"
-          >
+          <a href="#" class="tile is-child tile-grid-item is-medium">
             <div class="tile-grid-item-inner">
               <img
                 src="/demo/photos/24.jpg"
                 alt=""
                 @error.once="onceImageErrored(400, 300)"
-              >
+              />
               <div class="meta">
                 <div class="tile-title">
-                  <h3
-                    class="dark-inverted"
-                    data-filter-match
-                  >
+                  <h3 class="dark-inverted" data-filter-match>
                     Building a consistent and talented team
                   </h3>
                   <p class="h-hidden-tablet-l h-hidden-desktop">
@@ -578,15 +431,9 @@ const optionsSingle = ['All Posts', 'Recent Posts', 'Older Posts', 'Popular Post
                   </p>
                 </div>
                 <div class="tile-meta">
-                  <VAvatar
-                    picture="/demo/avatars/19.jpg"
-                    size="small"
-                  />
+                  <VAvatar picture="/demo/avatars/19.jpg" size="small" />
                   <div class="meta-inner">
-                    <span
-                      class="dark-inverted"
-                      data-filter-match
-                    > Greta K.</span>
+                    <span class="dark-inverted" data-filter-match> Greta K.</span>
                     <span>3 days ago</span>
                   </div>
                 </div>
@@ -595,22 +442,16 @@ const optionsSingle = ['All Posts', 'Recent Posts', 'Older Posts', 'Popular Post
           </a>
         </div>
         <div class="tile is-parent">
-          <a
-            href="#"
-            class="tile is-child tile-grid-item is-medium"
-          >
+          <a href="#" class="tile is-child tile-grid-item is-medium">
             <div class="tile-grid-item-inner">
               <img
                 src="/demo/photos/27.jpg"
                 alt=""
                 @error.once="onceImageErrored(400, 300)"
-              >
+              />
               <div class="meta">
                 <div class="tile-title">
-                  <h3
-                    class="dark-inverted"
-                    data-filter-match
-                  >
+                  <h3 class="dark-inverted" data-filter-match>
                     Diving into building an e-commerce brand - part 1
                   </h3>
                   <p class="h-hidden-tablet-l h-hidden-desktop">
@@ -619,15 +460,9 @@ const optionsSingle = ['All Posts', 'Recent Posts', 'Older Posts', 'Popular Post
                   </p>
                 </div>
                 <div class="tile-meta">
-                  <VAvatar
-                    picture="/demo/avatars/33.jpg"
-                    size="small"
-                  />
+                  <VAvatar picture="/demo/avatars/33.jpg" size="small" />
                   <div class="meta-inner">
-                    <span
-                      class="dark-inverted"
-                      data-filter-match
-                    > Harvey M.</span>
+                    <span class="dark-inverted" data-filter-match> Harvey M.</span>
                     <span>4 days ago</span>
                   </div>
                 </div>

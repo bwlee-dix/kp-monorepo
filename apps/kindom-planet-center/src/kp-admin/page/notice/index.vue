@@ -12,10 +12,7 @@ useHead({
 </script>
 
 <template>
-  <AdminSideblockLayout
-    theme="curved"
-    open-on-mounted
-  >
+  <AdminSideblockLayout theme="curved" open-on-mounted>
     <div class="page-content-inner">
       <ViewListV3 :active-tab="activeTab" />
     </div>

@@ -5,10 +5,7 @@ const props = defineProps<{
 </script>
 
 <template>
-  <div
-    class="widget"
-    :class="[props.straight && 'is-straight']"
-  >
+  <div class="widget" :class="[props.straight && 'is-straight']">
     <slot name="header" />
     <slot name="body" />
   </div>

@@ -20,10 +20,7 @@ const props = withDefaults(
       class="inner-list-item"
     >
       <template #icon>
-        <VAvatar
-          :picture="user.picture"
-          :squared="props.squared"
-        />
+        <VAvatar :picture="user.picture" :squared="props.squared" />
       </template>
       <template #action>
         <a
@@ -32,11 +29,7 @@ const props = withDefaults(
           class="go-icon is-down"
           :data-content="user.progress + '%'"
         >
-          <i
-            aria-hidden="true"
-            class="iconify"
-            data-icon="feather:chevron-right"
-          />
+          <i aria-hidden="true" class="iconify" data-icon="feather:chevron-right" />
         </a>
         <a
           v-else
@@ -44,11 +37,7 @@ const props = withDefaults(
           class="go-icon is-up"
           :data-content="'+' + user.progress + '%'"
         >
-          <i
-            aria-hidden="true"
-            class="iconify"
-            data-icon="feather:chevron-right"
-          />
+          <i aria-hidden="true" class="iconify" data-icon="feather:chevron-right" />
         </a>
       </template>
 

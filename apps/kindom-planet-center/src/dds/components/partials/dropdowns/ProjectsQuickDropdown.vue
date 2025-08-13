@@ -36,10 +36,7 @@ const selectedProject = ref(projects[1])
 </script>
 
 <template>
-  <VDropdown
-    class="project-dropdown"
-    spaced
-  >
+  <VDropdown class="project-dropdown" spaced>
     <template #button="{ toggle }">
       <VAvatar
         size="small"
@@ -72,11 +69,7 @@ const selectedProject = ref(projects[1])
           }
         "
       >
-        <VAvatar
-          size="small"
-          :color="project.color"
-          :initials="project.initials"
-        />
+        <VAvatar size="small" :color="project.color" :initials="project.initials" />
 
         <div class="meta">
           <span class="dark-inverted">{{ project.name }}</span>

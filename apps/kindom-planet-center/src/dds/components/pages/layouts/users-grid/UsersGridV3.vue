@@ -37,7 +37,7 @@ const filteredData = computed(() => {
           v-model="filters"
           class="input custom-text-filter"
           placeholder="Search..."
-        >
+        />
       </VControl>
 
       <div class="tabs-inner">
@@ -49,7 +49,8 @@ const filteredData = computed(() => {
                 role="button"
                 @keydown.space.prevent="tab = 'all'"
                 @click="tab = 'all'"
-              ><span>All</span></a>
+                ><span>All</span></a
+              >
             </li>
             <li :class="[tab === 'team' && 'is-active']">
               <a
@@ -57,7 +58,8 @@ const filteredData = computed(() => {
                 role="button"
                 @keydown.space.prevent="tab = 'team'"
                 @click="tab = 'team'"
-              ><span>Team</span></a>
+                ><span>Team</span></a
+              >
             </li>
             <li class="tab-naver" />
           </ul>
@@ -80,12 +82,12 @@ const filteredData = computed(() => {
             class="light-image"
             src="/@dds/sets/illustrations/placeholders/search-5.svg"
             alt=""
-          >
+          />
           <img
             class="dark-image"
             src="/@dds/sets/illustrations/placeholders/search-5-dark.svg"
             alt=""
-          >
+          />
         </template>
       </VPlaceholderPage>
 
@@ -101,11 +103,7 @@ const filteredData = computed(() => {
           class="columns is-multiline is-flex-tablet-p is-half-tablet-p"
         >
           <!--Grid item-->
-          <div
-            v-for="item in filteredData"
-            :key="item.id"
-            class="column is-3"
-          >
+          <div v-for="item in filteredData" :key="item.id" class="column is-3">
             <TabbedGridItem :user="item" />
           </div>
         </TransitionGroup>
@@ -128,12 +126,12 @@ const filteredData = computed(() => {
               class="light-image is-larger"
               src="/@dds/sets/illustrations/placeholders/team.svg"
               alt=""
-            >
+            />
             <img
               class="dark-image is-larger"
               src="/@dds/sets/illustrations/placeholders/team-dark.svg"
               alt=""
-            >
+            />
           </template>
         </VPlaceholderPage>
       </div>

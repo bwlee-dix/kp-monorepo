@@ -64,14 +64,8 @@ useHead({
         <IconsLineLightDocumentation />
 
         <DocumentationDemoCard class="mt-4">
-          <div
-            class="card-inner"
-            :class="{ 'is-scrolling': isScrolling }"
-          >
-            <VFlex
-              justify-content="flex-end"
-              class="demo-icon-search py-4 px-6"
-            >
+          <div class="card-inner" :class="{ 'is-scrolling': isScrolling }">
+            <VFlex justify-content="flex-end" class="demo-icon-search py-4 px-6">
               <VField>
                 <VControl icon="feather:search">
                   <input
@@ -79,7 +73,7 @@ useHead({
                     type="search"
                     class="input is-rounded"
                     placeholder="Search line icons ..."
-                  >
+                  />
                 </VControl>
               </VField>
             </VFlex>
@@ -93,27 +87,15 @@ useHead({
                 @keydown.space.prevent="copy(getSnippet(icon))"
                 @click="copy(getSnippet(icon))"
               >
-                <i
-                  aria-hidden="true"
-                  class="lnil"
-                  :class="icon.className"
-                />
+                <i aria-hidden="true" class="lnil" :class="icon.className" />
                 <p class="textFilter-match">
                   {{ icon.className }}
                 </p>
                 <em>{{ icon.className }}</em>
-                <input
-                  type="text"
-                  maxlength="1"
-                  readonly
-                  :value="icon.char"
-                >
+                <input type="text" maxlength="1" readonly :value="icon.char" />
 
                 <Transition name="fade-fast">
-                  <span
-                    v-if="copied && text === getSnippet(icon)"
-                    class="is-copied"
-                  >
+                  <span v-if="copied && text === getSnippet(icon)" class="is-copied">
                     copied!
                   </span>
                 </Transition>

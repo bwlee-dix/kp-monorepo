@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 import { useViewWrapper } from '/@dds/stores/viewWrapper'
 import VTag from '/@dds/mponents/base/tags/VTag.vue'
 import FlexTableDropdown from '/@dds/mponents/partials/dropdowns/FlexTableDropdown.vue'
@@ -7,7 +6,6 @@ import VAvatarStack from '/@dds/mponents/base/avatar/VAvatarStack.vue'
 import { flexRowsAdvanced } from '/@dds/ta/documentation/table'
 import { onceImageErrored } from '/@dds/utils/via-placeholder'
 import { RouterLink } from 'vue-router/auto'
-
 
 const collator = new Intl.Collator('en')
 const numberFormat = new Intl.NumberFormat('en-US', {
@@ -19,7 +17,6 @@ const viewWrapper = useViewWrapper()
 const router = useRouter()
 
 viewWrapper.setPageTitle('KOSTA 2025 참가자 상세')
-
 
 useHead({
   title: 'Event - App name - KingdomPlanet',
@@ -246,23 +243,16 @@ const exampleColumns = {
       }),
   },
 } as const
-
-
 </script>
 
 <template>
-  <AdminSideblockLayout
-    theme="curved"
-    open-on-mounted
-  >
+  <AdminSideblockLayout theme="curved" open-on-mounted>
     <!-- Content Wrapper -->
     <div class="page-content-inner">
       <div class="all-projects">
         <ProjectsToolbar />
 
-        <h3 class="section-heading">
-          Recently viewed
-        </h3>
+        <h3 class="section-heading">Recently viewed</h3>
 
         <div class="columns is-multiline project-grid is-flex-tablet-p is-half-tablet-p">
           <div class="column is-one-fifth">
@@ -272,13 +262,10 @@ const exampleColumns = {
                 src="/images/icons/logos/slicer.svg"
                 alt=""
                 @error.once="onceImageErrored(150)"
-              >
+              />
               <h3>The Slicer project</h3>
               <p>Design project</p>
-              <VProgress
-                size="tiny"
-                :value="31"
-              />
+              <VProgress size="tiny" :value="31" />
             </a>
           </div>
 
@@ -289,13 +276,10 @@ const exampleColumns = {
                 src="/images/icons/logos/metamovies.svg"
                 alt=""
                 @error.once="onceImageErrored(150)"
-              >
+              />
               <h3>Metamovies reworked</h3>
               <p>Design project</p>
-              <VProgress
-                size="tiny"
-                :value="84"
-              />
+              <VProgress size="tiny" :value="84" />
             </a>
           </div>
 
@@ -306,13 +290,10 @@ const exampleColumns = {
                 src="/@dds/sets/illustrations/dashboards/flights/company1.svg"
                 alt=""
                 @error.once="onceImageErrored(150)"
-              >
+              />
               <h3>Supreme Flights app</h3>
               <p>Software project</p>
-              <VProgress
-                size="tiny"
-                :value="45"
-              />
+              <VProgress size="tiny" :value="45" />
             </a>
           </div>
 
@@ -323,13 +304,10 @@ const exampleColumns = {
                 src="/images/icons/logos/fastpizza.svg"
                 alt=""
                 @error.once="onceImageErrored(150)"
-              >
+              />
               <h3>Fastpizza delivery app</h3>
               <p>Software project</p>
-              <VProgress
-                size="tiny"
-                :value="90"
-              />
+              <VProgress size="tiny" :value="90" />
             </a>
           </div>
 
@@ -340,24 +318,17 @@ const exampleColumns = {
                 src="/images/icons/logos/drop.svg"
                 alt=""
                 @error.once="onceImageErrored(150)"
-              >
+              />
               <h3>Drop website redesign</h3>
               <p>Design project</p>
-              <VProgress
-                size="tiny"
-                :value="12"
-              />
+              <VProgress size="tiny" :value="12" />
             </a>
           </div>
         </div>
 
         <div class="columns">
           <div class="column is-12">
-            <VFlexTable
-              :data="sortedData"
-              :columns="exampleColumns"
-              rounded
-            />
+            <VFlexTable :data="sortedData" :columns="exampleColumns" rounded />
           </div>
         </div>
       </div>

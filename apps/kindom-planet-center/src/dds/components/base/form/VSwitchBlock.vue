@@ -66,16 +66,12 @@ const internal = computed({
           class="input"
           type="checkbox"
           v-bind="$attrs"
-        >
+        />
         <div class="slider" />
       </VLabel>
     </template>
     <template v-else>
-      <VLabel
-        raw
-        class="form-switch"
-        :class="[props.color && `is-${props.color}`]"
-      >
+      <VLabel raw class="form-switch" :class="[props.color && `is-${props.color}`]">
         <input
           :id="id"
           v-model="internal"
@@ -84,15 +80,12 @@ const internal = computed({
           type="checkbox"
           class="is-switch"
           v-bind="$attrs"
-        >
+        />
         <i aria-hidden="true" />
       </VLabel>
     </template>
 
-    <div
-      v-if="props.label || 'default' in $slots"
-      class="text"
-    >
+    <div v-if="props.label || 'default' in $slots" class="text">
       <VLabel raw>
         <span>
           <slot>

@@ -8,12 +8,7 @@ const emits = defineEmits<{
 </script>
 
 <template>
-  <VDropdown
-    icon="feather:more-vertical"
-    class="is-pushed-mobile"
-    spaced
-    right
-  >
+  <VDropdown icon="feather:more-vertical" class="is-pushed-mobile" spaced right>
     <template #content="{ close }">
       <a
         role="menuitem"
@@ -27,10 +22,7 @@ const emits = defineEmits<{
         "
       >
         <div class="icon">
-          <i
-            aria-hidden="true"
-            class="lnil lnil-eye"
-          />
+          <i aria-hidden="true" class="lnil lnil-eye" />
         </div>
         <div class="meta">
           <span>View</span>
@@ -50,10 +42,7 @@ const emits = defineEmits<{
         "
       >
         <div class="icon">
-          <i
-            aria-hidden="true"
-            class="lnil lnil-briefcase"
-          />
+          <i aria-hidden="true" class="lnil lnil-briefcase" />
         </div>
         <div class="meta">
           <span>Projects</span>
@@ -73,10 +62,7 @@ const emits = defineEmits<{
         "
       >
         <div class="icon">
-          <i
-            aria-hidden="true"
-            class="lnil lnil-calendar"
-          />
+          <i aria-hidden="true" class="lnil lnil-calendar" />
         </div>
         <div class="meta">
           <span>Schedule</span>
@@ -84,7 +70,7 @@ const emits = defineEmits<{
         </div>
       </a>
 
-      <hr class="dropdown-divider">
+      <hr class="dropdown-divider" />
 
       <a
         role="menuitem"
@@ -98,10 +84,7 @@ const emits = defineEmits<{
         "
       >
         <div class="icon">
-          <i
-            aria-hidden="true"
-            class="lnil lnil-trash-can-alt"
-          />
+          <i aria-hidden="true" class="lnil lnil-trash-can-alt" />
         </div>
         <div class="meta">
           <span>Remove</span>

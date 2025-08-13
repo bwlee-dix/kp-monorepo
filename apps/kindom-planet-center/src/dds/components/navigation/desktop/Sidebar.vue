@@ -39,10 +39,7 @@ const themeClasses = computed(() => {
 </script>
 
 <template>
-  <div
-    class="main-sidebar"
-    :class="[themeClasses]"
-  >
+  <div class="main-sidebar" :class="[themeClasses]">
     <div class="sidebar-brand">
       <RouterLink to="/">
         <AnimatedLogo width="36px" />

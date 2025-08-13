@@ -24,10 +24,7 @@
                 </div>
               </div>
               <div class="box-end">
-                <VAvatar
-                  size="small"
-                  picture="/images/avatars/svg/vuero-1.svg"
-                />
+                <VAvatar size="small" picture="/images/avatars/svg/vuero-1.svg" />
               </div>
             </div>
           </div>
@@ -78,20 +75,9 @@
                 </div>
               </div>
               <div class="box-end">
-                <VAvatar
-                  size="small"
-                  color="warning"
-                  initials="BT"
-                />
-                <VAvatar
-                  size="small"
-                  picture="/demo/avatars/18.jpg"
-                />
-                <VAvatar
-                  size="small"
-                  color="info"
-                  initials="JD"
-                />
+                <VAvatar size="small" color="warning" initials="BT" />
+                <VAvatar size="small" picture="/demo/avatars/18.jpg" />
+                <VAvatar size="small" color="info" initials="JD" />
               </div>
             </div>
           </div>
@@ -112,17 +98,9 @@
                 <div class="meta-text">
                   <p>
                     <span>Joshua S.</span> changed the status of a <a>Task</a> from
-                    <VTag
-                      label="Pending"
-                      color="purple"
-                      rounded
-                    />
+                    <VTag label="Pending" color="purple" rounded />
                     to
-                    <VTag
-                      label="Completed"
-                      color="green"
-                      rounded
-                    />
+                    <VTag label="Completed" color="green" rounded />
                   </p>
                   <span>9:18 am</span>
                 </div>
@@ -152,16 +130,8 @@
                 </div>
               </div>
               <div class="box-end">
-                <VAvatar
-                  size="small"
-                  squared
-                  picture="/demo/photos/apps/5.png"
-                />
-                <VAvatar
-                  size="small"
-                  squared
-                  picture="/demo/photos/apps/8.png"
-                />
+                <VAvatar size="small" squared picture="/demo/photos/apps/5.png" />
+                <VAvatar size="small" squared picture="/demo/photos/apps/8.png" />
               </div>
             </div>
           </div>
@@ -188,10 +158,7 @@
                 </div>
               </div>
               <div class="box-end">
-                <VAvatar
-                  size="small"
-                  picture="/images/avatars/svg/vuero-1.svg"
-                />
+                <VAvatar size="small" picture="/images/avatars/svg/vuero-1.svg" />
               </div>
             </div>
           </div>
@@ -236,17 +203,9 @@
                 <div class="meta-text">
                   <p>
                     <span>Melany W.</span> changed the status of a <a>Task</a> from
-                    <VTag
-                      label="Overdue"
-                      color="danger"
-                      rounded
-                    />
+                    <VTag label="Overdue" color="danger" rounded />
                     to
-                    <VTag
-                      label="Completed"
-                      color="green"
-                      rounded
-                    />
+                    <VTag label="Completed" color="green" rounded />
                   </p>
                   <span>9:18 am</span>
                 </div>
@@ -257,9 +216,7 @@
       </div>
 
       <div class="load-more-wrap has-text-centered">
-        <VButton dark-outlined>
-          Load More
-        </VButton>
+        <VButton dark-outlined> Load More </VButton>
       </div>
     </div>
   </div>

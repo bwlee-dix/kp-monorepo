@@ -117,10 +117,7 @@ const {
 
     <!--Flex Stat Widget-->
     <div class="column is-6">
-      <FlexStatWidget
-        title="Sales Revenue"
-        straight
-      >
+      <FlexStatWidget title="Sales Revenue" straight>
         <ApexChart
           id="flex-stat-circle"
           :height="flexRadialChartCircleOptions.chart.height"
@@ -133,10 +130,7 @@ const {
 
     <!--Flex Stat Widget-->
     <div class="column is-6">
-      <FlexStatWidget
-        title="Sales Revenue"
-        straight
-      >
+      <FlexStatWidget title="Sales Revenue" straight>
         <ApexChart
           id="flex-stat-radial"
           :height="flexRadialChartStripesOptions.chart.height"
@@ -224,31 +218,17 @@ const {
 
     <!--Followers Stat Widget-->
     <div class="column is-4">
-      <SocialStatWidget
-        icon="fab fa-twitter"
-        value="138K"
-        straight
-      />
+      <SocialStatWidget icon="fab fa-twitter" value="138K" straight />
     </div>
 
     <!--Followers Stat Widget-->
     <div class="column is-4">
-      <SocialStatWidget
-        icon="fab fa-twitter"
-        value="138K"
-        straight
-        squared
-      />
+      <SocialStatWidget icon="fab fa-twitter" value="138K" straight squared />
     </div>
 
     <!--Followers Stat Widget-->
     <div class="column is-4">
-      <SocialStatWidget
-        icon="fab fa-twitter"
-        value="138K"
-        straight
-        colored
-      />
+      <SocialStatWidget icon="fab fa-twitter" value="138K" straight colored />
     </div>
 
     <!--Table Widget-->

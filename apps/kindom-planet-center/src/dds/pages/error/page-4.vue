@@ -22,7 +22,7 @@ useHead({
           type="checkbox"
           :checked="!darkmode.isDark"
           @change="darkmode.onChange"
-        >
+        />
         <span />
       </label>
     </div>
@@ -33,26 +33,19 @@ useHead({
           class="light-image"
           src="/@dds/assets/illustrations/placeholders/error-4.svg"
           alt=""
-        >
+        />
         <img
           class="dark-image"
           src="/@dds/assets/illustrations/placeholders/error-4-dark.svg"
           alt=""
-        >
-        <h3 class="dark-inverted">
-          We couldn't find that page
-        </h3>
+        />
+        <h3 class="dark-inverted">We couldn't find that page</h3>
         <p>
           Looks like we couldn't find that page. Please try again or contact an
           administrator if the problem persists.
         </p>
         <div class="button-wrap">
-          <VButton
-            color="primary"
-            elevated
-            rounded
-            @click="$router.go(-1)"
-          >
+          <VButton color="primary" elevated rounded @click="$router.go(-1)">
             Take me Back
           </VButton>
         </div>

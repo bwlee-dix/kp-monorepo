@@ -80,28 +80,14 @@ useHead({
     <div class="roadmap-wrapper">
       <!--Top header-->
       <div class="roadmap-top">
-        <RouterLink
-          to="/"
-          class="logo"
-        >
-          <AnimatedLogo
-            width="38px"
-            height="38px"
-          />
+        <RouterLink to="/" class="logo">
+          <AnimatedLogo width="38px" height="38px" />
         </RouterLink>
         <div>
-          <RouterLink
-            class="action-link mx-4"
-            to="/sidebar/dashboards"
-          >
+          <RouterLink class="action-link mx-4" to="/sidebar/dashboards">
             Home
           </RouterLink>
-          <RouterLink
-            class="action-link mx-4"
-            to="/status"
-          >
-            App Status
-          </RouterLink>
+          <RouterLink class="action-link mx-4" to="/status"> App Status </RouterLink>
         </div>
       </div>
 
@@ -124,14 +110,9 @@ useHead({
       >
         <template #tab="{ activeValue }">
           <div v-if="activeValue === 'roadmap'">
-            <div
-              id="roadmap"
-              class="roadmap-outer"
-            >
+            <div id="roadmap" class="roadmap-outer">
               <div class="roadmap-header has-text-centered">
-                <h2 class="title is-2 is-bold">
-                  Our Roadmap
-                </h2>
+                <h2 class="title is-2 is-bold">Our Roadmap</h2>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Omnis enim est
                   natura diligens sui. Philosophi autem in suis lectulis plerumque
@@ -151,10 +132,7 @@ useHead({
               <div class="roadmap-inner">
                 <div class="roadmap-toolbar is-responsive">
                   <div class="start">
-                    <VField
-                      v-slot="{ id }"
-                      class="is-autocomplete-select"
-                    >
+                    <VField v-slot="{ id }" class="is-autocomplete-select">
                       <VLabel>Year</VLabel>
                       <VControl icon="feather:search">
                         <Multiselect
@@ -214,55 +192,37 @@ useHead({
                           {{ activeYearProgress }}%
                         </span>
                       </div>
-                      <VProgress
-                        size="smaller"
-                        :value="activeYearProgress"
-                      />
+                      <VProgress size="smaller" :value="activeYearProgress" />
                     </VField>
                   </div>
                 </div>
 
                 <div class="roadmap-list">
                   <!--Item-->
-                  <template
-                    v-for="(year, index) in data.roadmap"
-                    :key="index"
-                  >
-                    <template
-                      v-for="quarter in year.quarters"
-                      :key="quarter.id"
-                    >
+                  <template v-for="(year, index) in data.roadmap" :key="index">
+                    <template v-for="quarter in year.quarters" :key="quarter.id">
                       <div
                         v-if="
                           selectedYear.includes(quarter.year) &&
-                            String(quarter.quarter) === String(selectedQuarter)
+                          String(quarter.quarter) === String(selectedQuarter)
                         "
                         class="roadmap-item"
                       >
-                        <VCollapse
-                          :items="quarter.features"
-                          with-chevron
-                        >
+                        <VCollapse :items="quarter.features" with-chevron>
                           <template #collapse-item-head="item">
                             <div class="head-info">
                               <div class="head-progress">
                                 <span class="text">Progress</span>
                                 <span class="value">{{ item.item.value }}%</span>
                               </div>
-                              <VProgress
-                                size="tiny"
-                                :value="item.item.value"
-                              />
+                              <VProgress size="tiny" :value="item.item.value" />
                             </div>
                           </template>
                           <template #collapse-item-content="item">
                             <div class="body-inner-content">
                               <p>{{ item.item.content }}</p>
                               <div v-if="item.item.url !== undefined">
-                                <a
-                                  class="action-link"
-                                  :href="item.item.url"
-                                >Read More</a>
+                                <a class="action-link" :href="item.item.url">Read More</a>
                               </div>
                             </div>
                           </template>
@@ -275,14 +235,9 @@ useHead({
             </div>
           </div>
           <div v-else-if="activeValue === 'changelog'">
-            <div
-              id="changelog"
-              class="roadmap-outer"
-            >
+            <div id="changelog" class="roadmap-outer">
               <div class="roadmap-header has-text-centered">
-                <h2 class="title is-2 is-bold">
-                  Changelog
-                </h2>
+                <h2 class="title is-2 is-bold">Changelog</h2>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Omnis enim est
                   natura diligens sui. Philosophi autem in suis lectulis plerumque
@@ -299,10 +254,7 @@ useHead({
               <div class="roadmap-inner">
                 <div class="roadmap-toolbar">
                   <div class="start">
-                    <VField
-                      v-slot="{ id }"
-                      class="is-autocomplete-select"
-                    >
+                    <VField v-slot="{ id }" class="is-autocomplete-select">
                       <VLabel>Entry types</VLabel>
                       <VControl icon="feather:search">
                         <Multiselect
@@ -330,10 +282,7 @@ useHead({
                     </div>
                     <div class="changelog-items-inner">
                       <!--Item-->
-                      <template
-                        v-for="(item, r) in block.releases"
-                        :key="r"
-                      >
+                      <template v-for="(item, r) in block.releases" :key="r">
                         <div class="changelog-item">
                           <VCardAdvanced>
                             <template #header-left>
@@ -342,10 +291,7 @@ useHead({
                               </h3>
                             </template>
                             <template #header-right>
-                              <VTag
-                                :label="item.tag"
-                                curved
-                              />
+                              <VTag :label="item.tag" curved />
                             </template>
                             <template #content>
                               <div
@@ -408,7 +354,7 @@ useHead({
             type="checkbox"
             :checked="!darkmode.isDark"
             @change="darkmode.onChange"
-          >
+          />
           <span />
         </label>
         <div>
@@ -417,10 +363,7 @@ useHead({
           <a href="#">Jobs</a>
         </div>
         <div class="copyright">
-          <span
-            role="img"
-            aria-label="copyright"
-          >&copy;</span>
+          <span role="img" aria-label="copyright">&copy;</span>
           <span>2020-2023 cssninjaStudio</span>
         </div>
       </div>

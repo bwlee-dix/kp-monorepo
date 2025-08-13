@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 import { useViewWrapper } from '/@dds/stores/viewWrapper'
 
 const viewWrapper = useViewWrapper()
@@ -23,31 +22,20 @@ const onSubmit = () => {
   console.log('Form submitted!')
 }
 
-const appName=ref("GMMA")
-const appDescription=ref("Global Medical Missions Alliance")
-const appId=ref("9hga90wfq0wf8wehfi0asf")
-const appKey=ref("12j1riufhweuh9wqef0iewqv")
-const webUrl=ref("https://gmma.kingdompla.net")
+const appName = ref('GMMA')
+const appDescription = ref('Global Medical Missions Alliance')
+const appId = ref('9hga90wfq0wf8wehfi0asf')
+const appKey = ref('12j1riufhweuh9wqef0iewqv')
+const webUrl = ref('https://gmma.kingdompla.net')
 </script>
 
 <template>
-  <DeveloperSideblockLayout
-    theme="curved"
-    open-on-mounted
-  >
+  <DeveloperSideblockLayout theme="curved" open-on-mounted>
     <!-- Content Wrapper -->
     <div class="page-content-inner">
-      <form
-        method="post"
-        novalidate
-        class="form-layout"
-        @submit.prevent="onSubmit"
-      >
+      <form method="post" novalidate class="form-layout" @submit.prevent="onSubmit">
         <div class="form-outer">
-          <div
-            :class="[isStuck && 'is-stuck']"
-            class="form-header stuck-header"
-          >
+          <div :class="[isStuck && 'is-stuck']" class="form-header stuck-header">
             <div class="form-header-inner">
               <div class="left">
                 <h3>App Info</h3>
@@ -55,18 +43,8 @@ const webUrl=ref("https://gmma.kingdompla.net")
 
               <div class="right">
                 <div class="buttons">
-                  <VTag
-                    color="blue"
-                    label="Reviewing"
-                    curved
-                  />
-                  <VButton
-                    type="submit"
-                    color="primary"
-                    raised
-                  >
-                    Review
-                  </VButton>
+                  <VTag color="blue" label="Reviewing" curved />
+                  <VButton type="submit" color="primary" raised> Review </VButton>
                 </div>
               </div>
             </div>
@@ -117,11 +95,7 @@ const webUrl=ref("https://gmma.kingdompla.net")
                   <VField>
                     <VLabel>App ID</VLabel>
                     <VControl icon="feather:mail">
-                      <VInput
-                        v-model:model-value="appId"
-                        type="text"
-                        disabled
-                      />
+                      <VInput v-model:model-value="appId" type="text" disabled />
                     </VControl>
                   </VField>
                 </div>
@@ -129,11 +103,7 @@ const webUrl=ref("https://gmma.kingdompla.net")
                   <VField>
                     <VLabel>API Key</VLabel>
                     <VControl icon="feather:mail">
-                      <VInput
-                        v-model:model-value="appKey"
-                        type="text"
-                        disabled
-                      />
+                      <VInput v-model:model-value="appKey" type="text" disabled />
                     </VControl>
                   </VField>
                 </div>
@@ -163,10 +133,7 @@ const webUrl=ref("https://gmma.kingdompla.net")
                   <VField>
                     <VLabel>IOS URL</VLabel>
                     <VControl icon="feather:box">
-                      <VInput
-                        type="text"
-                        placeholder="ios app url"
-                      />
+                      <VInput type="text" placeholder="ios app url" />
                     </VControl>
                   </VField>
                 </div>
@@ -175,10 +142,7 @@ const webUrl=ref("https://gmma.kingdompla.net")
                   <VField>
                     <VLabel>AOS URL</VLabel>
                     <VControl icon="feather:box">
-                      <VInput
-                        type="text"
-                        placeholder="aos app url"
-                      />
+                      <VInput type="text" placeholder="aos app url" />
                     </VControl>
                   </VField>
                 </div>

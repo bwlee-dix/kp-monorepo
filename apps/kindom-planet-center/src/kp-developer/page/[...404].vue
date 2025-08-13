@@ -7,9 +7,7 @@ const { t } = useI18n()
 
 useHead({
   title: `${t('pages.not-found.page-title')} - Kingdom Planet Center`,
-  meta: [
-    { name: 'robots', content: 'noindex' },
-  ],
+  meta: [{ name: 'robots', content: 'noindex' }],
 })
 </script>
 
@@ -21,33 +19,29 @@ useHead({
           class="dark-mode"
           tabindex="0"
           role="button"
-          @keydown.space.prevent="(e: KeyboardEvent ) => (e.target as HTMLLabelElement).click()"
+          @keydown.space.prevent="
+            (e: KeyboardEvent) => (e.target as HTMLLabelElement).click()
+          "
         >
           <input
             data-cy="dark-mode-toggle"
             type="checkbox"
             :checked="!darkmode.isDark"
             @change="darkmode.onChange"
-          >
+          />
           <span />
         </label>
       </div>
 
       <div class="error-wrapper">
         <div class="error-inner has-text-centered">
-          <div class="bg-number">
-            404
-          </div>
+          <div class="bg-number">404</div>
           <SVGErrorPlaceholder />
 
           <h3>{{ t('pages.not-found.page-heading') }}</h3>
           <p>{{ t('pages.not-found.page-body') }}</p>
           <div class="button-wrap">
-            <VButton
-              color="primary"
-              elevated
-              @click="$router.go(-1)"
-            >
+            <VButton color="primary" elevated @click="$router.go(-1)">
               {{ t('pages.not-found.page-button') }}
             </VButton>
           </div>

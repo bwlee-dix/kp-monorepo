@@ -32,13 +32,9 @@ const filteredData = computed(() => {
           class="input custom-text-filter"
           placeholder="Search..."
           data-filter-target=".list-view-item"
-        >
+        />
         <div class="form-icon">
-          <i
-            aria-hidden="true"
-            class="iconify"
-            data-icon="feather:search"
-          />
+          <i aria-hidden="true" class="iconify" data-icon="feather:search" />
         </div>
       </VControl>
 
@@ -51,7 +47,8 @@ const filteredData = computed(() => {
                 role="button"
                 @keydown.space.prevent="activeTab = 'all'"
                 @click="activeTab = 'all'"
-              ><span>All</span></a>
+                ><span>All</span></a
+              >
             </li>
             <li :class="[activeTab === 'saved' && 'is-active']">
               <a
@@ -59,7 +56,8 @@ const filteredData = computed(() => {
                 role="button"
                 @keydown.space.prevent="activeTab = 'saved'"
                 @click="activeTab = 'saved'"
-              ><span>Saved</span></a>
+                ><span>Saved</span></a
+              >
             </li>
             <li class="tab-naver" />
           </ul>
@@ -84,12 +82,12 @@ const filteredData = computed(() => {
               class="light-image"
               src="/@dds/sets/illustrations/placeholders/search-3.svg"
               alt=""
-            >
+            />
             <img
               class="dark-image"
               src="/@dds/sets/illustrations/placeholders/search-3-dark.svg"
               alt=""
-            >
+            />
           </template>
         </VPlaceholderPage>
 
@@ -100,48 +98,27 @@ const filteredData = computed(() => {
           :class="[activeTab === 'all' && 'is-active']"
         >
           <div class="list-view-inner">
-            <TransitionGroup
-              name="list-complete"
-              tag="div"
-            >
+            <TransitionGroup name="list-complete" tag="div">
               <!--Item-->
-              <div
-                v-for="item in filteredData"
-                :key="item.id"
-                class="list-view-item"
-              >
+              <div v-for="item in filteredData" :key="item.id" class="list-view-item">
                 <div class="list-view-item-inner">
                   <img
                     class="avatar"
                     :src="item.logo"
                     alt=""
                     @error.once="onceImageErrored(150)"
-                  >
+                  />
                   <div class="meta-left">
                     <h3>
                       {{ item.title }}
                     </h3>
                     <span>
-                      <i
-                        aria-hidden="true"
-                        class="iconify"
-                        data-icon="feather:map-pin"
-                      />
+                      <i aria-hidden="true" class="iconify" data-icon="feather:map-pin" />
                       <span>{{ item.location }}</span>
-                      <i
-                        aria-hidden="true"
-                        class="fas fa-circle icon-separator"
-                      />
-                      <i
-                        aria-hidden="true"
-                        class="iconify"
-                        data-icon="feather:clock"
-                      />
+                      <i aria-hidden="true" class="fas fa-circle icon-separator" />
+                      <i aria-hidden="true" class="iconify" data-icon="feather:clock" />
                       <span>{{ item.duration }}</span>
-                      <i
-                        aria-hidden="true"
-                        class="fas fa-circle icon-separator"
-                      />
+                      <i aria-hidden="true" class="fas fa-circle icon-separator" />
                       <i
                         aria-hidden="true"
                         class="iconify"
@@ -152,13 +129,7 @@ const filteredData = computed(() => {
                   </div>
                   <div class="meta-right">
                     <div class="buttons">
-                      <VButton
-                        color="primary"
-                        outlined
-                        raised
-                      >
-                        Apply Now
-                      </VButton>
+                      <VButton color="primary" outlined raised> Apply Now </VButton>
 
                       <VIconButton
                         icon="feather:bookmark"
@@ -201,12 +172,12 @@ const filteredData = computed(() => {
                   class="light-image"
                   src="/@dds/sets/illustrations/placeholders/thinking-canvas.svg"
                   alt=""
-                >
+                />
                 <img
                   class="dark-image"
                   src="/@dds/sets/illustrations/placeholders/thinking-canvas-dark.svg"
                   alt=""
-                >
+                />
               </template>
             </VPlaceholderPage>
           </div>

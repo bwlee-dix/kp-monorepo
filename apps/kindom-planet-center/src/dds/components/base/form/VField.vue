@@ -40,14 +40,8 @@ defineExpose({ field, id })
 <template>
   <div :class="classes">
     <template v-if="props.addons">
-      <div
-        v-if="hasLabel"
-        class="field-addon-label is-normal"
-      >
-        <slot
-          v-bind="{ field, id }"
-          name="label"
-        >
+      <div v-if="hasLabel" class="field-addon-label is-normal">
+        <slot v-bind="{ field, id }" name="label">
           <VLabel>{{ props.label }}</VLabel>
         </slot>
       </div>
@@ -57,10 +51,7 @@ defineExpose({ field, id })
     </template>
     <template v-else-if="hasLabel && props.horizontal">
       <div class="field-label is-normal">
-        <slot
-          v-bind="{ field, id }"
-          name="label"
-        >
+        <slot v-bind="{ field, id }" name="label">
           <VLabel>{{ props.label }}</VLabel>
         </slot>
       </div>
@@ -69,10 +60,7 @@ defineExpose({ field, id })
       </div>
     </template>
     <template v-else-if="hasLabel">
-      <slot
-        v-bind="{ field, id }"
-        name="label"
-      >
+      <slot v-bind="{ field, id }" name="label">
         <VLabel>{{ props.label }}</VLabel>
       </slot>
 

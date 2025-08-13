@@ -57,10 +57,7 @@ useHead({
         <!--Events-->
         <SwitchSegmentEventsDocumentation />
       </div>
-      <div
-        v-if="toc.length"
-        class="column is-3 toc-column"
-      >
+      <div v-if="toc.length" class="column is-3 toc-column">
         <DocumentationToc :toc="toc" />
       </div>
     </div>

@@ -6,11 +6,7 @@
         <!--Navigation-->
         <div class="column is-4">
           <div class="account-box is-navigation">
-            <VBlock
-              title="Erik Kovalsky"
-              subtitle="Product Manager"
-              center
-            >
+            <VBlock title="Erik Kovalsky" subtitle="Product Manager" center>
               <template #icon>
                 <VAvatar
                   size="large"
@@ -21,68 +17,41 @@
             </VBlock>
 
             <div class="account-menu">
-              <RouterLink
-                to="/navbar/layouts/profile-edit"
-                class="account-menu-item"
-              >
-                <i
-                  aria-hidden="true"
-                  class="lnil lnil-user-alt"
-                />
+              <RouterLink to="/navbar/layouts/profile-edit" class="account-menu-item">
+                <i aria-hidden="true" class="lnil lnil-user-alt" />
                 <span>General</span>
                 <span class="end">
-                  <i
-                    aria-hidden="true"
-                    class="fas fa-arrow-right"
-                  />
+                  <i aria-hidden="true" class="fas fa-arrow-right" />
                 </span>
               </RouterLink>
               <RouterLink
                 to="/navbar/layouts/profile-edit-experience"
                 class="account-menu-item"
               >
-                <i
-                  aria-hidden="true"
-                  class="lnil lnil-crown-alt"
-                />
+                <i aria-hidden="true" class="lnil lnil-crown-alt" />
                 <span>Experience</span>
                 <span class="end">
-                  <i
-                    aria-hidden="true"
-                    class="fas fa-arrow-right"
-                  />
+                  <i aria-hidden="true" class="fas fa-arrow-right" />
                 </span>
               </RouterLink>
               <RouterLink
                 to="/navbar/layouts/profile-edit-skills"
                 class="account-menu-item"
               >
-                <i
-                  aria-hidden="true"
-                  class="lnil lnil-quill"
-                />
+                <i aria-hidden="true" class="lnil lnil-quill" />
                 <span>Skills</span>
                 <span class="end">
-                  <i
-                    aria-hidden="true"
-                    class="fas fa-arrow-right"
-                  />
+                  <i aria-hidden="true" class="fas fa-arrow-right" />
                 </span>
               </RouterLink>
               <RouterLink
                 to="/navbar/layouts/profile-edit-settings"
                 class="account-menu-item"
               >
-                <i
-                  aria-hidden="true"
-                  class="lnil lnil-cog"
-                />
+                <i aria-hidden="true" class="lnil lnil-cog" />
                 <span>Settings</span>
                 <span class="end">
-                  <i
-                    aria-hidden="true"
-                    class="fas fa-arrow-right"
-                  />
+                  <i aria-hidden="true" class="fas fa-arrow-right" />
                 </span>
               </RouterLink>
             </div>
@@ -90,10 +59,7 @@
         </div>
         <div class="column is-8">
           <RouterView v-slot="{ Component }">
-            <Transition
-              name="translate-page-y"
-              mode="in-out"
-            >
+            <Transition name="translate-page-y" mode="in-out">
               <component :is="Component" />
             </Transition>
           </RouterView>

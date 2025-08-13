@@ -50,10 +50,7 @@ const onSave = async () => {
 
 <template>
   <div class="account-box is-form is-footerless">
-    <div
-      class="form-head stuck-header"
-      :class="[isScrolling && 'is-stuck']"
-    >
+    <div class="form-head stuck-header" :class="[isScrolling && 'is-stuck']">
       <div class="form-head-inner">
         <div class="left">
           <h3>Skills and Tools</h3>
@@ -86,17 +83,11 @@ const onSave = async () => {
     <div class="form-body">
       <!--Fieldset-->
       <div class="fieldset">
-        <div
-          v-if="!isEditingLanguages"
-          class="fieldset-heading"
-        >
+        <div v-if="!isEditingLanguages" class="fieldset-heading">
           <h4>Languages</h4>
           <p>How many languages do you speak?</p>
         </div>
-        <div
-          v-else
-          class="fieldset-heading"
-        >
+        <div v-else class="fieldset-heading">
           <a
             class="action-link"
             tabindex="0"
@@ -120,10 +111,7 @@ const onSave = async () => {
             <div class="field-wrap">
               <div class="columns is-multiline">
                 <div class="column is-6">
-                  <VField
-                    v-slot="{ id }"
-                    class="is-image-select"
-                  >
+                  <VField v-slot="{ id }" class="is-image-select">
                     <VControl>
                       <Multiselect
                         v-model="selectedLanguage"
@@ -155,22 +143,14 @@ const onSave = async () => {
                       >
                         <template #singlelabel="{ value }">
                           <div class="multiselect-single-label">
-                            <img
-                              class="select-label-icon"
-                              :src="value.icon"
-                              alt=""
-                            >
+                            <img class="select-label-icon" :src="value.icon" alt="" />
                             <span class="select-label-text">
                               {{ value.name }}
                             </span>
                           </div>
                         </template>
                         <template #option="{ option }">
-                          <img
-                            class="select-option-icon"
-                            :src="option.icon"
-                            alt=""
-                          >
+                          <img class="select-option-icon" :src="option.icon" alt="" />
                           <span class="select-label-text">
                             {{ option.name }}
                           </span>
@@ -315,17 +295,11 @@ const onSave = async () => {
 
       <!--Fieldset-->
       <div class="fieldset">
-        <div
-          v-if="!isEditingSkills"
-          class="fieldset-heading"
-        >
+        <div v-if="!isEditingSkills" class="fieldset-heading">
           <h4>Skills</h4>
           <p>Add your best skills</p>
         </div>
-        <div
-          v-else
-          class="fieldset-heading"
-        >
+        <div v-else class="fieldset-heading">
           <a
             class="action-link"
             tabindex="0"
@@ -349,10 +323,7 @@ const onSave = async () => {
             <div class="field-wrap">
               <div class="columns is-multiline">
                 <div class="column is-6">
-                  <VField
-                    v-slot="{ id }"
-                    class="is-image-select"
-                  >
+                  <VField v-slot="{ id }" class="is-image-select">
                     <VControl>
                       <Multiselect
                         v-model="selectedSkill"
@@ -404,22 +375,14 @@ const onSave = async () => {
                       >
                         <template #singlelabel="{ value }">
                           <div class="multiselect-single-label">
-                            <img
-                              class="select-label-icon"
-                              :src="value.icon"
-                              alt=""
-                            >
+                            <img class="select-label-icon" :src="value.icon" alt="" />
                             <span class="select-label-text">
                               {{ value.name }}
                             </span>
                           </div>
                         </template>
                         <template #option="{ option }">
-                          <img
-                            class="select-option-icon"
-                            :src="option.icon"
-                            alt=""
-                          >
+                          <img class="select-option-icon" :src="option.icon" alt="" />
                           <span class="select-label-text">
                             {{ option.name }}
                           </span>
@@ -563,17 +526,11 @@ const onSave = async () => {
 
       <!--Fieldset-->
       <div class="fieldset">
-        <div
-          v-if="!isEditingTools"
-          class="fieldset-heading"
-        >
+        <div v-if="!isEditingTools" class="fieldset-heading">
           <h4>Tools</h4>
           <p>Add the tools you work with</p>
         </div>
-        <div
-          v-else
-          class="fieldset-heading"
-        >
+        <div v-else class="fieldset-heading">
           <a
             class="action-link"
             tabindex="0"
@@ -596,10 +553,7 @@ const onSave = async () => {
             <div class="field-wrap">
               <div class="columns is-multiline">
                 <div class="column is-6">
-                  <VField
-                    v-slot="{ id }"
-                    class="is-image-select"
-                  >
+                  <VField v-slot="{ id }" class="is-image-select">
                     <VControl>
                       <Multiselect
                         v-model="selectedTool"
@@ -631,22 +585,14 @@ const onSave = async () => {
                       >
                         <template #singlelabel="{ value }">
                           <div class="multiselect-single-label">
-                            <img
-                              class="select-label-icon"
-                              :src="value.icon"
-                              alt=""
-                            >
+                            <img class="select-label-icon" :src="value.icon" alt="" />
                             <span class="select-label-text">
                               {{ value.name }}
                             </span>
                           </div>
                         </template>
                         <template #option="{ option }">
-                          <img
-                            class="select-option-icon"
-                            :src="option.icon"
-                            alt=""
-                          >
+                          <img class="select-option-icon" :src="option.icon" alt="" />
                           <span class="select-label-text">
                             {{ option.name }}
                           </span>

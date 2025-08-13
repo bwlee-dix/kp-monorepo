@@ -21,10 +21,7 @@ const props = withDefaults(defineProps<VMessageProps>(), {
 </script>
 
 <template>
-  <div
-    class="message"
-    :class="[props.color && `is-${props.color}`]"
-  >
+  <div class="message" :class="[props.color && `is-${props.color}`]">
     <a
       v-if="props.closable"
       aria-label="Dismiss"

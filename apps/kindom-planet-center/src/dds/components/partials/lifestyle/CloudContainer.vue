@@ -2,154 +2,79 @@
   <div class="cloud-container">
     <ul>
       <li>
-        <a
-          class="size1"
-          href="#"
-        >adobe</a>
+        <a class="size1" href="#">adobe</a>
       </li>
       <li>
-        <a
-          class="size2"
-          href="#"
-        >animation</a>
+        <a class="size2" href="#">animation</a>
       </li>
       <li>
-        <a
-          class="size3"
-          href="#"
-        >arts</a>
+        <a class="size3" href="#">arts</a>
       </li>
       <li>
-        <a
-          class="size4"
-          href="#"
-        >bizarre</a>
+        <a class="size4" href="#">bizarre</a>
       </li>
       <li>
-        <a
-          class="size5"
-          href="#"
-        >blogs</a>
+        <a class="size5" href="#">blogs</a>
       </li>
       <li>
-        <a
-          class="size6"
-          href="#"
-        >books</a>
+        <a class="size6" href="#">books</a>
       </li>
       <li>
-        <a
-          class="size1"
-          href="#"
-        >comics</a>
+        <a class="size1" href="#">comics</a>
       </li>
       <li>
-        <a
-          class="size2"
-          href="#"
-        >computer-graphics</a>
+        <a class="size2" href="#">computer-graphics</a>
       </li>
       <li>
-        <a
-          class="size3"
-          href="#"
-        >cooking</a>
+        <a class="size3" href="#">cooking</a>
       </li>
       <li>
-        <a
-          class="size4"
-          href="#"
-        >cyberculture</a>
+        <a class="size4" href="#">cyberculture</a>
       </li>
       <li>
-        <a
-          class="size5"
-          href="#"
-        >design</a>
+        <a class="size5" href="#">design</a>
       </li>
       <li>
-        <a
-          class="size6"
-          href="#"
-        >drawing</a>
+        <a class="size6" href="#">drawing</a>
       </li>
       <li>
-        <a
-          class="size1"
-          href="#"
-        >fine-arts</a>
+        <a class="size1" href="#">fine-arts</a>
       </li>
       <li>
-        <a
-          class="size2"
-          href="#"
-        >graphic-design</a>
+        <a class="size2" href="#">graphic-design</a>
       </li>
       <li>
-        <a
-          class="size3"
-          href="#"
-        >humor</a>
+        <a class="size3" href="#">humor</a>
       </li>
       <li>
-        <a
-          class="size4"
-          href="#"
-        >illustration</a>
+        <a class="size4" href="#">illustration</a>
       </li>
       <li>
-        <a
-          class="size5"
-          href="#"
-        >indesign</a>
+        <a class="size5" href="#">indesign</a>
       </li>
       <li>
-        <a
-          class="size6"
-          href="#"
-        >internet</a>
+        <a class="size6" href="#">internet</a>
       </li>
       <li>
-        <a
-          class="size1"
-          href="#"
-        >movies</a>
+        <a class="size1" href="#">movies</a>
       </li>
       <li>
-        <a
-          class="size2"
-          href="#"
-        >mac-os</a>
+        <a class="size2" href="#">mac-os</a>
       </li>
       <li>
-        <a
-          class="size3"
-          href="#"
-        >multimedia</a>
+        <a class="size3" href="#">multimedia</a>
       </li>
       <li>
-        <a
-          class="size4"
-          href="#"
-        >online-games</a>
+        <a class="size4" href="#">online-games</a>
       </li>
       <li>
-        <a
-          class="size5"
-          href="#"
-        >photography</a>
+        <a class="size5" href="#">photography</a>
       </li>
       <li>
-        <a
-          class="size6"
-          href="#"
-        >web-design</a>
+        <a class="size6" href="#">web-design</a>
       </li>
       <li>
-        <a
-          class="size1"
-          href="#"
-        >css</a>
+        <a class="size1" href="#">css</a>
       </li>
     </ul>
   </div>

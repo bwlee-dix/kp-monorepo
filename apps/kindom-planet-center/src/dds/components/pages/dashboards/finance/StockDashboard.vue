@@ -7,13 +7,7 @@
           <!--Dropdown-->
           <GraphDropdown />
 
-          <svg
-            id="stock-chart-1"
-            data-vivus
-            viewBox="0 0 250 60"
-            width="250"
-            height="90"
-          >
+          <svg id="stock-chart-1" data-vivus viewBox="0 0 250 60" width="250" height="90">
             <path
               d="M 209.328 17.34 C 221.956 17.588 235.264 32.599 250 22.328"
               fill="none"
@@ -24,23 +18,9 @@
               stroke-linecap="round"
               stroke-miterlimit="3"
             />
-            <linearGradient
-              id="_lgradient_1"
-              x1="0%"
-              y1="50%"
-              x2="100%"
-              y2="50%"
-            >
-              <stop
-                offset="0%"
-                stop-opacity="1"
-                style="stop-color: rgb(65 184 131)"
-              />
-              <stop
-                offset="100%"
-                stop-opacity="1"
-                style="stop-color: rgb(182 240 214)"
-              />
+            <linearGradient id="_lgradient_1" x1="0%" y1="50%" x2="100%" y2="50%">
+              <stop offset="0%" stop-opacity="1" style="stop-color: rgb(65 184 131)" />
+              <stop offset="100%" stop-opacity="1" style="stop-color: rgb(182 240 214)" />
             </linearGradient>
             <path
               d=" M 0 43.634 C 5.934 43.634 11.318 51.209 17.462 51.342 C 33.219 51.683 30.603 59.567 39.187 59.868 C 46.963 60.141 50.44 44.192 60.537 43.77 C 69.126 43.77 72.129 52.461 79.739 52.433 C 90.904 52.433 94.93 38.455 106.648 39.78 C 129.082 42.317 124.556 27.606 139.157 27.177 C 153.758 26.747 158.235 44.485 171.96 44.725 C 196.438 45.155 189.782 17.1 208.248 17.1"
@@ -66,18 +46,11 @@
           </svg>
           <div class="stock">
             <div class="stock-logo snapchat">
-              <i
-                aria-hidden="true"
-                class="fab fa-inverse fa-snapchat"
-              />
+              <i aria-hidden="true" class="fab fa-inverse fa-snapchat" />
             </div>
             <div class="stock-info">
-              <div class="stock-name">
-                SPCH
-              </div>
-              <div class="stock-fullname">
-                Snapchat
-              </div>
+              <div class="stock-name">SPCH</div>
+              <div class="stock-fullname">Snapchat</div>
             </div>
           </div>
         </div>
@@ -89,13 +62,7 @@
           <!--Dropdown-->
           <GraphDropdown />
 
-          <svg
-            id="stock-chart-2"
-            data-vivus
-            viewBox="0 0 250 60"
-            width="250"
-            height="90"
-          >
+          <svg id="stock-chart-2" data-vivus viewBox="0 0 250 60" width="250" height="90">
             <path
               vector-effect="non-scaling-stroke"
               d="M209.3,32.3c12.6,0.2,25.9,15.3,40.7,5"
@@ -106,28 +73,12 @@
               stroke-linecap="round"
               stroke-miterlimit="3"
             />
-            <text
-              transform="matrix(1 0 0 1 195 20)"
-              stroke="none"
-              fill="rgb(51, 51, 51)"
-            >
+            <text transform="matrix(1 0 0 1 195 20)" stroke="none" fill="rgb(51, 51, 51)">
               -5%
             </text>
-            <linearGradient
-              id="_lgradient_2"
-              x1="0%"
-              y1="50%"
-              x2="100%"
-              y2="50%"
-            >
-              <stop
-                offset="0"
-                style="stop-color: rgb(51 51 51)"
-              />
-              <stop
-                offset="1"
-                style="stop-color: rgb(87 83 83)"
-              />
+            <linearGradient id="_lgradient_2" x1="0%" y1="50%" x2="100%" y2="50%">
+              <stop offset="0" style="stop-color: rgb(51 51 51)" />
+              <stop offset="1" style="stop-color: rgb(87 83 83)" />
             </linearGradient>
             <path
               fill="none"
@@ -148,18 +99,11 @@
           </svg>
           <div class="stock">
             <div class="stock-logo github">
-              <i
-                aria-hidden="true"
-                class="fab fa-inverse fa-github"
-              />
+              <i aria-hidden="true" class="fab fa-inverse fa-github" />
             </div>
             <div class="stock-info">
-              <div class="stock-name">
-                GTHB
-              </div>
-              <div class="stock-fullname">
-                Github
-              </div>
+              <div class="stock-name">GTHB</div>
+              <div class="stock-fullname">Github</div>
             </div>
           </div>
         </div>
@@ -170,13 +114,7 @@
           <!--Dropdown-->
           <GraphDropdown />
 
-          <svg
-            id="stock-chart-3"
-            data-vivus
-            viewBox="0 0 250 60"
-            width="250"
-            height="90"
-          >
+          <svg id="stock-chart-3" data-vivus viewBox="0 0 250 60" width="250" height="90">
             <path
               fill="none"
               vector-effect="non-scaling-stroke"
@@ -194,21 +132,9 @@
             >
               +8%
             </text>
-            <linearGradient
-              id="_lgradient_3"
-              x1="0%"
-              y1="50%"
-              x2="100%"
-              y2="50%"
-            >
-              <stop
-                offset="0"
-                style="stop-color: rgb(255 51 102)"
-              />
-              <stop
-                offset="1"
-                style="stop-color: rgb(255 143 171)"
-              />
+            <linearGradient id="_lgradient_3" x1="0%" y1="50%" x2="100%" y2="50%">
+              <stop offset="0" style="stop-color: rgb(255 51 102)" />
+              <stop offset="1" style="stop-color: rgb(255 143 171)" />
             </linearGradient>
             <path
               fill="none"
@@ -229,18 +155,11 @@
           </svg>
           <div class="stock">
             <div class="stock-logo invision">
-              <i
-                aria-hidden="true"
-                class="fab fa-inverse fa-invision"
-              />
+              <i aria-hidden="true" class="fab fa-inverse fa-invision" />
             </div>
             <div class="stock-info">
-              <div class="stock-name">
-                INVS
-              </div>
-              <div class="stock-fullname">
-                Invision
-              </div>
+              <div class="stock-name">INVS</div>
+              <div class="stock-fullname">Invision</div>
             </div>
           </div>
         </div>
@@ -253,106 +172,66 @@
           <div class="category">
             <div class="asset">
               <div class="asset-logo">
-                <i
-                  aria-hidden="true"
-                  class="lnil lnil-bolt-alt"
-                />
+                <i aria-hidden="true" class="lnil lnil-bolt-alt" />
               </div>
             </div>
-            <div class="asset-name">
-              Energy
-            </div>
+            <div class="asset-name">Energy</div>
           </div>
           <div class="category">
             <div class="asset">
               <div class="asset-logo">
-                <i
-                  aria-hidden="true"
-                  class="lnil lnil-gold-bar"
-                />
+                <i aria-hidden="true" class="lnil lnil-gold-bar" />
               </div>
             </div>
-            <div class="asset-name">
-              Gold
-            </div>
+            <div class="asset-name">Gold</div>
           </div>
           <div class="category">
             <div class="asset">
               <div class="asset-logo">
-                <i
-                  aria-hidden="true"
-                  class="lnil lnil-apartment"
-                />
+                <i aria-hidden="true" class="lnil lnil-apartment" />
               </div>
             </div>
-            <div class="asset-name">
-              Real Estate
-            </div>
+            <div class="asset-name">Real Estate</div>
           </div>
           <div class="category">
             <div class="asset">
               <div class="asset-logo">
-                <i
-                  aria-hidden="true"
-                  class="lnil lnil-leaves"
-                />
+                <i aria-hidden="true" class="lnil lnil-leaves" />
               </div>
             </div>
-            <div class="asset-name">
-              Food
-            </div>
+            <div class="asset-name">Food</div>
           </div>
           <div class="category">
             <div class="asset">
               <div class="asset-logo">
-                <i
-                  aria-hidden="true"
-                  class="lnil lnil-laptop-alt-switch"
-                />
+                <i aria-hidden="true" class="lnil lnil-laptop-alt-switch" />
               </div>
             </div>
-            <div class="asset-name">
-              Technology
-            </div>
+            <div class="asset-name">Technology</div>
           </div>
           <div class="category">
             <div class="asset">
               <div class="asset-logo">
-                <i
-                  aria-hidden="true"
-                  class="lnil lnil-capsule"
-                />
+                <i aria-hidden="true" class="lnil lnil-capsule" />
               </div>
             </div>
-            <div class="asset-name">
-              Healthcare
-            </div>
+            <div class="asset-name">Healthcare</div>
           </div>
           <div class="category">
             <div class="asset">
               <div class="asset-logo">
-                <i
-                  aria-hidden="true"
-                  class="lnil lnil-atom"
-                />
+                <i aria-hidden="true" class="lnil lnil-atom" />
               </div>
             </div>
-            <div class="asset-name">
-              Research
-            </div>
+            <div class="asset-name">Research</div>
           </div>
           <div class="category">
             <div class="asset">
               <div class="asset-logo">
-                <i
-                  aria-hidden="true"
-                  class="lnil lnil-diamond-alt"
-                />
+                <i aria-hidden="true" class="lnil lnil-diamond-alt" />
               </div>
             </div>
-            <div class="asset-name">
-              Finance
-            </div>
+            <div class="asset-name">Finance</div>
           </div>
         </div>
       </div>
@@ -367,79 +246,43 @@
 
           <div class="stock">
             <div class="stock-logo invision">
-              <i
-                aria-hidden="true"
-                class="fab fa-inverse fa-invision"
-              />
+              <i aria-hidden="true" class="fab fa-inverse fa-invision" />
             </div>
             <div class="stock-info">
-              <div class="stock-name">
-                INVS
-              </div>
-              <div class="stock-fullname">
-                invision Inc.
-              </div>
+              <div class="stock-name">INVS</div>
+              <div class="stock-fullname">invision Inc.</div>
             </div>
-            <div class="stock-value">
-              +14.5%
-            </div>
+            <div class="stock-value">+14.5%</div>
           </div>
           <div class="stock">
             <div class="stock-logo facebook">
-              <i
-                aria-hidden="true"
-                class="fab fa-inverse fa-facebook-f"
-              />
+              <i aria-hidden="true" class="fab fa-inverse fa-facebook-f" />
             </div>
             <div class="stock-info">
-              <div class="stock-name">
-                FB
-              </div>
-              <div class="stock-fullname">
-                Facebook, Inc.
-              </div>
+              <div class="stock-name">FB</div>
+              <div class="stock-fullname">Facebook, Inc.</div>
             </div>
-            <div class="stock-value">
-              +12.9%
-            </div>
+            <div class="stock-value">+12.9%</div>
           </div>
           <div class="stock">
             <div class="stock-logo amazon">
-              <i
-                aria-hidden="true"
-                class="fab fa-inverse fa-amazon"
-              />
+              <i aria-hidden="true" class="fab fa-inverse fa-amazon" />
             </div>
             <div class="stock-info">
-              <div class="stock-name">
-                AMZN
-              </div>
-              <div class="stock-fullname">
-                Amazon.com, Inc.
-              </div>
+              <div class="stock-name">AMZN</div>
+              <div class="stock-fullname">Amazon.com, Inc.</div>
             </div>
-            <div class="stock-value">
-              +10.2%
-            </div>
+            <div class="stock-value">+10.2%</div>
           </div>
           <div class="stock">
             <div class="stock-logo snapchat">
-              <i
-                aria-hidden="true"
-                class="fab fa-inverse fa-snapchat"
-              />
+              <i aria-hidden="true" class="fab fa-inverse fa-snapchat" />
             </div>
             <div class="stock-info">
-              <div class="stock-name">
-                SPCH
-              </div>
-              <div class="stock-fullname">
-                Snapchat, Inc.
-              </div>
+              <div class="stock-name">SPCH</div>
+              <div class="stock-fullname">Snapchat, Inc.</div>
             </div>
-            <div class="stock-value">
-              +10.2%
-            </div>
+            <div class="stock-value">+10.2%</div>
           </div>
         </div>
       </div>
@@ -454,79 +297,43 @@
 
           <div class="stock">
             <div class="stock-logo twitter">
-              <i
-                aria-hidden="true"
-                class="fab fa-inverse fa-twitter"
-              />
+              <i aria-hidden="true" class="fab fa-inverse fa-twitter" />
             </div>
             <div class="stock-info">
-              <div class="stock-name">
-                TWTR
-              </div>
-              <div class="stock-fullname">
-                Twitter Inc.
-              </div>
+              <div class="stock-name">TWTR</div>
+              <div class="stock-fullname">Twitter Inc.</div>
             </div>
-            <div class="stock-value">
-              +14.5%
-            </div>
+            <div class="stock-value">+14.5%</div>
           </div>
           <div class="stock">
             <div class="stock-logo docker">
-              <i
-                aria-hidden="true"
-                class="fab fa-inverse fa-docker"
-              />
+              <i aria-hidden="true" class="fab fa-inverse fa-docker" />
             </div>
             <div class="stock-info">
-              <div class="stock-name">
-                DOCKR
-              </div>
-              <div class="stock-fullname">
-                Docker Inc.
-              </div>
+              <div class="stock-name">DOCKR</div>
+              <div class="stock-fullname">Docker Inc.</div>
             </div>
-            <div class="stock-value">
-              +12.9%
-            </div>
+            <div class="stock-value">+12.9%</div>
           </div>
           <div class="stock">
             <div class="stock-logo algolia">
-              <i
-                aria-hidden="true"
-                class="fab fa-inverse fa-algolia"
-              />
+              <i aria-hidden="true" class="fab fa-inverse fa-algolia" />
             </div>
             <div class="stock-info">
-              <div class="stock-name">
-                ALGO
-              </div>
-              <div class="stock-fullname">
-                Algolia Inc.
-              </div>
+              <div class="stock-name">ALGO</div>
+              <div class="stock-fullname">Algolia Inc.</div>
             </div>
-            <div class="stock-value">
-              +10.2%
-            </div>
+            <div class="stock-value">+10.2%</div>
           </div>
           <div class="stock">
             <div class="stock-logo github">
-              <i
-                aria-hidden="true"
-                class="fab fa-inverse fa-github"
-              />
+              <i aria-hidden="true" class="fab fa-inverse fa-github" />
             </div>
             <div class="stock-info">
-              <div class="stock-name">
-                GTHB
-              </div>
-              <div class="stock-fullname">
-                Github, Inc.
-              </div>
+              <div class="stock-name">GTHB</div>
+              <div class="stock-fullname">Github, Inc.</div>
             </div>
-            <div class="stock-value">
-              +10.2%
-            </div>
+            <div class="stock-value">+10.2%</div>
           </div>
         </div>
       </div>

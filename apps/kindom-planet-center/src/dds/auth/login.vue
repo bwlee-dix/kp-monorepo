@@ -54,7 +54,7 @@ useHead({
                     class="hero-image"
                     src="/@dds/sets/illustrations/login/station.svg"
                     alt=""
-                  >
+                  />
                 </div>
               </div>
             </div>
@@ -63,14 +63,8 @@ useHead({
       </div>
       <div class="column is-4 is-relative">
         <div class="top-tools">
-          <RouterLink
-            to="/"
-            class="top-logo"
-          >
-            <AnimatedLogo
-              width="38px"
-              height="38px"
-            />
+          <RouterLink to="/" class="top-logo">
+            <AnimatedLogo width="38px" height="38px" />
           </RouterLink>
 
           <label
@@ -84,23 +78,17 @@ useHead({
               type="checkbox"
               :checked="!darkmode.isDark"
               @change="darkmode.onChange"
-            >
+            />
             <span />
           </label>
         </div>
         <div class="is-form">
           <div class="is-form-inner">
-            <div
-              class="form-text"
-              :class="[step !== 'login' && 'is-hidden']"
-            >
+            <div class="form-text" :class="[step !== 'login' && 'is-hidden']">
               <h2>Sign In</h2>
               <p>Welcome back to your account.</p>
             </div>
-            <div
-              class="form-text"
-              :class="[step === 'login' && 'is-hidden']"
-            >
+            <div class="form-text" :class="[step === 'login' && 'is-hidden']">
               <h2>Recover Account</h2>
               <p>Reset your account password.</p>
             </div>
@@ -125,9 +113,7 @@ useHead({
 
               <VField>
                 <VControl icon="lnil lnil-envelope autv-icon">
-                  <VLabel class="auth-label">
-                    Email Address
-                  </VLabel>
+                  <VLabel class="auth-label"> Email Address </VLabel>
                   <VInput
                     data-cy="email-input"
                     type="email"
@@ -137,9 +123,7 @@ useHead({
               </VField>
               <VField>
                 <VControl icon="lnil lnil-lock-alt autv-icon">
-                  <VLabel class="auth-label">
-                    Password
-                  </VLabel>
+                  <VLabel class="auth-label"> Password </VLabel>
                   <VInput
                     data-cy="password-input"
                     type="password"
@@ -150,22 +134,12 @@ useHead({
 
               <VField>
                 <VControl class="is-flex">
-                  <VLabel
-                    raw
-                    class="remember-toggle"
-                  >
-                    <VInput
-                      raw
-                      type="checkbox"
-                    />
+                  <VLabel raw class="remember-toggle">
+                    <VInput raw type="checkbox" />
 
                     <span class="toggler">
                       <span class="active">
-                        <i
-                          aria-hidden="true"
-                          class="iconify"
-                          data-icon="feather:check"
-                        />
+                        <i aria-hidden="true" class="iconify" data-icon="feather:check" />
                       </span>
                       <span class="inactive">
                         <i
@@ -176,12 +150,7 @@ useHead({
                       </span>
                     </span>
                   </VLabel>
-                  <VLabel
-                    raw
-                    class="remember-me"
-                  >
-                    Remember Me
-                  </VLabel>
+                  <VLabel raw class="remember-me"> Remember Me </VLabel>
                   <a
                     tabindex="0"
                     role="button"
@@ -228,23 +197,12 @@ useHead({
 
               <VField>
                 <VControl icon="lnil lnil-envelope autv-icon">
-                  <VLabel class="auth-label">
-                    Email Address
-                  </VLabel>
-                  <VInput
-                    type="email"
-                    autocomplete="current-password"
-                  />
+                  <VLabel class="auth-label"> Email Address </VLabel>
+                  <VInput type="email" autocomplete="current-password" />
                 </VControl>
               </VField>
               <div class="button-wrap">
-                <VButton
-                  color="white"
-                  size="big"
-                  lower
-                  rounded
-                  @click="step = 'login'"
-                >
+                <VButton color="white" size="big" lower rounded @click="step = 'login'">
                   Cancel
                 </VButton>
                 <VButton

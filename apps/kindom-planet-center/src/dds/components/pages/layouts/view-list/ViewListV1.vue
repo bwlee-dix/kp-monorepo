@@ -47,7 +47,7 @@ const filteredData = computed(() => {
             v-model="filters"
             class="input custom-text-filter"
             placeholder="Search..."
-          >
+          />
         </VControl>
       </VField>
 
@@ -57,13 +57,7 @@ const filteredData = computed(() => {
       </div>
 
       <div class="buttons">
-        <VButton
-          color="primary"
-          icon="fas fa-check"
-          elevated
-        >
-          Approve
-        </VButton>
+        <VButton color="primary" icon="fas fa-check" elevated> Approve </VButton>
       </div>
     </div>
 
@@ -84,26 +78,19 @@ const filteredData = computed(() => {
               class="light-image"
               src="/@dds/sets/illustrations/placeholders/search-1.svg"
               alt=""
-            >
+            />
             <img
               class="dark-image"
               src="/@dds/sets/illustrations/placeholders/search-1-dark.svg"
               alt=""
-            >
+            />
           </template>
         </VPlaceholderPage>
 
         <div class="list-view-inner">
           <!--Item-->
-          <TransitionGroup
-            name="list-complete"
-            tag="div"
-          >
-            <div
-              v-for="(item, key) in filteredData"
-              :key="key"
-              class="list-view-item"
-            >
+          <TransitionGroup name="list-complete" tag="div">
+            <div v-for="(item, key) in filteredData" :key="key" class="list-view-item">
               <div class="list-view-item-inner">
                 <VAvatar
                   :picture="item.medias.avatar"
@@ -113,22 +100,13 @@ const filteredData = computed(() => {
                 <div class="meta-left">
                   <h3>{{ item.name }}</h3>
                   <span>
-                    <i
-                      aria-hidden="true"
-                      class="iconify"
-                      data-icon="feather:map-pin"
-                    />
+                    <i aria-hidden="true" class="iconify" data-icon="feather:map-pin" />
                     <span>{{ item.location }}</span>
                   </span>
                 </div>
                 <div class="meta-right">
                   <div class="tags">
-                    <VTag
-                      :label="item.role"
-                      :color="item.roleColor"
-                      rounded
-                      elevated
-                    />
+                    <VTag :label="item.role" :color="item.roleColor" rounded elevated />
                   </div>
 
                   <div class="stats">
@@ -149,11 +127,7 @@ const filteredData = computed(() => {
                   </div>
 
                   <div class="network">
-                    <VAvatarStack
-                      :avatars="item.teams"
-                      :limit="3"
-                      size="small"
-                    />
+                    <VAvatarStack :avatars="item.teams" :limit="3" size="small" />
                     <span>in Team</span>
                   </div>
 

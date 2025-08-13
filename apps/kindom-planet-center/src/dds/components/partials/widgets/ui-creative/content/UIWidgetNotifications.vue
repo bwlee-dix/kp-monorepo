@@ -12,16 +12,10 @@ const props = withDefaults(
 <template>
   <div class="widget-content">
     <ul>
-      <li
-        v-for="notification in props.notifications"
-        :key="notification.id"
-      >
+      <li v-for="notification in props.notifications" :key="notification.id">
         <a>
           <span>{{ notification.category }}</span>
-          <VTag
-            rounded
-            :label="notification.count"
-          />
+          <VTag rounded :label="notification.count" />
         </a>
       </li>
     </ul>

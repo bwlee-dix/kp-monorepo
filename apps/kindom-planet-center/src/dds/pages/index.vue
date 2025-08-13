@@ -13,10 +13,7 @@ useHead({
   <MinimalLayout theme="light">
     <div class="landing-page-wrapper">
       <!-- Hero and Navbar -->
-      <div
-        id="vuero-landing"
-        class="hero is-fullheight is-active"
-      >
+      <div id="vuero-landing" class="hero is-fullheight is-active">
         <!-- Navbar partial -->
         <LandingNavigation />
         <div class="grids gridlines" />
@@ -31,11 +28,7 @@ useHead({
             </h3>
 
             <div class="buttons mb-2">
-              <VButton
-                href="https://go.cssninja.io/buy-vuero"
-                color="primary"
-                rounded
-              >
+              <VButton href="https://go.cssninja.io/buy-vuero" color="primary" rounded>
                 Buy Vuero Today
               </VButton>
             </div>
@@ -43,26 +36,11 @@ useHead({
             <div class="trusted-by mb-4">
               <span>Trusted by <span>2000+ customers</span></span>
               <div class="rating">
-                <i
-                  class="iconify"
-                  data-icon="uiw:star-on"
-                />
-                <i
-                  class="iconify"
-                  data-icon="uiw:star-on"
-                />
-                <i
-                  class="iconify"
-                  data-icon="uiw:star-on"
-                />
-                <i
-                  class="iconify"
-                  data-icon="uiw:star-on"
-                />
-                <i
-                  class="iconify"
-                  data-icon="uiw:star-on"
-                />
+                <i class="iconify" data-icon="uiw:star-on" />
+                <i class="iconify" data-icon="uiw:star-on" />
+                <i class="iconify" data-icon="uiw:star-on" />
+                <i class="iconify" data-icon="uiw:star-on" />
+                <i class="iconify" data-icon="uiw:star-on" />
               </div>
             </div>
 
@@ -72,12 +50,12 @@ useHead({
                   class="light-image-block-l"
                   src="/@dds/assets/illustrations/landing/app-1.png"
                   alt=""
-                >
+                />
                 <img
                   class="dark-image-block-l"
                   src="/@dds/assets/illustrations/landing/app-1-dark.png"
                   alt=""
-                >
+                />
               </div>
               <div class="hero-mockup-gradient" />
             </div>
@@ -88,24 +66,14 @@ useHead({
       </div>
 
       <!--Stacks Section-->
-      <div
-        id="stacks-section"
-        class="section"
-      >
+      <div id="stacks-section" class="section">
         <div class="container">
           <!--Stacks-->
           <div class="stacks">
             <div>
-              <Tippy
-                class="has-help-cursor"
-                interactive
-                placement="top"
-              >
+              <Tippy class="has-help-cursor" interactive placement="top">
                 <div class="stack">
-                  <img
-                    src="/images/icons/stacks/vuejs.svg"
-                    alt=""
-                  >
+                  <img src="/images/icons/stacks/vuejs.svg" alt="" />
                 </div>
                 <template #content>
                   <StackPopoverContent
@@ -124,16 +92,9 @@ useHead({
             </div>
 
             <div>
-              <Tippy
-                class="has-help-cursor"
-                interactive
-                placement="top"
-              >
+              <Tippy class="has-help-cursor" interactive placement="top">
                 <div class="stack">
-                  <img
-                    src="/images/icons/stacks/vite.svg"
-                    alt=""
-                  >
+                  <img src="/images/icons/stacks/vite.svg" alt="" />
                 </div>
                 <template #content>
                   <StackPopoverContent
@@ -152,16 +113,9 @@ useHead({
             </div>
 
             <div>
-              <Tippy
-                class="has-help-cursor"
-                interactive
-                placement="top"
-              >
+              <Tippy class="has-help-cursor" interactive placement="top">
                 <div class="stack">
-                  <img
-                    src="/images/icons/stacks/bulma.svg"
-                    alt=""
-                  >
+                  <img src="/images/icons/stacks/bulma.svg" alt="" />
                 </div>
                 <template #content>
                   <StackPopoverContent
@@ -180,16 +134,9 @@ useHead({
             </div>
 
             <div>
-              <Tippy
-                class="has-help-cursor"
-                interactive
-                placement="top"
-              >
+              <Tippy class="has-help-cursor" interactive placement="top">
                 <div class="stack">
-                  <img
-                    src="/images/icons/stacks/sass.svg"
-                    alt=""
-                  >
+                  <img src="/images/icons/stacks/sass.svg" alt="" />
                 </div>
                 <template #content>
                   <StackPopoverContent
@@ -208,16 +155,9 @@ useHead({
             </div>
 
             <div>
-              <Tippy
-                class="has-help-cursor"
-                interactive
-                placement="top"
-              >
+              <Tippy class="has-help-cursor" interactive placement="top">
                 <div class="stack">
-                  <img
-                    src="/images/icons/stacks/typescript.svg"
-                    alt=""
-                  >
+                  <img src="/images/icons/stacks/typescript.svg" alt="" />
                 </div>
                 <template #content>
                   <StackPopoverContent
@@ -238,9 +178,7 @@ useHead({
 
           <!--Title-->
           <div class="section-title has-text-centered">
-            <h2 class="title is-2">
-              Amazing Features
-            </h2>
+            <h2 class="title is-2">Amazing Features</h2>
             <h4>All you need to build your project is there.</h4>
           </div>
 
@@ -248,66 +186,42 @@ useHead({
           <div class="boxed-features">
             <div class="flex-card light-bordered hover-inset">
               <div class="flex-cell is-bordered">
-                <i
-                  aria-hidden="true"
-                  class="lnil lnil-toolbox"
-                />
+                <i aria-hidden="true" class="lnil lnil-toolbox" />
                 <h3>500+ Vue Components</h3>
                 <p>An incredible set of building blocks with dark mode support.</p>
               </div>
               <div class="flex-cell is-bordered">
-                <i
-                  aria-hidden="true"
-                  class="lnil lnil-display-alt"
-                />
+                <i aria-hidden="true" class="lnil lnil-display-alt" />
                 <h3>220+ Demos</h3>
                 <p>Vuero ships with a huge number of demos to kickstart your project.</p>
               </div>
               <div class="flex-cell is-bordered">
-                <i
-                  aria-hidden="true"
-                  class="lnil lnil-moon"
-                />
+                <i aria-hidden="true" class="lnil lnil-moon" />
                 <h3>Native Dark Mode</h3>
                 <p>Every single piece of UI is natively dark mode ready.</p>
               </div>
               <div class="flex-cell is-bordered no-border-edge">
-                <i
-                  aria-hidden="true"
-                  class="lnil lnil-rocket"
-                />
+                <i aria-hidden="true" class="lnil lnil-rocket" />
                 <h3>Active Support</h3>
                 <p>Our support helps you solve any issues you have</p>
               </div>
               <div class="flex-cell">
-                <i
-                  aria-hidden="true"
-                  class="lnil lnil-code"
-                />
+                <i aria-hidden="true" class="lnil lnil-code" />
                 <h3>Clean Code</h3>
                 <p>Vuero's codebase is huge, but structured and easy to understand</p>
               </div>
               <div class="flex-cell">
-                <i
-                  aria-hidden="true"
-                  class="lnil lnil-plug"
-                />
+                <i aria-hidden="true" class="lnil lnil-plug" />
                 <h3>Premium Icons</h3>
                 <p>Vuero ships with the premium Line Icons set ($30 value).</p>
               </div>
               <div class="flex-cell">
-                <i
-                  class="lnil lnil-switch"
-                  aria-hidden="true"
-                />
+                <i class="lnil lnil-switch" aria-hidden="true" />
                 <h3>RTL Support</h3>
                 <p>Vuero supports RTL layouts. Configure it in less than a minute.</p>
               </div>
               <div class="flex-cell no-border-edge">
-                <i
-                  aria-hidden="true"
-                  class="lnil lnil-file-name"
-                />
+                <i aria-hidden="true" class="lnil lnil-file-name" />
                 <h3>Extensive Docs</h3>
                 <p>A nice documentation to help you get started fast</p>
               </div>
@@ -341,9 +255,7 @@ useHead({
 
           <!--Title-->
           <div class="section-title has-text-centered">
-            <h2 class="title is-2">
-              Developer Experience
-            </h2>
+            <h2 class="title is-2">Developer Experience</h2>
             <h4>A set of professional tools to build professional apps.</h4>
           </div>
 
@@ -352,10 +264,7 @@ useHead({
             <div class="flex-card light-bordered hover-inset">
               <div class="flex-cell is-bordered">
                 <div class="icon-holder">
-                  <i
-                    class="iconify"
-                    data-icon="mdi:vuejs"
-                  />
+                  <i class="iconify" data-icon="mdi:vuejs" />
                 </div>
                 <h3>Vue 3</h3>
                 <p>
@@ -364,20 +273,14 @@ useHead({
               </div>
               <div class="flex-cell">
                 <div class="icon-holder">
-                  <i
-                    class="iconify"
-                    data-icon="bxl:typescript"
-                  />
+                  <i class="iconify" data-icon="bxl:typescript" />
                 </div>
                 <h3>Typescript</h3>
                 <p>Typescript makes things much more simpler but remains optional.</p>
               </div>
               <div class="flex-cell is-bordered">
                 <div class="icon-holder">
-                  <i
-                    class="iconify smaller"
-                    data-icon="simple-icons:vite"
-                  />
+                  <i class="iconify smaller" data-icon="simple-icons:vite" />
                 </div>
                 <h3>Vite JS</h3>
                 <p>
@@ -387,10 +290,7 @@ useHead({
               </div>
               <div class="flex-cell">
                 <div class="icon-holder">
-                  <i
-                    class="iconify smaller"
-                    data-icon="akar-icons:vscode-fill"
-                  />
+                  <i class="iconify smaller" data-icon="akar-icons:vscode-fill" />
                 </div>
                 <h3>VS Code Integration</h3>
                 <p>
@@ -400,10 +300,7 @@ useHead({
               </div>
               <div class="flex-cell is-bordered">
                 <div class="icon-holder">
-                  <i
-                    class="iconify smaller"
-                    data-icon="file-icons:eslint"
-                  />
+                  <i class="iconify smaller" data-icon="file-icons:eslint" />
                 </div>
                 <h3>ES Lint</h3>
                 <p>
@@ -413,10 +310,7 @@ useHead({
               </div>
               <div class="flex-cell is-bordered">
                 <div class="icon-holder">
-                  <i
-                    class="iconify smaller"
-                    data-icon="file-icons:prettier"
-                  />
+                  <i class="iconify smaller" data-icon="file-icons:prettier" />
                 </div>
                 <h3>Prettier</h3>
                 <p>
@@ -426,10 +320,7 @@ useHead({
               </div>
               <div class="flex-cell">
                 <div class="icon-holder">
-                  <i
-                    class="iconify smaller"
-                    data-icon="file-icons:stylelint"
-                  />
+                  <i class="iconify smaller" data-icon="file-icons:stylelint" />
                 </div>
                 <h3>Stylelint</h3>
                 <p>
@@ -439,10 +330,7 @@ useHead({
               </div>
               <div class="flex-cell">
                 <div class="icon-holder">
-                  <i
-                    class="iconify smaller"
-                    data-icon="simple-icons:iconify"
-                  />
+                  <i class="iconify smaller" data-icon="simple-icons:iconify" />
                 </div>
                 <h3>Iconify</h3>
                 <p>
@@ -452,10 +340,7 @@ useHead({
               </div>
               <div class="flex-cell">
                 <div class="icon-holder">
-                  <i
-                    class="iconify smaller"
-                    data-icon="simple-icons:cypress"
-                  />
+                  <i class="iconify smaller" data-icon="simple-icons:cypress" />
                 </div>
                 <h3>Cypress</h3>
                 <p>
@@ -465,10 +350,7 @@ useHead({
               </div>
               <div class="flex-cell">
                 <div class="icon-holder">
-                  <i
-                    class="iconify smaller"
-                    data-icon="file-icons:pnpm"
-                  />
+                  <i class="iconify smaller" data-icon="file-icons:pnpm" />
                 </div>
                 <h3>Pnpm + Yarn</h3>
                 <p>
@@ -478,10 +360,7 @@ useHead({
               </div>
               <div class="flex-cell">
                 <div class="icon-holder">
-                  <i
-                    class="iconify smaller"
-                    data-icon="simple-icons:docker"
-                  />
+                  <i class="iconify smaller" data-icon="simple-icons:docker" />
                 </div>
                 <h3>Docker</h3>
                 <p>
@@ -491,10 +370,7 @@ useHead({
               </div>
               <div class="flex-cell">
                 <div class="icon-holder">
-                  <i
-                    class="iconify smaller"
-                    data-icon="mdi:robot"
-                  />
+                  <i class="iconify smaller" data-icon="mdi:robot" />
                 </div>
                 <h3>Robot Friendly</h3>
                 <p>
@@ -504,10 +380,7 @@ useHead({
               </div>
               <div class="flex-cell">
                 <div class="icon-holder">
-                  <i
-                    class="iconify smaller"
-                    data-icon="ic:twotone-check-circle"
-                  />
+                  <i class="iconify smaller" data-icon="ic:twotone-check-circle" />
                 </div>
                 <h3>Props Validation</h3>
                 <p>
@@ -517,10 +390,7 @@ useHead({
               </div>
               <div class="flex-cell">
                 <div class="icon-holder">
-                  <i
-                    class="iconify smaller"
-                    data-icon="solar:folder-error-bold"
-                  />
+                  <i class="iconify smaller" data-icon="solar:folder-error-bold" />
                 </div>
                 <h3>Error Handling</h3>
                 <p>
@@ -543,10 +413,7 @@ useHead({
               </div>
               <div class="flex-cell">
                 <div class="icon-holder">
-                  <i
-                    class="iconify smaller"
-                    data-icon="ic:round-menu-book"
-                  />
+                  <i class="iconify smaller" data-icon="ic:round-menu-book" />
                 </div>
                 <h3>Component Guide</h3>
                 <p>
@@ -559,16 +426,11 @@ useHead({
         </div>
       </div>
 
-      <div
-        id="vuero-demos"
-        class="section"
-      >
+      <div id="vuero-demos" class="section">
         <div class="container">
           <!--Title-->
           <div class="section-title has-text-centered">
-            <h2 class="title is-2">
-              Outstanding Demos
-            </h2>
+            <h2 class="title is-2">Outstanding Demos</h2>
             <h4>Check out a wide variety of demo pages.</h4>
           </div>
 
@@ -582,9 +444,7 @@ useHead({
         <div class="container">
           <!--Title-->
           <div class="section-title has-text-centered">
-            <h2 class="title is-2">
-              Top Tier Product
-            </h2>
+            <h2 class="title is-2">Top Tier Product</h2>
             <h4>Vuero has been carefully handcrafted.</h4>
           </div>
 
@@ -595,17 +455,15 @@ useHead({
                 class="light-image-l featured-image"
                 src="/@dds/assets/illustrations/landing/feature-1.webp"
                 alt=""
-              >
+              />
               <img
                 class="dark-image-l featured-image"
                 src="/@dds/assets/illustrations/landing/feature-1-dark.webp"
                 alt=""
-              >
+              />
             </div>
             <div class="column is-5 is-offset-1">
-              <h2 class="title m-b-10 is-centered-tablet-portrait">
-                Incredible UI
-              </h2>
+              <h2 class="title m-b-10 is-centered-tablet-portrait">Incredible UI</h2>
               <p class="section-feature-description is-centered-tablet-portrait">
                 Vuero's UI has been carefully thought and designed, and is simply one of
                 the best you'll find on the market. It's visual power and its modularity
@@ -620,17 +478,15 @@ useHead({
                 class="light-image-l featured-image"
                 src="/@dds/assets/illustrations/landing/feature-2.svg"
                 alt=""
-              >
+              />
               <img
                 class="dark-image-l featured-image"
                 src="/@dds/assets/illustrations/landing/feature-2-dark.svg"
                 alt=""
-              >
+              />
             </div>
             <div class="column is-5 is-offset-1">
-              <h2 class="title m-b-10 is-centered-tablet-portrait">
-                Playful Vectors
-              </h2>
+              <h2 class="title m-b-10 is-centered-tablet-portrait">Playful Vectors</h2>
               <p class="section-feature-description is-centered-tablet-portrait">
                 Vuero ships with a lot of svg illustrations representing various elements
                 that can be used in a website, following very high quality standards.
@@ -641,12 +497,12 @@ useHead({
                 class="light-image-l featured-image"
                 src="/@dds/assets/illustrations/landing/feature-2.svg"
                 alt=""
-              >
+              />
               <img
                 class="dark-image-l featured-image"
                 src="/@dds/assets/illustrations/landing/feature-2-dark.svg"
                 alt=""
-              >
+              />
             </div>
           </div>
           <!-- Feature -->
@@ -656,17 +512,15 @@ useHead({
                 class="light-image-l featured-image"
                 src="/@dds/assets/illustrations/landing/feature-3.svg"
                 alt=""
-              >
+              />
               <img
                 class="dark-image-l featured-image"
                 src="/@dds/assets/illustrations/landing/feature-3-dark.svg"
                 alt=""
-              >
+              />
             </div>
             <div class="column is-5 is-offset-1">
-              <h2 class="title m-b-10 is-centered-tablet-portrait">
-                Handcrafted UI
-              </h2>
+              <h2 class="title m-b-10 is-centered-tablet-portrait">Handcrafted UI</h2>
               <p class="section-feature-description is-centered-tablet-portrait">
                 Vuero ships with it's own component library based on the Bulma.io CSS
                 framework. Each component has been carefully handcrafted and natively
@@ -695,10 +549,7 @@ useHead({
                   class="button chat-button is-secondary"
                 >
                   <span>Join us on Discord</span>
-                  <i
-                    class="iconify ml-1"
-                    data-icon="feather:external-link"
-                  />
+                  <i class="iconify ml-1" data-icon="feather:external-link" />
                 </a>
               </div>
             </div>
@@ -706,18 +557,13 @@ useHead({
         </div>
       </div>
 
-      <div
-        id="vuero-components"
-        class="section"
-      >
+      <div id="vuero-components" class="section">
         <div class="container">
           <div class="columns is-vcentered">
             <div class="column is-6 is-offset-3 has-text-centered">
               <!--Title-->
               <div class="section-title has-text-centered p-b-40">
-                <h2 class="title is-3">
-                  Reusable components
-                </h2>
+                <h2 class="title is-3">Reusable components</h2>
                 <h4>Vuero ships with a full component library.</h4>
               </div>
             </div>
@@ -727,10 +573,7 @@ useHead({
               <!-- Side icon box -->
               <div class="media-flex">
                 <div class="left-icon">
-                  <i
-                    aria-hidden="true"
-                    class="lnil lnil-construction"
-                  />
+                  <i aria-hidden="true" class="lnil lnil-construction" />
                 </div>
                 <div class="flex-meta">
                   <h4>Modular</h4>
@@ -745,10 +588,7 @@ useHead({
               <!-- Side icon box -->
               <div class="media-flex">
                 <div class="left-icon">
-                  <i
-                    aria-hidden="true"
-                    class="lnil lnil-code"
-                  />
+                  <i aria-hidden="true" class="lnil lnil-code" />
                 </div>
                 <div class="flex-meta">
                   <h4>Code Blocks</h4>
@@ -764,10 +604,7 @@ useHead({
               <!-- Side icon box -->
               <div class="media-flex">
                 <div class="left-icon">
-                  <i
-                    aria-hidden="true"
-                    class="lnil lnil-color-palette"
-                  />
+                  <i aria-hidden="true" class="lnil lnil-color-palette" />
                 </div>
                 <div class="flex-meta">
                   <h4>Easy Theming</h4>
@@ -849,9 +686,7 @@ useHead({
         <div class="container">
           <!--Title-->
           <div class="section-title has-text-centered pt-40">
-            <h2 class="title is-3">
-              3 More Reasons To Choose Vuero
-            </h2>
+            <h2 class="title is-3">3 More Reasons To Choose Vuero</h2>
             <h4>If you're not convinced yet, here's some more.</h4>
           </div>
 
@@ -863,17 +698,15 @@ useHead({
                   class="light-image-l featured-image"
                   src="/@dds/assets/illustrations/landing/feature-4.svg"
                   alt=""
-                >
+                />
                 <img
                   class="dark-image-l featured-image"
                   src="/@dds/assets/illustrations/landing/feature-4-dark.svg"
                   alt=""
-                >
+                />
               </div>
               <div class="column is-5">
-                <h2 class="title m-b-10 is-centered-tablet-portrait">
-                  Professional
-                </h2>
+                <h2 class="title m-b-10 is-centered-tablet-portrait">Professional</h2>
                 <p class="section-feature-description is-centered-tablet-portrait">
                   Vuero is a professional product to build professional applications.
                   You'll find everything you need to build a project that is up to the
@@ -891,17 +724,15 @@ useHead({
                   class="light-image-l featured-image"
                   src="/@dds/assets/illustrations/landing/feature-5.svg"
                   alt=""
-                >
+                />
                 <img
                   class="dark-image-l featured-image"
                   src="/@dds/assets/illustrations/landing/feature-5-dark.svg"
                   alt=""
-                >
+                />
               </div>
               <div class="column is-5 is-offset-1">
-                <h2 class="title m-b-10 is-centered-tablet-portrait">
-                  Fast Development
-                </h2>
+                <h2 class="title m-b-10 is-centered-tablet-portrait">Fast Development</h2>
                 <p class="section-feature-description is-centered-tablet-portrait">
                   Vuero ships with a Vitejs development server that will assist you when
                   customizing the template. It handles .vue files compilation as well as
@@ -914,12 +745,12 @@ useHead({
                   class="light-image-l featured-image"
                   src="/@dds/assets/illustrations/landing/feature-5.svg"
                   alt=""
-                >
+                />
                 <img
                   class="dark-image-l featured-image"
                   src="/@dds/assets/illustrations/landing/feature-5-dark.svg"
                   alt=""
-                >
+                />
               </div>
             </div>
 
@@ -930,12 +761,12 @@ useHead({
                   class="light-image-l featured-image"
                   src="/@dds/assets/illustrations/landing/feature-6.svg"
                   alt=""
-                >
+                />
                 <img
                   class="dark-image-l featured-image"
                   src="/@dds/assets/illustrations/landing/feature-6-dark.svg"
                   alt=""
-                >
+                />
               </div>
               <div class="column is-5">
                 <h2 class="title m-b-10 is-centered-tablet-portrait">
@@ -954,14 +785,8 @@ useHead({
           <div class="cta-wrapper">
             <div class="cta-title">
               <h3>Exclusively on Envato Market</h3>
-              <a
-                href="http://go.cssninja.io/buy-vuero"
-                class="custom-button"
-              >
-                <img
-                  src="/images/icons/logos/envato.svg"
-                  alt=""
-                >
+              <a href="http://go.cssninja.io/buy-vuero" class="custom-button">
+                <img src="/images/icons/logos/envato.svg" alt="" />
                 <span>Get It Now</span>
               </a>
             </div>
@@ -974,14 +799,8 @@ useHead({
 
       <!-- Back To Top Button -->
       <div id="backtotop">
-        <a
-          href="#"
-          aria-label="back to top"
-        >
-          <i
-            aria-hidden="true"
-            class="fas fa-angle-up"
-          />
+        <a href="#" aria-label="back to top">
+          <i aria-hidden="true" class="fas fa-angle-up" />
         </a>
       </div>
     </div>

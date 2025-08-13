@@ -48,12 +48,12 @@ useHead({
               class="light-image has-light-shadow has-light-border"
               src="/@dds/sets/illustrations/apps/vuero-banking-light.webp"
               alt=""
-            >
+            />
             <img
               class="dark-image has-light-shadow"
               src="/@dds/sets/illustrations/apps/vuero-banking-dark.webp"
               alt=""
-            >
+            />
           </div>
         </div>
       </div>
@@ -65,10 +65,7 @@ useHead({
         <div class="hero-heading">
           <div class="auth-logo">
             <RouterLink to="/">
-              <AnimatedLogo
-                width="36px"
-                height="36px"
-              />
+              <AnimatedLogo width="36px" height="36px" />
             </RouterLink>
             <label
               class="dark-mode"
@@ -81,7 +78,7 @@ useHead({
                 type="checkbox"
                 :checked="!darkmode.isDark"
                 @change="darkmode.onChange"
-              >
+              />
               <span />
             </label>
           </div>
@@ -99,11 +96,7 @@ useHead({
                 </div>
                 <div class="auth-form-wrapper">
                   <!-- Login Form -->
-                  <form
-                    method="post"
-                    novalidate
-                    @submit.prevent="handleLogin"
-                  >
+                  <form method="post" novalidate @submit.prevent="handleLogin">
                     <div class="login-form">
                       <!-- Username -->
                       <VField>
@@ -130,10 +123,7 @@ useHead({
                       <!-- Switch -->
                       <VField>
                         <VControl class="setting-item">
-                          <VCheckbox
-                            label="Remember me"
-                            paddingless
-                          />
+                          <VCheckbox label="Remember me" paddingless />
                         </VControl>
                       </VField>
 

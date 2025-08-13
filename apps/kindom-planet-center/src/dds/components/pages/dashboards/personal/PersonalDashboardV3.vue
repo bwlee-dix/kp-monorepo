@@ -20,9 +20,7 @@ const userStack = userData.userStack as VAvatarProps[]
           <div class="column is-6">
             <div class="dashboard-card is-welcome">
               <div class="welcome-title">
-                <h3 class="dark-inverted">
-                  Hi Erik K.
-                </h3>
+                <h3 class="dark-inverted">Hi Erik K.</h3>
                 <p>
                   You have 6 interviews to conduct during this week. Your current progress
                   is great.
@@ -35,20 +33,14 @@ const userStack = userData.userStack as VAvatarProps[]
                 />
                 <div class="meta">
                   <span>Your Progress</span>
-                  <span class="dark-inverted">Outstanding
-                    <span
-                      role="img"
-                      aria-label="Party Popper"
-                    >🎉</span></span>
+                  <span class="dark-inverted"
+                    >Outstanding
+                    <span role="img" aria-label="Party Popper">🎉</span></span
+                  >
                 </div>
               </div>
               <div class="button-wrap">
-                <VButton
-                  color="primary"
-                  size="big"
-                  fullwidth
-                  raised
-                >
+                <VButton color="primary" size="big" fullwidth raised>
                   View Schedule
                 </VButton>
               </div>
@@ -60,16 +52,9 @@ const userStack = userData.userStack as VAvatarProps[]
               <div class="columns is-multiline is-flex-tablet-p">
                 <div class="column is-6">
                   <div class="dashboard-card">
-                    <VBlock
-                      title="62K"
-                      subtitle="Minutes"
-                      center
-                    >
+                    <VBlock title="62K" subtitle="Minutes" center>
                       <template #icon>
-                        <VIconBox
-                          color="info"
-                          rounded
-                        >
+                        <VIconBox color="info" rounded>
                           <i
                             aria-hidden="true"
                             class="iconify"
@@ -82,16 +67,9 @@ const userStack = userData.userStack as VAvatarProps[]
                 </div>
                 <div class="column is-6">
                   <div class="dashboard-card">
-                    <VBlock
-                      title="263"
-                      subtitle="Interviews"
-                      center
-                    >
+                    <VBlock title="263" subtitle="Interviews" center>
                       <template #icon>
-                        <VIconBox
-                          color="purple"
-                          rounded
-                        >
+                        <VIconBox color="purple" rounded>
                           <i
                             aria-hidden="true"
                             class="iconify"
@@ -104,16 +82,9 @@ const userStack = userData.userStack as VAvatarProps[]
                 </div>
                 <div class="column is-6">
                   <div class="dashboard-card">
-                    <VBlock
-                      title="49"
-                      subtitle="Approved"
-                      center
-                    >
+                    <VBlock title="49" subtitle="Approved" center>
                       <template #icon>
-                        <VIconBox
-                          color="green"
-                          rounded
-                        >
+                        <VIconBox color="green" rounded>
                           <i
                             aria-hidden="true"
                             class="iconify"
@@ -126,16 +97,9 @@ const userStack = userData.userStack as VAvatarProps[]
                 </div>
                 <div class="column is-6">
                   <div class="dashboard-card">
-                    <VBlock
-                      title="214"
-                      subtitle="Rejected"
-                      center
-                    >
+                    <VBlock title="214" subtitle="Rejected" center>
                       <template #icon>
-                        <VIconBox
-                          color="orange"
-                          rounded
-                        >
+                        <VIconBox color="orange" rounded>
                           <i
                             aria-hidden="true"
                             class="iconify"
@@ -154,10 +118,7 @@ const userStack = userData.userStack as VAvatarProps[]
                   <span> <a class="is-dark-primary">23 interviews</a> this month</span>
                 </div>
                 <div class="right">
-                  <VAvatarStack
-                    :avatars="userStack"
-                    :limit="3"
-                  />
+                  <VAvatarStack :avatars="userStack" :limit="3" />
                 </div>
               </div>
             </div>
@@ -167,7 +128,7 @@ const userStack = userData.userStack as VAvatarProps[]
             <img
               src="/@dds/sets/illustrations/dashboards/personal/interviews.svg"
               alt=""
-            >
+            />
           </div>
 
           <div class="column is-6">
@@ -225,41 +186,21 @@ const userStack = userData.userStack as VAvatarProps[]
             <table class="calendar">
               <thead>
                 <tr>
-                  <th scope="col">
-                    Mon
-                  </th>
-                  <th scope="col">
-                    Tue
-                  </th>
-                  <th scope="col">
-                    Wed
-                  </th>
-                  <th scope="col">
-                    Thu
-                  </th>
-                  <th scope="col">
-                    Fri
-                  </th>
-                  <th scope="col">
-                    Sat
-                  </th>
-                  <th scope="col">
-                    Sun
-                  </th>
+                  <th scope="col">Mon</th>
+                  <th scope="col">Tue</th>
+                  <th scope="col">Wed</th>
+                  <th scope="col">Thu</th>
+                  <th scope="col">Fri</th>
+                  <th scope="col">Sat</th>
+                  <th scope="col">Sun</th>
                 </tr>
               </thead>
 
               <tbody>
                 <tr>
-                  <td class="prev-month">
-                    29
-                  </td>
-                  <td class="prev-month">
-                    30
-                  </td>
-                  <td class="prev-month">
-                    31
-                  </td>
+                  <td class="prev-month">29</td>
+                  <td class="prev-month">30</td>
+                  <td class="prev-month">31</td>
                   <td>1</td>
                   <td>2</td>
                   <td>3</td>
@@ -283,9 +224,7 @@ const userStack = userData.userStack as VAvatarProps[]
                   <td>15</td>
                   <td>16</td>
                   <td>17</td>
-                  <td class="current-day">
-                    18
-                  </td>
+                  <td class="current-day">18</td>
                 </tr>
 
                 <tr>
@@ -305,24 +244,15 @@ const userStack = userData.userStack as VAvatarProps[]
                   <td>29</td>
                   <td>30</td>
                   <td>31</td>
-                  <td class="next-month">
-                    1
-                  </td>
+                  <td class="next-month">1</td>
                 </tr>
               </tbody>
             </table>
           </template>
         </UIWidget>
 
-        <a
-          href="#"
-          class="dashboard-card is-interview"
-        >
-          <VBlock
-            title="Jonathan K."
-            subtitle="08:00 - 09:00"
-            center
-          >
+        <a href="#" class="dashboard-card is-interview">
+          <VBlock title="Jonathan K." subtitle="08:00 - 09:00" center>
             <template #icon>
               <VAvatar picture="/demo/avatars/32.jpg" />
             </template>
@@ -340,15 +270,8 @@ const userStack = userData.userStack as VAvatarProps[]
             </template>
           </VBlock>
         </a>
-        <a
-          href="#"
-          class="dashboard-card is-interview"
-        >
-          <VBlock
-            title="Greta K."
-            subtitle="10:30 - 11:00"
-            center
-          >
+        <a href="#" class="dashboard-card is-interview">
+          <VBlock title="Greta K." subtitle="10:30 - 11:00" center>
             <template #icon>
               <VAvatar picture="/demo/avatars/19.jpg" />
             </template>
@@ -366,15 +289,8 @@ const userStack = userData.userStack as VAvatarProps[]
             </template>
           </VBlock>
         </a>
-        <a
-          href="#"
-          class="dashboard-card is-interview"
-        >
-          <VBlock
-            title="Joshua S."
-            subtitle="02:30 - 03:00"
-            center
-          >
+        <a href="#" class="dashboard-card is-interview">
+          <VBlock title="Joshua S." subtitle="02:30 - 03:00" center>
             <template #icon>
               <VAvatar picture="/demo/avatars/12.jpg" />
             </template>

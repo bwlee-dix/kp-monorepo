@@ -21,9 +21,7 @@ useHead({
               badge="/demo/photos/misc/buoy.jpg"
             />
 
-            <h3 class="title is-4 is-narrow is-thin">
-              Vuero Elements
-            </h3>
+            <h3 class="title is-4 is-narrow is-thin">Vuero Elements</h3>
             <p class="light-text">
               This is the Vuero elements library with detailed code examples.
             </p>
@@ -36,21 +34,19 @@ useHead({
                 title="Buttons"
                 content="Get familiar with the Vuero button styles. Code examples included."
               >
-                <RouterLink to="/elements/button">
-                  Get Started
-                </RouterLink>
+                <RouterLink to="/elements/button"> Get Started </RouterLink>
 
                 <template #icon>
                   <img
                     class="light-image"
                     src="/@dds/assets/illustrations/components/buttons.svg"
                     alt=""
-                  >
+                  />
                   <img
                     class="dark-image"
                     src="/@dds/assets/illustrations/components/buttons-dark.svg"
                     alt=""
-                  >
+                  />
                 </template>
               </HubCard>
 
@@ -68,12 +64,12 @@ useHead({
                     class="light-image"
                     src="/@dds/assets/illustrations/components/icons.svg"
                     alt=""
-                  >
+                  />
                   <img
                     class="dark-image"
                     src="/@dds/assets/illustrations/components/icons-dark.svg"
                     alt=""
-                  >
+                  />
                 </template>
               </HubCard>
 
@@ -82,21 +78,19 @@ useHead({
                 title="Dropdowns"
                 content="Get familiar with the Vuero dropdown styles. Code examples included."
               >
-                <RouterLink to="/elements/dropdown">
-                  Get Started
-                </RouterLink>
+                <RouterLink to="/elements/dropdown"> Get Started </RouterLink>
 
                 <template #icon>
                   <img
                     class="light-image"
                     src="/@dds/assets/illustrations/components/dropdown.svg"
                     alt=""
-                  >
+                  />
                   <img
                     class="dark-image"
                     src="/@dds/assets/illustrations/components/dropdown-dark.svg"
                     alt=""
-                  >
+                  />
                 </template>
               </HubCard>
 
@@ -105,21 +99,19 @@ useHead({
                 title="Modals"
                 content="Get familiar with the Vuero modal styles. Code examples included."
               >
-                <RouterLink to="/elements/modal">
-                  Get Started
-                </RouterLink>
+                <RouterLink to="/elements/modal"> Get Started </RouterLink>
 
                 <template #icon>
                   <img
                     class="light-image"
                     src="/@dds/assets/illustrations/components/modal.svg"
                     alt=""
-                  >
+                  />
                   <img
                     class="dark-image"
                     src="/@dds/assets/illustrations/components/modal-dark.svg"
                     alt=""
-                  >
+                  />
                 </template>
               </HubCard>
 
@@ -128,21 +120,19 @@ useHead({
                 title="Progress"
                 content="Get familiar with the Vuero progress bar styles. Code examples included."
               >
-                <RouterLink to="/elements/progress">
-                  Get Started
-                </RouterLink>
+                <RouterLink to="/elements/progress"> Get Started </RouterLink>
 
                 <template #icon>
                   <img
                     class="light-image"
                     src="/@dds/assets/illustrations/components/progress.svg"
                     alt=""
-                  >
+                  />
                   <img
                     class="dark-image"
                     src="/@dds/assets/illustrations/components/progress-dark.svg"
                     alt=""
-                  >
+                  />
                 </template>
               </HubCard>
 
@@ -151,21 +141,19 @@ useHead({
                 title="Forms"
                 content="Get familiar with the Vuero form elements. Code examples included."
               >
-                <RouterLink to="/elements/forms/inputs">
-                  Get Started
-                </RouterLink>
+                <RouterLink to="/elements/forms/inputs"> Get Started </RouterLink>
 
                 <template #icon>
                   <img
                     class="light-image"
                     src="/@dds/assets/illustrations/components/forms.svg"
                     alt=""
-                  >
+                  />
                   <img
                     class="dark-image"
                     src="/@dds/assets/illustrations/components/forms-dark.svg"
                     alt=""
-                  >
+                  />
                 </template>
               </HubCard>
 
@@ -174,21 +162,19 @@ useHead({
                 title="Checkboxes"
                 content="Get familiar with the Vuero checkboxes styles. Code examples included."
               >
-                <RouterLink to="/elements/checkbox">
-                  Get Started
-                </RouterLink>
+                <RouterLink to="/elements/checkbox"> Get Started </RouterLink>
 
                 <template #icon>
                   <img
                     class="light-image"
                     src="/@dds/assets/illustrations/components/checkboxes.svg"
                     alt=""
-                  >
+                  />
                   <img
                     class="dark-image"
                     src="/@dds/assets/illustrations/components/checkboxes-dark.svg"
                     alt=""
-                  >
+                  />
                 </template>
               </HubCard>
 
@@ -197,21 +183,19 @@ useHead({
                 title="Switches"
                 content="Get familiar with the Vuero switches styles. Code examples included."
               >
-                <RouterLink to="/elements/switch-block">
-                  Get Started
-                </RouterLink>
+                <RouterLink to="/elements/switch-block"> Get Started </RouterLink>
 
                 <template #icon>
                   <img
                     class="light-image"
                     src="/@dds/assets/illustrations/components/switches.svg"
                     alt=""
-                  >
+                  />
                   <img
                     class="dark-image"
                     src="/@dds/assets/illustrations/components/switches-dark.svg"
                     alt=""
-                  >
+                  />
                 </template>
               </HubCard>
             </div>
@@ -219,10 +203,7 @@ useHead({
 
           <div class="hub-footer">
             <p>
-              <a
-                class="action-link"
-                tabindex="0"
-              >Online Documentation</a>
+              <a class="action-link" tabindex="0">Online Documentation</a>
             </p>
           </div>
         </div>

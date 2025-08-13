@@ -32,7 +32,7 @@ const dropdown2 = useDropdown(dropdownElement2)
         src="/demo/avatars/39.jpg"
         alt=""
         @error.once="onceImageErrored(150)"
-      >
+      />
       <div class="message-meta">
         <span class="message-title">
           New design ideas from the user experience team
@@ -40,11 +40,7 @@ const dropdown2 = useDropdown(dropdownElement2)
         <span class="sender-email">&lt;alejandro@dds.io&gt;</span>
       </div>
       <div class="attachments inbox-hidden-mobile">
-        <i
-          aria-hidden="true"
-          class="iconify"
-          data-icon="feather:paperclip"
-        />
+        <i aria-hidden="true" class="iconify" data-icon="feather:paperclip" />
         <span>2</span>
       </div>
       <div
@@ -52,44 +48,25 @@ const dropdown2 = useDropdown(dropdownElement2)
         class="dropdown inbox-dropdown dropdown-trigger is-right"
       >
         <div>
-          <button
-            class="button"
-            @click="dropdown1.toggle"
-          >
+          <button class="button" @click="dropdown1.toggle">
             <span class="icon is-small">
-              <i
-                aria-hidden="true"
-                class="iconify"
-                data-icon="feather:more-vertical"
-              />
+              <i aria-hidden="true" class="iconify" data-icon="feather:more-vertical" />
             </span>
           </button>
         </div>
         <div class="dropdown-menu">
           <div class="dropdown-content">
             <a class="dropdown-item">
-              <i
-                aria-hidden="true"
-                class="iconify"
-                data-icon="feather:bookmark"
-              />
+              <i aria-hidden="true" class="iconify" data-icon="feather:bookmark" />
               <span>Bookmark</span>
             </a>
             <a class="dropdown-item">
-              <i
-                aria-hidden="true"
-                class="iconify"
-                data-icon="feather:share-2"
-              />
+              <i aria-hidden="true" class="iconify" data-icon="feather:share-2" />
               <span>Share message</span>
             </a>
-            <hr class="dropdown-divider">
+            <hr class="dropdown-divider" />
             <a class="dropdown-item">
-              <i
-                aria-hidden="true"
-                class="iconify"
-                data-icon="feather:thumbs-down"
-              />
+              <i aria-hidden="true" class="iconify" data-icon="feather:thumbs-down" />
               <span>Mark as spam</span>
             </a>
           </div>
@@ -102,11 +79,7 @@ const dropdown2 = useDropdown(dropdownElement2)
         @keydown.space.prevent="emit('update:mobileMessageOpen', false)"
         @click="emit('update:mobileMessageOpen', false)"
       >
-        <i
-          aria-hidden="true"
-          class="iconify"
-          data-icon="feather:x"
-        />
+        <i aria-hidden="true" class="iconify" data-icon="feather:x" />
       </a>
     </div>
     <!--Message-->
@@ -119,39 +92,19 @@ const dropdown2 = useDropdown(dropdownElement2)
           </div>
           <div class="message-actions">
             <a class="inbox-action">
-              <i
-                aria-hidden="true"
-                class="iconify"
-                data-icon="feather:corner-up-left"
-              />
+              <i aria-hidden="true" class="iconify" data-icon="feather:corner-up-left" />
             </a>
             <a class="inbox-action">
-              <i
-                aria-hidden="true"
-                class="iconify"
-                data-icon="feather:file-text"
-              />
+              <i aria-hidden="true" class="iconify" data-icon="feather:file-text" />
             </a>
             <a class="inbox-action">
-              <i
-                aria-hidden="true"
-                class="iconify"
-                data-icon="feather:tag"
-              />
+              <i aria-hidden="true" class="iconify" data-icon="feather:tag" />
             </a>
             <a class="inbox-action">
-              <i
-                aria-hidden="true"
-                class="iconify"
-                data-icon="feather:message-circle"
-              />
+              <i aria-hidden="true" class="iconify" data-icon="feather:message-circle" />
             </a>
             <a class="inbox-action">
-              <i
-                aria-hidden="true"
-                class="iconify"
-                data-icon="feather:lock"
-              />
+              <i aria-hidden="true" class="iconify" data-icon="feather:lock" />
             </a>
           </div>
         </div>
@@ -191,21 +144,13 @@ const dropdown2 = useDropdown(dropdownElement2)
           <div class="attachment">
             <span>landing-page.png</span>
             <div class="download-icon">
-              <i
-                aria-hidden="true"
-                class="iconify"
-                data-icon="feather:arrow-down"
-              />
+              <i aria-hidden="true" class="iconify" data-icon="feather:arrow-down" />
             </div>
           </div>
           <div class="attachment">
             <span>dashboard.png</span>
             <div class="download-icon">
-              <i
-                aria-hidden="true"
-                class="iconify"
-                data-icon="feather:arrow-down"
-              />
+              <i aria-hidden="true" class="iconify" data-icon="feather:arrow-down" />
             </div>
           </div>
         </div>
@@ -219,7 +164,7 @@ const dropdown2 = useDropdown(dropdownElement2)
               src="/images/avatars/svg/vuero-1.svg"
               alt=""
               @error.once="onceImageErrored(150)"
-            >
+            />
             <div class="reply-details">
               <span>Reply as</span>
               <span>erik@dds.io</span>
@@ -229,10 +174,7 @@ const dropdown2 = useDropdown(dropdownElement2)
               class="dropdown inbox-dropdown dropdown-trigger is-right"
             >
               <div>
-                <button
-                  class="button"
-                  @click="dropdown2.toggle"
-                >
+                <button class="button" @click="dropdown2.toggle">
                   <span class="icon is-small">
                     <i
                       aria-hidden="true"
@@ -261,11 +203,7 @@ const dropdown2 = useDropdown(dropdownElement2)
                     <span>Spelling</span>
                   </a>
                   <a class="dropdown-item">
-                    <i
-                      aria-hidden="true"
-                      class="iconify"
-                      data-icon="feather:at-sign"
-                    />
+                    <i aria-hidden="true" class="iconify" data-icon="feather:at-sign" />
                     <span>Mention</span>
                   </a>
                 </div>
@@ -274,17 +212,8 @@ const dropdown2 = useDropdown(dropdownElement2)
           </div>
           <!--textarea-->
           <div class="control">
-            <textarea
-              class="textarea"
-              rows="6"
-              placeholder="Type your message..."
-            />
-            <button
-              type="button"
-              class="button"
-            >
-              Send Message
-            </button>
+            <textarea class="textarea" rows="6" placeholder="Type your message..." />
+            <button type="button" class="button">Send Message</button>
           </div>
         </div>
       </div>

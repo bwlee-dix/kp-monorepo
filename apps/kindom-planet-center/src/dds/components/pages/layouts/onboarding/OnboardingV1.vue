@@ -2,9 +2,7 @@
   <div class="onboarding-wrapper onboarding-v1">
     <div class="title-wrap">
       <p>Looks like you're new here</p>
-      <h2 class="dark-inverted">
-        Welcome to Vuero. What would you like to do?
-      </h2>
+      <h2 class="dark-inverted">Welcome to Vuero. What would you like to do?</h2>
     </div>
 
     <div class="onboarding-wrap">
@@ -15,28 +13,20 @@
             class="light-image"
             src="/@dds/assets/illustrations/onboarding/set2-1.svg"
             alt=""
-          >
+          />
           <img
             class="dark-image"
             src="/@dds/sets/illustrations/onboarding/set2-1-dark.svg"
             alt=""
-          >
+          />
           <div class="onboarding-content">
-            <h3 class="dark-inverted">
-              Explore Posts
-            </h3>
+            <h3 class="dark-inverted">Explore Posts</h3>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Recte dicis; Ita
               enim vivunt.
             </p>
             <div class="button-wrap">
-              <VButton
-                color="primary"
-                rounded
-                elevated
-              >
-                Explore
-              </VButton>
+              <VButton color="primary" rounded elevated> Explore </VButton>
             </div>
           </div>
         </div>
@@ -46,28 +36,20 @@
             class="light-image"
             src="/@dds/sets/illustrations/onboarding/set2-2.svg"
             alt=""
-          >
+          />
           <img
             class="dark-image"
             src="/@dds/sets/illustrations/onboarding/set2-2-dark.svg"
             alt=""
-          >
+          />
           <div class="onboarding-content">
-            <h3 class="dark-inverted">
-              Schedule a Meeting
-            </h3>
+            <h3 class="dark-inverted">Schedule a Meeting</h3>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Recte dicis; Ita
               enim vivunt.
             </p>
             <div class="button-wrap">
-              <VButton
-                color="primary"
-                rounded
-                elevated
-              >
-                Schedule
-              </VButton>
+              <VButton color="primary" rounded elevated> Schedule </VButton>
             </div>
           </div>
         </div>
@@ -77,28 +59,20 @@
             class="light-image"
             src="/@dds/sets/illustrations/onboarding/set2-3.svg"
             alt=""
-          >
+          />
           <img
             class="dark-image"
             src="/@dds/sets/illustrations/onboarding/set2-3-dark.svg"
             alt=""
-          >
+          />
           <div class="onboarding-content">
-            <h3 class="dark-inverted">
-              Chill Out
-            </h3>
+            <h3 class="dark-inverted">Chill Out</h3>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Recte dicis; Ita
               enim vivunt.
             </p>
             <div class="button-wrap">
-              <VButton
-                color="primary"
-                rounded
-                elevated
-              >
-                Take a Nap
-              </VButton>
+              <VButton color="primary" rounded elevated> Take a Nap </VButton>
             </div>
           </div>
         </div>

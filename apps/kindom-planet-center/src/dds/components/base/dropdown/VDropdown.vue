@@ -50,10 +50,7 @@ defineExpose({
     ]"
     class="dropdown"
   >
-    <slot
-      name="button"
-      v-bind="dropdown"
-    >
+    <slot name="button" v-bind="dropdown">
       <a
         v-if="props.icon"
         tabindex="0"
@@ -75,30 +72,15 @@ defineExpose({
       >
         <span v-if="props.title">{{ props.title }}</span>
         <span :class="[!props.modern && 'base-caret', props.modern && 'base-caret']">
-          <VIcon
-            v-if="!dropdown.isOpen"
-            icon="fa6-solid:angle-down"
-          />
-          <VIcon
-            v-else
-            icon="fa6-solid:angle-up"
-          />
+          <VIcon v-if="!dropdown.isOpen" icon="fa6-solid:angle-down" />
+          <VIcon v-else icon="fa6-solid:angle-up" />
         </span>
       </a>
     </slot>
 
-    <div
-      class="dropdown-menu"
-      role="menu"
-    >
-      <div
-        class="dropdown-content"
-        :class="props.classes?.content"
-      >
-        <slot
-          name="content"
-          v-bind="dropdown"
-        />
+    <div class="dropdown-menu" role="menu">
+      <div class="dropdown-content" :class="props.classes?.content">
+        <slot name="content" v-bind="dropdown" />
       </div>
     </div>
   </div>
@@ -198,9 +180,9 @@ defineExpose({
   }
 
   &.is-full-width {
-    width: 100%!important;
+    width: 100% !important;
     a {
-      width: 100%!important;
+      width: 100% !important;
     }
   }
   &.is-spaced {

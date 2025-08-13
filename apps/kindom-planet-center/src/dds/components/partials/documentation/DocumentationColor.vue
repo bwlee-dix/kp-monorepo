@@ -72,11 +72,7 @@ function updateColor({ colors }: any) {
         <span>{{ colorVar }}</span>
       </div>
       <div class="actions">
-        <VAction
-          tabindex="0"
-          @keydown.space.prevent="toggle"
-          @click="toggle"
-        >
+        <VAction tabindex="0" @keydown.space.prevent="toggle" @click="toggle">
           <span v-if="isOpen">Close</span>
           <span v-else>Customize</span>
         </VAction>
@@ -138,14 +134,8 @@ function updateColor({ colors }: any) {
           @keydown.space.prevent="copy(colorSnippet)"
           @click="copy(colorSnippet)"
         >
-          <Transition
-            name="fade-fast"
-            mode="out-in"
-          >
-            <span
-              v-if="copied && text === colorSnippet"
-              class="is-copied"
-            >
+          <Transition name="fade-fast" mode="out-in">
+            <span v-if="copied && text === colorSnippet" class="is-copied">
               Copied!
             </span>
             <span v-else> Copy snippet color </span>

@@ -3,10 +3,7 @@ const stayFocus = useLocalStorage('disable-stay-focus', '')
 </script>
 
 <template>
-  <div
-    class="demo-card"
-    :class="stayFocus !== 'disabled' && 'stay-focus-element'"
-  >
+  <div class="demo-card" :class="stayFocus !== 'disabled' && 'stay-focus-element'">
     <slot />
   </div>
 </template>

@@ -11,11 +11,7 @@ function logout() {
 </script>
 
 <template>
-  <VDropdown
-    right
-    spaced
-    class="user-dropdown profile-dropdown"
-  >
+  <VDropdown right spaced class="user-dropdown profile-dropdown">
     <template #button="{ toggle }">
       <a
         role="button"
@@ -31,10 +27,7 @@ function logout() {
 
     <template #content>
       <div class="dropdown-head">
-        <VAvatar
-          size="large"
-          picture="/images/avatars/svg/vuero-1.svg"
-        />
+        <VAvatar size="large" picture="/images/avatars/svg/vuero-1.svg" />
 
         <div class="meta">
           <span>Erik Kovalsky</span>
@@ -42,16 +35,9 @@ function logout() {
         </div>
       </div>
 
-      <a
-        href="#"
-        role="menuitem"
-        class="dropdown-item is-media"
-      >
+      <a href="#" role="menuitem" class="dropdown-item is-media">
         <div class="icon">
-          <i
-            aria-hidden="true"
-            class="lnil lnil-user-alt"
-          />
+          <i aria-hidden="true" class="lnil lnil-user-alt" />
         </div>
         <div class="meta">
           <span>Profile</span>
@@ -59,18 +45,11 @@ function logout() {
         </div>
       </a>
 
-      <hr class="dropdown-divider">
+      <hr class="dropdown-divider" />
 
-      <a
-        href="#"
-        role="menuitem"
-        class="dropdown-item is-media"
-      >
+      <a href="#" role="menuitem" class="dropdown-item is-media">
         <div class="icon">
-          <i
-            aria-hidden="true"
-            class="lnil lnil-briefcase"
-          />
+          <i aria-hidden="true" class="lnil lnil-briefcase" />
         </div>
         <div class="meta">
           <span>Projects</span>
@@ -78,16 +57,9 @@ function logout() {
         </div>
       </a>
 
-      <a
-        href="#"
-        role="menuitem"
-        class="dropdown-item is-media"
-      >
+      <a href="#" role="menuitem" class="dropdown-item is-media">
         <div class="icon">
-          <i
-            aria-hidden="true"
-            class="lnil lnil-users-alt"
-          />
+          <i aria-hidden="true" class="lnil lnil-users-alt" />
         </div>
         <div class="meta">
           <span>Team</span>
@@ -95,18 +67,11 @@ function logout() {
         </div>
       </a>
 
-      <hr class="dropdown-divider">
+      <hr class="dropdown-divider" />
 
-      <a
-        href="#"
-        role="menuitem"
-        class="dropdown-item is-media"
-      >
+      <a href="#" role="menuitem" class="dropdown-item is-media">
         <div class="icon">
-          <i
-            aria-hidden="true"
-            class="lnil lnil-cog"
-          />
+          <i aria-hidden="true" class="lnil lnil-cog" />
         </div>
         <div class="meta">
           <span>Settings</span>
@@ -114,7 +79,7 @@ function logout() {
         </div>
       </a>
 
-      <hr class="dropdown-divider">
+      <hr class="dropdown-divider" />
 
       <div class="dropdown-item is-button">
         <VButton

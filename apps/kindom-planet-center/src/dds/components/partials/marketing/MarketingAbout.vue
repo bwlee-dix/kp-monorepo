@@ -3,9 +3,7 @@
     <div class="container">
       <!--Title-->
       <div class="section-title has-text-centered py-6">
-        <h2 class="title is-2">
-          About Us
-        </h2>
+        <h2 class="title is-2">About Us</h2>
         <h4>Let us tell you the hole story.</h4>
       </div>
 
@@ -27,9 +25,7 @@
             <div class="columns is-multiline b-columns-half-tablet-p">
               <div class="column is-6">
                 <div class="py-2 medium:py-4">
-                  <h4 class="title is-5 is-narrow">
-                    How we started
-                  </h4>
+                  <h4 class="title is-5 is-narrow">How we started</h4>
                   <p class="pt-2 max-w-3 text-medium">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
                     videbimus.
@@ -38,9 +34,7 @@
               </div>
               <div class="column is-6">
                 <div class="py-2 medium:py-4">
-                  <h4 class="title is-5 is-narrow">
-                    Who we are
-                  </h4>
+                  <h4 class="title is-5 is-narrow">Who we are</h4>
                   <p class="pt-2 max-w-3 text-medium">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
                     videbimus.
@@ -49,9 +43,7 @@
               </div>
               <div class="column is-6">
                 <div class="py-2 medium:py-4">
-                  <h4 class="title is-5 is-narrow">
-                    What we do
-                  </h4>
+                  <h4 class="title is-5 is-narrow">What we do</h4>
                   <p class="pt-2 max-w-3 text-medium">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
                     videbimus.
@@ -60,9 +52,7 @@
               </div>
               <div class="column is-6">
                 <div class="py-2 medium:py-4">
-                  <h4 class="title is-5 is-narrow">
-                    Our values
-                  </h4>
+                  <h4 class="title is-5 is-narrow">Our values</h4>
                   <p class="pt-2 max-w-3 text-medium">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
                     videbimus.

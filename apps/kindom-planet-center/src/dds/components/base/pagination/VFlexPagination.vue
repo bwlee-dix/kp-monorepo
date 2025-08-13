@@ -123,10 +123,7 @@ const handleLinkClick = (e: MouseEvent, page = 1) => {
         <span class="pagination-ellipsis">…</span>
       </li>
 
-      <li
-        v-for="page in pages"
-        :key="page"
-      >
+      <li v-for="page in pages" :key="page">
         <RouterLink
           :to="paginatedLink(page)"
           tabindex="0"
@@ -175,11 +172,7 @@ const handleLinkClick = (e: MouseEvent, page = 1) => {
       @keydown.space.prevent="(e: MouseEvent) => (e.target as HTMLAnchorElement).click()"
       @click="(e: MouseEvent) => handleLinkClick(e, currentPage - 1)"
     >
-      <i
-        aria-hidden="true"
-        class="iconify rtl-hidden"
-        data-icon="feather:chevron-left"
-      />
+      <i aria-hidden="true" class="iconify rtl-hidden" data-icon="feather:chevron-left" />
       <i
         aria-hidden="true"
         class="iconify ltr-hidden"
@@ -198,11 +191,7 @@ const handleLinkClick = (e: MouseEvent, page = 1) => {
         class="iconify rtl-hidden"
         data-icon="feather:chevron-right"
       />
-      <i
-        aria-hidden="true"
-        class="iconify ltr-hidden"
-        data-icon="feather:chevron-left"
-      />
+      <i aria-hidden="true" class="iconify ltr-hidden" data-icon="feather:chevron-left" />
     </RouterLink>
     <slot name="after-navigation" />
   </VFlex>

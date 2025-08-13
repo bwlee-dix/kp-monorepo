@@ -51,7 +51,7 @@ const optionsSingle = [
           v-model="filters"
           class="input custom-text-filter"
           placeholder="Search..."
-        >
+        />
       </VControl>
 
       <div class="buttons">
@@ -65,15 +65,9 @@ const optionsSingle = [
             />
           </VControl>
         </VField>
-        <VButton
-          color="primary"
-          raised
-        >
+        <VButton color="primary" raised>
           <span class="icon">
-            <i
-              aria-hidden="true"
-              class="fas fa-plus"
-            />
+            <i aria-hidden="true" class="fas fa-plus" />
           </span>
           <span>New Project</span>
         </VButton>
@@ -95,35 +89,24 @@ const optionsSingle = [
             class="light-image"
             src="/@dds/sets/illustrations/placeholders/search-3.svg"
             alt=""
-          >
+          />
           <img
             class="dark-image"
             src="/@dds/sets/illustrations/placeholders/search-3-dark.svg"
             alt=""
-          >
+          />
         </template>
       </VPlaceholderPage>
 
       <!--Card Grid v2-->
-      <TransitionGroup
-        name="list"
-        tag="div"
-        class="columns is-multiline"
-      >
+      <TransitionGroup name="list" tag="div" class="columns is-multiline">
         <!--Grid Item-->
-        <div
-          v-for="(item, key) in filteredData"
-          :key="key"
-          class="column is-4"
-        >
+        <div v-for="(item, key) in filteredData" :key="key" class="column is-4">
           <div class="card-grid-item">
             <div class="card">
               <header class="card-header">
                 <div class="card-header-title">
-                  <VAvatar
-                    size="small"
-                    :picture="item.owner.avatar"
-                  />
+                  <VAvatar size="small" :picture="item.owner.avatar" />
                   <div class="meta">
                     <span class="dark-inverted">{{ item.owner.name }}</span>
                     <span>updated {{ item.updated }}</span>
@@ -139,7 +122,7 @@ const optionsSingle = [
                     :src="item.image"
                     alt=""
                     @error.once="onceImageErrored(1280, 960)"
-                  >
+                  />
                 </figure>
               </div>
               <div class="card-content">
@@ -156,22 +139,12 @@ const optionsSingle = [
                       />{{ item.dueDate }}
                     </p>
                   </div>
-                  <VAvatarStack
-                    :avatars="item.team"
-                    size="small"
-                    :limit="3"
-                  />
+                  <VAvatarStack :avatars="item.team" size="small" :limit="3" />
                 </div>
               </div>
               <footer class="card-footer">
-                <a
-                  href="#"
-                  class="card-footer-item"
-                >View</a>
-                <a
-                  href="#"
-                  class="card-footer-item"
-                >Settings</a>
+                <a href="#" class="card-footer-item">View</a>
+                <a href="#" class="card-footer-item">Settings</a>
               </footer>
             </div>
           </div>

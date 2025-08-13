@@ -9,14 +9,11 @@ import { onceImageErrored } from '/@dds/utils/via-placeholder'
         src="/@dds/sets/illustrations/placeholders/having-coffee.svg"
         alt=""
         @error.once="onceImageErrored(150)"
-      >
+      />
       <div class="text">
         <h3>Nothing to show</h3>
         <p>Select an existing conversation or start a new one</p>
-        <a
-          id="new-chat"
-          class="button v-button is-solid is-outlined is-big is-rounded"
-        >
+        <a id="new-chat" class="button v-button is-solid is-outlined is-big is-rounded">
           Start a new conversation
         </a>
       </div>

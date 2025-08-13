@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 import { useViewWrapper } from '/@dds/stores/viewWrapper'
 
 const viewWrapper = useViewWrapper()
@@ -11,10 +10,7 @@ useHead({
 </script>
 
 <template>
-  <AdminSideblockLayout
-    theme="curved"
-    open-on-mounted
-  >
+  <AdminSideblockLayout theme="curved" open-on-mounted>
     <!-- Content Wrapper -->
     <div class="page-content-inner">
       <AnalyticsDashboard />

@@ -233,20 +233,19 @@ export default defineComponent({
     }
 
     const onClick = (e: MouseEvent) => {
-      e.stopPropagation();
+      e.stopPropagation()
       if (attrs.onClick && typeof attrs.onClick === 'function') {
-        attrs.onClick(e);
+        attrs.onClick(e)
       }
     }
 
-
     return () => {
-        const commonAttrs = {
-      ...attrs,
-      onClick,
-      'aria-hidden': !!props.placeload && true,
-      class: ['button', ...classes.value],
-    }
+      const commonAttrs = {
+        ...attrs,
+        onClick,
+        'aria-hidden': !!props.placeload && true,
+        class: ['button', ...classes.value],
+      }
 
       if (props.to) {
         return h(

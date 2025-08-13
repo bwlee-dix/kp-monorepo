@@ -56,14 +56,8 @@ watch(
       @toggle="isMobileSideblockOpen = !isMobileSideblockOpen"
     >
       <template #brand>
-        <RouterLink
-          to="/"
-          class="navbar-item is-brand"
-        >
-          <AnimatedLogo
-            width="38px"
-            height="38px"
-          />
+        <RouterLink to="/" class="navbar-item is-brand">
+          <AnimatedLogo width="38px" height="38px" />
         </RouterLink>
 
         <div class="brand-end">
@@ -88,11 +82,7 @@ watch(
             @keydown.space.prevent="activeMobileSubsidebar = 'dashboard'"
             @click="activeMobileSubsidebar = 'dashboard'"
           >
-            <i
-              aria-hidden="true"
-              class="iconify"
-              data-icon="feather:activity"
-            />
+            <i aria-hidden="true" class="iconify" data-icon="feather:activity" />
           </a>
         </li>
         <li>
@@ -104,11 +94,7 @@ watch(
             @keydown.space.prevent="activeMobileSubsidebar = 'layout'"
             @click="activeMobileSubsidebar = 'layout'"
           >
-            <i
-              aria-hidden="true"
-              class="iconify"
-              data-icon="feather:grid"
-            />
+            <i aria-hidden="true" class="iconify" data-icon="feather:grid" />
           </a>
         </li>
         <li>
@@ -120,11 +106,7 @@ watch(
             @keydown.space.prevent="activeMobileSubsidebar = 'elements'"
             @click="activeMobileSubsidebar = 'elements'"
           >
-            <i
-              aria-hidden="true"
-              class="iconify"
-              data-icon="feather:box"
-            />
+            <i aria-hidden="true" class="iconify" data-icon="feather:box" />
           </a>
         </li>
         <li>
@@ -136,20 +118,12 @@ watch(
             @keydown.space.prevent="activeMobileSubsidebar = 'components'"
             @click="activeMobileSubsidebar = 'components'"
           >
-            <i
-              aria-hidden="true"
-              class="iconify"
-              data-icon="feather:cpu"
-            />
+            <i aria-hidden="true" class="iconify" data-icon="feather:cpu" />
           </a>
         </li>
         <li>
           <RouterLink to="/messaging-v1">
-            <i
-              aria-hidden="true"
-              class="iconify"
-              data-icon="feather:message-circle"
-            />
+            <i aria-hidden="true" class="iconify" data-icon="feather:message-circle" />
           </RouterLink>
         </li>
       </template>
@@ -163,23 +137,12 @@ watch(
             @keydown.space.prevent="panels.setActive('search')"
             @click="panels.setActive('search')"
           >
-            <i
-              aria-hidden="true"
-              class="iconify"
-              data-icon="feather:search"
-            />
+            <i aria-hidden="true" class="iconify" data-icon="feather:search" />
           </a>
         </li>
         <li>
-          <a
-            aria-label="View settings"
-            href="#"
-          >
-            <i
-              aria-hidden="true"
-              class="iconify"
-              data-icon="feather:settings"
-            />
+          <a aria-label="View settings" href="#">
+            <i aria-hidden="true" class="iconify" data-icon="feather:settings" />
           </a>
         </li>
       </template>
@@ -205,116 +168,68 @@ watch(
     <CircularMenu />
 
     <Transition name="slide-x">
-      <Sideblock
-        v-if="isDesktopSideblockOpen"
-        :theme="props.theme"
-      >
+      <Sideblock v-if="isDesktopSideblockOpen" :theme="props.theme">
         <template #header>
-          <RouterLink
-            to="/"
-            class="sidebar-block-logo"
-          >
+          <RouterLink to="/" class="sidebar-block-logo">
             <AnimatedLogo width="36px" />
           </RouterLink>
           <h3>KP Admin</h3>
         </template>
         <template #links>
           <li>
-            <RouterLink
-              to="/dashboard"
-              class="single-link"
-            >
+            <RouterLink to="/dashboard" class="single-link">
               <span class="icon">
-                <i
-                  class="iconify"
-                  data-icon="feather:grid"
-                />
+                <i class="iconify" data-icon="feather:grid" />
               </span>
               Dashboard
             </RouterLink>
           </li>
           <li>
-            <RouterLink
-              to="/app"
-              class="single-link"
-            >
+            <RouterLink to="/app" class="single-link">
               <span class="icon">
-                <i
-                  class="iconify"
-                  data-icon="feather:info"
-                />
+                <i class="iconify" data-icon="feather:info" />
               </span>
               App
             </RouterLink>
           </li>
           <li>
-            <RouterLink
-              to="/sidebar/dashboards/personal-2"
-              class="single-link"
-            >
+            <RouterLink to="/sidebar/dashboards/personal-2" class="single-link">
               <span class="icon">
-                <i
-                  class="iconify"
-                  data-icon="feather:briefcase"
-                />
+                <i class="iconify" data-icon="feather:briefcase" />
               </span>
               Projects
             </RouterLink>
           </li>
           <li>
-            <RouterLink
-              to="/sidebar/dashboards/human-ressources"
-              class="single-link"
-            >
+            <RouterLink to="/sidebar/dashboards/human-ressources" class="single-link">
               <span class="icon">
-                <i
-                  class="iconify"
-                  data-icon="feather:message-circle"
-                />
+                <i class="iconify" data-icon="feather:message-circle" />
               </span>
               Messages
               <span class="badge">3</span>
             </RouterLink>
           </li>
           <li>
-            <RouterLink
-              to="/sidebar/dashboards/personal-3"
-              class="single-link"
-            >
+            <RouterLink to="/sidebar/dashboards/personal-3" class="single-link">
               <span class="icon">
-                <i
-                  class="iconify"
-                  data-icon="feather:book"
-                />
+                <i class="iconify" data-icon="feather:book" />
               </span>
               Collections
             </RouterLink>
           </li>
           <li>
-            <RouterLink
-              to="/sidebar/layouts/profile-view"
-              class="single-link"
-            >
+            <RouterLink to="/sidebar/layouts/profile-view" class="single-link">
               <span class="icon">
-                <i
-                  class="iconify"
-                  data-icon="feather:users"
-                />
+                <i class="iconify" data-icon="feather:users" />
               </span>
               Users
             </RouterLink>
           </li>
 
-          <VCollapseLinks
-            v-model:open="openSideblockLinks"
-            collapse-id="reports"
-          >
+          <VCollapseLinks v-model:open="openSideblockLinks" collapse-id="reports">
             <template #header>
               <div class="icon">
-                <i
-                  class="iconify"
-                  data-icon="feather:briefcase"
-                />
+                <i class="iconify" data-icon="feather:briefcase" />
               </div>
               Reports
               <i
@@ -328,55 +243,33 @@ watch(
                 data-icon="feather:chevron-left"
               />
             </template>
-            <RouterLink
-              to="/sidebar/dashboards/analytics"
-              class="is-submenu"
-            >
+            <RouterLink to="/sidebar/dashboards/analytics" class="is-submenu">
               <i class="lnil lnil-analytics-alt-1" />
               <span>Financial report</span>
             </RouterLink>
-            <RouterLink
-              to="/sidebar/dashboards/company"
-              class="is-submenu"
-            >
+            <RouterLink to="/sidebar/dashboards/company" class="is-submenu">
               <i class="lnil lnil-pie-chart" />
               <span>Stocks report</span>
             </RouterLink>
-            <RouterLink
-              to="/sidebar/layouts/list-view-3"
-              class="is-submenu"
-            >
+            <RouterLink to="/sidebar/layouts/list-view-3" class="is-submenu">
               <i class="lnil lnil-stats-up" />
               <span>Growth report</span>
             </RouterLink>
           </VCollapseLinks>
           <li>
-            <RouterLink
-              to="/inbox"
-              class="single-link"
-            >
+            <RouterLink to="/inbox" class="single-link">
               <span class="icon">
-                <i
-                  class="iconify"
-                  data-icon="feather:mail"
-                />
+                <i class="iconify" data-icon="feather:mail" />
               </span>
               Inbox
             </RouterLink>
           </li>
           <li class="divider" />
 
-          <VCollapseLinks
-            v-model:open="openSideblockLinks"
-            collapse-id="settings"
-          >
+          <VCollapseLinks v-model:open="openSideblockLinks" collapse-id="settings">
             <template #header>
               <div class="icon">
-                <i
-                  aria-hidden="true"
-                  class="iconify"
-                  data-icon="feather:settings"
-                />
+                <i aria-hidden="true" class="iconify" data-icon="feather:settings" />
               </div>
               Settings
               <i
@@ -390,40 +283,24 @@ watch(
                 data-icon="feather:chevron-left"
               />
             </template>
-            <RouterLink
-              to="/sidebar/layouts"
-              class="is-submenu"
-            >
+            <RouterLink to="/sidebar/layouts" class="is-submenu">
               <i class="lnil lnil-home" />
               <span>General</span>
             </RouterLink>
-            <RouterLink
-              to="/sidebar/dashboards/stocks"
-              class="is-submenu"
-            >
+            <RouterLink to="/sidebar/dashboards/stocks" class="is-submenu">
               <i class="lnil lnil-lock-alt" />
               <span>Security</span>
             </RouterLink>
-            <RouterLink
-              to="/sidebar/dashboards/sales"
-              class="is-submenu"
-            >
+            <RouterLink to="/sidebar/dashboards/sales" class="is-submenu">
               <i class="lnil lnil-coin" />
               <span>Transactions</span>
             </RouterLink>
           </VCollapseLinks>
 
-          <VCollapseLinks
-            v-model:open="openSideblockLinks"
-            collapse-id="starters"
-          >
+          <VCollapseLinks v-model:open="openSideblockLinks" collapse-id="starters">
             <template #header>
               <div class="icon">
-                <i
-                  aria-hidden="true"
-                  class="iconify"
-                  data-icon="feather:zap"
-                />
+                <i aria-hidden="true" class="iconify" data-icon="feather:zap" />
               </div>
               Starters
               <i
@@ -438,97 +315,43 @@ watch(
               />
             </template>
 
-            <RouterLink
-              to="/starters/sidebar-blank-page-1"
-              class="is-submenu"
-            >
-              <i
-                aria-hidden="true"
-                class="lnil lnil-layout"
-              />
+            <RouterLink to="/starters/sidebar-blank-page-1" class="is-submenu">
+              <i aria-hidden="true" class="lnil lnil-layout" />
               <span>Regular Sidebar</span>
             </RouterLink>
-            <RouterLink
-              to="/starters/sidebar-blank-page-2"
-              class="is-submenu"
-            >
-              <i
-                aria-hidden="true"
-                class="lnil lnil-layout"
-              />
+            <RouterLink to="/starters/sidebar-blank-page-2" class="is-submenu">
+              <i aria-hidden="true" class="lnil lnil-layout" />
               <span>Curved Sidebar</span>
             </RouterLink>
-            <RouterLink
-              to="/starters/sidebar-blank-page-3"
-              class="is-submenu"
-            >
-              <i
-                aria-hidden="true"
-                class="lnil lnil-layout"
-              />
+            <RouterLink to="/starters/sidebar-blank-page-3" class="is-submenu">
+              <i aria-hidden="true" class="lnil lnil-layout" />
               <span>Colored Sidebar</span>
             </RouterLink>
-            <RouterLink
-              to="/starters/sidebar-blank-page-4"
-              class="is-submenu"
-            >
-              <i
-                aria-hidden="true"
-                class="lnil lnil-layout"
-              />
+            <RouterLink to="/starters/sidebar-blank-page-4" class="is-submenu">
+              <i aria-hidden="true" class="lnil lnil-layout" />
               <span>Curved Colored</span>
             </RouterLink>
-            <RouterLink
-              to="/starters/sidebar-blank-page-4"
-              class="is-submenu"
-            >
-              <i
-                aria-hidden="true"
-                class="lnil lnil-layout"
-              />
+            <RouterLink to="/starters/sidebar-blank-page-4" class="is-submenu">
+              <i aria-hidden="true" class="lnil lnil-layout" />
               <span>Curved Colored Sidebar</span>
             </RouterLink>
-            <RouterLink
-              to="/starters/sidebar-blank-page-5"
-              class="is-submenu"
-            >
-              <i
-                aria-hidden="true"
-                class="lnil lnil-layout"
-              />
+            <RouterLink to="/starters/sidebar-blank-page-5" class="is-submenu">
+              <i aria-hidden="true" class="lnil lnil-layout" />
               <span>Labels Sidebar</span>
             </RouterLink>
-            <RouterLink
-              to="/starters/sidebar-blank-page-6"
-              class="is-submenu"
-            >
-              <i
-                aria-hidden="true"
-                class="lnil lnil-layout"
-              />
+            <RouterLink to="/starters/sidebar-blank-page-6" class="is-submenu">
+              <i aria-hidden="true" class="lnil lnil-layout" />
               <span>Labels Hover Sidebar</span>
             </RouterLink>
-            <RouterLink
-              to="/starters/sidebar-blank-page-7"
-              class="is-submenu"
-            >
-              <i
-                aria-hidden="true"
-                class="lnil lnil-layout"
-              />
+            <RouterLink to="/starters/sidebar-blank-page-7" class="is-submenu">
+              <i aria-hidden="true" class="lnil lnil-layout" />
               <span>Float Sidebar</span>
             </RouterLink>
 
-            <hr class="navbar-divider">
+            <hr class="navbar-divider" />
 
-            <RouterLink
-              to="/starters/sideblock-blank-page-1"
-              class="is-submenu"
-            >
-              <i
-                aria-hidden="true"
-                class="lnil lnil-layout"
-              />
+            <RouterLink to="/starters/sideblock-blank-page-1" class="is-submenu">
+              <i aria-hidden="true" class="lnil lnil-layout" />
               <span>Regular Sideblock</span>
               <VTag
                 class="ml-2"
@@ -539,14 +362,8 @@ watch(
                 curved
               />
             </RouterLink>
-            <RouterLink
-              to="/starters/sideblock-blank-page-2"
-              class="is-submenu"
-            >
-              <i
-                aria-hidden="true"
-                class="lnil lnil-layout"
-              />
+            <RouterLink to="/starters/sideblock-blank-page-2" class="is-submenu">
+              <i aria-hidden="true" class="lnil lnil-layout" />
               <span>Curved Sideblock</span>
               <VTag
                 class="ml-2"
@@ -557,14 +374,8 @@ watch(
                 curved
               />
             </RouterLink>
-            <RouterLink
-              to="/starters/sideblock-blank-page-3"
-              class="is-submenu"
-            >
-              <i
-                aria-hidden="true"
-                class="lnil lnil-layout"
-              />
+            <RouterLink to="/starters/sideblock-blank-page-3" class="is-submenu">
+              <i aria-hidden="true" class="lnil lnil-layout" />
               <span>Colored Sideblock</span>
               <VTag
                 class="ml-2"
@@ -575,14 +386,8 @@ watch(
                 curved
               />
             </RouterLink>
-            <RouterLink
-              to="/starters/sideblock-blank-page-4"
-              class="is-submenu"
-            >
-              <i
-                aria-hidden="true"
-                class="lnil lnil-layout"
-              />
+            <RouterLink to="/starters/sideblock-blank-page-4" class="is-submenu">
+              <i aria-hidden="true" class="lnil lnil-layout" />
               <span>Curved Colored</span>
               <VTag
                 class="ml-2"
@@ -594,86 +399,38 @@ watch(
               />
             </RouterLink>
 
-            <hr class="navbar-divider">
+            <hr class="navbar-divider" />
 
-            <RouterLink
-              to="/starters/navbar-blank-page-1"
-              class="is-submenu"
-            >
-              <i
-                aria-hidden="true"
-                class="lnil lnil-layout-alt-1"
-              />
+            <RouterLink to="/starters/navbar-blank-page-1" class="is-submenu">
+              <i aria-hidden="true" class="lnil lnil-layout-alt-1" />
               <span>Regular Navbar</span>
             </RouterLink>
-            <RouterLink
-              to="/starters/navbar-blank-page-2"
-              class="is-submenu"
-            >
-              <i
-                aria-hidden="true"
-                class="lnil lnil-layout-alt-1"
-              />
+            <RouterLink to="/starters/navbar-blank-page-2" class="is-submenu">
+              <i aria-hidden="true" class="lnil lnil-layout-alt-1" />
               <span>Fading Navbar</span>
             </RouterLink>
-            <RouterLink
-              to="/starters/navbar-blank-page-3"
-              class="is-submenu"
-            >
-              <i
-                aria-hidden="true"
-                class="lnil lnil-layout-alt-1"
-              />
+            <RouterLink to="/starters/navbar-blank-page-3" class="is-submenu">
+              <i aria-hidden="true" class="lnil lnil-layout-alt-1" />
               <span>Colored Navbar</span>
             </RouterLink>
-            <RouterLink
-              to="/starters/navbar-blank-page-4"
-              class="is-submenu"
-            >
-              <i
-                aria-hidden="true"
-                class="lnil lnil-layout-alt-1"
-              />
+            <RouterLink to="/starters/navbar-blank-page-4" class="is-submenu">
+              <i aria-hidden="true" class="lnil lnil-layout-alt-1" />
               <span>Dropdown Navbar</span>
             </RouterLink>
-            <RouterLink
-              to="/starters/navbar-blank-page-5"
-              class="is-submenu"
-            >
-              <i
-                aria-hidden="true"
-                class="lnil lnil-layout-alt-1"
-              />
+            <RouterLink to="/starters/navbar-blank-page-5" class="is-submenu">
+              <i aria-hidden="true" class="lnil lnil-layout-alt-1" />
               <span>Colored Dropdown</span>
             </RouterLink>
-            <RouterLink
-              to="/starters/navbar-blank-page-6"
-              class="is-submenu"
-            >
-              <i
-                aria-hidden="true"
-                class="lnil lnil-layout-alt-1"
-              />
+            <RouterLink to="/starters/navbar-blank-page-6" class="is-submenu">
+              <i aria-hidden="true" class="lnil lnil-layout-alt-1" />
               <span>Clean Navbar</span>
             </RouterLink>
-            <RouterLink
-              to="/starters/navbar-blank-page-7"
-              class="is-submenu"
-            >
-              <i
-                aria-hidden="true"
-                class="lnil lnil-layout-alt-1"
-              />
+            <RouterLink to="/starters/navbar-blank-page-7" class="is-submenu">
+              <i aria-hidden="true" class="lnil lnil-layout-alt-1" />
               <span>Clean Center Navbar</span>
             </RouterLink>
-            <RouterLink
-              to="/starters/navbar-blank-page-8"
-              class="is-submenu"
-            >
-              <i
-                aria-hidden="true"
-                class="lnil lnil-layout-alt-1"
-              />
+            <RouterLink to="/starters/navbar-blank-page-8" class="is-submenu">
+              <i aria-hidden="true" class="lnil lnil-layout-alt-1" />
               <span>Clean Fade Navbar</span>
             </RouterLink>
           </VCollapseLinks>
@@ -712,10 +469,7 @@ watch(
         <template v-if="props.nowrap">
           <slot />
         </template>
-        <VPageContent
-          v-else
-          class="is-relative"
-        >
+        <VPageContent v-else class="is-relative">
           <div class="page-title has-text-centered">
             <!-- Sidebar Trigger -->
             <div
@@ -731,18 +485,9 @@ watch(
                   class="icon-box-toggle"
                 >
                   <span class="rotate">
-                    <i
-                      aria-hidden="true"
-                      class="icon-line-top"
-                    />
-                    <i
-                      aria-hidden="true"
-                      class="icon-line-center"
-                    />
-                    <i
-                      aria-hidden="true"
-                      class="icon-line-bottom"
-                    />
+                    <i aria-hidden="true" class="icon-line-top" />
+                    <i aria-hidden="true" class="icon-line-center" />
+                    <i aria-hidden="true" class="icon-line-bottom" />
                   </span>
                 </span>
               </span>
@@ -765,11 +510,7 @@ watch(
                 @keydown.space.prevent="panels.setActive('activity')"
                 @click="panels.setActive('activity')"
               >
-                <i
-                  aria-hidden="true"
-                  class="iconify"
-                  data-icon="feather:grid"
-                />
+                <i aria-hidden="true" class="iconify" data-icon="feather:grid" />
               </a>
             </Toolbar>
           </div>

@@ -22,24 +22,11 @@ const { popularityGaugeOptions } = usePopularityGaugeChart()
       </div>
       <div class="right">
         <div class="buttons">
-          <VAction dark="3">
-            Hour
-          </VAction>
-          <VAction dark="3">
-            Day
-          </VAction>
-          <VAction
-            dark="3"
-            active
-          >
-            Week
-          </VAction>
-          <VAction dark="3">
-            Month
-          </VAction>
-          <VAction dark="3">
-            Year
-          </VAction>
+          <VAction dark="3"> Hour </VAction>
+          <VAction dark="3"> Day </VAction>
+          <VAction dark="3" active> Week </VAction>
+          <VAction dark="3"> Month </VAction>
+          <VAction dark="3"> Year </VAction>
         </div>
       </div>
     </div>
@@ -106,12 +93,7 @@ const { popularityGaugeOptions } = usePopularityGaugeChart()
       <div class="column is-4">
         <!--Info-->
         <div class="dashboard-card is-side">
-          <VBlock
-            title="Bitcoin"
-            subtitle="BTC"
-            center
-            m-responsive
-          >
+          <VBlock title="Bitcoin" subtitle="BTC" center m-responsive>
             <template #icon>
               <VAvatar picture="/images/icons/cryptocurrencies/btc.svg" />
             </template>
@@ -128,27 +110,15 @@ const { popularityGaugeOptions } = usePopularityGaugeChart()
             </p>
           </div>
           <div class="button-wrap">
-            <VButton
-              color="primary"
-              elevated
-            >
-              Buy BTC
-            </VButton>
-            <VButton dark-outlined>
-              Compare
-            </VButton>
+            <VButton color="primary" elevated> Buy BTC </VButton>
+            <VButton dark-outlined> Compare </VButton>
           </div>
         </div>
 
         <div class="dashboard-card is-side">
           <div class="subheading-wrap">
-            <h4 class="subheading dark-inverted">
-              Followers
-            </h4>
-            <a
-              class="action-link"
-              tabindex="0"
-            >View All</a>
+            <h4 class="subheading dark-inverted">Followers</h4>
+            <a class="action-link" tabindex="0">View All</a>
           </div>
 
           <div class="people">
@@ -172,10 +142,7 @@ const { popularityGaugeOptions } = usePopularityGaugeChart()
                 :offset="[0, 40]"
                 placement="top-end"
               >
-                <VAvatar
-                  initials="SC"
-                  color="h-purple"
-                />
+                <VAvatar initials="SC" color="h-purple" />
                 <template #content>
                   <UserPopoverContent :user="popovers.user120" />
                 </template>
@@ -201,10 +168,7 @@ const { popularityGaugeOptions } = usePopularityGaugeChart()
                 :offset="[0, 40]"
                 placement="top-end"
               >
-                <VAvatar
-                  initials="AT"
-                  color="success"
-                />
+                <VAvatar initials="AT" color="success" />
                 <template #content>
                   <UserPopoverContent :user="popovers.user124" />
                 </template>
@@ -224,101 +188,49 @@ const { popularityGaugeOptions } = usePopularityGaugeChart()
                 </template>
               </Tippy>
             </div>
-            <VAvatar
-              initials="50K"
-              color="h-yellow"
-            />
+            <VAvatar initials="50K" color="h-yellow" />
           </div>
         </div>
 
         <div class="dashboard-card is-side">
           <div class="subheading-wrap">
-            <h4 class="subheading dark-inverted">
-              Popular Coins
-            </h4>
-            <a
-              class="action-link"
-              tabindex="0"
-            >View All</a>
+            <h4 class="subheading dark-inverted">Popular Coins</h4>
+            <a class="action-link" tabindex="0">View All</a>
           </div>
 
-          <VBlock
-            title="Monero"
-            subtitle="XMR"
-            center
-          >
+          <VBlock title="Monero" subtitle="XMR" center>
             <template #icon>
-              <VAvatar
-                picture="/images/icons/cryptocurrencies/xmr.svg"
-                size="small"
-              />
+              <VAvatar picture="/images/icons/cryptocurrencies/xmr.svg" size="small" />
             </template>
             <template #action>
-              <VIconButton
-                icon="feather:plus"
-                circle
-                dark-outlined
-              />
+              <VIconButton icon="feather:plus" circle dark-outlined />
             </template>
           </VBlock>
 
-          <VBlock
-            title="Litecoin"
-            subtitle="LTC"
-            center
-          >
+          <VBlock title="Litecoin" subtitle="LTC" center>
             <template #icon>
-              <VAvatar
-                picture="/images/icons/cryptocurrencies/ltc.svg"
-                size="small"
-              />
+              <VAvatar picture="/images/icons/cryptocurrencies/ltc.svg" size="small" />
             </template>
             <template #action>
-              <VIconButton
-                icon="feather:plus"
-                circle
-                dark-outlined
-              />
+              <VIconButton icon="feather:plus" circle dark-outlined />
             </template>
           </VBlock>
 
-          <VBlock
-            title="ChainLink"
-            subtitle="LINK"
-            center
-          >
+          <VBlock title="ChainLink" subtitle="LINK" center>
             <template #icon>
-              <VAvatar
-                picture="/images/icons/cryptocurrencies/link.svg"
-                size="small"
-              />
+              <VAvatar picture="/images/icons/cryptocurrencies/link.svg" size="small" />
             </template>
             <template #action>
-              <VIconButton
-                icon="feather:plus"
-                circle
-                dark-outlined
-              />
+              <VIconButton icon="feather:plus" circle dark-outlined />
             </template>
           </VBlock>
 
-          <VBlock
-            title="Binance Coin"
-            subtitle="BNB"
-            center
-          >
+          <VBlock title="Binance Coin" subtitle="BNB" center>
             <template #icon>
-              <VAvatar
-                picture="/images/icons/cryptocurrencies/bnb.svg"
-                size="small"
-              />
+              <VAvatar picture="/images/icons/cryptocurrencies/bnb.svg" size="small" />
             </template>
             <template #action>
-              <VIconButton
-                icon="feather:plus"
-                circle
-                dark-outlined
-              />
+              <VIconButton icon="feather:plus" circle dark-outlined />
             </template>
           </VBlock>
         </div>

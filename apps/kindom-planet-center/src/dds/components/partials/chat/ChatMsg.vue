@@ -30,7 +30,7 @@ const props = defineProps<{
           :src="props.message.avatar"
           draggable="false"
           alt=""
-        >
+        />
       </div>
       <div class="msg">
         <div class="msg-inner">
@@ -51,7 +51,7 @@ const props = defineProps<{
           :src="props.message.avatar"
           draggable="false"
           alt=""
-        >
+        />
       </div>
       <div class="msg is-image">
         <div class="image-container">
@@ -72,20 +72,14 @@ const props = defineProps<{
           <div class="image-actions">
             <div class="actions-inner">
               <div class="action download">
-                <span
-                  class="iconify"
-                  data-icon="feather:download"
-                />
+                <span class="iconify" data-icon="feather:download" />
               </div>
               <a
                 :href="props.message.content.image_url"
                 class="action messaging-popup"
                 aria-label="Maximize"
               >
-                <span
-                  class="iconify"
-                  data-icon="feather:maximize"
-                />
+                <span class="iconify" data-icon="feather:maximize" />
               </a>
             </div>
           </div>
@@ -101,19 +95,13 @@ const props = defineProps<{
           :src="props.message.avatar"
           draggable="false"
           alt=""
-        >
+        />
       </div>
       <div class="msg is-link-image">
         <figure class="image">
-          <img
-            :src="props.message.content.link_image"
-            alt=""
-          >
+          <img :src="props.message.content.link_image" alt="" />
           <div class="link-badge">
-            <img
-              :src="props.message.content.link_badge"
-              alt=""
-            >
+            <img :src="props.message.content.link_badge" alt="" />
           </div>
         </figure>
         <div class="link-body">
@@ -131,7 +119,7 @@ const props = defineProps<{
           :src="props.message.avatar"
           draggable="false"
           alt=""
-        >
+        />
       </div>
       <div class="msg is-link">
         <VIconWrap icon="feather:link" />

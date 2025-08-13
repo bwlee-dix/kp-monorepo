@@ -55,7 +55,7 @@ const filteredData = computed(() => {
           v-model="filters"
           class="input custom-text-filter"
           placeholder="Search..."
-        >
+        />
       </VControl>
 
       <div class="tabs-inner">
@@ -67,7 +67,8 @@ const filteredData = computed(() => {
                 role="button"
                 @keydown.space.prevent="tab = 'all'"
                 @click="tab = 'all'"
-              ><span>All</span></a>
+                ><span>All</span></a
+              >
             </li>
             <li :class="[tab === 'saved' && 'is-active']">
               <a
@@ -75,7 +76,8 @@ const filteredData = computed(() => {
                 role="button"
                 @keydown.space.prevent="tab = 'saved'"
                 @click="tab = 'saved'"
-              ><span>Saved</span></a>
+                ><span>Saved</span></a
+              >
             </li>
             <li class="tab-naver" />
           </ul>
@@ -99,12 +101,12 @@ const filteredData = computed(() => {
             class="light-image"
             src="/@dds/sets/illustrations/placeholders/search-3.svg"
             alt=""
-          >
+          />
           <img
             class="dark-image"
             src="/@dds/sets/illustrations/placeholders/search-3-dark.svg"
             alt=""
-          >
+          />
         </template>
       </VPlaceholderPage>
 
@@ -115,16 +117,9 @@ const filteredData = computed(() => {
         :class="[tab === 'all' && 'is-active']"
       >
         <div class="list-view-inner">
-          <TransitionGroup
-            name="list-complete"
-            tag="div"
-          >
+          <TransitionGroup name="list-complete" tag="div">
             <!--Item-->
-            <div
-              v-for="(item, key) in filteredData"
-              :key="key"
-              class="list-view-item"
-            >
+            <div v-for="(item, key) in filteredData" :key="key" class="list-view-item">
               <div class="list-view-item-inner">
                 <div class="pre-meta">
                   <h3>{{ item.name }}</h3>
@@ -134,7 +129,7 @@ const filteredData = computed(() => {
                   :src="item.icon"
                   alt=""
                   @error.once="onceImageErrored(150)"
-                >
+                />
                 <div class="meta-left">
                   <h3>
                     <img
@@ -142,45 +137,23 @@ const filteredData = computed(() => {
                       :src="item.author.avatar"
                       alt=""
                       @error.once="onceImageErrored(150)"
-                    >
+                    />
                     <span>{{ item.author.name }}</span>
                   </h3>
                   <span>
-                    <i
-                      aria-hidden="true"
-                      class="iconify"
-                      data-icon="feather:archive"
-                    />
+                    <i aria-hidden="true" class="iconify" data-icon="feather:archive" />
                     <span>{{ item.category }}</span>
-                    <i
-                      aria-hidden="true"
-                      class="fas fa-circle icon-separator"
-                    />
-                    <i
-                      aria-hidden="true"
-                      class="iconify"
-                      data-icon="feather:clock"
-                    />
+                    <i aria-hidden="true" class="fas fa-circle icon-separator" />
+                    <i aria-hidden="true" class="iconify" data-icon="feather:clock" />
                     <span>{{ item.duration }}</span>
-                    <i
-                      aria-hidden="true"
-                      class="fas fa-circle icon-separator"
-                    />
-                    <i
-                      aria-hidden="true"
-                      class="iconify"
-                      data-icon="feather:paperclip"
-                    />
+                    <i aria-hidden="true" class="fas fa-circle icon-separator" />
+                    <i aria-hidden="true" class="iconify" data-icon="feather:paperclip" />
                     <span>{{ item.attachments }} files</span>
                   </span>
                 </div>
                 <div class="meta-right">
                   <div class="network">
-                    <VAvatarStack
-                      :avatars="item.followers"
-                      size="small"
-                      :limit="3"
-                    />
+                    <VAvatarStack :avatars="item.followers" size="small" :limit="3" />
                     <span>Like this</span>
                   </div>
                   <div class="buttons">
@@ -192,11 +165,7 @@ const filteredData = computed(() => {
                       data-hint="Save"
                     >
                       <span class="icon is-small">
-                        <i
-                          aria-hidden="true"
-                          class="iconify"
-                          data-icon="feather:heart"
-                        />
+                        <i aria-hidden="true" class="iconify" data-icon="feather:heart" />
                       </span>
                     </button>
                   </div>
@@ -235,12 +204,12 @@ const filteredData = computed(() => {
                 class="light-image"
                 src="/@dds/sets/illustrations/placeholders/cooking.svg"
                 alt=""
-              >
+              />
               <img
                 class="dark-image"
                 src="/@dds/sets/illustrations/placeholders/cooking-dark.svg"
                 alt=""
-              >
+              />
             </template>
           </VPlaceholderPage>
         </div>

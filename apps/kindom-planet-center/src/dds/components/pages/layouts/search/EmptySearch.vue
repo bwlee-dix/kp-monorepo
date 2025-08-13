@@ -25,7 +25,8 @@ const activeTab = ref<TabId>('all')
                 role="button"
                 @keydown.space.prevent="activeTab = 'all'"
                 @click="activeTab = 'all'"
-              ><span>All</span></a>
+                ><span>All</span></a
+              >
             </li>
             <li :class="[activeTab === 'people' && 'is-active']">
               <a
@@ -33,7 +34,8 @@ const activeTab = ref<TabId>('all')
                 role="button"
                 @keydown.space.prevent="activeTab = 'people'"
                 @click="activeTab = 'people'"
-              ><span>People</span></a>
+                ><span>People</span></a
+              >
             </li>
             <li :class="[activeTab === 'records' && 'is-active']">
               <a
@@ -41,7 +43,8 @@ const activeTab = ref<TabId>('all')
                 role="button"
                 @keydown.space.prevent="activeTab = 'records'"
                 @click="activeTab = 'records'"
-              ><span>Records</span></a>
+                ><span>Records</span></a
+              >
             </li>
             <li class="tab-naver" />
           </ul>
@@ -62,12 +65,12 @@ const activeTab = ref<TabId>('all')
             class="light-image"
             src="/@dds/assets/illustrations/placeholders/search-7.svg"
             alt=""
-          >
+          />
           <img
             class="dark-image"
             src="/@dds/sets/illustrations/placeholders/search-7-dark.svg"
             alt=""
-          >
+          />
         </template>
       </VPlaceholderPage>
     </div>

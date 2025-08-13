@@ -1,21 +1,9 @@
 <template>
-  <VDropdown
-    class="end-action"
-    icon="feather:more-vertical"
-    spaced
-    right
-  >
+  <VDropdown class="end-action" icon="feather:more-vertical" spaced right>
     <template #content>
-      <a
-        href="#"
-        role="menuitem"
-        class="dropdown-item is-media"
-      >
+      <a href="#" role="menuitem" class="dropdown-item is-media">
         <div class="icon">
-          <i
-            aria-hidden="true"
-            class="lnil lnil-whiteboard-alt-2"
-          />
+          <i aria-hidden="true" class="lnil lnil-whiteboard-alt-2" />
         </div>
         <div class="meta">
           <span>View</span>
@@ -23,16 +11,9 @@
         </div>
       </a>
 
-      <a
-        href="#"
-        role="menuitem"
-        class="dropdown-item is-media"
-      >
+      <a href="#" role="menuitem" class="dropdown-item is-media">
         <div class="icon">
-          <i
-            aria-hidden="true"
-            class="lnil lnil-pencil"
-          />
+          <i aria-hidden="true" class="lnil lnil-pencil" />
         </div>
         <div class="meta">
           <span>Edit</span>
@@ -40,18 +21,11 @@
         </div>
       </a>
 
-      <hr class="dropdown-divider">
+      <hr class="dropdown-divider" />
 
-      <a
-        href="#"
-        role="menuitem"
-        class="dropdown-item is-media"
-      >
+      <a href="#" role="menuitem" class="dropdown-item is-media">
         <div class="icon">
-          <i
-            aria-hidden="true"
-            class="lnil lnil-checkmark-circle"
-          />
+          <i aria-hidden="true" class="lnil lnil-checkmark-circle" />
         </div>
         <div class="meta">
           <span>Tasks</span>
@@ -59,16 +33,9 @@
         </div>
       </a>
 
-      <a
-        href="#"
-        role="menuitem"
-        class="dropdown-item is-media"
-      >
+      <a href="#" role="menuitem" class="dropdown-item is-media">
         <div class="icon">
-          <i
-            aria-hidden="true"
-            class="lnil lnil-hierchy-alt"
-          />
+          <i aria-hidden="true" class="lnil lnil-hierchy-alt" />
         </div>
         <div class="meta">
           <span>Team</span>

@@ -28,10 +28,7 @@ const props = withDefaults(
     <div class="chart-group">
       <div class="group">
         <div class="group-content">
-          <div
-            class="chart-container"
-            :class="[props.gauge && 'is-gauge']"
-          >
+          <div class="chart-container" :class="[props.gauge && 'is-gauge']">
             <slot name="chart1" />
           </div>
           <span class="dark-inverted">{{ props.values[0] }}</span>
@@ -40,10 +37,7 @@ const props = withDefaults(
       </div>
       <div class="group">
         <div class="group-content">
-          <div
-            class="chart-container"
-            :class="[props.gauge && 'is-gauge']"
-          >
+          <div class="chart-container" :class="[props.gauge && 'is-gauge']">
             <slot name="chart2" />
           </div>
           <span class="dark-inverted">{{ props.values[1] }}</span>
@@ -52,10 +46,7 @@ const props = withDefaults(
       </div>
       <div class="group">
         <div class="group-content">
-          <div
-            class="chart-container"
-            :class="[props.gauge && 'is-gauge']"
-          >
+          <div class="chart-container" :class="[props.gauge && 'is-gauge']">
             <slot name="chart3" />
           </div>
           <span class="dark-inverted">{{ props.values[2] }}</span>

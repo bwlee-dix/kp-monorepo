@@ -30,24 +30,15 @@ const isScrolling = computed(() => {
       <div class="left">
         <!-- Title slot -->
         <slot name="title">
-          <h1 class="title is-5">
-            Page Title
-          </h1>
+          <h1 class="title is-5">Page Title</h1>
         </slot>
       </div>
       <div class="center">
         <!-- Links slot -->
         <slot name="links">
           <div class="centered-links">
-            <a
-              href="/"
-              class="centered-link centered-link-toggle"
-            >
-              <i
-                aria-hidden="true"
-                class="iconify"
-                data-icon="feather:activity"
-              />
+            <a href="/" class="centered-link centered-link-toggle">
+              <i aria-hidden="true" class="iconify" data-icon="feather:activity" />
               <span>Homepage</span>
             </a>
           </div>

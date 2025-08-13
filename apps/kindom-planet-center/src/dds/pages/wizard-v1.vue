@@ -11,10 +11,7 @@ useHead({
 <template>
   <MinimalLayout>
     <!--Wizard Navbar-->
-    <WizardV1Navigation
-      v-model:step="wizard.step"
-      :title="wizard.stepTitle"
-    />
+    <WizardV1Navigation v-model:step="wizard.step" :title="wizard.stepTitle" />
 
     <!--Wizard Progress Bar-->
     <VProgress
@@ -36,10 +33,7 @@ useHead({
       <RouterView />
 
       <!--Wizard Navigation Buttons-->
-      <div
-        class="wizard-buttons"
-        :class="[wizard.canNavigate && 'is-active']"
-      >
+      <div class="wizard-buttons" :class="[wizard.canNavigate && 'is-active']">
         <div class="wizard-buttons-inner">
           <VButton
             class="wizard-button-previous"

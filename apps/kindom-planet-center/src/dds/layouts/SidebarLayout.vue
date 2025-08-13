@@ -61,14 +61,8 @@ watch(
       @toggle="isMobileSidebarOpen = !isMobileSidebarOpen"
     >
       <template #brand>
-        <RouterLink
-          to="/"
-          class="navbar-item is-brand"
-        >
-          <AnimatedLogo
-            width="38px"
-            height="38px"
-          />
+        <RouterLink to="/" class="navbar-item is-brand">
+          <AnimatedLogo width="38px" height="38px" />
         </RouterLink>
 
         <div class="brand-end">
@@ -93,11 +87,7 @@ watch(
             @keydown.space.prevent="activeMobileSubsidebar = 'dashboard'"
             @click="activeMobileSubsidebar = 'dashboard'"
           >
-            <i
-              aria-hidden="true"
-              class="iconify"
-              data-icon="feather:activity"
-            />
+            <i aria-hidden="true" class="iconify" data-icon="feather:activity" />
           </a>
         </li>
         <li>
@@ -109,11 +99,7 @@ watch(
             @keydown.space.prevent="activeMobileSubsidebar = 'layout'"
             @click="activeMobileSubsidebar = 'layout'"
           >
-            <i
-              aria-hidden="true"
-              class="iconify"
-              data-icon="feather:grid"
-            />
+            <i aria-hidden="true" class="iconify" data-icon="feather:grid" />
           </a>
         </li>
         <li>
@@ -125,11 +111,7 @@ watch(
             @keydown.space.prevent="activeMobileSubsidebar = 'elements'"
             @click="activeMobileSubsidebar = 'elements'"
           >
-            <i
-              aria-hidden="true"
-              class="iconify"
-              data-icon="feather:box"
-            />
+            <i aria-hidden="true" class="iconify" data-icon="feather:box" />
           </a>
         </li>
         <li>
@@ -141,20 +123,12 @@ watch(
             @keydown.space.prevent="activeMobileSubsidebar = 'components'"
             @click="activeMobileSubsidebar = 'components'"
           >
-            <i
-              aria-hidden="true"
-              class="iconify"
-              data-icon="feather:cpu"
-            />
+            <i aria-hidden="true" class="iconify" data-icon="feather:cpu" />
           </a>
         </li>
         <li>
           <RouterLink to="/messaging-v1">
-            <i
-              aria-hidden="true"
-              class="iconify"
-              data-icon="feather:message-circle"
-            />
+            <i aria-hidden="true" class="iconify" data-icon="feather:message-circle" />
           </RouterLink>
         </li>
       </template>
@@ -168,23 +142,12 @@ watch(
             @keydown.space.prevent="panels.setActive('search')"
             @click="panels.setActive('search')"
           >
-            <i
-              aria-hidden="true"
-              class="iconify"
-              data-icon="feather:search"
-            />
+            <i aria-hidden="true" class="iconify" data-icon="feather:search" />
           </a>
         </li>
         <li>
-          <a
-            aria-label="View settings"
-            href="#"
-          >
-            <i
-              aria-hidden="true"
-              class="iconify"
-              data-icon="feather:settings"
-            />
+          <a aria-label="View settings" href="#">
+            <i aria-hidden="true" class="iconify" data-icon="feather:settings" />
           </a>
         </li>
       </template>
@@ -211,10 +174,7 @@ watch(
     <!-- Desktop navigation -->
     <CircularMenu />
 
-    <Sidebar
-      :theme="props.theme"
-      :is-open="isDesktopSidebarOpen"
-    >
+    <Sidebar :theme="props.theme" :is-open="isDesktopSidebarOpen">
       <template #links>
         <!-- Dashboards -->
         <li>
@@ -246,11 +206,7 @@ watch(
             @keydown.space.prevent="switchSidebar('layout')"
             @click="switchSidebar('layout')"
           >
-            <i
-              aria-hidden="true"
-              class="iconify sidebar-svg"
-              data-icon="feather:grid"
-            />
+            <i aria-hidden="true" class="iconify sidebar-svg" data-icon="feather:grid" />
           </a>
         </li>
 
@@ -265,11 +221,7 @@ watch(
             @keydown.space.prevent="switchSidebar('elements')"
             @click="switchSidebar('elements')"
           >
-            <i
-              aria-hidden="true"
-              class="iconify sidebar-svg"
-              data-icon="feather:box"
-            />
+            <i aria-hidden="true" class="iconify sidebar-svg" data-icon="feather:box" />
           </a>
         </li>
 
@@ -284,21 +236,13 @@ watch(
             @keydown.space.prevent="switchSidebar('components')"
             @click="switchSidebar('components')"
           >
-            <i
-              aria-hidden="true"
-              class="iconify sidebar-svg"
-              data-icon="feather:cpu"
-            />
+            <i aria-hidden="true" class="iconify sidebar-svg" data-icon="feather:cpu" />
           </a>
         </li>
 
         <!-- Messaging -->
         <li>
-          <RouterLink
-            id="open-messages"
-            to="/messaging-v1"
-            data-content="Messaging"
-          >
+          <RouterLink id="open-messages" to="/messaging-v1" data-content="Messaging">
             <i
               aria-hidden="true"
               class="iconify sidebar-svg"
@@ -338,11 +282,7 @@ watch(
             @keydown.space.prevent="panels.close()"
             @click="panels.close()"
           >
-            <i
-              aria-hidden="true"
-              class="iconify sidebar-svg"
-              data-icon="feather-x"
-            />
+            <i aria-hidden="true" class="iconify sidebar-svg" data-icon="feather-x" />
           </a>
         </li>
 
@@ -399,10 +339,7 @@ watch(
         <template v-if="props.nowrap">
           <slot />
         </template>
-        <VPageContent
-          v-else
-          class="is-relative"
-        >
+        <VPageContent v-else class="is-relative">
           <div class="page-title has-text-centered">
             <!-- Sidebar Trigger -->
             <div
@@ -413,23 +350,11 @@ watch(
               @click="isDesktopSidebarOpen = !isDesktopSidebarOpen"
             >
               <span class="menu-toggle has-chevron">
-                <span
-                  :class="[isDesktopSidebarOpen && 'active']"
-                  class="icon-box-toggle"
-                >
+                <span :class="[isDesktopSidebarOpen && 'active']" class="icon-box-toggle">
                   <span class="rotate">
-                    <i
-                      aria-hidden="true"
-                      class="icon-line-top"
-                    />
-                    <i
-                      aria-hidden="true"
-                      class="icon-line-center"
-                    />
-                    <i
-                      aria-hidden="true"
-                      class="icon-line-bottom"
-                    />
+                    <i aria-hidden="true" class="icon-line-top" />
+                    <i aria-hidden="true" class="icon-line-center" />
+                    <i aria-hidden="true" class="icon-line-bottom" />
                   </span>
                 </span>
               </span>
@@ -452,11 +377,7 @@ watch(
                 @keydown.space.prevent="panels.setActive('activity')"
                 @click="panels.setActive('activity')"
               >
-                <i
-                  aria-hidden="true"
-                  class="iconify"
-                  data-icon="feather:grid"
-                />
+                <i aria-hidden="true" class="iconify" data-icon="feather:grid" />
               </a>
             </Toolbar>
           </div>

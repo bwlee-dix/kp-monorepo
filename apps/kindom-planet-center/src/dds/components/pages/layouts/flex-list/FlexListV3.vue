@@ -54,7 +54,7 @@ const filteredData = computed(() => {
           v-model="filters"
           class="input custom-text-filter"
           placeholder="Search..."
-        >
+        />
       </VControl>
 
       <div class="tabs-inner">
@@ -66,7 +66,8 @@ const filteredData = computed(() => {
                 role="button"
                 @keydown.space.prevent="tab = 'all'"
                 @click="tab = 'all'"
-              ><span>All</span></a>
+                ><span>All</span></a
+              >
             </li>
             <li :class="[tab === 'saved' && 'is-active']">
               <a
@@ -74,7 +75,8 @@ const filteredData = computed(() => {
                 role="button"
                 @keydown.space.prevent="tab = 'saved'"
                 @click="tab = 'saved'"
-              ><span>Saved</span></a>
+                ><span>Saved</span></a
+              >
             </li>
             <li class="tab-naver" />
           </ul>
@@ -97,52 +99,34 @@ const filteredData = computed(() => {
             class="light-image"
             src="/@dds/sets/illustrations/placeholders/search-4.svg"
             alt=""
-          >
+          />
           <img
             class="dark-image"
             src="/@dds/sets/illustrations/placeholders/search-4-dark.svg"
             alt=""
-          >
+          />
         </template>
       </VPlaceholderPage>
 
       <!--Active Tab-->
-      <div
-        v-else-if="tab === 'all' && filteredData.length"
-        class="tab-content is-active"
-      >
-        <VFlexTable
-          :data="filteredData"
-          :columns="columns"
-          rounded
-        >
+      <div v-else-if="tab === 'all' && filteredData.length" class="tab-content is-active">
+        <VFlexTable :data="filteredData" :columns="columns" rounded>
           <template #body>
-            <TransitionGroup
-              name="list"
-              tag="div"
-              class="flex-list-inner"
-            >
+            <TransitionGroup name="list" tag="div" class="flex-list-inner">
               <!--Table item-->
-              <div
-                v-for="item in filteredData"
-                :key="item.id"
-                class="flex-table-item"
-              >
+              <div v-for="item in filteredData" :key="item.id" class="flex-table-item">
                 <VFlexTableCell :column="{ media: true, grow: true }">
                   <img
                     class="media"
                     :src="item.picture"
                     alt=""
                     @error.once="onceImageErrored(150, 110)"
-                  >
+                  />
                   <div>
                     <span class="item-name dark-inverted">{{ item.name }}</span>
                     <div class="item-meta">
                       <div class="flex-media">
-                        <VAvatar
-                          :picture="item.author.picture"
-                          size="small"
-                        />
+                        <VAvatar :picture="item.author.picture" size="small" />
                         <div class="meta">
                           <span>by {{ item.author.username }}</span>
                         </div>
@@ -190,10 +174,7 @@ const filteredData = computed(() => {
                     />
                   </span>
                 </VFlexTableCell>
-                <VFlexTableCell
-                  :columns="{ align: 'end' }"
-                  class="h-hidden-tablet-p"
-                >
+                <VFlexTableCell :columns="{ align: 'end' }" class="h-hidden-tablet-p">
                   <a class="button v-button has-dot dark-outlined is-pushed-mobile">
                     Purchase &middot; ${{ item.price }}
                   </a>
@@ -230,12 +211,12 @@ const filteredData = computed(() => {
               class="light-image is-larger"
               src="/@dds/sets/illustrations/placeholders/courses.svg"
               alt=""
-            >
+            />
             <img
               class="dark-image is-larger"
               src="/@dds/sets/illustrations/placeholders/courses-dark.svg"
               alt=""
-            >
+            />
           </template>
         </VPlaceholderPage>
       </div>

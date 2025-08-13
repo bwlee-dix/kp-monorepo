@@ -23,9 +23,7 @@ const isScrolling = computed(() => y.value > 30)
       <!-- Title slot -->
       <div class="left">
         <slot name="title">
-          <h1 class="title is-6">
-            Page Title
-          </h1>
+          <h1 class="title is-6">Page Title</h1>
         </slot>
       </div>
       <div class="center">
@@ -44,10 +42,7 @@ const isScrolling = computed(() => y.value > 30)
         props.theme === 'fade' && 'is-centered',
       ]"
     >
-      <div
-        v-if="props.theme !== 'default'"
-        class="left"
-      >
+      <div v-if="props.theme !== 'default'" class="left">
         <div class="welcome-text">
           <slot name="subtitle" />
         </div>
@@ -61,10 +56,7 @@ const isScrolling = computed(() => y.value > 30)
       >
         <slot name="links">
           <div class="buttons">
-            <a
-              href="/"
-              class="button"
-            >Homepage</a>
+            <a href="/" class="button">Homepage</a>
           </div>
         </slot>
       </div>

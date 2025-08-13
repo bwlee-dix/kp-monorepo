@@ -1,20 +1,9 @@
 <template>
-  <VDropdown
-    icon="feather:more-vertical"
-    spaced
-    right
-  >
+  <VDropdown icon="feather:more-vertical" spaced right>
     <template #content>
-      <a
-        role="menuitem"
-        href="#"
-        class="dropdown-item is-media"
-      >
+      <a role="menuitem" href="#" class="dropdown-item is-media">
         <div class="icon">
-          <i
-            aria-hidden="true"
-            class="lnil lnil-coins"
-          />
+          <i aria-hidden="true" class="lnil lnil-coins" />
         </div>
         <div class="meta">
           <span>Invest</span>
@@ -22,16 +11,9 @@
         </div>
       </a>
 
-      <a
-        role="menuitem"
-        href="#"
-        class="dropdown-item is-media"
-      >
+      <a role="menuitem" href="#" class="dropdown-item is-media">
         <div class="icon">
-          <i
-            aria-hidden="true"
-            class="lnil lnil-dollar-up"
-          />
+          <i aria-hidden="true" class="lnil lnil-dollar-up" />
         </div>
         <div class="meta">
           <span>Compare</span>
@@ -39,16 +21,9 @@
         </div>
       </a>
 
-      <a
-        role="menuitem"
-        href="#"
-        class="dropdown-item is-media"
-      >
+      <a role="menuitem" href="#" class="dropdown-item is-media">
         <div class="icon">
-          <i
-            aria-hidden="true"
-            class="lnil lnil-bank"
-          />
+          <i aria-hidden="true" class="lnil lnil-bank" />
         </div>
         <div class="meta">
           <span>Trade</span>
@@ -56,18 +31,11 @@
         </div>
       </a>
 
-      <hr class="dropdown-divider">
+      <hr class="dropdown-divider" />
 
-      <a
-        role="menuitem"
-        href="#"
-        class="dropdown-item is-media"
-      >
+      <a role="menuitem" href="#" class="dropdown-item is-media">
         <div class="icon">
-          <i
-            aria-hidden="true"
-            class="lnil lnil-wallet-alt-1"
-          />
+          <i aria-hidden="true" class="lnil lnil-wallet-alt-1" />
         </div>
         <div class="meta">
           <span>Wallet</span>

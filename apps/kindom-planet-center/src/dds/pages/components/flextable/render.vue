@@ -207,11 +207,7 @@ const exampleColumns = {
 
         <div class="mt-4">
           <!--VFlexTabe-->
-          <VFlexTable
-            :data="sortedData"
-            :columns="exampleColumns"
-            rounded
-          />
+          <VFlexTable :data="sortedData" :columns="exampleColumns" rounded />
         </div>
       </div>
     </div>

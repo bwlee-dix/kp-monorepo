@@ -1,101 +1,99 @@
 <script setup lang="ts">
-
 import { useViewWrapper } from '/@dds/stores/viewWrapper'
 
 const viewWrapper = useViewWrapper()
 viewWrapper.setPageTitle('API')
 
-
 const kpApiList = [
   {
-    id: "post-admin/auth/verify-token",
-    method: "post",
-    url: "/admin/auth/verify-token",
-    title: "Verify User Token",
+    id: 'post-admin/auth/verify-token',
+    method: 'post',
+    url: '/admin/auth/verify-token',
+    title: 'Verify User Token',
   },
   {
-    id: "post-admin/auth/members",
-    method: "post",
-    url: "/admin/auth/members",
-    title: "Add User",
+    id: 'post-admin/auth/members',
+    method: 'post',
+    url: '/admin/auth/members',
+    title: 'Add User',
   },
   {
-    id: "get-admin/auth/members/{uid}",
-    method: "get",
-    url: "/admin/auth/members/{uid}",
-    title: "Get User Infomation",
+    id: 'get-admin/auth/members/{uid}',
+    method: 'get',
+    url: '/admin/auth/members/{uid}',
+    title: 'Get User Infomation',
   },
   {
-    id: "get-admin/app-tokens",
-    method: "get",
-    url: "/admin/app-tokens",
-    title: "Get App Token",
+    id: 'get-admin/app-tokens',
+    method: 'get',
+    url: '/admin/app-tokens',
+    title: 'Get App Token',
   },
   {
-    id: "get-admin/event",
-    method: "get",
-    url: "/admin/event",
-    title: "Get Event List",
+    id: 'get-admin/event',
+    method: 'get',
+    url: '/admin/event',
+    title: 'Get Event List',
   },
   {
-    id: "get-admin/event/{eventId}",
-    method: "get",
-    url: "/admin/event/{eventId}",
-    title: "Get Event Information",
+    id: 'get-admin/event/{eventId}',
+    method: 'get',
+    url: '/admin/event/{eventId}',
+    title: 'Get Event Information',
   },
   {
-    id: "get-admin/event/{eventId}/registration",
-    method: "get",
-    url: "/admin/event/{eventId}/registration",
-    title: "Get Event Registration Information",
+    id: 'get-admin/event/{eventId}/registration',
+    method: 'get',
+    url: '/admin/event/{eventId}/registration',
+    title: 'Get Event Registration Information',
   },
   {
-    id: "get-admin/event/registration",
-    method: "get",
-    url: "/admin/event/registration",
-    title: "Get Registration List",
+    id: 'get-admin/event/registration',
+    method: 'get',
+    url: '/admin/event/registration',
+    title: 'Get Registration List',
   },
   {
-    id: "post-admin/event/{eventId}/registration",
-    method: "post",
-    url: "/admin/event/{eventId}/registration",
-    title: "Add Registration",
+    id: 'post-admin/event/{eventId}/registration',
+    method: 'post',
+    url: '/admin/event/{eventId}/registration',
+    title: 'Add Registration',
   },
   {
-    id: "post-admin/event/{eventId}/group-registration",
-    method: "post",
-    url: "/admin/event/{eventId}/group-registration",
-    title: "Add Group Registration",
+    id: 'post-admin/event/{eventId}/group-registration',
+    method: 'post',
+    url: '/admin/event/{eventId}/group-registration',
+    title: 'Add Group Registration',
   },
   {
-    id: "delete-admin/event/{eventId}/registration",
-    method: "delete",
-    url: "/admin/event/{eventId}/registration",
-    title: "Delete Registration",
+    id: 'delete-admin/event/{eventId}/registration',
+    method: 'delete',
+    url: '/admin/event/{eventId}/registration',
+    title: 'Delete Registration',
   },
   {
-    id: "patch-admin/event/{eventId}/registration",
-    method: "patch",
-    url: "/admin/event/{eventId}/registration",
-    title: "Update Registration",
+    id: 'patch-admin/event/{eventId}/registration',
+    method: 'patch',
+    url: '/admin/event/{eventId}/registration',
+    title: 'Update Registration',
   },
   {
-    id: "delete-admin/event/registration/{registrationId}/for-admin",
-    method: "delete",
-    url: "/admin/event/registration/{registrationId}/for-admin",
-    title: "Delete Registration for Admin",
+    id: 'delete-admin/event/registration/{registrationId}/for-admin',
+    method: 'delete',
+    url: '/admin/event/registration/{registrationId}/for-admin',
+    title: 'Delete Registration for Admin',
   },
   {
-    id: "get-admin/event/registration/{registrationId}/for-admin",
-    method: "get",
-    url: "/admin/event/registration/{registrationId}/for-admin",
-    title: "Get Registration Information for Admin",
+    id: 'get-admin/event/registration/{registrationId}/for-admin',
+    method: 'get',
+    url: '/admin/event/registration/{registrationId}/for-admin',
+    title: 'Get Registration Information for Admin',
   },
   {
-    id: "get-admin/event/{eventId}/for-admin",
-    method: "get",
-    url: "/admin/event/{eventId}/for-admin",
-    title: "Get Event Information for Admin",
+    id: 'get-admin/event/{eventId}/for-admin',
+    method: 'get',
+    url: '/admin/event/{eventId}/for-admin',
+    title: 'Get Event Information for Admin',
   },
 ]
 
@@ -123,9 +121,9 @@ const getTagColor = (method: string) => {
 
 // Check if an API item is in the selectedApiItems or apiList (but not in removedFromApiList)
 const isSelected = (itemId: string) => {
-  const isInSelected = selectedApiItems.value.some(item => item.id === itemId)
-  const isInApiList = apiList.value.some(item => item.id === itemId)
-  const isInRemoved = removedFromApiList.value.some(item => item.id === itemId)
+  const isInSelected = selectedApiItems.value.some((item) => item.id === itemId)
+  const isInApiList = apiList.value.some((item) => item.id === itemId)
+  const isInRemoved = removedFromApiList.value.some((item) => item.id === itemId)
 
   return isInSelected || (isInApiList && !isInRemoved)
 }
@@ -138,11 +136,13 @@ const toggleApiItem = (item: any) => {
   console.log('Current removedFromApiList:', removedFromApiList.value)
 
   // Check if item is already in apiList
-  const apiListIndex = apiList.value.findIndex(apiItem => apiItem.id === item.id)
+  const apiListIndex = apiList.value.findIndex((apiItem) => apiItem.id === item.id)
 
   if (apiListIndex !== -1) {
     // Item is in apiList, mark it for removal
-    const removedIndex = removedFromApiList.value.findIndex(apiItem => apiItem.id === item.id)
+    const removedIndex = removedFromApiList.value.findIndex(
+      (apiItem) => apiItem.id === item.id
+    )
     if (removedIndex === -1) {
       // Add to removedFromApiList
       removedFromApiList.value.push(item)
@@ -154,16 +154,24 @@ const toggleApiItem = (item: any) => {
     }
   } else {
     // Item is not in apiList, check selectedApiItems
-    const selectedIndex = selectedApiItems.value.findIndex(apiItem => apiItem.id === item.id)
+    const selectedIndex = selectedApiItems.value.findIndex(
+      (apiItem) => apiItem.id === item.id
+    )
 
     if (selectedIndex !== -1) {
       // Remove from selectedApiItems
       selectedApiItems.value.splice(selectedIndex, 1)
-      console.log('Removed from selectedApiItems, new selectedApiItems:', selectedApiItems.value)
+      console.log(
+        'Removed from selectedApiItems, new selectedApiItems:',
+        selectedApiItems.value
+      )
     } else {
       // Add to selectedApiItems
       selectedApiItems.value.push(item)
-      console.log('Added to selectedApiItems, new selectedApiItems:', selectedApiItems.value)
+      console.log(
+        'Added to selectedApiItems, new selectedApiItems:',
+        selectedApiItems.value
+      )
     }
   }
 }
@@ -171,8 +179,8 @@ const toggleApiItem = (item: any) => {
 // Confirm selection and add to apiList
 const confirmSelection = () => {
   // Remove items marked for removal from apiList
-  removedFromApiList.value.forEach(removedItem => {
-    const index = apiList.value.findIndex(item => item.id === removedItem.id)
+  removedFromApiList.value.forEach((removedItem) => {
+    const index = apiList.value.findIndex((item) => item.id === removedItem.id)
     if (index !== -1) {
       apiList.value.splice(index, 1)
     }
@@ -198,22 +206,14 @@ const cancelSelection = () => {
   // Close modal
   isShowAPIList.value = false
 }
-
 </script>
 
 <template>
-  <DeveloperSideblockLayout
-    theme="curved"
-    open-on-mounted
-  >
+  <DeveloperSideblockLayout theme="curved" open-on-mounted>
     <!-- Content Wrapper -->
     <div class="list-view-toolbar">
       <div class="buttons">
-        <VButton
-          color="primary"
-          elevated
-          @click="isShowAPIList = true"
-        >
+        <VButton color="primary" elevated @click="isShowAPIList = true">
           KP API List
         </VButton>
       </div>
@@ -235,29 +235,20 @@ const cancelSelection = () => {
               class="light-image"
               src="/@dds/sets/illustrations/placeholders/search-1.svg"
               alt=""
-            >
+            />
             <img
               class="dark-image"
               src="/@dds/sets/illustrations/placeholders/search-1-dark.svg"
               alt=""
-            >
+            />
           </template>
         </VPlaceholderPage>
 
         <div class="list-view-inner">
           <!--Item-->
-          <TransitionGroup
-            name="list-complete"
-            tag="div"
-          >
-            <div
-              v-for="(item, key) in apiList"
-              :key="key"
-              class="list-view-item"
-            >
-              <RouterLink
-                :to="`/api/${item.id}`"
-              >
+          <TransitionGroup name="list-complete" tag="div">
+            <div v-for="(item, key) in apiList" :key="key" class="list-view-item">
+              <RouterLink :to="`/api/${item.id}`">
                 <div class="list-view-item-inner">
                   <div class="tags">
                     <VTag
@@ -270,11 +261,7 @@ const cancelSelection = () => {
                   <div class="meta-left">
                     <h3>{{ item.title }}</h3>
                     <span>
-                      <i
-                        aria-hidden="true"
-                        class="iconify"
-                        data-icon="feather:map-pin"
-                      />
+                      <i aria-hidden="true" class="iconify" data-icon="feather:map-pin" />
                       <span>{{ item.url }}</span>
                     </span>
                   </div>
@@ -295,7 +282,6 @@ const cancelSelection = () => {
                         <span>Posts</span>
                       </div>
                     </div>
-
 
                     <!--Dropdown-->
                     <ListViewV1Dropdown />
@@ -319,11 +305,7 @@ const cancelSelection = () => {
     >
       <template #content>
         <div class="list-view list-view-v1">
-          <div
-            v-for="(item) in kpApiList"
-            :key="item.id"
-            class="list-view-item"
-          >
+          <div v-for="item in kpApiList" :key="item.id" class="list-view-item">
             <div class="list-view-item-inner">
               <div class="tags">
                 <VTag
@@ -341,7 +323,11 @@ const cancelSelection = () => {
               </div>
               <div class="meta-right">
                 <button
-                  :class="['button', 'is-rounded', isSelected(item.id) ? 'is-danger' : 'is-primary']"
+                  :class="[
+                    'button',
+                    'is-rounded',
+                    isSelected(item.id) ? 'is-danger' : 'is-primary',
+                  ]"
                   @click="toggleApiItem(item)"
                 >
                   {{ isSelected(item.id) ? 'Remove' : 'Add' }}
@@ -352,12 +338,7 @@ const cancelSelection = () => {
         </div>
       </template>
       <template #action>
-        <VButton
-          color="primary"
-          rounded
-          raised
-          @click="confirmSelection()"
-        >
+        <VButton color="primary" rounded raised @click="confirmSelection()">
           Confirm
         </VButton>
       </template>
@@ -402,19 +383,18 @@ const cancelSelection = () => {
         }
       }
 
-        .tags {
-          margin-bottom: 0;
+      .tags {
+        margin-bottom: 0;
 
-          .tag {
-            margin-bottom: 0;
-          }
+        .tag {
+          margin-bottom: 0;
         }
+      }
       .meta-right {
         margin-inline-start: auto;
         display: flex;
         justify-content: flex-end;
         align-items: center;
-
 
         .stats {
           display: flex;

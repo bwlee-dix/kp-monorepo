@@ -55,14 +55,8 @@ watch(
       @toggle="isMobileSideblockOpen = !isMobileSideblockOpen"
     >
       <template #brand>
-        <RouterLink
-          to="/"
-          class="navbar-item is-brand"
-        >
-          <AnimatedLogo
-            width="38px"
-            height="38px"
-          />
+        <RouterLink to="/" class="navbar-item is-brand">
+          <AnimatedLogo width="38px" height="38px" />
         </RouterLink>
 
         <div class="brand-end">
@@ -79,29 +73,17 @@ watch(
     >
       <template #links>
         <li>
-          <RouterLink
-            to="/dashboard"
-            class="single-link"
-          >
+          <RouterLink to="/dashboard" class="single-link">
             <span class="icon">
-              <i
-                class="iconify"
-                data-icon="feather:grid"
-              />
+              <i class="iconify" data-icon="feather:grid" />
             </span>
             Dashboard
           </RouterLink>
         </li>
         <li>
-          <RouterLink
-            to="/member"
-            class="single-link"
-          >
+          <RouterLink to="/member" class="single-link">
             <span class="icon">
-              <i
-                class="iconify"
-                data-icon="feather:user"
-              />
+              <i class="iconify" data-icon="feather:user" />
             </span>
             Member
           </RouterLink>
@@ -117,23 +99,12 @@ watch(
             @keydown.space.prevent="panels.setActive('search')"
             @click="panels.setActive('search')"
           >
-            <i
-              aria-hidden="true"
-              class="iconify"
-              data-icon="feather:search"
-            />
+            <i aria-hidden="true" class="iconify" data-icon="feather:search" />
           </a>
         </li>
         <li>
-          <a
-            aria-label="View settings"
-            href="#"
-          >
-            <i
-              aria-hidden="true"
-              class="iconify"
-              data-icon="feather:settings"
-            />
+          <a aria-label="View settings" href="#">
+            <i aria-hidden="true" class="iconify" data-icon="feather:settings" />
           </a>
         </li>
       </template>
@@ -159,53 +130,25 @@ watch(
     <CircularMenu />
 
     <Transition name="slide-x">
-      <Sideblock
-        v-if="isDesktopSideblockOpen"
-        :theme="props.theme"
-      >
+      <Sideblock v-if="isDesktopSideblockOpen" :theme="props.theme">
         <template #header>
-          <RouterLink
-            to="/"
-            class="sidebar-block-logo"
-          >
+          <RouterLink to="/" class="sidebar-block-logo">
             <!-- <AnimatedLogo width="36px" /> -->
-            <img
-              src="/images/kp_logo.png"
-              alt=""
-              class="logo"
-            >
+            <img src="/images/kp_logo.png" alt="" class="logo" />
           </RouterLink>
           <h3>Developer</h3>
         </template>
         <template #menu>
-          <VDropdown
-            title="GMMA"
-            full-width
-            spaced
-          >
+          <VDropdown title="GMMA" full-width spaced>
             <template #content>
-              <a
-                href="#"
-                class="dropdown-item is-media"
-              >
-                <img
-                  class="item-img"
-                  src="/images/gmma_v2.png"
-                  alt=""
-                >
+              <a href="#" class="dropdown-item is-media">
+                <img class="item-img" src="/images/gmma_v2.png" alt="" />
                 <div class="meta">
                   <span>GMMA</span>
                 </div>
               </a>
-              <a
-                href="#"
-                class="dropdown-item is-media"
-              >
-                <img
-                  class="item-img"
-                  src="/images/kosta-v2.png"
-                  alt=""
-                >
+              <a href="#" class="dropdown-item is-media">
+                <img class="item-img" src="/images/kosta-v2.png" alt="" />
                 <div class="meta">
                   <span>KOSTA</span>
                 </div>
@@ -216,71 +159,41 @@ watch(
 
         <template #links>
           <li>
-            <RouterLink
-              to="/dashboard"
-              class="single-link"
-            >
+            <RouterLink to="/dashboard" class="single-link">
               <span class="icon">
-                <i
-                  class="iconify"
-                  data-icon="feather:grid"
-                />
+                <i class="iconify" data-icon="feather:grid" />
               </span>
               Dashboard
             </RouterLink>
           </li>
           <li>
-            <RouterLink
-              to="/app"
-              class="single-link"
-            >
+            <RouterLink to="/app" class="single-link">
               <span class="icon">
-                <i
-                  class="iconify"
-                  data-icon="feather:box"
-                />
+                <i class="iconify" data-icon="feather:box" />
               </span>
               App
             </RouterLink>
           </li>
           <li>
-            <RouterLink
-              to="/team"
-              class="single-link"
-            >
+            <RouterLink to="/team" class="single-link">
               <span class="icon">
-                <i
-                  class="iconify"
-                  data-icon="feather:users"
-                />
+                <i class="iconify" data-icon="feather:users" />
               </span>
               Team
             </RouterLink>
           </li>
           <li>
-            <RouterLink
-              to="/api"
-              class="single-link"
-            >
+            <RouterLink to="/api" class="single-link">
               <span class="icon">
-                <i
-                  class="iconify"
-                  data-icon="feather:list"
-                />
+                <i class="iconify" data-icon="feather:list" />
               </span>
               API
             </RouterLink>
           </li>
           <li>
-            <RouterLink
-              to="/log"
-              class="single-link"
-            >
+            <RouterLink to="/log" class="single-link">
               <span class="icon">
-                <i
-                  class="iconify"
-                  data-icon="feather:alert-circle"
-                />
+                <i class="iconify" data-icon="feather:alert-circle" />
               </span>
               Log
             </RouterLink>
@@ -304,10 +217,7 @@ watch(
         <template v-if="props.nowrap">
           <slot />
         </template>
-        <VPageContent
-          v-else
-          class="is-relative"
-        >
+        <VPageContent v-else class="is-relative">
           <div class="page-title has-text-centered">
             <!-- Sidebar Trigger -->
             <div
@@ -323,18 +233,9 @@ watch(
                   class="icon-box-toggle"
                 >
                   <span class="rotate">
-                    <i
-                      aria-hidden="true"
-                      class="icon-line-top"
-                    />
-                    <i
-                      aria-hidden="true"
-                      class="icon-line-center"
-                    />
-                    <i
-                      aria-hidden="true"
-                      class="icon-line-bottom"
-                    />
+                    <i aria-hidden="true" class="icon-line-top" />
+                    <i aria-hidden="true" class="icon-line-center" />
+                    <i aria-hidden="true" class="icon-line-bottom" />
                   </span>
                 </span>
               </span>
@@ -357,11 +258,7 @@ watch(
                 @keydown.space.prevent="panels.setActive('activity')"
                 @click="panels.setActive('activity')"
               >
-                <i
-                  aria-hidden="true"
-                  class="iconify"
-                  data-icon="feather:grid"
-                />
+                <i aria-hidden="true" class="iconify" data-icon="feather:grid" />
               </a>
             </Toolbar>
           </div>

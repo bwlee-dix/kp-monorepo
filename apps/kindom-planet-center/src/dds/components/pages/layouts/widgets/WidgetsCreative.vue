@@ -49,10 +49,7 @@ import Widget8 from '/@dds/sets/illustrations/widgets/8.svg'
       />
 
       <!--Widget-->
-      <AvatarListWidget
-        :avatars="avatarList"
-        squared
-      />
+      <AvatarListWidget :avatars="avatarList" squared />
     </div>
 
     <div class="column is-3">
@@ -88,10 +85,7 @@ import Widget8 from '/@dds/sets/illustrations/widgets/8.svg'
       <!--Widget-->
       <UIWidget class="text-widget">
         <template #header>
-          <UIWidgetToolbarIcon
-            title="@cssninjaStudio"
-            icon="feather:twitter"
-          />
+          <UIWidgetToolbarIcon title="@cssninjaStudio" icon="feather:twitter" />
         </template>
         <template #body>
           <div class="widget-content">
@@ -130,10 +124,7 @@ import Widget8 from '/@dds/sets/illustrations/widgets/8.svg'
       />
 
       <!--Widget-->
-      <SocialButtonsWidget
-        :buttons="socialButtonList2"
-        rounded
-      />
+      <SocialButtonsWidget :buttons="socialButtonList2" rounded />
 
       <!--Widget-->
       <UIWidget class="creative-list-widget">
@@ -141,10 +132,7 @@ import Widget8 from '/@dds/sets/illustrations/widgets/8.svg'
           <UIWidgetToolbarDropdown title="Designers" />
         </template>
         <template #body>
-          <UIWidgetCreativeList
-            :list="avatarListCreative"
-            squared
-          />
+          <UIWidgetCreativeList :list="avatarListCreative" squared />
         </template>
       </UIWidget>
     </div>

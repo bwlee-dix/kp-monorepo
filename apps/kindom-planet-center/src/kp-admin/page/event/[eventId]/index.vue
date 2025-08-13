@@ -1,21 +1,16 @@
 <script setup lang="ts">
-
 import { useViewWrapper } from '/@dds/stores/viewWrapper'
-
-
 
 const viewWrapper = useViewWrapper()
 
 const router = useRouter()
 
-const eventId = (router.currentRoute.value.params as any).eventId as string;
+const eventId = (router.currentRoute.value.params as any).eventId as string
 viewWrapper.setPageTitle('Event detail')
-
 
 useHead({
   title: 'Event - App name - KingdomPlanet',
 })
-
 
 const clickRegistration = (id: string) => {
   router.push(`/event/${eventId}/registration/${id}`)
@@ -37,23 +32,12 @@ const onSubmit = () => {
 </script>
 
 <template>
-  <AdminSideblockLayout
-    theme="curved"
-    open-on-mounted
-  >
+  <AdminSideblockLayout theme="curved" open-on-mounted>
     <!-- Content Wrapper -->
     <div class="page-content-inner">
-      <form
-        method="post"
-        novalidate
-        class="form-layout"
-        @submit.prevent="onSubmit"
-      >
+      <form method="post" novalidate class="form-layout" @submit.prevent="onSubmit">
         <div class="form-outer">
-          <div
-            :class="[isStuck && 'is-stuck']"
-            class="form-header stuck-header"
-          >
+          <div :class="[isStuck && 'is-stuck']" class="form-header stuck-header">
             <div class="form-header-inner">
               <div class="left">
                 <h3>KOSTA 2025</h3>
@@ -68,13 +52,7 @@ const onSubmit = () => {
                   >
                     Cancel
                   </VButton>
-                  <VButton
-                    type="submit"
-                    color="primary"
-                    raised
-                  >
-                    Submit
-                  </VButton>
+                  <VButton type="submit" color="primary" raised> Submit </VButton>
                 </div>
               </div>
             </div>
@@ -92,11 +70,7 @@ const onSubmit = () => {
                   <VField>
                     <VLabel>First Name</VLabel>
                     <VControl icon="feather:user">
-                      <VInput
-                        type="text"
-                        placeholder=""
-                        autocomplete="given-name"
-                      />
+                      <VInput type="text" placeholder="" autocomplete="given-name" />
                     </VControl>
                   </VField>
                 </div>
@@ -104,11 +78,7 @@ const onSubmit = () => {
                   <VField>
                     <VLabel>Last Name</VLabel>
                     <VControl icon="feather:user">
-                      <VInput
-                        type="text"
-                        placeholder=""
-                        autocomplete="family-name"
-                      />
+                      <VInput type="text" placeholder="" autocomplete="family-name" />
                     </VControl>
                   </VField>
                 </div>
@@ -139,11 +109,7 @@ const onSubmit = () => {
                   <VField>
                     <VLabel>Company Name</VLabel>
                     <VControl icon="feather:briefcase">
-                      <VInput
-                        type="text"
-                        placeholder=""
-                        autocomplete="organization"
-                      />
+                      <VInput type="text" placeholder="" autocomplete="organization" />
                     </VControl>
                   </VField>
                 </div>
@@ -236,11 +202,7 @@ const onSubmit = () => {
                 </div>
                 <div class="column is-6">
                   <ClientOnly>
-                    <VDatePicker
-                      v-model="date"
-                      color="green"
-                      trim-weeks
-                    >
+                    <VDatePicker v-model="date" color="green" trim-weeks>
                       <template #default="{ inputValue, inputEvents }">
                         <VField>
                           <VLabel>Prefered Date</VLabel>
@@ -251,7 +213,7 @@ const onSubmit = () => {
                               placeholder="Select a date"
                               :value="inputValue"
                               v-on="inputEvents"
-                            >
+                            />
                           </VControl>
                         </VField>
                       </template>

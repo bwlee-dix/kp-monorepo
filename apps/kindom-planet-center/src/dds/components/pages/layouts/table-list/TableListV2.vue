@@ -45,18 +45,12 @@ const filteredData = computed(() => {
             v-model="filters"
             class="input custom-text-filter"
             placeholder="Search..."
-          >
+          />
         </VControl>
       </VField>
 
       <VButtons>
-        <VButton
-          color="primary"
-          icon="fas fa-plus"
-          elevated
-        >
-          New Project
-        </VButton>
+        <VButton color="primary" icon="fas fa-plus" elevated> New Project </VButton>
       </VButtons>
     </div>
     <div class="datatable-wrapper">
@@ -72,17 +66,11 @@ const filteredData = computed(() => {
             <th>Actions</th>
           </thead>
           <tbody>
-            <tr
-              v-for="project in filteredData"
-              :key="project.id"
-            >
+            <tr v-for="project in filteredData" :key="project.id">
               <td>{{ project.id }}</td>
               <td>
                 <div class="flex-media">
-                  <VAvatar
-                    :picture="project.picture"
-                    alt="Avatar"
-                  />
+                  <VAvatar :picture="project.picture" alt="Avatar" />
                   <div class="meta">
                     <h3>{{ project.name }}</h3>
                     <span>{{ project.duration }}</span>
@@ -94,11 +82,7 @@ const filteredData = computed(() => {
               <td><VTag :label="project.status" /></td>
               <td>
                 <div>
-                  <VAvatarStack
-                    :avatars="project.team"
-                    size="small"
-                    :limit="3"
-                  />
+                  <VAvatarStack :avatars="project.team" size="small" :limit="3" />
                 </div>
               </td>
               <td>
@@ -120,12 +104,12 @@ const filteredData = computed(() => {
             class="light-image"
             src="/@dds/sets/illustrations/placeholders/search-7.svg"
             alt=""
-          >
+          />
           <img
             class="dark-image"
             src="/@dds/sets/illustrations/placeholders/search-7-dark.svg"
             alt=""
-          >
+          />
         </template>
       </VPlaceholderPage>
     </div>

@@ -81,14 +81,8 @@ watch(
       @toggle="isMobileSidebarOpen = !isMobileSidebarOpen"
     >
       <template #brand>
-        <RouterLink
-          to="/"
-          class="navbar-item is-brand"
-        >
-          <AnimatedLogo
-            width="38px"
-            height="38px"
-          />
+        <RouterLink to="/" class="navbar-item is-brand">
+          <AnimatedLogo width="38px" height="38px" />
         </RouterLink>
 
         <div class="brand-end">
@@ -112,11 +106,7 @@ watch(
             @keydown.space.prevent="activeMobileSubsidebar = 'dashboard'"
             @click="activeMobileSubsidebar = 'dashboard'"
           >
-            <i
-              aria-hidden="true"
-              class="iconify"
-              data-icon="feather:activity"
-            />
+            <i aria-hidden="true" class="iconify" data-icon="feather:activity" />
           </a>
         </li>
         <li>
@@ -127,11 +117,7 @@ watch(
             @keydown.space.prevent="activeMobileSubsidebar = 'layout'"
             @click="activeMobileSubsidebar = 'layout'"
           >
-            <i
-              aria-hidden="true"
-              class="iconify"
-              data-icon="feather:grid"
-            />
+            <i aria-hidden="true" class="iconify" data-icon="feather:grid" />
           </a>
         </li>
         <li
@@ -142,11 +128,7 @@ watch(
           @click="activeMobileSubsidebar = 'elements'"
         >
           <a>
-            <i
-              aria-hidden="true"
-              class="iconify"
-              data-icon="feather:box"
-            />
+            <i aria-hidden="true" class="iconify" data-icon="feather:box" />
           </a>
         </li>
         <li
@@ -157,20 +139,12 @@ watch(
           @click="activeMobileSubsidebar = 'components'"
         >
           <a>
-            <i
-              aria-hidden="true"
-              class="iconify"
-              data-icon="feather:cpu"
-            />
+            <i aria-hidden="true" class="iconify" data-icon="feather:cpu" />
           </a>
         </li>
         <li>
           <RouterLink to="/messaging-v1">
-            <i
-              aria-hidden="true"
-              class="iconify"
-              data-icon="feather:message-circle"
-            />
+            <i aria-hidden="true" class="iconify" data-icon="feather:message-circle" />
           </RouterLink>
         </li>
       </template>
@@ -183,20 +157,12 @@ watch(
             @keydown.space.prevent="panels.setActive('search')"
             @click="panels.setActive('search')"
           >
-            <i
-              aria-hidden="true"
-              class="iconify"
-              data-icon="feather:search"
-            />
+            <i aria-hidden="true" class="iconify" data-icon="feather:search" />
           </a>
         </li>
         <li>
           <a href="#">
-            <i
-              aria-hidden="true"
-              class="iconify"
-              data-icon="feather:settings"
-            />
+            <i aria-hidden="true" class="iconify" data-icon="feather:settings" />
           </a>
         </li>
       </template>
@@ -222,14 +188,8 @@ watch(
     <NavbarSearch :theme="props.theme">
       <!-- Custom navbar title -->
       <template #title>
-        <RouterLink
-          to="/"
-          class="brand"
-        >
-          <AnimatedLogo
-            width="38px"
-            height="38px"
-          />
+        <RouterLink to="/" class="brand">
+          <AnimatedLogo width="38px" height="38px" />
         </RouterLink>
         <div class="separator" />
 
@@ -255,11 +215,7 @@ watch(
             @keydown.space.prevent="panels.setActive('activity')"
             @click="panels.setActive('activity')"
           >
-            <i
-              aria-hidden="true"
-              class="iconify"
-              data-icon="feather:grid"
-            />
+            <i aria-hidden="true" class="iconify" data-icon="feather:grid" />
           </a>
         </Toolbar>
 
@@ -268,78 +224,43 @@ watch(
       </template>
 
       <template #toolbar-bottom>
-        <VAvatarStack
-          :avatars="users"
-          :limit="3"
-          size="small"
-        />
-        <VDropdown
-          spaced
-          right
-        >
+        <VAvatarStack :avatars="users" :limit="3" size="small" />
+        <VDropdown spaced right>
           <template #button="{ open }">
-            <VIconButton
-              icon="feather:plus"
-              circle
-              @click="open"
-            />
+            <VIconButton icon="feather:plus" circle @click="open" />
           </template>
           <template #content>
-            <a
-              href="#"
-              class="dropdown-item is-media"
-            >
+            <a href="#" class="dropdown-item is-media">
               <div class="icon">
-                <i
-                  aria-hidden="true"
-                  class="lnil lnil-analytics-alt-1"
-                />
+                <i aria-hidden="true" class="lnil lnil-analytics-alt-1" />
               </div>
               <div class="meta">
                 <span>New Dashboard</span>
                 <span>Add a new dashboard</span>
               </div>
             </a>
-            <a
-              href="#"
-              class="dropdown-item is-media"
-            >
+            <a href="#" class="dropdown-item is-media">
               <div class="icon">
-                <i
-                  aria-hidden="true"
-                  class="lnil lnil-users-alt"
-                />
+                <i aria-hidden="true" class="lnil lnil-users-alt" />
               </div>
               <div class="meta">
                 <span>Invite</span>
                 <span>Invite new members</span>
               </div>
             </a>
-            <a
-              href="#"
-              class="dropdown-item is-media"
-            >
+            <a href="#" class="dropdown-item is-media">
               <div class="icon">
-                <i
-                  aria-hidden="true"
-                  class="lnil lnil-briefcase"
-                />
+                <i aria-hidden="true" class="lnil lnil-briefcase" />
               </div>
               <div class="meta">
                 <span>New Project</span>
                 <span>Add a new project</span>
               </div>
             </a>
-            <hr class="dropdown-divider">
-            <a
-              href="#"
-              class="dropdown-item is-media"
-            >
+            <hr class="dropdown-divider" />
+            <a href="#" class="dropdown-item is-media">
               <div class="icon">
-                <i
-                  aria-hidden="true"
-                  class="lnil lnil-cog"
-                />
+                <i aria-hidden="true" class="lnil lnil-cog" />
               </div>
               <div class="meta">
                 <span>Settings</span>
@@ -360,13 +281,9 @@ watch(
                 type="text"
                 class="input search-input"
                 placeholder="Search records..."
-              >
+              />
               <div class="form-icon">
-                <i
-                  aria-hidden="true"
-                  class="iconify"
-                  data-icon="feather:search"
-                />
+                <i aria-hidden="true" class="iconify" data-icon="feather:search" />
               </div>
               <div
                 v-if="filter"
@@ -376,21 +293,13 @@ watch(
                 @keydown.space.prevent="filter = ''"
                 @click="filter = ''"
               >
-                <i
-                  aria-hidden="true"
-                  class="iconify"
-                  data-icon="feather:x"
-                />
+                <i aria-hidden="true" class="iconify" data-icon="feather:x" />
               </div>
               <div
                 v-if="filteredData.length > 0"
                 class="search-results has-slimscroll is-active"
               >
-                <div
-                  v-for="(user, key) in filteredData"
-                  :key="key"
-                  class="search-result"
-                >
+                <div v-for="(user, key) in filteredData" :key="key" class="search-result">
                   <VAvatar v-bind="getAvatarData(user)" />
                   <div class="meta">
                     <span>{{ user.username }}</span>
@@ -424,10 +333,7 @@ watch(
         <template v-if="props.nowrap">
           <slot />
         </template>
-        <VPageContent
-          v-else
-          class="is-relative"
-        >
+        <VPageContent v-else class="is-relative">
           <div class="is-navbar-lg">
             <div class="page-title has-text-centered">
               <!-- Mobile Page Title -->
@@ -447,11 +353,7 @@ watch(
                   @keydown.space.prevent="panels.setActive('activity')"
                   @click="panels.setActive('activity')"
                 >
-                  <i
-                    aria-hidden="true"
-                    class="iconify"
-                    data-icon="feather:grid"
-                  />
+                  <i aria-hidden="true" class="iconify" data-icon="feather:grid" />
                 </a>
               </Toolbar>
             </div>

@@ -67,11 +67,7 @@ const classes = computed(() => {
 </script>
 
 <template>
-  <VLabel
-    :id="props.id || context.id.value"
-    raw
-    :class="classes"
-  >
+  <VLabel :id="props.id || context.id.value" raw :class="classes">
     <input
       :id="props.id || context.id.value"
       v-model="internal"
@@ -80,7 +76,7 @@ const classes = computed(() => {
       :false-value="props.falseValue"
       :value="props.value"
       type="checkbox"
-    >
+    />
     <span />
     <slot v-bind="context">
       {{ props.label }}

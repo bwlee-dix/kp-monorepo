@@ -1,8 +1,5 @@
 <template>
-  <ol
-    id="chat-body"
-    class="chat-body"
-  >
+  <ol id="chat-body" class="chat-body">
     <slot />
   </ol>
 </template>

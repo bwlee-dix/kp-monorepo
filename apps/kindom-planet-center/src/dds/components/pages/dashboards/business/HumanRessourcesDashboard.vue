@@ -63,53 +63,30 @@ const columns = {
 
               <!--Center-->
               <div class="center">
-                <h4 class="block-heading">
-                  New Rookies
-                </h4>
+                <h4 class="block-heading">New Rookies</h4>
                 <p class="block-text">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praeclarae
                   mortes.
                 </p>
                 <div class="candidates">
-                  <VAvatar
-                    picture="/demo/avatars/13.jpg"
-                    squared
-                  />
-                  <VAvatar
-                    picture="/demo/avatars/32.jpg"
-                    squared
-                  />
-                  <VAvatar
-                    picture="/demo/avatars/9.jpg"
-                    squared
-                  />
+                  <VAvatar picture="/demo/avatars/13.jpg" squared />
+                  <VAvatar picture="/demo/avatars/32.jpg" squared />
+                  <VAvatar picture="/demo/avatars/9.jpg" squared />
                   <button>
-                    <i
-                      aria-hidden="true"
-                      class="iconify"
-                      data-icon="feather:plus"
-                    />
+                    <i aria-hidden="true" class="iconify" data-icon="feather:plus" />
                   </button>
                 </div>
               </div>
 
               <!--Right-->
               <div class="right">
-                <h4 class="block-heading">
-                  Job Feed
-                </h4>
+                <h4 class="block-heading">Job Feed</h4>
                 <p class="block-text">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praeclarae
                   mortes.
                 </p>
 
-                <VButton
-                  bold
-                  fullwidth
-                  dark-outlined
-                >
-                  Manage Jobs
-                </VButton>
+                <VButton bold fullwidth dark-outlined> Manage Jobs </VButton>
               </div>
             </div>
           </div>
@@ -117,19 +94,11 @@ const columns = {
           <!--Selector-->
           <div class="column is-12">
             <div class="feed-settings">
-              <h3 class="dark-inverted">
-                Manage feed settings
-              </h3>
+              <h3 class="dark-inverted">Manage feed settings</h3>
               <div class="buttons">
-                <button class="button is-dark-outlined">
-                  All
-                </button>
-                <button class="button is-selected is-dark-outlined">
-                  Candidates
-                </button>
-                <button class="button is-dark-outlined">
-                  Companies
-                </button>
+                <button class="button is-dark-outlined">All</button>
+                <button class="button is-selected is-dark-outlined">Candidates</button>
+                <button class="button is-dark-outlined">Companies</button>
               </div>
             </div>
           </div>
@@ -137,36 +106,24 @@ const columns = {
           <!--Side Text-->
           <div class="column is-4">
             <div class="side-text">
-              <h3 class="dark-inverted">
-                More Details
-              </h3>
+              <h3 class="dark-inverted">More Details</h3>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Perge porro;
                 Oratio me istius philosophi non offendit; Duo Reges: constructio
                 interrete.
               </p>
-              <a
-                class="action-link"
-                tabindex="0"
-              >Read More</a>
+              <a class="action-link" tabindex="0">Read More</a>
             </div>
           </div>
 
           <!--Incoming-->
           <div class="column is-7 is-offset-1">
             <div class="incoming">
-              <VFlexTable
-                rounded
-                :data="data"
-                :columns="columns"
-              >
+              <VFlexTable rounded :data="data" :columns="columns">
                 <template #body-cell="{ row, column, value }">
                   <template v-if="column.key === 'type' && row.type === 'messages'">
                     <VIconBox color="green">
-                      <i
-                        aria-hidden="true"
-                        class="lnil lnil-envelope-alt"
-                      />
+                      <i aria-hidden="true" class="lnil lnil-envelope-alt" />
                     </VIconBox>
                     <div>
                       <span class="item-name dark-inverted">Messages</span>
@@ -177,10 +134,7 @@ const columns = {
                   </template>
                   <template v-else-if="column.key === 'type' && row.type === 'tasks'">
                     <VIconBox color="orange">
-                      <i
-                        aria-hidden="true"
-                        class="lnil lnil-checkmark-circle"
-                      />
+                      <i aria-hidden="true" class="lnil lnil-checkmark-circle" />
                     </VIconBox>
                     <div>
                       <span class="item-name dark-inverted">Tasks</span>
@@ -196,23 +150,13 @@ const columns = {
                       color="success"
                       label="New"
                     />
-                    <VTag
-                      v-else
-                      rounded
-                      label="Pending"
-                    />
+                    <VTag v-else rounded label="Pending" />
                   </template>
                   <template v-else-if="column.key === 'actions'">
-                    <a
-                      tabindex="0"
-                      class="action-link is-pushed-mobile"
-                    >Open</a>
+                    <a tabindex="0" class="action-link is-pushed-mobile">Open</a>
                   </template>
 
-                  <span
-                    v-else
-                    class="light-text"
-                  >{{ value }}</span>
+                  <span v-else class="light-text">{{ value }}</span>
                 </template>
               </VFlexTable>
             </div>
@@ -222,13 +166,8 @@ const columns = {
           <div class="column is-12">
             <div class="recent-rookies">
               <div class="recent-rookies-header">
-                <h3 class="dark-inverted">
-                  Recent Rookies
-                </h3>
-                <a
-                  class="action-link"
-                  tabindex="0"
-                >View All</a>
+                <h3 class="dark-inverted">Recent Rookies</h3>
+                <a class="action-link" tabindex="0">View All</a>
               </div>
 
               <div class="columns user-grid user-grid-v4 is-flex-tablet-p">
@@ -241,17 +180,10 @@ const columns = {
                       badge="/images/icons/stacks/illustrator.svg"
                       size="large"
                     />
-                    <h3 class="dark-inverted">
-                      Tara Svenson
-                    </h3>
+                    <h3 class="dark-inverted">Tara Svenson</h3>
                     <p>UI/UX Designer</p>
                     <div class="button-wrap has-text-centered">
-                      <VButton
-                        color="primary"
-                        raised
-                      >
-                        Hire
-                      </VButton>
+                      <VButton color="primary" raised> Hire </VButton>
                     </div>
                   </div>
                 </div>
@@ -264,17 +196,10 @@ const columns = {
                       badge="/images/icons/flags/france.svg"
                       size="large"
                     />
-                    <h3 class="dark-inverted">
-                      Helmut Fritz
-                    </h3>
+                    <h3 class="dark-inverted">Helmut Fritz</h3>
                     <p>Product Manager</p>
                     <div class="button-wrap has-text-centered">
-                      <VButton
-                        dark-outlined
-                        bold
-                      >
-                        Assess
-                      </VButton>
+                      <VButton dark-outlined bold> Assess </VButton>
                     </div>
                   </div>
                 </div>
@@ -287,17 +212,10 @@ const columns = {
                       badge="/images/icons/stacks/js.svg"
                       size="large"
                     />
-                    <h3 class="dark-inverted">
-                      Melany Wallace
-                    </h3>
+                    <h3 class="dark-inverted">Melany Wallace</h3>
                     <p>Web Developer</p>
                     <div class="button-wrap has-text-centered">
-                      <VButton
-                        dark-outlined
-                        bold
-                      >
-                        Assess
-                      </VButton>
+                      <VButton dark-outlined bold> Assess </VButton>
                     </div>
                   </div>
                 </div>
@@ -313,17 +231,9 @@ const columns = {
           <template #body>
             <div class="field">
               <div class="control">
-                <input
-                  type="text"
-                  class="input"
-                  placeholder="Search..."
-                >
+                <input type="text" class="input" placeholder="Search..." />
                 <button class="searcv-button">
-                  <i
-                    aria-hidden="true"
-                    class="iconify"
-                    data-icon="feather:search"
-                  />
+                  <i aria-hidden="true" class="iconify" data-icon="feather:search" />
                 </button>
               </div>
             </div>
@@ -331,21 +241,12 @@ const columns = {
         </UIWidget>
 
         <!--Widget-->
-        <ListWidgetTabbed
-          title="Todo"
-          :labels="['All', 'Mine']"
-        >
+        <ListWidgetTabbed title="Todo" :labels="['All', 'Mine']">
           <template #tab1>
-            <ListWidgetTodoList
-              v-model="todoList3Selection"
-              :todos="todoList3"
-            />
+            <ListWidgetTodoList v-model="todoList3Selection" :todos="todoList3" />
           </template>
           <template #tab2>
-            <ListWidgetTodoList
-              v-model="todoList4Selection"
-              :todos="todoList4"
-            />
+            <ListWidgetTodoList v-model="todoList4Selection" :todos="todoList4" />
           </template>
         </ListWidgetTabbed>
 
@@ -390,41 +291,21 @@ const columns = {
             <table class="calendar">
               <thead>
                 <tr>
-                  <th scope="col">
-                    Mon
-                  </th>
-                  <th scope="col">
-                    Tue
-                  </th>
-                  <th scope="col">
-                    Wed
-                  </th>
-                  <th scope="col">
-                    Thu
-                  </th>
-                  <th scope="col">
-                    Fri
-                  </th>
-                  <th scope="col">
-                    Sat
-                  </th>
-                  <th scope="col">
-                    Sun
-                  </th>
+                  <th scope="col">Mon</th>
+                  <th scope="col">Tue</th>
+                  <th scope="col">Wed</th>
+                  <th scope="col">Thu</th>
+                  <th scope="col">Fri</th>
+                  <th scope="col">Sat</th>
+                  <th scope="col">Sun</th>
                 </tr>
               </thead>
 
               <tbody>
                 <tr>
-                  <td class="prev-month">
-                    29
-                  </td>
-                  <td class="prev-month">
-                    30
-                  </td>
-                  <td class="prev-month">
-                    31
-                  </td>
+                  <td class="prev-month">29</td>
+                  <td class="prev-month">30</td>
+                  <td class="prev-month">31</td>
                   <td>1</td>
                   <td>2</td>
                   <td>3</td>
@@ -448,9 +329,7 @@ const columns = {
                   <td>15</td>
                   <td>16</td>
                   <td>17</td>
-                  <td class="current-day">
-                    18
-                  </td>
+                  <td class="current-day">18</td>
                 </tr>
 
                 <tr>
@@ -470,9 +349,7 @@ const columns = {
                   <td>29</td>
                   <td>30</td>
                   <td>31</td>
-                  <td class="next-month">
-                    1
-                  </td>
+                  <td class="next-month">1</td>
                 </tr>
               </tbody>
             </table>

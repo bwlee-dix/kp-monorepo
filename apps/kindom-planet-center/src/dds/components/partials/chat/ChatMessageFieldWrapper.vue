@@ -9,77 +9,38 @@ const dropdown = useDropdown(dropdownElement)
   <div class="message-field-wrapper">
     <div class="control">
       <div class="add-content">
-        <div
-          ref="dropdownElement"
-          class="dropdown dropdown-trigger is-up"
-        >
+        <div ref="dropdownElement" class="dropdown dropdown-trigger is-up">
           <div>
-            <div
-              class="button"
-              aria-haspopup="true"
-              @click="dropdown.toggle"
-            >
-              <i
-                aria-hidden="true"
-                class="iconify"
-                data-icon="feather:plus"
-              />
+            <div class="button" aria-haspopup="true" @click="dropdown.toggle">
+              <i aria-hidden="true" class="iconify" data-icon="feather:plus" />
             </div>
           </div>
-          <div
-            class="dropdown-menu"
-            role="menu"
-          >
+          <div class="dropdown-menu" role="menu">
             <div class="dropdown-content">
               <a class="dropdown-item">
-                <i
-                  aria-hidden="true"
-                  class="iconify"
-                  data-icon="feather:video"
-                />
+                <i aria-hidden="true" class="iconify" data-icon="feather:video" />
                 <div class="meta">
                   <span>Video</span>
                   <span>Embed a video</span>
                 </div>
               </a>
-              <a
-                href="#"
-                class="dropdown-item kill-drop v-modal-trigger"
-              >
-                <i
-                  aria-hidden="true"
-                  class="iconify"
-                  data-icon="feather:image"
-                />
+              <a href="#" class="dropdown-item kill-drop v-modal-trigger">
+                <i aria-hidden="true" class="iconify" data-icon="feather:image" />
                 <div class="meta">
                   <span>Images</span>
                   <span>Upload pictures</span>
                 </div>
               </a>
-              <a
-                href="#"
-                class="dropdown-item kill-drop v-modal-trigger"
-              >
-                <i
-                  aria-hidden="true"
-                  class="iconify"
-                  data-icon="feather:link"
-                />
+              <a href="#" class="dropdown-item kill-drop v-modal-trigger">
+                <i aria-hidden="true" class="iconify" data-icon="feather:link" />
                 <div class="meta">
                   <span>Link</span>
                   <span>Post a link</span>
                 </div>
               </a>
-              <hr class="dropdown-divider">
-              <a
-                href="#"
-                class="dropdown-item kill-drop v-modal-trigger"
-              >
-                <i
-                  aria-hidden="true"
-                  class="iconify"
-                  data-icon="feather:file"
-                />
+              <hr class="dropdown-divider" />
+              <a href="#" class="dropdown-item kill-drop v-modal-trigger">
+                <i aria-hidden="true" class="iconify" data-icon="feather:file" />
                 <div class="meta">
                   <span>File</span>
                   <span>Upload a file</span>
@@ -91,11 +52,7 @@ const dropdown = useDropdown(dropdownElement)
       </div>
       <div class="add-emoji">
         <div class="button">
-          <i
-            aria-hidden="true"
-            class="iconify"
-            data-icon="feather:smile"
-          />
+          <i aria-hidden="true" class="iconify" data-icon="feather:smile" />
         </div>
       </div>
       <input
@@ -104,19 +61,14 @@ const dropdown = useDropdown(dropdownElement)
         type="text"
         placeholder="Write a message ..."
         aria-label="Write a message"
-      >
+      />
       <div class="send-message">
-        <div class="button v-button is-primary is-raised is-rounded">
-          Send
-        </div>
+        <div class="button v-button is-primary is-raised is-rounded">Send</div>
       </div>
     </div>
 
     <div class="typing-indicator">
-      <img
-        src="/images/icons/misc/typing.gif"
-        alt=""
-      >
+      <img src="/images/icons/misc/typing.gif" alt="" />
     </div>
   </div>
 </template>

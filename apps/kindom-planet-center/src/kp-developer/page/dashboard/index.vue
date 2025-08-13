@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 import { useViewWrapper } from '/@dds/stores/viewWrapper'
 
 const viewWrapper = useViewWrapper()
@@ -12,7 +11,7 @@ useHead({
 const isReady = ref(false)
 
 onMounted(() => {
-  console.log("dashboard mounted")
+  console.log('dashboard mounted')
   // Add a small delay to ensure layout is ready
   setTimeout(() => {
     isReady.value = true
@@ -21,16 +20,10 @@ onMounted(() => {
 </script>
 
 <template>
-  <DeveloperSideblockLayout
-    theme="curved"
-    open-on-mounted
-  >
+  <DeveloperSideblockLayout theme="curved" open-on-mounted>
     <!-- Content Wrapper -->
     <div class="page-content-inner">
-      <div
-        v-if="!isReady"
-        class="loading-placeholder"
-      >
+      <div v-if="!isReady" class="loading-placeholder">
         <VLoader size="large" />
         <p>Loading dashboard...</p>
       </div>

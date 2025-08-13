@@ -1,4 +1,4 @@
-    <script setup lang="ts">
+<script setup lang="ts">
 import VLabel from '/@dds/components/base/form/VLabel.vue'
 import { useVFieldContext } from '/@dds/composable/useVFieldContext'
 
@@ -86,36 +86,16 @@ const controlClasees = computed(() => {
     <slot v-bind="{ field, id }" />
 
     <template v-if="props.icon">
-      <VLabel
-        v-if="isIconify"
-        class="form-icon"
-      >
-        <i
-          aria-hidden="true"
-          :data-icon="props.icon"
-          class="iconify"
-        />
+      <VLabel v-if="isIconify" class="form-icon">
+        <i aria-hidden="true" :data-icon="props.icon" class="iconify" />
       </VLabel>
-      <VLabel
-        v-else
-        class="form-icon"
-      >
-        <i
-          aria-hidden="true"
-          :class="props.icon"
-        />
+      <VLabel v-else class="form-icon">
+        <i aria-hidden="true" :class="props.icon" />
       </VLabel>
     </template>
 
-    <VLabel
-      v-if="isValid"
-      class="validation-icon is-success"
-    >
-      <i
-        aria-hidden="true"
-        data-icon="feather:check"
-        class="iconify"
-      />
+    <VLabel v-if="isValid" class="validation-icon is-success">
+      <i aria-hidden="true" data-icon="feather:check" class="iconify" />
     </VLabel>
     <a
       v-else-if="hasError"
@@ -125,17 +105,10 @@ const controlClasees = computed(() => {
       @click.prevent="() => field?.resetField?.()"
       @keyup.enter.prevent="() => field?.resetField?.()"
     >
-      <i
-        aria-hidden="true"
-        data-icon="feather:x"
-        class="iconify"
-      />
+      <i aria-hidden="true" data-icon="feather:x" class="iconify" />
     </a>
 
-    <slot
-      v-bind="{ field, id }"
-      name="extra"
-    />
+    <slot v-bind="{ field, id }" name="extra" />
   </div>
 </template>
 

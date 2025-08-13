@@ -104,18 +104,9 @@ const columns = computed(() => {
     ]"
   >
     <slot name="header">
-      <div
-        v-if="!props.noHeader"
-        class="flex-table-header"
-      >
-        <template
-          v-for="column in columns"
-          :key="'col' + column.key"
-        >
-          <slot
-            name="header-column"
-            :column="column"
-          >
+      <div v-if="!props.noHeader" class="flex-table-header">
+        <template v-for="column in columns" :key="'col' + column.key">
+          <slot name="header-column" :column="column">
             <component
               :is="{ render: column.renderHeader } as any"
               v-if="column.renderHeader"
@@ -136,22 +127,15 @@ const columns = computed(() => {
                 column.align === 'end' && 'cell-end',
                 column.align === 'center' && 'cell-center',
               ]"
-            >{{ column.label }}</span>
+              >{{ column.label }}</span
+            >
           </slot>
         </template>
       </div>
     </slot>
     <slot name="body">
-      <template
-        v-for="(row, index) in data"
-        :key="index"
-      >
-        <slot
-          name="body-row-pre"
-          :row="row"
-          :columns="columns"
-          :index="index"
-        />
+      <template v-for="(row, index) in data" :key="index">
+        <slot name="body-row-pre" :row="row" :columns="columns" :index="index" />
         <!-- eslint-disable-next-line vuejs-accessibility/no-static-element-interactions -->
         <div
           class="flex-table-item"
@@ -169,16 +153,8 @@ const columns = computed(() => {
             }
           "
         >
-          <slot
-            name="body-row"
-            :row="row"
-            :columns="columns"
-            :index="index"
-          >
-            <template
-              v-for="column in columns"
-              :key="'row' + column.key"
-            >
+          <slot name="body-row" :row="row" :columns="columns" :index="index">
+            <template v-for="column in columns" :key="'row' + column.key">
               <VFlexTableCell :column="column">
                 <slot
                   name="body-cell"
@@ -226,12 +202,7 @@ const columns = computed(() => {
             </template>
           </slot>
         </div>
-        <slot
-          name="body-row-post"
-          :row="row"
-          :columns="columns"
-          :index="index"
-        />
+        <slot name="body-row-post" :row="row" :columns="columns" :index="index" />
       </template>
     </slot>
   </div>

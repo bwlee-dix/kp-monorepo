@@ -49,10 +49,7 @@ const onSave = async () => {
 
 <template>
   <div class="account-box is-form is-footerless">
-    <div
-      class="form-head stuck-header"
-      :class="[isScrolling && 'is-stuck']"
-    >
+    <div class="form-head stuck-header" :class="[isScrolling && 'is-stuck']">
       <div class="form-head-inner">
         <div class="left">
           <h3>General Info</h3>
@@ -90,10 +87,7 @@ const onSave = async () => {
           <p>This is how others will recognize you</p>
         </div>
 
-        <VAvatar
-          size="xl"
-          class="profile-v-avatar"
-        >
+        <VAvatar size="xl" class="profile-v-avatar">
           <template #avatar>
             <img
               v-if="!isUploading"
@@ -101,7 +95,7 @@ const onSave = async () => {
               src="/images/avatars/svg/vuero-1.svg"
               alt=""
               @error.once="onceImageErrored(150)"
-            >
+            />
             <VFilePond
               v-else
               class="profile-filepond"
@@ -155,11 +149,7 @@ const onSave = async () => {
           <div class="column is-6">
             <VField>
               <VControl icon="feather:user">
-                <VInput
-                  type="text"
-                  placeholder="First Name"
-                  autocomplete="given-name"
-                />
+                <VInput type="text" placeholder="First Name" autocomplete="given-name" />
               </VControl>
             </VField>
           </div>
@@ -167,11 +157,7 @@ const onSave = async () => {
           <div class="column is-6">
             <VField>
               <VControl icon="feather:user">
-                <VInput
-                  type="text"
-                  placeholder="Last Name"
-                  autocomplete="family-name"
-                />
+                <VInput type="text" placeholder="Last Name" autocomplete="family-name" />
               </VControl>
             </VField>
           </div>
@@ -191,11 +177,7 @@ const onSave = async () => {
           <div class="column is-12">
             <VField>
               <VControl icon="feather:map-pin">
-                <VInput
-                  type="text"
-                  placeholder="Location"
-                  autocomplete="country-name"
-                />
+                <VInput type="text" placeholder="Location" autocomplete="country-name" />
               </VControl>
             </VField>
           </div>
@@ -305,11 +287,7 @@ const onSave = async () => {
           <div class="column is-6">
             <VField>
               <VControl icon="fab fa-facebook-f">
-                <VInput
-                  type="text"
-                  placeholder="Facebook URL"
-                  inputmode="url"
-                />
+                <VInput type="text" placeholder="Facebook URL" inputmode="url" />
               </VControl>
             </VField>
           </div>
@@ -317,11 +295,7 @@ const onSave = async () => {
           <div class="column is-6">
             <VField>
               <VControl icon="fab fa-twitter">
-                <VInput
-                  type="text"
-                  placeholder="Twitter URL"
-                  inputmode="url"
-                />
+                <VInput type="text" placeholder="Twitter URL" inputmode="url" />
               </VControl>
             </VField>
           </div>
@@ -329,11 +303,7 @@ const onSave = async () => {
           <div class="column is-6">
             <VField>
               <VControl icon="fab fa-dribbble">
-                <VInput
-                  type="text"
-                  placeholder="Dribbble URL"
-                  inputmode="url"
-                />
+                <VInput type="text" placeholder="Dribbble URL" inputmode="url" />
               </VControl>
             </VField>
           </div>
@@ -341,11 +311,7 @@ const onSave = async () => {
           <div class="column is-6">
             <VField>
               <VControl icon="fab fa-instagram">
-                <VInput
-                  type="text"
-                  placeholder="Instagram URL"
-                  inputmode="url"
-                />
+                <VInput type="text" placeholder="Instagram URL" inputmode="url" />
               </VControl>
             </VField>
           </div>
@@ -353,11 +319,7 @@ const onSave = async () => {
           <div class="column is-6">
             <VField>
               <VControl icon="fab fa-github">
-                <VInput
-                  type="text"
-                  placeholder="Github URL"
-                  inputmode="url"
-                />
+                <VInput type="text" placeholder="Github URL" inputmode="url" />
               </VControl>
             </VField>
           </div>
@@ -365,11 +327,7 @@ const onSave = async () => {
           <div class="column is-6">
             <VField>
               <VControl icon="fab fa-gitlab">
-                <VInput
-                  type="text"
-                  placeholder="Gitlab URL"
-                  inputmode="url"
-                />
+                <VInput type="text" placeholder="Gitlab URL" inputmode="url" />
               </VControl>
             </VField>
           </div>

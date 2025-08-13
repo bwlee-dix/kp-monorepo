@@ -35,35 +35,18 @@ const jobSalary = ref(['job-salary-5', 'job-salary-6'])
           </VField>
         </div>
         <div class="search-location">
-          <i
-            class="iconify"
-            data-icon="feather:map-pin"
-          />
+          <i class="iconify" data-icon="feather:map-pin" />
           Los Angeles, CA
         </div>
         <div class="search-job">
-          <i
-            class="iconify"
-            data-icon="feather:briefcase"
-          />
-          <input
-            type="text"
-            placeholder="Job Type"
-          >
+          <i class="iconify" data-icon="feather:briefcase" />
+          <input type="text" placeholder="Job Type" />
         </div>
         <div class="search-salary">
-          <i
-            class="iconify"
-            data-icon="feather:dollar-sign"
-          />
-          <input
-            type="text"
-            placeholder="Salary Range"
-          >
+          <i class="iconify" data-icon="feather:dollar-sign" />
+          <input type="text" placeholder="Salary Range" />
         </div>
-        <button class="search-button">
-          Search
-        </button>
+        <button class="search-button">Search</button>
       </div>
 
       <!--Dashboard content -->
@@ -71,33 +54,19 @@ const jobSalary = ref(['job-salary-5', 'job-salary-6'])
         <!--Left Alert -->
         <div class="search-type">
           <div class="alert">
-            <div class="alert-title">
-              Create Job Alert
-            </div>
-            <div class="alert-subtitle">
-              Create a job alert now and never miss a job
-            </div>
+            <div class="alert-title">Create Job Alert</div>
+            <div class="alert-subtitle">Create a job alert now and never miss a job</div>
             <VField>
               <VControl icon="feather:briefcase">
-                <VInput
-                  type="text"
-                  placeholder="Keywords"
-                />
+                <VInput type="text" placeholder="Keywords" />
               </VControl>
             </VField>
-            <VButton
-              color="primary"
-              fullwidth
-            >
-              Create Job Alert
-            </VButton>
+            <VButton color="primary" fullwidth> Create Job Alert </VButton>
           </div>
 
           <!--Left filters block -->
           <div class="job-time">
-            <div class="job-time-title">
-              Type of Employment
-            </div>
+            <div class="job-time-title">Type of Employment</div>
             <div class="job-wrapper">
               <div class="type-container">
                 <VCheckbox
@@ -164,9 +133,7 @@ const jobSalary = ref(['job-salary-5', 'job-salary-6'])
 
           <!--Left filters block -->
           <div class="job-time">
-            <div class="job-time-title">
-              Seniority Level
-            </div>
+            <div class="job-time-title">Seniority Level</div>
             <div class="job-wrapper">
               <div class="type-container">
                 <VCheckbox
@@ -233,9 +200,7 @@ const jobSalary = ref(['job-salary-5', 'job-salary-6'])
 
           <!--Left filters block -->
           <div class="job-time">
-            <div class="job-time-title">
-              Salary Range
-            </div>
+            <div class="job-time-title">Salary Range</div>
             <div class="job-wrapper">
               <div class="type-container">
                 <VCheckbox
@@ -315,31 +280,18 @@ const jobSalary = ref(['job-salary-5', 'job-salary-6'])
         <div class="searched-jobs">
           <!--Results toolbar-->
           <div class="searched-bar">
-            <div class="searched-count">
-              Showing 46 Jobs
-            </div>
+            <div class="searched-count">Showing 46 Jobs</div>
             <div class="searched-link">
-              <a
-                class="action-link"
-                tabindex="0"
-              >View All</a>
+              <a class="action-link" tabindex="0">View All</a>
             </div>
           </div>
 
           <!--Results content-->
           <div class="job-cards">
             <!--Card-->
-            <div
-              v-for="(job, index) in jobs"
-              :key="index"
-              class="job-card"
-            >
+            <div v-for="(job, index) in jobs" :key="index" class="job-card">
               <div class="job-card-header">
-                <img
-                  class="job-card-logo"
-                  :src="job.logo"
-                  alt=""
-                >
+                <img class="job-card-logo" :src="job.logo" alt="" />
               </div>
               <div class="job-card-title">
                 {{ job.title }}
@@ -360,15 +312,8 @@ const jobSalary = ref(['job-salary-5', 'job-salary-6'])
               </div>
               <div class="job-card-buttons">
                 <VButtons>
-                  <VButton
-                    color="primary"
-                    raised
-                  >
-                    Apply Now
-                  </VButton>
-                  <VButton dark-outlined>
-                    Messages
-                  </VButton>
+                  <VButton color="primary" raised> Apply Now </VButton>
+                  <VButton dark-outlined> Messages </VButton>
                 </VButtons>
               </div>
             </div>

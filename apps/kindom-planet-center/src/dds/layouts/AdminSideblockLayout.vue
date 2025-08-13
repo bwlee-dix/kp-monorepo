@@ -55,14 +55,8 @@ watch(
       @toggle="isMobileSideblockOpen = !isMobileSideblockOpen"
     >
       <template #brand>
-        <RouterLink
-          to="/"
-          class="navbar-item is-brand"
-        >
-          <AnimatedLogo
-            width="38px"
-            height="38px"
-          />
+        <RouterLink to="/" class="navbar-item is-brand">
+          <AnimatedLogo width="38px" height="38px" />
         </RouterLink>
 
         <div class="brand-end">
@@ -79,71 +73,41 @@ watch(
     >
       <template #links>
         <li>
-          <RouterLink
-            to="/dashboard"
-            class="single-link"
-          >
+          <RouterLink to="/dashboard" class="single-link">
             <span class="icon">
-              <i
-                class="iconify"
-                data-icon="feather:grid"
-              />
+              <i class="iconify" data-icon="feather:grid" />
             </span>
             Dashboard
           </RouterLink>
         </li>
         <li>
-          <RouterLink
-            to="/member"
-            class="single-link"
-          >
+          <RouterLink to="/member" class="single-link">
             <span class="icon">
-              <i
-                class="iconify"
-                data-icon="feather:user"
-              />
+              <i class="iconify" data-icon="feather:user" />
             </span>
             Member
           </RouterLink>
         </li>
         <li>
-          <RouterLink
-            to="/group"
-            class="single-link"
-          >
+          <RouterLink to="/group" class="single-link">
             <span class="icon">
-              <i
-                class="iconify"
-                data-icon="feather:users"
-              />
+              <i class="iconify" data-icon="feather:users" />
             </span>
             Group
           </RouterLink>
         </li>
         <li>
-          <RouterLink
-            to="/notice"
-            class="single-link"
-          >
+          <RouterLink to="/notice" class="single-link">
             <span class="icon">
-              <i
-                class="iconify"
-                data-icon="feather:users"
-              />
+              <i class="iconify" data-icon="feather:users" />
             </span>
             Notice
           </RouterLink>
         </li>
         <li>
-          <RouterLink
-            to="/event"
-            class="single-link"
-          >
+          <RouterLink to="/event" class="single-link">
             <span class="icon">
-              <i
-                class="iconify"
-                data-icon="feather:users"
-              />
+              <i class="iconify" data-icon="feather:users" />
             </span>
             Event
           </RouterLink>
@@ -159,23 +123,12 @@ watch(
             @keydown.space.prevent="panels.setActive('search')"
             @click="panels.setActive('search')"
           >
-            <i
-              aria-hidden="true"
-              class="iconify"
-              data-icon="feather:search"
-            />
+            <i aria-hidden="true" class="iconify" data-icon="feather:search" />
           </a>
         </li>
         <li>
-          <a
-            aria-label="View settings"
-            href="#"
-          >
-            <i
-              aria-hidden="true"
-              class="iconify"
-              data-icon="feather:settings"
-            />
+          <a aria-label="View settings" href="#">
+            <i aria-hidden="true" class="iconify" data-icon="feather:settings" />
           </a>
         </li>
       </template>
@@ -201,77 +154,40 @@ watch(
     <CircularMenu />
 
     <Transition name="slide-x">
-      <Sideblock
-        v-if="isDesktopSideblockOpen"
-        :theme="props.theme"
-      >
+      <Sideblock v-if="isDesktopSideblockOpen" :theme="props.theme">
         <template #header>
-          <RouterLink
-            to="/"
-            class="sidebar-block-logo"
-          >
+          <RouterLink to="/" class="sidebar-block-logo">
             <AnimatedLogo width="36px" />
           </RouterLink>
           <h3>KP Admin</h3>
         </template>
         <template #menu>
-          <VDropdown
-            title="GMMA"
-            spaced
-          >
+          <VDropdown title="GMMA" spaced>
             <template #content>
-              <a
-                href="#"
-                class="dropdown-item is-media"
-              >
-                <img
-                  class="item-img"
-                  src="/images/avatars/svg/vuero-1.svg"
-                  alt=""
-                >
+              <a href="#" class="dropdown-item is-media">
+                <img class="item-img" src="/images/avatars/svg/vuero-1.svg" alt="" />
                 <div class="meta">
                   <span>Erik K.</span>
                   <span>New York, NY</span>
                 </div>
               </a>
-              <a
-                href="#"
-                class="dropdown-item is-media is-active"
-              >
-                <img
-                  class="item-img"
-                  src="/demo/avatars/7.jpg"
-                  alt=""
-                >
+              <a href="#" class="dropdown-item is-media is-active">
+                <img class="item-img" src="/demo/avatars/7.jpg" alt="" />
                 <div class="meta">
                   <span>Alice C.</span>
                   <span>San Diego, CA</span>
                 </div>
               </a>
-              <a
-                href="#"
-                class="dropdown-item is-media"
-              >
-                <img
-                  class="item-img"
-                  src="/demo/avatars/25.jpg"
-                  alt=""
-                >
+              <a href="#" class="dropdown-item is-media">
+                <img class="item-img" src="/demo/avatars/25.jpg" alt="" />
                 <div class="meta">
                   <span>Melany W.</span>
                   <span>San Jose, CA</span>
                 </div>
               </a>
-              <hr class="dropdown-divider">
-              <a
-                href="#"
-                class="dropdown-item is-media"
-              >
-                <img
-                  class="item-img"
-                  src="/demo/avatars/9.jpg"
-                  alt=""
-                >
+              <hr class="dropdown-divider" />
+              <a href="#" class="dropdown-item is-media">
+                <img class="item-img" src="/demo/avatars/9.jpg" alt="" />
                 <div class="meta">
                   <span>Anna B</span>
                   <span>San Francisco, CA</span>
@@ -283,71 +199,41 @@ watch(
 
         <template #links>
           <li>
-            <RouterLink
-              to="/dashboard"
-              class="single-link"
-            >
+            <RouterLink to="/dashboard" class="single-link">
               <span class="icon">
-                <i
-                  class="iconify"
-                  data-icon="feather:grid"
-                />
+                <i class="iconify" data-icon="feather:grid" />
               </span>
               Dashboard
             </RouterLink>
           </li>
           <li>
-            <RouterLink
-              to="/member"
-              class="single-link"
-            >
+            <RouterLink to="/member" class="single-link">
               <span class="icon">
-                <i
-                  class="iconify"
-                  data-icon="feather:user"
-                />
+                <i class="iconify" data-icon="feather:user" />
               </span>
               Member
             </RouterLink>
           </li>
           <li>
-            <RouterLink
-              to="/group"
-              class="single-link"
-            >
+            <RouterLink to="/group" class="single-link">
               <span class="icon">
-                <i
-                  class="iconify"
-                  data-icon="feather:users"
-                />
+                <i class="iconify" data-icon="feather:users" />
               </span>
               Group
             </RouterLink>
           </li>
           <li>
-            <RouterLink
-              to="/notice"
-              class="single-link"
-            >
+            <RouterLink to="/notice" class="single-link">
               <span class="icon">
-                <i
-                  class="iconify"
-                  data-icon="feather:bell"
-                />
+                <i class="iconify" data-icon="feather:bell" />
               </span>
               Notice
             </RouterLink>
           </li>
           <li>
-            <RouterLink
-              to="/event"
-              class="single-link"
-            >
+            <RouterLink to="/event" class="single-link">
               <span class="icon">
-                <i
-                  class="iconify"
-                  data-icon="feather:calendar"
-                />
+                <i class="iconify" data-icon="feather:calendar" />
               </span>
               Event
             </RouterLink>
@@ -371,10 +257,7 @@ watch(
         <template v-if="props.nowrap">
           <slot />
         </template>
-        <VPageContent
-          v-else
-          class="is-relative"
-        >
+        <VPageContent v-else class="is-relative">
           <div class="page-title has-text-centered">
             <!-- Sidebar Trigger -->
             <div
@@ -390,18 +273,9 @@ watch(
                   class="icon-box-toggle"
                 >
                   <span class="rotate">
-                    <i
-                      aria-hidden="true"
-                      class="icon-line-top"
-                    />
-                    <i
-                      aria-hidden="true"
-                      class="icon-line-center"
-                    />
-                    <i
-                      aria-hidden="true"
-                      class="icon-line-bottom"
-                    />
+                    <i aria-hidden="true" class="icon-line-top" />
+                    <i aria-hidden="true" class="icon-line-center" />
+                    <i aria-hidden="true" class="icon-line-bottom" />
                   </span>
                 </span>
               </span>
@@ -424,11 +298,7 @@ watch(
                 @keydown.space.prevent="panels.setActive('activity')"
                 @click="panels.setActive('activity')"
               >
-                <i
-                  aria-hidden="true"
-                  class="iconify"
-                  data-icon="feather:grid"
-                />
+                <i aria-hidden="true" class="iconify" data-icon="feather:grid" />
               </a>
             </Toolbar>
           </div>

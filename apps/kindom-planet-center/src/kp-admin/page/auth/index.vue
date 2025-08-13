@@ -10,7 +10,6 @@ const router = useRouter()
 const notyf = useNotyf()
 const userSession = useUserSession()
 
-
 useHead({
   title: 'Sign in - KingdomPlanet',
 })
@@ -27,11 +26,9 @@ const handleLogin = async () => {
 
     router.replace('/group')
 
-
     isLoading.value = false
   }
 }
-
 </script>
 
 <template>
@@ -41,14 +38,8 @@ const handleLogin = async () => {
       <div class="auth-nav">
         <div class="left" />
         <div class="center">
-          <RouterLink
-            to="/"
-            class="header-item"
-          >
-            <AnimatedLogo
-              width="38px"
-              height="38px"
-            />
+          <RouterLink to="/" class="header-item">
+            <AnimatedLogo width="38px" height="38px" />
           </RouterLink>
         </div>
         <div class="right">
@@ -56,14 +47,16 @@ const handleLogin = async () => {
             class="ml-auto dark-mode"
             tabindex="0"
             role="button"
-            @keydown.space.prevent="(e: KeyboardEvent) => (e.target as HTMLLabelElement).click()"
+            @keydown.space.prevent="
+              (e: KeyboardEvent) => (e.target as HTMLLabelElement).click()
+            "
           >
             <input
               data-cy="dark-mode-toggle"
               type="checkbox"
               :checked="!darkmode.isDark"
               @change="darkmode.onChange"
-            >
+            />
             <span />
           </label>
         </div>
@@ -76,26 +69,16 @@ const handleLogin = async () => {
           <div class="auth-head">
             <h2>Welcome Back.</h2>
             <p>Please sign in to your account</p>
-            <RouterLink to="/auth">
-              I do not have an account yet
-            </RouterLink>
+            <RouterLink to="/auth"> I do not have an account yet </RouterLink>
           </div>
 
           <!--Form-->
           <div class="form-card">
-            <form
-              method="post"
-              novalidate
-              @submit.prevent="handleLogin"
-            >
+            <form method="post" novalidate @submit.prevent="handleLogin">
               <div class="login-form">
                 <VField>
                   <VControl icon="feather:user">
-                    <VInput
-                      type="text"
-                      placeholder="Username"
-                      autocomplete="username"
-                    />
+                    <VInput type="text" placeholder="Username" autocomplete="username" />
                   </VControl>
                 </VField>
                 <VField>
@@ -111,11 +94,7 @@ const handleLogin = async () => {
                 <!-- Switch -->
                 <VField>
                   <VControl class="setting-item">
-                    <VCheckbox
-                      label="Remember me"
-                      color="primary"
-                      paddingless
-                    />
+                    <VCheckbox label="Remember me" color="primary" paddingless />
                   </VControl>
                 </VField>
 

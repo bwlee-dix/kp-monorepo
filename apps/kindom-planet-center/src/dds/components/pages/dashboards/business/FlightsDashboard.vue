@@ -17,35 +17,25 @@ const options = ref(['All Flights', 'All Options'])
             class="travel-illustration light-image"
             src="/@dds/assets/illustrations/dashboards/flights/travel.svg"
             alt=""
-          >
+          />
           <img
             class="travel-illustration dark-image"
             src="/@dds/sets/illustrations/dashboards/flights/travel-dark.svg"
             alt=""
-          >
+          />
           <div class="booking-bar-info">
-            <i
-              aria-hidden="true"
-              class="lnil lnil-plane-alt"
-            />
+            <i aria-hidden="true" class="lnil lnil-plane-alt" />
             <div class="inner">
               <h2 class="booking-bar-heading">
                 Paris <small>[PAR]</small> - New York
                 <small>[NY]</small>
               </h2>
-              <p class="booking-bar-sub-heading">
-                1 adult - Business
-              </p>
+              <p class="booking-bar-sub-heading">1 adult - Business</p>
             </div>
           </div>
           <div class="booking-bar">
             <ClientOnly>
-              <VDatePicker
-                v-model="date"
-                is-range
-                color="green"
-                trim-weeks
-              >
+              <VDatePicker v-model="date" is-range color="green" trim-weeks>
                 <template #default="{ inputValue, inputEvents }">
                   <div class="booking-bar-inputs">
                     <VControl icon="feather:calendar">
@@ -55,7 +45,7 @@ const options = ref(['All Flights', 'All Options'])
                         placeholder="Departure"
                         :value="inputValue.start"
                         v-on="inputEvents.start"
-                      >
+                      />
                     </VControl>
                     <VControl icon="feather:calendar">
                       <input
@@ -64,7 +54,7 @@ const options = ref(['All Flights', 'All Options'])
                         placeholder="Return"
                         :value="inputValue.end"
                         v-on="inputEvents.end"
-                      >
+                      />
                     </VControl>
                   </div>
                 </template>
@@ -74,9 +64,7 @@ const options = ref(['All Flights', 'All Options'])
         </div>
 
         <div class="flights-toolbar">
-          <h3 class="dark-inverted">
-            74 results
-          </h3>
+          <h3 class="dark-inverted">74 results</h3>
           <!--Dropdown-->
           <FlightResultsDropdown />
         </div>
@@ -116,10 +104,7 @@ const options = ref(['All Flights', 'All Options'])
         <div class="flights">
           <!--Flight-->
           <a class="flight-card">
-            <img
-              src="/@dds/sets/illustrations/dashboards/flights/company1.svg"
-              alt=""
-            >
+            <img src="/@dds/sets/illustrations/dashboards/flights/company1.svg" alt="" />
             <div class="start">
               <span>11:30 am</span>
               <span>Paris ORLY</span>
@@ -127,15 +112,9 @@ const options = ref(['All Flights', 'All Options'])
             </div>
             <div class="route">
               <div class="departure" />
-              <div
-                class="line"
-                data-content="1 stop"
-              />
+              <div class="line" data-content="1 stop" />
               <div class="arrival">
-                <i
-                  aria-hidden="true"
-                  class="lnil lnil-plane-alt"
-                />
+                <i aria-hidden="true" class="lnil lnil-plane-alt" />
               </div>
             </div>
             <div class="end">
@@ -148,10 +127,7 @@ const options = ref(['All Flights', 'All Options'])
 
           <!--Flight-->
           <a class="flight-card">
-            <img
-              src="/@dds/sets/illustrations/dashboards/flights/company2.svg"
-              alt=""
-            >
+            <img src="/@dds/sets/illustrations/dashboards/flights/company2.svg" alt="" />
             <div class="start">
               <span>09:30 am</span>
               <span>Paris ORLY</span>
@@ -159,15 +135,9 @@ const options = ref(['All Flights', 'All Options'])
             </div>
             <div class="route">
               <div class="departure" />
-              <div
-                class="line"
-                data-content="1 stop"
-              />
+              <div class="line" data-content="1 stop" />
               <div class="arrival">
-                <i
-                  aria-hidden="true"
-                  class="lnil lnil-plane-alt"
-                />
+                <i aria-hidden="true" class="lnil lnil-plane-alt" />
               </div>
             </div>
             <div class="end">
@@ -180,10 +150,7 @@ const options = ref(['All Flights', 'All Options'])
 
           <!--Flight-->
           <a class="flight-card">
-            <img
-              src="/@dds/sets/illustrations/dashboards/flights/company1.svg"
-              alt=""
-            >
+            <img src="/@dds/sets/illustrations/dashboards/flights/company1.svg" alt="" />
             <div class="start">
               <span>06:42 am</span>
               <span>Paris ORLY</span>
@@ -191,15 +158,9 @@ const options = ref(['All Flights', 'All Options'])
             </div>
             <div class="route">
               <div class="departure" />
-              <div
-                class="line"
-                data-content="direct"
-              />
+              <div class="line" data-content="direct" />
               <div class="arrival">
-                <i
-                  aria-hidden="true"
-                  class="lnil lnil-plane-alt"
-                />
+                <i aria-hidden="true" class="lnil lnil-plane-alt" />
               </div>
             </div>
             <div class="end">
@@ -212,10 +173,7 @@ const options = ref(['All Flights', 'All Options'])
 
           <!--Flight-->
           <a class="flight-card">
-            <img
-              src="/@dds/sets/illustrations/dashboards/flights/company3.svg"
-              alt=""
-            >
+            <img src="/@dds/sets/illustrations/dashboards/flights/company3.svg" alt="" />
             <div class="start">
               <span>07:23 am</span>
               <span>Paris ORLY</span>
@@ -223,15 +181,9 @@ const options = ref(['All Flights', 'All Options'])
             </div>
             <div class="route">
               <div class="departure" />
-              <div
-                class="line"
-                data-content="direct"
-              />
+              <div class="line" data-content="direct" />
               <div class="arrival">
-                <i
-                  aria-hidden="true"
-                  class="lnil lnil-plane-alt"
-                />
+                <i aria-hidden="true" class="lnil lnil-plane-alt" />
               </div>
             </div>
             <div class="end">
@@ -244,10 +196,7 @@ const options = ref(['All Flights', 'All Options'])
 
           <!--Flight-->
           <a class="flight-card">
-            <img
-              src="/@dds/sets/illustrations/dashboards/flights/company1.svg"
-              alt=""
-            >
+            <img src="/@dds/sets/illustrations/dashboards/flights/company1.svg" alt="" />
             <div class="start">
               <span>10:12 am</span>
               <span>Paris ORLY</span>
@@ -255,15 +204,9 @@ const options = ref(['All Flights', 'All Options'])
             </div>
             <div class="route">
               <div class="departure" />
-              <div
-                class="line"
-                data-content="1 stop"
-              />
+              <div class="line" data-content="1 stop" />
               <div class="arrival">
-                <i
-                  aria-hidden="true"
-                  class="lnil lnil-plane-alt"
-                />
+                <i aria-hidden="true" class="lnil lnil-plane-alt" />
               </div>
             </div>
             <div class="end">
@@ -278,24 +221,13 @@ const options = ref(['All Flights', 'All Options'])
 
       <div class="column is-3">
         <!--Widget-->
-        <UIWidget
-          class="search-widget"
-          straight
-        >
+        <UIWidget class="search-widget" straight>
           <template #body>
             <div class="field">
               <div class="control">
-                <input
-                  type="text"
-                  class="input"
-                  placeholder="Search..."
-                >
+                <input type="text" class="input" placeholder="Search..." />
                 <button class="searcv-button">
-                  <i
-                    aria-hidden="true"
-                    class="iconify"
-                    data-icon="feather:search"
-                  />
+                  <i aria-hidden="true" class="iconify" data-icon="feather:search" />
                 </button>
               </div>
 
@@ -349,41 +281,21 @@ const options = ref(['All Flights', 'All Options'])
             <table class="calendar">
               <thead>
                 <tr>
-                  <th scope="col">
-                    Mon
-                  </th>
-                  <th scope="col">
-                    Tue
-                  </th>
-                  <th scope="col">
-                    Wed
-                  </th>
-                  <th scope="col">
-                    Thu
-                  </th>
-                  <th scope="col">
-                    Fri
-                  </th>
-                  <th scope="col">
-                    Sat
-                  </th>
-                  <th scope="col">
-                    Sun
-                  </th>
+                  <th scope="col">Mon</th>
+                  <th scope="col">Tue</th>
+                  <th scope="col">Wed</th>
+                  <th scope="col">Thu</th>
+                  <th scope="col">Fri</th>
+                  <th scope="col">Sat</th>
+                  <th scope="col">Sun</th>
                 </tr>
               </thead>
 
               <tbody>
                 <tr>
-                  <td class="prev-month">
-                    29
-                  </td>
-                  <td class="prev-month">
-                    30
-                  </td>
-                  <td class="prev-month">
-                    31
-                  </td>
+                  <td class="prev-month">29</td>
+                  <td class="prev-month">30</td>
+                  <td class="prev-month">31</td>
                   <td>1</td>
                   <td>2</td>
                   <td>3</td>
@@ -407,9 +319,7 @@ const options = ref(['All Flights', 'All Options'])
                   <td>15</td>
                   <td>16</td>
                   <td>17</td>
-                  <td class="current-day">
-                    18
-                  </td>
+                  <td class="current-day">18</td>
                 </tr>
 
                 <tr>
@@ -429,9 +339,7 @@ const options = ref(['All Flights', 'All Options'])
                   <td>29</td>
                   <td>30</td>
                   <td>31</td>
-                  <td class="next-month">
-                    1
-                  </td>
+                  <td class="next-month">1</td>
                 </tr>
               </tbody>
             </table>
@@ -445,9 +353,7 @@ const options = ref(['All Flights', 'All Options'])
 
           <div class="checkboxes-list">
             <div class="field">
-              <h5 class="dark-inverted">
-                Stops
-              </h5>
+              <h5 class="dark-inverted">Stops</h5>
               <div class="control">
                 <VCheckbox
                   v-model="options"
@@ -489,9 +395,7 @@ const options = ref(['All Flights', 'All Options'])
 
           <div class="checkboxes-list">
             <div class="field">
-              <h5 class="dark-inverted">
-                Luggage
-              </h5>
+              <h5 class="dark-inverted">Luggage</h5>
               <div class="control">
                 <VCheckbox
                   v-model="options"

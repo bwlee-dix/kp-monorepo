@@ -41,15 +41,13 @@ const { trendWidgetChartOptions } = useTrendWidgetChart()
       <!--Widget-->
       <UIWidget class="text-widget">
         <template #header>
-          <UIWidgetToolbarFollowers
-            title="New Followers"
-            :avatars="followersList"
-          />
+          <UIWidgetToolbarFollowers title="New Followers" :avatars="followersList" />
         </template>
         <template #body>
           <div class="widget-content">
             <p>
-              Great News! <span>{{ followersList[0].name }}</span>, <span>{{ followersList[1].name }}</span> and
+              Great News! <span>{{ followersList[0].name }}</span
+              >, <span>{{ followersList[1].name }}</span> and
               <span>{{ followersList[2].name }}</span> are now following you. Take some
               time to look at their profile.
             </p>
@@ -62,17 +60,9 @@ const { trendWidgetChartOptions } = useTrendWidgetChart()
         <template #body>
           <div class="field">
             <div class="control">
-              <input
-                type="text"
-                class="input"
-                placeholder="Search..."
-              >
+              <input type="text" class="input" placeholder="Search..." />
               <button class="searcv-button">
-                <i
-                  aria-hidden="true"
-                  class="iconify"
-                  data-icon="feather:search"
-                />
+                <i aria-hidden="true" class="iconify" data-icon="feather:search" />
               </button>
             </div>
 
@@ -88,10 +78,7 @@ const { trendWidgetChartOptions } = useTrendWidgetChart()
       <!--Widget-->
       <UIWidget class="video-widget">
         <template #body>
-          <UIWidgetMovie
-            picture="/demo/photos/widgets/1.jpg"
-            views="38,274"
-          />
+          <UIWidgetMovie picture="/demo/photos/widgets/1.jpg" views="38,274" />
         </template>
       </UIWidget>
 
@@ -150,41 +137,21 @@ const { trendWidgetChartOptions } = useTrendWidgetChart()
           <table class="calendar">
             <thead>
               <tr>
-                <th scope="col">
-                  Mon
-                </th>
-                <th scope="col">
-                  Tue
-                </th>
-                <th scope="col">
-                  Wed
-                </th>
-                <th scope="col">
-                  Thu
-                </th>
-                <th scope="col">
-                  Fri
-                </th>
-                <th scope="col">
-                  Sat
-                </th>
-                <th scope="col">
-                  Sun
-                </th>
+                <th scope="col">Mon</th>
+                <th scope="col">Tue</th>
+                <th scope="col">Wed</th>
+                <th scope="col">Thu</th>
+                <th scope="col">Fri</th>
+                <th scope="col">Sat</th>
+                <th scope="col">Sun</th>
               </tr>
             </thead>
 
             <tbody>
               <tr>
-                <td class="prev-month">
-                  29
-                </td>
-                <td class="prev-month">
-                  30
-                </td>
-                <td class="prev-month">
-                  31
-                </td>
+                <td class="prev-month">29</td>
+                <td class="prev-month">30</td>
+                <td class="prev-month">31</td>
                 <td>1</td>
                 <td>2</td>
                 <td>3</td>
@@ -208,9 +175,7 @@ const { trendWidgetChartOptions } = useTrendWidgetChart()
                 <td>15</td>
                 <td>16</td>
                 <td>17</td>
-                <td class="current-day">
-                  18
-                </td>
+                <td class="current-day">18</td>
               </tr>
 
               <tr>
@@ -230,9 +195,7 @@ const { trendWidgetChartOptions } = useTrendWidgetChart()
                 <td>29</td>
                 <td>30</td>
                 <td>31</td>
-                <td class="next-month">
-                  1
-                </td>
+                <td class="next-month">1</td>
               </tr>
             </tbody>
           </table>
@@ -271,14 +234,9 @@ const { trendWidgetChartOptions } = useTrendWidgetChart()
             src="/demo/photos/widgets/2.jpg"
             alt=""
             @error.once="onceImageErrored(400, 300)"
-          >
+          />
           <div class="progress-wrap">
-            <progress
-              class="progress is-primary is-tiny"
-              max="100"
-            >
-              55%
-            </progress>
+            <progress class="progress is-primary is-tiny" max="100">55%</progress>
           </div>
         </template>
       </UIWidget>
@@ -325,12 +283,9 @@ const { trendWidgetChartOptions } = useTrendWidgetChart()
           <div class="widget-content">
             <div class="has-text-centered">
               <div class="stat-number">
-                <span>$1638,42
-                  <i
-                    aria-hidden="true"
-                    class="iconify"
-                    data-icon="feather:trending-up"
-                  />
+                <span
+                  >$1638,42
+                  <i aria-hidden="true" class="iconify" data-icon="feather:trending-up" />
                 </span>
                 <span>Earned from Sales</span>
               </div>
@@ -350,10 +305,7 @@ const { trendWidgetChartOptions } = useTrendWidgetChart()
       <!--Widget-->
       <UIWidget class="text-widget">
         <template #header>
-          <UIWidgetToolbarIcon
-            title="Messages"
-            icon="feather:message-square"
-          />
+          <UIWidgetToolbarIcon title="Messages" icon="feather:message-square" />
         </template>
         <template #body>
           <div class="widget-content">

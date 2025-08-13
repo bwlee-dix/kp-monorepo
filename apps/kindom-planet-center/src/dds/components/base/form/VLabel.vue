@@ -23,10 +23,7 @@ const classes = computed(() => {
 </script>
 
 <template>
-  <label
-    :class="classes"
-    :for="props.id || context.id.value"
-  >
+  <label :class="classes" :for="props.id || context.id.value">
     <slot v-bind="context" />
   </label>
 </template>

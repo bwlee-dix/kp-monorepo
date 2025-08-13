@@ -100,25 +100,13 @@ onMounted(() => {
     <div class="kanban-toolbar">
       <VField raw>
         <VControl icon="feather:search">
-          <VInput
-            v-model="search"
-            placeholder="Search..."
-          />
+          <VInput v-model="search" placeholder="Search..." />
         </VControl>
       </VField>
 
-      <VAvatarStack
-        :avatars="participants"
-        size="small"
-      />
+      <VAvatarStack :avatars="participants" size="small" />
 
-      <VButton
-        color="primary"
-        raised
-        bold
-      >
-        New Task
-      </VButton>
+      <VButton color="primary" raised bold> New Task </VButton>
     </div>
 
     <div class="columns is-kanban-wrapper">
@@ -147,26 +135,17 @@ onMounted(() => {
               @keydown.space.prevent="isColumnNewCollapsed = false"
               @click="isColumnNewCollapsed = false"
             >
-              <i
-                aria-hidden="true"
-                class="iconify"
-                data-icon="feather:plus"
-              />
+              <i aria-hidden="true" class="iconify" data-icon="feather:plus" />
             </div>
             <div>
               <span class="task-count">{{ newTasks.length }}</span>
             </div>
-            <div class="collapsed-text">
-              New
-            </div>
+            <div class="collapsed-text">New</div>
           </div>
           <!-- Expanded content -->
           <div class="expanded-content">
             <div class="column-title">
-              <input
-                type="text"
-                class="input is-small rename-input is-hidden"
-              >
+              <input type="text" class="input is-small rename-input is-hidden" />
               <h3>
                 <span class="column-name">New</span>
                 <span class="task-count">{{ newTasks.length }}</span>
@@ -174,28 +153,20 @@ onMounted(() => {
               <KanbanDropdown @collapse="isColumnNewCollapsed = true" />
             </div>
 
-            <div
-              ref="newContainer"
-              data-state="new"
-            >
+            <div ref="newContainer" data-state="new">
               <!-- Empty state image / text -->
-              <div
-                v-if="newTasks.length === 0"
-                class="kanban-empty"
-              >
+              <div v-if="newTasks.length === 0" class="kanban-empty">
                 <img
                   class="empty-state theme-image light-image"
                   src="/@dds/sets/illustrations/projects/board/new.svg"
                   alt=""
-                >
+                />
                 <img
                   class="empty-state theme-image dark-image"
                   src="/@dds/sets/illustrations/projects/board/new-dark.svg"
                   alt=""
-                >
-                <p class="empty-text">
-                  There are no new tasks to approve for now.
-                </p>
+                />
+                <p class="empty-text">There are no new tasks to approve for now.</p>
               </div>
 
               <div
@@ -220,7 +191,7 @@ onMounted(() => {
                         :src="task.participants[0].picture"
                         alt=""
                         @error.once="onceImageErrored(62)"
-                      >
+                      />
                     </div>
                   </div>
                 </div>
@@ -265,26 +236,17 @@ onMounted(() => {
               @keydown.space.prevent="isColumnProgressCollapsed = false"
               @click="isColumnProgressCollapsed = false"
             >
-              <i
-                aria-hidden="true"
-                class="iconify"
-                data-icon="feather:plus"
-              />
+              <i aria-hidden="true" class="iconify" data-icon="feather:plus" />
             </div>
             <div>
               <span class="task-count">{{ progressTasks.length }}</span>
             </div>
-            <div class="collapsed-text">
-              In Progress
-            </div>
+            <div class="collapsed-text">In Progress</div>
           </div>
           <!-- Expanded content -->
           <div class="expanded-content">
             <div class="column-title">
-              <input
-                type="text"
-                class="input is-small rename-input is-hidden"
-              >
+              <input type="text" class="input is-small rename-input is-hidden" />
               <h3>
                 <span class="column-name">In Progress</span>
                 <span class="task-count">{{ progressTasks.length }}</span>
@@ -292,28 +254,20 @@ onMounted(() => {
               <KanbanDropdown @collapse="isColumnProgressCollapsed = true" />
             </div>
 
-            <div
-              ref="progressContainer"
-              data-state="progress"
-            >
+            <div ref="progressContainer" data-state="progress">
               <!-- Empty state image / text -->
-              <div
-                v-if="progressTasks.length === 0"
-                class="kanban-empty"
-              >
+              <div v-if="progressTasks.length === 0" class="kanban-empty">
                 <img
                   class="empty-state theme-image light-image-block"
                   src="/@dds/sets/illustrations/projects/board/progress.svg"
                   alt=""
-                >
+                />
                 <img
                   class="empty-state theme-image dark-image-block"
                   src="/@dds/sets/illustrations/projects/board/progress-dark.svg"
                   alt=""
-                >
-                <p class="empty-text">
-                  There are no tasks in progress at the moment.
-                </p>
+                />
+                <p class="empty-text">There are no tasks in progress at the moment.</p>
               </div>
 
               <div
@@ -328,18 +282,11 @@ onMounted(() => {
                   </h4>
                   <div class="kanban-card-stats">
                     <span>
-                      <i
-                        aria-hidden="true"
-                        class="iconify"
-                        data-icon="feather:clock"
-                      />
+                      <i aria-hidden="true" class="iconify" data-icon="feather:clock" />
                       {{ task.dueDate }}
                     </span>
 
-                    <VAvatarStack
-                      size="small"
-                      :avatars="task.participants"
-                    />
+                    <VAvatarStack size="small" :avatars="task.participants" />
                   </div>
                 </div>
               </div>
@@ -371,26 +318,17 @@ onMounted(() => {
               @keydown.space.prevent="isColumnReadyCollapsed = false"
               @click="isColumnReadyCollapsed = false"
             >
-              <i
-                aria-hidden="true"
-                class="iconify"
-                data-icon="feather:plus"
-              />
+              <i aria-hidden="true" class="iconify" data-icon="feather:plus" />
             </div>
             <div>
               <span class="task-count">{{ readyTasks.length }}</span>
             </div>
-            <div class="collapsed-text">
-              Ready
-            </div>
+            <div class="collapsed-text">Ready</div>
           </div>
           <!-- Expanded content -->
           <div class="expanded-content">
             <div class="column-title">
-              <input
-                type="text"
-                class="input is-small rename-input is-hidden"
-              >
+              <input type="text" class="input is-small rename-input is-hidden" />
               <h3>
                 <span class="column-name">Ready</span>
                 <span class="task-count">{{ readyTasks.length }}</span>
@@ -398,31 +336,22 @@ onMounted(() => {
               <KanbanDropdown @collapse="isColumnReadyCollapsed = true" />
             </div>
 
-            <div
-              ref="readyContainer"
-              data-state="ready"
-            >
-              <div
-                v-if="readyTasks.length === 0"
-                class="kanban-empty"
-              >
+            <div ref="readyContainer" data-state="ready">
+              <div v-if="readyTasks.length === 0" class="kanban-empty">
                 <!-- Empty state image / text -->
                 <img
                   class="empty-state theme-image light-image-block"
                   src="/@dds/sets/illustrations/projects/board/ready.svg"
                   alt=""
-                >
+                />
                 <img
                   class="empty-state theme-image dark-image-block"
                   src="/@dds/sets/illustrations/projects/board/ready-dark.svg"
                   alt=""
-                >
+                />
                 <p class="empty-text">
                   <span>There are no tasks marked as ready for now.</span>
-                  <a
-                    href="#"
-                    class="button v-button is-outlined is-rounded is-fullwidth"
-                  >
+                  <a href="#" class="button v-button is-outlined is-rounded is-fullwidth">
                     Create Task
                   </a>
                 </p>
@@ -440,18 +369,11 @@ onMounted(() => {
                   </h4>
                   <div class="kanban-card-stats">
                     <span>
-                      <i
-                        aria-hidden="true"
-                        class="iconify"
-                        data-icon="feather:clock"
-                      />
+                      <i aria-hidden="true" class="iconify" data-icon="feather:clock" />
                       {{ task.dueDate }}
                     </span>
 
-                    <VAvatarStack
-                      size="small"
-                      :avatars="task.participants"
-                    />
+                    <VAvatarStack size="small" :avatars="task.participants" />
                   </div>
                 </div>
               </div>
@@ -483,26 +405,17 @@ onMounted(() => {
               @keydown.space.prevent="isColumnReviewCollapsed = false"
               @click="isColumnReviewCollapsed = false"
             >
-              <i
-                aria-hidden="true"
-                class="iconify"
-                data-icon="feather:plus"
-              />
+              <i aria-hidden="true" class="iconify" data-icon="feather:plus" />
             </div>
             <div>
               <span class="task-count"> {{ reviewTasks.length }}</span>
             </div>
-            <div class="collapsed-text">
-              In Review
-            </div>
+            <div class="collapsed-text">In Review</div>
           </div>
           <!-- Expanded content -->
           <div class="expanded-content">
             <div class="column-title">
-              <input
-                type="text"
-                class="input is-small rename-input is-hidden"
-              >
+              <input type="text" class="input is-small rename-input is-hidden" />
               <h3>
                 <span class="column-name">In Review</span>
                 <span class="task-count">{{ reviewTasks.length }}</span>
@@ -510,28 +423,20 @@ onMounted(() => {
               <KanbanDropdown @collapse="isColumnReviewCollapsed = true" />
             </div>
 
-            <div
-              ref="reviewContainer"
-              data-state="review"
-            >
-              <div
-                v-if="reviewTasks.length === 0"
-                class="kanban-empty"
-              >
+            <div ref="reviewContainer" data-state="review">
+              <div v-if="reviewTasks.length === 0" class="kanban-empty">
                 <!-- Empty state image / text -->
                 <img
                   class="empty-state theme-image light-image-block"
                   src="/@dds/sets/illustrations/projects/board/test.svg"
                   alt=""
-                >
+                />
                 <img
                   class="empty-state theme-image dark-image-block"
                   src="/@dds/sets/illustrations/projects/board/test-dark.svg"
                   alt=""
-                >
-                <p class="empty-text">
-                  No tasks are being reviewed at the moment.
-                </p>
+                />
+                <p class="empty-text">No tasks are being reviewed at the moment.</p>
               </div>
 
               <div
@@ -546,18 +451,11 @@ onMounted(() => {
                   </h4>
                   <div class="kanban-card-stats">
                     <span>
-                      <i
-                        aria-hidden="true"
-                        class="iconify"
-                        data-icon="feather:clock"
-                      />
+                      <i aria-hidden="true" class="iconify" data-icon="feather:clock" />
                       {{ task.dueDate }}
                     </span>
 
-                    <VAvatarStack
-                      size="small"
-                      :avatars="task.participants"
-                    />
+                    <VAvatarStack size="small" :avatars="task.participants" />
                   </div>
                 </div>
               </div>
@@ -589,26 +487,17 @@ onMounted(() => {
               @keydown.space.prevent="isColumnCompletedCollapsed = false"
               @click="isColumnCompletedCollapsed = false"
             >
-              <i
-                aria-hidden="true"
-                class="iconify"
-                data-icon="feather:plus"
-              />
+              <i aria-hidden="true" class="iconify" data-icon="feather:plus" />
             </div>
             <div>
               <span class="task-count">{{ completedTasks.length }}</span>
             </div>
-            <div class="collapsed-text">
-              Completed
-            </div>
+            <div class="collapsed-text">Completed</div>
           </div>
           <!-- Expanded content -->
           <div class="expanded-content">
             <div class="column-title">
-              <input
-                type="text"
-                class="input is-small rename-input is-hidden"
-              >
+              <input type="text" class="input is-small rename-input is-hidden" />
               <h3>
                 <span class="column-name">Completed</span>
                 <span class="task-count">{{ completedTasks.length }}</span>
@@ -616,28 +505,20 @@ onMounted(() => {
               <KanbanDropdown @collapse="isColumnCompletedCollapsed = true" />
             </div>
 
-            <div
-              ref="completedContainer"
-              data-state="completed"
-            >
+            <div ref="completedContainer" data-state="completed">
               <!-- Empty state image / text -->
-              <div
-                v-if="completedTasks.length === 0"
-                class="kanban-empty"
-              >
+              <div v-if="completedTasks.length === 0" class="kanban-empty">
                 <img
                   class="empty-state theme-image light-image-block"
                   src="/@dds/sets/illustrations/projects/board/complete.svg"
                   alt=""
-                >
+                />
                 <img
                   class="empty-state theme-image dark-image-block"
                   src="/@dds/sets/illustrations/projects/board/complete-dark.svg"
                   alt=""
-                >
-                <p class="empty-text">
-                  You have no completed bounties.
-                </p>
+                />
+                <p class="empty-text">You have no completed bounties.</p>
               </div>
 
               <div
@@ -652,18 +533,11 @@ onMounted(() => {
                   </h4>
                   <div class="kanban-card-stats">
                     <span>
-                      <i
-                        aria-hidden="true"
-                        class="iconify"
-                        data-icon="feather:clock"
-                      />
+                      <i aria-hidden="true" class="iconify" data-icon="feather:clock" />
                       {{ task.dueDate }}
                     </span>
 
-                    <VAvatarStack
-                      size="small"
-                      :avatars="task.participants"
-                    />
+                    <VAvatarStack size="small" :avatars="task.participants" />
                   </div>
                 </div>
               </div>

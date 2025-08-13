@@ -76,10 +76,7 @@ useHead({
           />
         </div>
 
-        <DocumentationDivider
-          id="grow"
-          title="Grow"
-        />
+        <DocumentationDivider id="grow" title="Grow" />
 
         <div class="mt-4">
           <VFlexTable
@@ -110,10 +107,7 @@ useHead({
           />
         </div>
 
-        <DocumentationDivider
-          id="grow-lg"
-          title="Grow (large)"
-        />
+        <DocumentationDivider id="grow-lg" title="Grow (large)" />
 
         <div class="mt-4">
           <VFlexTable
@@ -144,10 +138,7 @@ useHead({
           />
         </div>
 
-        <DocumentationDivider
-          id="grow-xl"
-          title="Grow (xl)"
-        />
+        <DocumentationDivider id="grow-xl" title="Grow (xl)" />
 
         <div class="mt-4">
           <VFlexTable
@@ -232,11 +223,7 @@ useHead({
           >
             <template #body-cell="{ row, column, value }">
               <template v-if="column.key === 'username'">
-                <VAvatar
-                  size="medium"
-                  :picture="row.picture"
-                  :badge="row.badge"
-                />
+                <VAvatar size="medium" :picture="row.picture" :badge="row.badge" />
                 <div>
                   <span class="item-name">{{ row.name }}</span>
                   <span class="item-meta">
@@ -245,10 +232,7 @@ useHead({
                 </div>
               </template>
 
-              <VPlaceload
-                v-else-if="column.key === 'status'"
-                mobile-width="30%"
-              />
+              <VPlaceload v-else-if="column.key === 'status'" mobile-width="30%" />
 
               <VAvatarStack
                 v-else-if="column.key === 'contacts'"
@@ -262,10 +246,7 @@ useHead({
           </VFlexTable>
         </div>
       </div>
-      <div
-        v-if="toc.length"
-        class="column is-3 toc-column"
-      >
+      <div v-if="toc.length" class="column is-3 toc-column">
         <DocumentationToc :toc="toc" />
       </div>
     </div>

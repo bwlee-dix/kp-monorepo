@@ -11,28 +11,17 @@ import {
   <div class="lifestyle-dashboard lifestyle-dashboard-v5">
     <div class="dashboard-title is-main">
       <div class="left">
-        <h2 class="dark-inverted">
-          Recent Videos
-        </h2>
-        <p class="h-hidden-mobile">
-          Recent videos in this workspace
-        </p>
+        <h2 class="dark-inverted">Recent Videos</h2>
+        <p class="h-hidden-mobile">Recent videos in this workspace</p>
       </div>
       <div class="right">
         <div class="members">
           <h4>Members</h4>
           <div class="members-list">
-            <VAvatar
-              size="small"
-              squared
-            >
+            <VAvatar size="small" squared>
               <template #avatar>
                 <button class="avatar is-fake is-squared">
-                  <i
-                    aria-hidden="true"
-                    class="iconify"
-                    data-icon="feather:plus"
-                  />
+                  <i aria-hidden="true" class="iconify" data-icon="feather:plus" />
                 </button>
               </template>
             </VAvatar>
@@ -43,11 +32,7 @@ import {
               size="small"
               squared
             />
-            <VAvatar
-              size="small"
-              initials="+6"
-              squared
-            />
+            <VAvatar size="small" initials="+6" squared />
           </div>
         </div>
       </div>
@@ -57,9 +42,7 @@ import {
     <div class="media-feed">
       <!--Group-->
       <div class="feed-group">
-        <h4 class="group-title">
-          Today
-        </h4>
+        <h4 class="group-title">Today</h4>
 
         <div class="group-content">
           <div class="columns">
@@ -86,11 +69,7 @@ import {
                     <span class="tag item-duration">{{ item.duration }}</span>
                     <!--Play button-->
                     <button class="play-button">
-                      <i
-                        aria-hidden="true"
-                        class="iconify"
-                        data-icon="feather:play"
-                      />
+                      <i aria-hidden="true" class="iconify" data-icon="feather:play" />
                     </button>
                     <!--Bottom Overlay-->
                     <div class="item-overlay" />
@@ -102,21 +81,14 @@ import {
                             {{ item.name }}
                           </h3>
                           <div class="media-meta">
-                            <img
-                              :src="item.author.avatar"
-                              alt=""
-                            >
+                            <img :src="item.author.avatar" alt="" />
                             <a class="meta-item is-hoverable">{{ item.author.name }}</a>
                             <span class="separator">|</span>
-                            <span
-                              v-if="item.new"
-                              class="meta-item"
-                            >NEW</span>
-                            <span
-                              v-if="item.new"
-                              class="separator"
-                            >|</span>
-                            <a class="meta-item is-hoverable">{{ item.comments }} comments</a>
+                            <span v-if="item.new" class="meta-item">NEW</span>
+                            <span v-if="item.new" class="separator">|</span>
+                            <a class="meta-item is-hoverable"
+                              >{{ item.comments }} comments</a
+                            >
                           </div>
                         </div>
                       </div>
@@ -148,11 +120,7 @@ import {
                     <span class="tag item-duration">{{ item.duration }}</span>
                     <!--Play button-->
                     <button class="play-button">
-                      <i
-                        aria-hidden="true"
-                        class="iconify"
-                        data-icon="feather:play"
-                      />
+                      <i aria-hidden="true" class="iconify" data-icon="feather:play" />
                     </button>
                     <!--Bottom Overlay-->
                     <div class="item-overlay" />
@@ -164,21 +132,14 @@ import {
                             {{ item.name }}
                           </h3>
                           <div class="media-meta">
-                            <img
-                              :src="item.author.avatar"
-                              alt=""
-                            >
+                            <img :src="item.author.avatar" alt="" />
                             <a class="meta-item is-hoverable">{{ item.author.name }}</a>
                             <span class="separator">|</span>
-                            <span
-                              v-if="item.new"
-                              class="meta-item"
-                            >NEW</span>
-                            <span
-                              v-if="item.new"
-                              class="separator"
-                            >|</span>
-                            <a class="meta-item is-hoverable">{{ item.comments }} comments</a>
+                            <span v-if="item.new" class="meta-item">NEW</span>
+                            <span v-if="item.new" class="separator">|</span>
+                            <a class="meta-item is-hoverable"
+                              >{{ item.comments }} comments</a
+                            >
                           </div>
                         </div>
                       </div>
@@ -193,18 +154,12 @@ import {
 
       <!--Group-->
       <div class="feed-group">
-        <h4 class="group-title">
-          Yesterday
-        </h4>
+        <h4 class="group-title">Yesterday</h4>
 
         <div class="group-content">
           <div class="columns is-multiline">
             <!--Media item-->
-            <div
-              v-for="item in feed"
-              :key="item.id"
-              class="column is-3"
-            >
+            <div v-for="item in feed" :key="item.id" class="column is-3">
               <div
                 v-background="{
                   src: item.poster,
@@ -217,11 +172,7 @@ import {
                 <span class="tag item-duration">{{ item.duration }}</span>
                 <!--Play button-->
                 <button class="play-button">
-                  <i
-                    aria-hidden="true"
-                    class="iconify"
-                    data-icon="feather:play"
-                  />
+                  <i aria-hidden="true" class="iconify" data-icon="feather:play" />
                 </button>
                 <!--Bottom Overlay-->
                 <div class="item-overlay" />
@@ -233,20 +184,11 @@ import {
                         {{ item.name }}
                       </h3>
                       <div class="media-meta">
-                        <img
-                          :src="item.author.avatar"
-                          alt=""
-                        >
+                        <img :src="item.author.avatar" alt="" />
                         <a class="meta-item is-hoverable">{{ item.author.name }}</a>
                         <span class="separator">|</span>
-                        <span
-                          v-if="item.new"
-                          class="meta-item"
-                        >NEW</span>
-                        <span
-                          v-if="item.new"
-                          class="separator"
-                        >|</span>
+                        <span v-if="item.new" class="meta-item">NEW</span>
+                        <span v-if="item.new" class="separator">|</span>
                         <a class="meta-item is-hoverable">{{ item.comments }} comments</a>
                       </div>
                     </div>

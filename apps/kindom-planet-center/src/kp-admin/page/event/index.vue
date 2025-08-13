@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 import { useViewWrapper } from '/@dds/stores/viewWrapper'
 
 import { offers } from '/@dds/data/layouts/view-list-v3'
@@ -40,10 +39,7 @@ const clickEvent = (id: string) => {
 </script>
 
 <template>
-  <AdminSideblockLayout
-    theme="curved"
-    open-on-mounted
-  >
+  <AdminSideblockLayout theme="curved" open-on-mounted>
     <!-- Content Wrapper -->
     <div class="page-content-inner">
       <div>
@@ -54,13 +50,9 @@ const clickEvent = (id: string) => {
               class="input custom-text-filter"
               placeholder="Search..."
               data-filter-target=".list-view-item"
-            >
+            />
             <div class="form-icon">
-              <i
-                aria-hidden="true"
-                class="iconify"
-                data-icon="feather:search"
-              />
+              <i aria-hidden="true" class="iconify" data-icon="feather:search" />
             </div>
           </VControl>
 
@@ -73,7 +65,8 @@ const clickEvent = (id: string) => {
                     role="button"
                     @keydown.space.prevent="activeTab = 'all'"
                     @click="activeTab = 'all'"
-                  ><span>All</span></a>
+                    ><span>All</span></a
+                  >
                 </li>
                 <li :class="[activeTab === 'saved' && 'is-active']">
                   <a
@@ -81,7 +74,8 @@ const clickEvent = (id: string) => {
                     role="button"
                     @keydown.space.prevent="activeTab = 'saved'"
                     @click="activeTab = 'saved'"
-                  ><span>Saved</span></a>
+                    ><span>Saved</span></a
+                  >
                 </li>
                 <li class="tab-naver" />
               </ul>
@@ -106,12 +100,12 @@ const clickEvent = (id: string) => {
                   class="light-image"
                   src="/@dds/assets/illustrations/placeholders/search-3.svg"
                   alt=""
-                >
+                />
                 <img
                   class="dark-image"
                   src="/@dds/assets/illustrations/placeholders/search-3-dark.svg"
                   alt=""
-                >
+                />
               </template>
             </VPlaceholderPage>
 
@@ -122,10 +116,7 @@ const clickEvent = (id: string) => {
               :class="[activeTab === 'all' && 'is-active']"
             >
               <div class="list-view-inner">
-                <TransitionGroup
-                  name="list-complete"
-                  tag="div"
-                >
+                <TransitionGroup name="list-complete" tag="div">
                   <!--Item-->
                   <div
                     v-for="item in filteredData"
@@ -142,7 +133,7 @@ const clickEvent = (id: string) => {
                         :src="item.logo"
                         alt=""
                         @error.once="onceImageErrored(150)"
-                      >
+                      />
                       <div class="meta-left">
                         <h3>
                           {{ item.title }}
@@ -154,20 +145,14 @@ const clickEvent = (id: string) => {
                             data-icon="feather:map-pin"
                           />
                           <span>{{ item.location }}</span>
-                          <i
-                            aria-hidden="true"
-                            class="fas fa-circle icon-separator"
-                          />
+                          <i aria-hidden="true" class="fas fa-circle icon-separator" />
                           <i
                             aria-hidden="true"
                             class="iconify"
                             data-icon="feather:clock"
                           />
                           <span>{{ item.duration }}</span>
-                          <i
-                            aria-hidden="true"
-                            class="fas fa-circle icon-separator"
-                          />
+                          <i aria-hidden="true" class="fas fa-circle icon-separator" />
                           <i
                             aria-hidden="true"
                             class="iconify"
@@ -182,7 +167,6 @@ const clickEvent = (id: string) => {
                             color="primary"
                             outlined
                             raised
-
                             :to="`/event/${item.id}`"
                           >
                             Go to Detail
@@ -221,12 +205,12 @@ const clickEvent = (id: string) => {
                       class="light-image"
                       src="/@dds/assets/illustrations/placeholders/thinking-canvas.svg"
                       alt=""
-                    >
+                    />
                     <img
                       class="dark-image"
                       src="/@dds/assets/illustrations/placeholders/thinking-canvas-dark.svg"
                       alt=""
-                    >
+                    />
                   </template>
                 </VPlaceholderPage>
               </div>

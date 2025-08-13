@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 import { useViewWrapper } from '/@dds/stores/viewWrapper'
 import { userList } from '/@dds/data/layouts/datatable-v1'
 import type { VAvatarProps } from '/@dds/components/base/avatar/VAvatar.vue'
@@ -46,10 +45,7 @@ const filteredData = computed(() => {
 </script>
 
 <template>
-  <DeveloperSideblockLayout
-    theme="curved"
-    open-on-mounted
-  >
+  <DeveloperSideblockLayout theme="curved" open-on-mounted>
     <!-- Content Wrapper -->
     <div class="page-content-inner">
       <div class="datatable-toolbar">
@@ -59,18 +55,12 @@ const filteredData = computed(() => {
               v-model="filters"
               class="input custom-text-filter"
               placeholder="Search..."
-            >
+            />
           </VControl>
         </VField>
 
         <VButtons>
-          <VButton
-            color="primary"
-            icon="fas fa-plus"
-            elevated
-          >
-            Add User
-          </VButton>
+          <VButton color="primary" icon="fas fa-plus" elevated> Add User </VButton>
         </VButtons>
       </div>
       <div class="datatable-wrapper">
@@ -85,17 +75,11 @@ const filteredData = computed(() => {
               <th>Actions</th>
             </thead>
             <tbody>
-              <tr
-                v-for="user in filteredData"
-                :key="user.id"
-              >
+              <tr v-for="user in filteredData" :key="user.id">
                 <td>{{ user.id }}</td>
                 <td>
                   <div class="flex-media">
-                    <VAvatar
-                      :picture="user.picture"
-                      alt="Avatar"
-                    />
+                    <VAvatar :picture="user.picture" alt="Avatar" />
                     <div class="meta">
                       <h3>{{ user.username }}</h3>
                       <span>{{ user.position }}</span>
@@ -106,11 +90,7 @@ const filteredData = computed(() => {
                 <td>{{ user.industry }}</td>
                 <td>
                   <div>
-                    <VAvatarStack
-                      :avatars="user.contacts"
-                      size="small"
-                      :limit="3"
-                    />
+                    <VAvatarStack :avatars="user.contacts" size="small" :limit="3" />
                   </div>
                 </td>
                 <td>
@@ -132,12 +112,12 @@ const filteredData = computed(() => {
               class="light-image"
               src="/@dds/sets/illustrations/placeholders/search-7.svg"
               alt=""
-            >
+            />
             <img
               class="dark-image"
               src="/@dds/sets/illustrations/placeholders/search-7-dark.svg"
               alt=""
-            >
+            />
           </template>
         </VPlaceholderPage>
       </div>
@@ -155,7 +135,6 @@ const filteredData = computed(() => {
     </div>
   </DeveloperSideblockLayout>
 </template>
-
 
 <style lang="scss" scoped>
 .is-navbar {

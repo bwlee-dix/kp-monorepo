@@ -194,15 +194,10 @@ watch(previewTemplate, () => {
 </script>
 
 <template>
-  <div
-    id="wizard-step-3"
-    class="inner-wrapper is-active"
-  >
+  <div id="wizard-step-3" class="inner-wrapper is-active">
     <div class="step-content">
       <div class="step-title">
-        <h2 class="dark-inverted">
-          Add files to this project
-        </h2>
+        <h2 class="dark-inverted">Add files to this project</h2>
         <p>Or you can skip this step. You can always add more files later.</p>
       </div>
 
@@ -219,12 +214,12 @@ watch(previewTemplate, () => {
             class="light-image is-rounded"
             src="/@dds/assets/illustrations/wizard/upload-placeholder.svg"
             alt=""
-          >
+          />
           <img
             class="dark-image is-rounded"
             src="/@dds/assets/illustrations/wizard/upload-placeholder.svg"
             alt=""
-          >
+          />
         </template>
         <template #action>
           <a
@@ -239,10 +234,7 @@ watch(previewTemplate, () => {
         </template>
       </VPlaceholderPage>
 
-      <div
-        v-else
-        class="uploader"
-      >
+      <div v-else class="uploader">
         <div class="uploader-toolbar">
           <div class="left">
             <div class="uploader-actions">
@@ -252,11 +244,7 @@ watch(previewTemplate, () => {
                   class="inner-action fileinput-button hint--bubble hint--primary hint--top"
                   data-hint="Add Files"
                 >
-                  <i
-                    aria-hidden="true"
-                    class="iconify"
-                    data-icon="feather:plus"
-                  />
+                  <i aria-hidden="true" class="iconify" data-icon="feather:plus" />
                 </span>
               </div>
               <div class="uploader-action">
@@ -266,11 +254,7 @@ watch(previewTemplate, () => {
                   class="inner-action start hint--bubble hint--primary hint--top"
                   data-hint="Upload All"
                 >
-                  <i
-                    aria-hidden="true"
-                    class="iconify"
-                    data-icon="feather:upload"
-                  />
+                  <i aria-hidden="true" class="iconify" data-icon="feather:upload" />
                 </button>
               </div>
               <div class="uploader-action">
@@ -280,11 +264,7 @@ watch(previewTemplate, () => {
                   class="inner-action cancel hint--bubble hint--primary hint--top"
                   data-hint="Remove All"
                 >
-                  <i
-                    aria-hidden="true"
-                    class="iconify"
-                    data-icon="feather:x"
-                  />
+                  <i aria-hidden="true" class="iconify" data-icon="feather:x" />
                 </button>
               </div>
             </div>
@@ -300,10 +280,7 @@ watch(previewTemplate, () => {
                 aria-valuemax="100"
                 aria-valuenow="0"
               >
-                <div
-                  class="progress-bar progress-bar-success"
-                  data-dz-uploadprogress
-                />
+                <div class="progress-bar progress-bar-success" data-dz-uploadprogress />
               </div>
             </div>
           </div>
@@ -313,48 +290,26 @@ watch(previewTemplate, () => {
           <div class="upload-wrapper">
             <div class="upload-box fileinput-button">
               <div class="uploader-label">
-                <i
-                  aria-hidden="true"
-                  class="lnil lnil-cloud-upload"
-                />
+                <i aria-hidden="true" class="lnil lnil-cloud-upload" />
                 <h3>Upload photos/videos</h3>
               </div>
             </div>
           </div>
         </div>
 
-        <div
-          ref="previewContainerElement"
-          class="template-list"
-        >
-          <div
-            ref="previewTemplateElement"
-            class="template-list-item"
-          >
+        <div ref="previewContainerElement" class="template-list">
+          <div ref="previewTemplateElement" class="template-list-item">
             <div class="preview-box">
               <!-- This is used as the file preview template -->
               <div class="preview">
-                <img
-                  data-dz-thumbnail
-                  alt=""
-                  @error.once="onceImageErrored(150)"
-                >
+                <img data-dz-thumbnail alt="" @error.once="onceImageErrored(150)" />
               </div>
               <div class="list-item-meta">
-                <p
-                  class="name"
-                  data-dz-name
-                />
-                <p
-                  class="error text-danger"
-                  data-dz-errormessage
-                />
+                <p class="name" data-dz-name />
+                <p class="error text-danger" data-dz-errormessage />
               </div>
               <div class="list-item-progress">
-                <p
-                  class="size"
-                  data-dz-size
-                />
+                <p class="size" data-dz-size />
                 <div
                   class="progress active"
                   role="progressbar"
@@ -362,10 +317,7 @@ watch(previewTemplate, () => {
                   aria-valuemax="100"
                   aria-valuenow="0"
                 >
-                  <div
-                    class="progress-bar progress-bar-success"
-                    data-dz-uploadprogress
-                  />
+                  <div class="progress-bar progress-bar-success" data-dz-uploadprogress />
                 </div>
               </div>
               <div class="list-item-actions">
@@ -374,11 +326,7 @@ watch(previewTemplate, () => {
                   data-hint="Upload File"
                   type="button"
                 >
-                  <i
-                    aria-hidden="true"
-                    class="iconify"
-                    data-icon="feather:play"
-                  />
+                  <i aria-hidden="true" class="iconify" data-icon="feather:play" />
                 </button>
                 <button
                   data-dz-remove
@@ -386,22 +334,10 @@ watch(previewTemplate, () => {
                   data-hint="Cancel"
                   type="button"
                 >
-                  <i
-                    aria-hidden="true"
-                    class="iconify"
-                    data-icon="feather:arrow-left"
-                  />
+                  <i aria-hidden="true" class="iconify" data-icon="feather:arrow-left" />
                 </button>
-                <button
-                  data-dz-remove
-                  type="button"
-                  class="list-item-action delete"
-                >
-                  <i
-                    aria-hidden="true"
-                    class="iconify"
-                    data-icon="feather:trash-2"
-                  />
+                <button data-dz-remove type="button" class="list-item-action delete">
+                  <i aria-hidden="true" class="iconify" data-icon="feather:trash-2" />
                 </button>
               </div>
             </div>

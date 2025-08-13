@@ -44,11 +44,7 @@ onUnmounted(() => {
 
 <template>
   <div class="grid-item">
-    <VAvatar
-      :picture="user.avatar"
-      :badge="user.badge"
-      size="big"
-    />
+    <VAvatar :picture="user.avatar" :badge="user.badge" size="big" />
     <h3 class="dark-inverted">
       {{ user.fullName }}
     </h3>
@@ -65,11 +61,7 @@ onUnmounted(() => {
             @keydown.space.prevent="tab = 'posts'"
             @click="tab = 'posts'"
           >
-            <i
-              aria-hidden="true"
-              class="iconify"
-              data-icon="feather:activity"
-            />
+            <i aria-hidden="true" class="iconify" data-icon="feather:activity" />
           </a>
           <a
             data-target-section="subsection-2"
@@ -80,11 +72,7 @@ onUnmounted(() => {
             @keydown.space.prevent="tab = 'projects'"
             @click="tab = 'projects'"
           >
-            <i
-              aria-hidden="true"
-              class="iconify"
-              data-icon="feather:briefcase"
-            />
+            <i aria-hidden="true" class="iconify" data-icon="feather:briefcase" />
           </a>
           <a
             data-target-section="subsection-3"
@@ -95,11 +83,7 @@ onUnmounted(() => {
             @keydown.space.prevent="tab = 'tasks'"
             @click="tab = 'tasks'"
           >
-            <i
-              aria-hidden="true"
-              class="iconify"
-              data-icon="feather:check-circle"
-            />
+            <i aria-hidden="true" class="iconify" data-icon="feather:check-circle" />
           </a>
           <div class="icon-tabs-naver" />
         </div>
@@ -131,10 +115,7 @@ onUnmounted(() => {
       >
         <div class="chart-block">
           <div class="circle-chart-wrapper is-info">
-            <CircleChart
-              :value="user.projects.progress"
-              :size="54"
-            />
+            <CircleChart :value="user.projects.progress" :size="54" />
           </div>
           <div class="stats">
             <span class="dark-inverted">{{ user.projects.count }}</span>
@@ -149,10 +130,7 @@ onUnmounted(() => {
       >
         <div class="chart-block">
           <div class="circle-chart-wrapper is-warning">
-            <CircleChart
-              :value="user.tasks.progress"
-              :size="54"
-            />
+            <CircleChart :value="user.tasks.progress" :size="54" />
           </div>
           <div class="stats">
             <span class="dark-inverted">{{ user.tasks.count }}</span>
@@ -164,21 +142,13 @@ onUnmounted(() => {
     <div class="buttons">
       <button class="button v-button is-dark-outlined">
         <span class="icon">
-          <i
-            aria-hidden="true"
-            class="iconify"
-            data-icon="feather:check"
-          />
+          <i aria-hidden="true" class="iconify" data-icon="feather:check" />
         </span>
         <span>Hire</span>
       </button>
       <button class="button v-button is-dark-outlined">
         <span class="icon">
-          <i
-            aria-hidden="true"
-            class="iconify"
-            data-icon="feather:message-circle"
-          />
+          <i aria-hidden="true" class="iconify" data-icon="feather:message-circle" />
         </span>
         <span>Talk</span>
       </button>

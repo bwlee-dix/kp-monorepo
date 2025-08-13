@@ -54,11 +54,7 @@ const layoutComponent = (slug?: string) => {
       @keydown.space.prevent="isModalOpen = true"
       @click.passive="isModalOpen = true"
     >
-      <i
-        aria-hidden="true"
-        class="iconify sidebar-svg"
-        data-icon="feather:sidebar"
-      />
+      <i aria-hidden="true" class="iconify sidebar-svg" data-icon="feather:sidebar" />
     </a>
     <VModal
       :open="isModalOpen"
@@ -89,10 +85,7 @@ const layoutComponent = (slug?: string) => {
           <template #tab="{ activeValue }">
             <div>
               <div class="has-slimscroll layout-selector">
-                <Transition
-                  name="fade-fast"
-                  mode="out-in"
-                >
+                <Transition name="fade-fast" mode="out-in">
                   <div
                     v-if="activeValue === 'navbar'"
                     class="columns is-multiline is-half-mobile-p"
@@ -122,12 +115,12 @@ const layoutComponent = (slug?: string) => {
                           class="light-image-block"
                           src="/images/icons/layouts/layout-7.svg"
                           alt=""
-                        >
+                        />
                         <img
                           class="dark-image-block"
                           src="/images/icons/layouts/layout-7-dark.svg"
                           alt=""
-                        >
+                        />
                         <h3>Default theme</h3>
                         <p>Top nav with categories</p>
                         <div class="indicator">
@@ -163,12 +156,12 @@ const layoutComponent = (slug?: string) => {
                           class="light-image-block"
                           src="/images/icons/layouts/layout-8.svg"
                           alt=""
-                        >
+                        />
                         <img
                           class="dark-image-block"
                           src="/images/icons/layouts/layout-8-dark.svg"
                           alt=""
-                        >
+                        />
                         <h3>Fade theme</h3>
                         <p>Transparent top nav</p>
                         <div class="indicator">
@@ -205,12 +198,12 @@ const layoutComponent = (slug?: string) => {
                           class="light-image-block"
                           src="/images/icons/layouts/layout-9.svg"
                           alt=""
-                        >
+                        />
                         <img
                           class="dark-image-block"
                           src="/images/icons/layouts/layout-9-dark.svg"
                           alt=""
-                        >
+                        />
                         <h3>Colored theme</h3>
                         <p>Colored top nav</p>
                         <div class="indicator">
@@ -252,12 +245,12 @@ const layoutComponent = (slug?: string) => {
                           class="light-image-block"
                           src="/images/icons/layouts/layout-7.svg"
                           alt=""
-                        >
+                        />
                         <img
                           class="dark-image-block"
                           src="/images/icons/layouts/layout-7-dark.svg"
                           alt=""
-                        >
+                        />
                         <h3>Default theme</h3>
                         <p>Top nav dropdown variation</p>
                         <div class="indicator">
@@ -294,12 +287,12 @@ const layoutComponent = (slug?: string) => {
                           class="light-image-block"
                           src="/images/icons/layouts/layout-9.svg"
                           alt=""
-                        >
+                        />
                         <img
                           class="dark-image-block"
                           src="/images/icons/layouts/layout-9-dark.svg"
                           alt=""
-                        >
+                        />
                         <h3>Colored theme</h3>
                         <p>Colored with dropdowns</p>
                         <div class="indicator">
@@ -341,12 +334,12 @@ const layoutComponent = (slug?: string) => {
                           class="light-image-block"
                           src="/images/icons/layouts/layout-10.svg"
                           alt=""
-                        >
+                        />
                         <img
                           class="dark-image-block"
                           src="/images/icons/layouts/layout-10-dark.svg"
                           alt=""
-                        >
+                        />
                         <h3>Default theme</h3>
                         <p>Clean top nav variation</p>
                         <div class="indicator">
@@ -383,12 +376,12 @@ const layoutComponent = (slug?: string) => {
                           class="light-image-block"
                           src="/images/icons/layouts/layout-11.svg"
                           alt=""
-                        >
+                        />
                         <img
                           class="dark-image-block"
                           src="/images/icons/layouts/layout-11-dark.svg"
                           alt=""
-                        >
+                        />
                         <h3>Center theme</h3>
                         <p>Centered variation</p>
                         <div class="indicator">
@@ -425,12 +418,12 @@ const layoutComponent = (slug?: string) => {
                           class="light-image-block"
                           src="/images/icons/layouts/layout-12.svg"
                           alt=""
-                        >
+                        />
                         <img
                           class="dark-image-block"
                           src="/images/icons/layouts/layout-12-dark.svg"
                           alt=""
-                        >
+                        />
                         <h3>Fade theme</h3>
                         <p>Transparent variation</p>
                         <div class="indicator">
@@ -472,12 +465,12 @@ const layoutComponent = (slug?: string) => {
                           class="light-image-block"
                           src="/images/icons/layouts/layout-1.svg"
                           alt=""
-                        >
+                        />
                         <img
                           class="dark-image-block"
                           src="/images/icons/layouts/layout-1-dark.svg"
                           alt=""
-                        >
+                        />
                         <h3>Default Sidebar</h3>
                         <p>The good old default sidebar</p>
                         <div class="indicator">
@@ -514,12 +507,12 @@ const layoutComponent = (slug?: string) => {
                           class="light-image-block"
                           src="/images/icons/layouts/layout-2.svg"
                           alt=""
-                        >
+                        />
                         <img
                           class="dark-image-block"
                           src="/images/icons/layouts/layout-2-dark.svg"
                           alt=""
-                        >
+                        />
                         <h3>Colored Sidebar</h3>
                         <p>Colored variation of sidebar</p>
                         <div class="indicator">
@@ -556,12 +549,12 @@ const layoutComponent = (slug?: string) => {
                           class="light-image-block"
                           src="/images/icons/layouts/layout-3.svg"
                           alt=""
-                        >
+                        />
                         <img
                           class="dark-image-block"
                           src="/images/icons/layouts/layout-3-dark.svg"
                           alt=""
-                        >
+                        />
                         <h3>Curved Sidebar</h3>
                         <p>Sidebar with curved edges</p>
                         <div class="indicator">
@@ -598,12 +591,12 @@ const layoutComponent = (slug?: string) => {
                           class="light-image-block"
                           src="/images/icons/layouts/layout-4.svg"
                           alt=""
-                        >
+                        />
                         <img
                           class="dark-image-block"
                           src="/images/icons/layouts/layout-4-dark.svg"
                           alt=""
-                        >
+                        />
                         <h3>Curved Colored</h3>
                         <p>Curved edges with color</p>
                         <div class="indicator">
@@ -640,12 +633,12 @@ const layoutComponent = (slug?: string) => {
                           class="light-image-block"
                           src="/images/icons/layouts/layout-5.svg"
                           alt=""
-                        >
+                        />
                         <img
                           class="dark-image-block"
                           src="/images/icons/layouts/layout-5-dark.svg"
                           alt=""
-                        >
+                        />
                         <h3>Sidebar Labels</h3>
                         <p>Default labels displayed</p>
                         <div class="indicator">
@@ -682,12 +675,12 @@ const layoutComponent = (slug?: string) => {
                           class="light-image-block"
                           src="/images/icons/layouts/layout-5.svg"
                           alt=""
-                        >
+                        />
                         <img
                           class="dark-image-block"
                           src="/images/icons/layouts/layout-5-dark.svg"
                           alt=""
-                        >
+                        />
                         <h3>Hover Labels</h3>
                         <p>Labels displayed on hover</p>
                         <div class="indicator">
@@ -724,12 +717,12 @@ const layoutComponent = (slug?: string) => {
                           class="light-image-block"
                           src="/images/icons/layouts/layout-6.svg"
                           alt=""
-                        >
+                        />
                         <img
                           class="dark-image-block"
                           src="/images/icons/layouts/layout-6-dark.svg"
                           alt=""
-                        >
+                        />
                         <h3>Floating Sidebar</h3>
                         <p>Floating rounded variation</p>
                         <div class="indicator">
@@ -772,12 +765,12 @@ const layoutComponent = (slug?: string) => {
                           class="light-image-block"
                           src="/images/icons/layouts/layout-13.svg"
                           alt=""
-                        >
+                        />
                         <img
                           class="dark-image-block"
                           src="/images/icons/layouts/layout-13-dark.svg"
                           alt=""
-                        >
+                        />
                         <h3>Default Sideblock</h3>
                         <p>The good old default sideblock</p>
                         <div class="indicator">
@@ -815,12 +808,12 @@ const layoutComponent = (slug?: string) => {
                           class="light-image-block"
                           src="/images/icons/layouts/layout-15.svg"
                           alt=""
-                        >
+                        />
                         <img
                           class="dark-image-block"
                           src="/images/icons/layouts/layout-15-dark.svg"
                           alt=""
-                        >
+                        />
                         <h3>Colored Sideblock</h3>
                         <p>Colored variation of sideblock</p>
                         <div class="indicator">
@@ -858,12 +851,12 @@ const layoutComponent = (slug?: string) => {
                           class="light-image-block"
                           src="/images/icons/layouts/layout-14.svg"
                           alt=""
-                        >
+                        />
                         <img
                           class="dark-image-block"
                           src="/images/icons/layouts/layout-14-dark.svg"
                           alt=""
-                        >
+                        />
                         <h3>Curved Sideblock</h3>
                         <p>Sideblock with curved edges</p>
                         <div class="indicator">
@@ -901,12 +894,12 @@ const layoutComponent = (slug?: string) => {
                           class="light-image-block"
                           src="/images/icons/layouts/layout-16.svg"
                           alt=""
-                        >
+                        />
                         <img
                           class="dark-image-block"
                           src="/images/icons/layouts/layout-16-dark.svg"
                           alt=""
-                        >
+                        />
                         <h3>Curved Colored</h3>
                         <p>Curved edges with color</p>
                         <div class="indicator">

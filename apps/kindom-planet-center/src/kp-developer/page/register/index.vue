@@ -6,7 +6,6 @@ const isLoading = ref(false)
 const darkmode = useDarkmode()
 const router = useRouter()
 
-
 useHead({
   title: 'Register Developer - Kingdom Planet',
 })
@@ -15,17 +14,16 @@ const companySize = ref('')
 const businessType = ref('')
 
 const onSubmit = async () => {
-if (!isLoading.value) {
+  if (!isLoading.value) {
     isLoading.value = true
 
     await sleep(1000)
 
     router.push('/app-list')
 
-
     isLoading.value = false
-  }}
-
+  }
+}
 </script>
 
 <template>
@@ -35,14 +33,8 @@ if (!isLoading.value) {
       <div class="auth-nav">
         <div class="left" />
         <div class="center">
-          <RouterLink
-            to="/"
-            class="header-item"
-          >
-            <AnimatedLogo
-              width="38px"
-              height="38px"
-            />
+          <RouterLink to="/" class="header-item">
+            <AnimatedLogo width="38px" height="38px" />
           </RouterLink>
         </div>
         <div class="right">
@@ -57,7 +49,7 @@ if (!isLoading.value) {
               type="checkbox"
               :checked="!darkmode.isDark"
               @change="darkmode.onChange"
-            >
+            />
             <span />
           </label>
         </div>
@@ -70,23 +62,14 @@ if (!isLoading.value) {
           <div class="auth-head">
             <h2>Hello Developer.</h2>
             <p>Please sign in to your account</p>
-            <RouterLink to="/auth/signup-3">
-              I do not have an account yet
-            </RouterLink>
+            <RouterLink to="/auth/signup-3"> I do not have an account yet </RouterLink>
           </div>
 
           <!--Form-->
           <div class="form-card">
-            <form
-              method="post"
-              novalidate
-              class="form-layout"
-              @submit.prevent="onSubmit"
-            >
+            <form method="post" novalidate class="form-layout" @submit.prevent="onSubmit">
               <div class="form-outer">
-                <div
-                  class="form-header stuck-header"
-                >
+                <div class="form-header stuck-header">
                   <div class="form-header-inner">
                     <div class="left">
                       <h3>Register developer</h3>

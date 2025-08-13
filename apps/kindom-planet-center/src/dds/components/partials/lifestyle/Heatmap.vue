@@ -10,7 +10,7 @@ import { onceImageErrored } from '/@dds/utils/via-placeholder'
           src="/demo/photos/faces/girl1.jpg"
           alt=""
           @error.once="onceImageErrored(150)"
-        >
+        />
       </div>
       <div class="title-meta">
         <p>
@@ -39,10 +39,7 @@ import { onceImageErrored } from '/@dds/utils/via-placeholder'
           <div class="heatmap-row-item" />
           <div class="heatmap-row-item heat-1" />
           <div class="heatmap-row-item heat-3">
-            <i
-              aria-hidden="true"
-              class="fas fa-fire"
-            />
+            <i aria-hidden="true" class="fas fa-fire" />
           </div>
           <div class="heatmap-row-item" />
           <div class="heatmap-row-item" />
@@ -141,10 +138,7 @@ import { onceImageErrored } from '/@dds/utils/via-placeholder'
           <div class="heatmap-row-item heat-2" />
           <div class="heatmap-row-item" />
           <div class="heatmap-row-item heat-3">
-            <i
-              aria-hidden="true"
-              class="fas fa-fire"
-            />
+            <i aria-hidden="true" class="fas fa-fire" />
           </div>
           <div class="heatmap-row-item" />
           <div class="heatmap-row-item" />
@@ -178,10 +172,7 @@ import { onceImageErrored } from '/@dds/utils/via-placeholder'
           <div class="heatmap-row-item" />
           <div class="heatmap-row-item" />
           <div class="heatmap-row-item heat-3">
-            <i
-              aria-hidden="true"
-              class="fas fa-fire"
-            />
+            <i aria-hidden="true" class="fas fa-fire" />
           </div>
           <div class="heatmap-row-item heat-1" />
           <div class="heatmap-row-item" />

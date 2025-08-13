@@ -18,10 +18,7 @@ const layoutSwitcher = useLayoutSwitcher()
   >
     <!-- Content Wrapper -->
     <RouterView v-slot="{ Component }">
-      <Transition
-        name="fade-fast"
-        mode="out-in"
-      >
+      <Transition name="fade-fast" mode="out-in">
         <component :is="Component" />
       </Transition>
     </RouterView>

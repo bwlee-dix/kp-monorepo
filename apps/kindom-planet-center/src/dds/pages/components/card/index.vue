@@ -49,9 +49,7 @@ useHead({
         <div class="columns is-multiline mb-6">
           <div class="column is-4">
             <VCard radius="smooth">
-              <h3 class="title is-5 mb-2">
-                I have smooth radius
-              </h3>
+              <h3 class="title is-5 mb-2">I have smooth radius</h3>
               <p>
                 I can be used as is in any layout. VCards are simple containers that can
                 hold any type of content.
@@ -60,9 +58,7 @@ useHead({
           </div>
           <div class="column is-4">
             <VCard>
-              <h3 class="title is-5 mb-2">
-                I have regular radius
-              </h3>
+              <h3 class="title is-5 mb-2">I have regular radius</h3>
               <p>
                 I can be used as is in any layout. VCards are simple containers that can
                 hold any type of content.
@@ -71,9 +67,7 @@ useHead({
           </div>
           <div class="column is-4">
             <VCard radius="rounded">
-              <h3 class="title is-5 mb-2">
-                I have rounded radius
-              </h3>
+              <h3 class="title is-5 mb-2">I have rounded radius</h3>
               <p>
                 I can be used as is in any layout. VCards are simple containers that can
                 hold any type of content.
@@ -87,13 +81,8 @@ useHead({
 
         <div class="columns is-multiline mb-6">
           <div class="column is-4 mb-2">
-            <VCard
-              radius="smooth"
-              elevated
-            >
-              <h3 class="title is-5 mb-2">
-                Raised VCard
-              </h3>
+            <VCard radius="smooth" elevated>
+              <h3 class="title is-5 mb-2">Raised VCard</h3>
               <p>
                 I can be used as is in any layout. VCards are simple containers that can
                 hold any type of content.
@@ -102,9 +91,7 @@ useHead({
           </div>
           <div class="column is-4">
             <VCard elevated>
-              <h3 class="title is-5 mb-2">
-                Raised VCard
-              </h3>
+              <h3 class="title is-5 mb-2">Raised VCard</h3>
               <p>
                 I can be used as is in any layout. VCards are simple containers that can
                 hold any type of content.
@@ -112,13 +99,8 @@ useHead({
             </VCard>
           </div>
           <div class="column is-4">
-            <VCard
-              radius="rounded"
-              elevated
-            >
-              <h3 class="title is-5 mb-2">
-                Raised VCard
-              </h3>
+            <VCard radius="rounded" elevated>
+              <h3 class="title is-5 mb-2">Raised VCard</h3>
               <p>
                 I can be used as is in any layout. VCards are simple containers that can
                 hold any type of content.
@@ -132,13 +114,8 @@ useHead({
 
         <div class="columns is-multiline mb-6">
           <div class="column is-4">
-            <VCard
-              radius="smooth"
-              color="primary"
-            >
-              <h3 class="title is-5 mb-2">
-                Primary VCard
-              </h3>
+            <VCard radius="smooth" color="primary">
+              <h3 class="title is-5 mb-2">Primary VCard</h3>
               <p>
                 I can be used as is in any layout. VCards are simple containers that can
                 hold any type of content.
@@ -147,9 +124,7 @@ useHead({
           </div>
           <div class="column is-4">
             <VCard color="secondary">
-              <h3 class="title is-5 mb-2">
-                Secondary VCard
-              </h3>
+              <h3 class="title is-5 mb-2">Secondary VCard</h3>
               <p>
                 I can be used as is in any layout. VCards are simple containers that can
                 hold any type of content.
@@ -157,13 +132,8 @@ useHead({
             </VCard>
           </div>
           <div class="column is-4">
-            <VCard
-              radius="rounded"
-              color="info"
-            >
-              <h3 class="title is-5 mb-2">
-                Info VCard
-              </h3>
+            <VCard radius="rounded" color="info">
+              <h3 class="title is-5 mb-2">Info VCard</h3>
               <p>
                 I can be used as is in any layout. VCards are simple containers that can
                 hold any type of content.
@@ -171,13 +141,8 @@ useHead({
             </VCard>
           </div>
           <div class="column is-4">
-            <VCard
-              radius="smooth"
-              color="success"
-            >
-              <h3 class="title is-5 mb-2">
-                Success VCard
-              </h3>
+            <VCard radius="smooth" color="success">
+              <h3 class="title is-5 mb-2">Success VCard</h3>
               <p>
                 I can be used as is in any layout. VCards are simple containers that can
                 hold any type of content.
@@ -186,9 +151,7 @@ useHead({
           </div>
           <div class="column is-4">
             <VCard color="warning">
-              <h3 class="title is-5 mb-2">
-                Warning VCard
-              </h3>
+              <h3 class="title is-5 mb-2">Warning VCard</h3>
               <p>
                 I can be used as is in any layout. VCards are simple containers that can
                 hold any type of content.
@@ -196,13 +159,8 @@ useHead({
             </VCard>
           </div>
           <div class="column is-4">
-            <VCard
-              radius="rounded"
-              color="danger"
-            >
-              <h3 class="title is-5 mb-2">
-                Danger VCard
-              </h3>
+            <VCard radius="rounded" color="danger">
+              <h3 class="title is-5 mb-2">Danger VCard</h3>
               <p>
                 I can be used as is in any layout. VCards are simple containers that can
                 hold any type of content.
@@ -216,10 +174,7 @@ useHead({
 
         <div class="columns is-multiline mb-6">
           <div class="column is-4">
-            <VCard
-              radius="smooth"
-              elevated
-            >
+            <VCard radius="smooth" elevated>
               <div class="card-head">
                 <VBlock
                   title="Greta K."
@@ -294,10 +249,7 @@ useHead({
             </VCard>
           </div>
           <div class="column is-4">
-            <VCard
-              radius="rounded"
-              elevated
-            >
+            <VCard radius="rounded" elevated>
               <div class="card-head">
                 <VBlock
                   title="Greta K."
@@ -341,10 +293,7 @@ useHead({
         <!--Slots-->
         <CardSlotsDocumentation />
       </div>
-      <div
-        v-if="toc.length"
-        class="column is-3 toc-column"
-      >
+      <div v-if="toc.length" class="column is-3 toc-column">
         <DocumentationToc :toc="toc" />
       </div>
     </div>

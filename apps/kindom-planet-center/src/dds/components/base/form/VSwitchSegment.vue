@@ -44,20 +44,12 @@ const internal = computed({
 
 <template>
   <div class="switch-segment">
-    <VLabel
-      v-if="props.labelFalse || 'label-false' in $slots"
-      raw
-      class="is-label"
-    >
+    <VLabel v-if="props.labelFalse || 'label-false' in $slots" raw class="is-label">
       <slot name="label-false">
         {{ props.labelFalse }}
       </slot>
     </VLabel>
-    <VLabel
-      raw
-      class="form-switch"
-      :class="[props.color && `is-${props.color}`]"
-    >
+    <VLabel raw class="form-switch" :class="[props.color && `is-${props.color}`]">
       <input
         :id="id"
         v-model="internal"
@@ -66,14 +58,10 @@ const internal = computed({
         v-bind="$attrs"
         type="checkbox"
         class="is-switch"
-      >
+      />
       <i aria-hidden="true" />
     </VLabel>
-    <VLabel
-      v-if="props.labelTrue || 'label-true' in $slots"
-      raw
-      class="is-label"
-    >
+    <VLabel v-if="props.labelTrue || 'label-true' in $slots" raw class="is-label">
       <slot name="label-true">
         {{ props.labelTrue }}
       </slot>

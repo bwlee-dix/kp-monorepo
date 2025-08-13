@@ -8,10 +8,7 @@ useHead({
   <MinimalLayout theme="light">
     <div class="landing-page-wrapper">
       <!-- Hero and Navbar -->
-      <div
-        id="Vuero-marketing"
-        class="hero marketing-hero is-right is-fullheight"
-      >
+      <div id="Vuero-marketing" class="hero marketing-hero is-right is-fullheight">
         <!-- Navbar partial -->
         <LandingNavigation />
 
@@ -20,42 +17,42 @@ useHead({
           class="hexagon hexagon-1 light-image-l"
           src="/images/icons/hexagons/accent.svg"
           alt=""
-        >
+        />
         <img
           class="hexagon hexagon-1 dark-image-l"
           src="/images/icons/hexagons/accent-heavy.svg"
           alt=""
-        >
+        />
         <img
           class="hexagon hexagon-2 light-image-l"
           src="/images/icons/hexagons/accent.svg"
           alt=""
-        >
+        />
         <img
           class="hexagon hexagon-2 dark-image-l"
           src="/images/icons/hexagons/accent-heavy.svg"
           alt=""
-        >
+        />
         <img
           class="hexagon hexagon-3 light-image-l"
           src="/images/icons/hexagons/green.svg"
           alt=""
-        >
+        />
         <img
           class="hexagon hexagon-3 dark-image-l"
           src="/images/icons/hexagons/green-heavy.svg"
           alt=""
-        >
+        />
         <img
           class="hexagon hexagon-4 light-image-l"
           src="/images/icons/hexagons/purple.svg"
           alt=""
-        >
+        />
         <img
           class="hexagon hexagon-4 dark-image-l"
           src="/images/icons/hexagons/purple-heavy.svg"
           alt=""
-        >
+        />
 
         <div class="hero-body">
           <div class="container">
@@ -66,38 +63,23 @@ useHead({
                     class="light-image-block-l"
                     src="/@dds/assets/illustrations/landing/app-1.webp"
                     alt=""
-                  >
+                  />
                   <img
                     class="dark-image-block-l"
                     src="/@dds/assets/illustrations/landing/app-1.webp"
                     alt=""
-                  >
+                  />
                 </div>
               </div>
               <div class="column is-5 is-offset-1">
-                <h1 class="title is-1 is-bold">
-                  Easier development. Beautiful projects
-                </h1>
+                <h1 class="title is-1 is-bold">Easier development. Beautiful projects</h1>
                 <h3 class="subtitle is-4 pt-2 light-text">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Isto modo ne
                   improbos quidem.
                 </h3>
                 <div class="buttons">
-                  <VButton
-                    color="primary"
-                    bold
-                    rounded
-                    raised
-                  >
-                    Get Started
-                  </VButton>
-                  <VButton
-                    color="primary"
-                    outlined
-                    bold
-                    rounded
-                    raised
-                  >
+                  <VButton color="primary" bold rounded raised> Get Started </VButton>
+                  <VButton color="primary" outlined bold rounded raised>
                     14-day Trial
                   </VButton>
                 </div>
@@ -130,14 +112,8 @@ useHead({
 
       <!-- Back To Top Button -->
       <div id="backtotop">
-        <a
-          href="#"
-          aria-label="back to top"
-        >
-          <i
-            aria-hidden="true"
-            class="fas fa-angle-up"
-          />
+        <a href="#" aria-label="back to top">
+          <i aria-hidden="true" class="fas fa-angle-up" />
         </a>
       </div>
     </div>

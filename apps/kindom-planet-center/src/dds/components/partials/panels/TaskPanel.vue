@@ -27,17 +27,10 @@ const panels = usePanels()
           @keydown.space.prevent="panels.close()"
           @click="panels.close()"
         >
-          <i
-            aria-hidden="true"
-            class="iconify"
-            data-icon="feather:chevron-right"
-          />
+          <i aria-hidden="true" class="iconify" data-icon="feather:chevron-right" />
         </a>
       </div>
-      <div
-        class="right-panel-body has-slimscroll"
-        data-simplebar
-      >
+      <div class="right-panel-body has-slimscroll" data-simplebar>
         <div class="task-group task-overview">
           <h3>Overview</h3>
 
@@ -61,11 +54,7 @@ const panels = usePanels()
               </div>
 
               <button>
-                <i
-                  aria-hidden="true"
-                  class="iconify"
-                  data-icon="feather:plus"
-                />
+                <i aria-hidden="true" class="iconify" data-icon="feather:plus" />
               </button>
             </div>
           </div>
@@ -75,35 +64,19 @@ const panels = usePanels()
           <h3>Statistics</h3>
           <div class="task-stats">
             <div class="task-stat">
-              <i
-                aria-hidden="true"
-                class="iconify"
-                data-icon="feather:clock"
-              />
+              <i aria-hidden="true" class="iconify" data-icon="feather:clock" />
               <span>5 days</span>
             </div>
             <div class="task-stat">
-              <i
-                aria-hidden="true"
-                class="iconify"
-                data-icon="feather:file"
-              />
+              <i aria-hidden="true" class="iconify" data-icon="feather:file" />
               <span>3 files</span>
             </div>
             <div class="task-stat">
-              <i
-                aria-hidden="true"
-                class="iconify"
-                data-icon="feather:message-circle"
-              />
+              <i aria-hidden="true" class="iconify" data-icon="feather:message-circle" />
               <span>54</span>
             </div>
             <a>
-              <i
-                aria-hidden="true"
-                class="iconify"
-                data-icon="feather:plus"
-              />
+              <i aria-hidden="true" class="iconify" data-icon="feather:plus" />
               <span>Add Checklist</span>
             </a>
           </div>
@@ -113,44 +86,30 @@ const panels = usePanels()
           <h3>Files</h3>
           <div class="task-files">
             <div class="file-box">
-              <img
-                src="/images/icons/files/zip-format.svg"
-                alt=""
-              >
+              <img src="/images/icons/files/zip-format.svg" alt="" />
               <div class="meta">
                 <span>Preliminary Sketches</span>
-                <span>3MB <i
-                  aria-hidden="true"
-                  class="fas fa-circle"
-                /> 5 days ago</span>
+                <span>3MB <i aria-hidden="true" class="fas fa-circle" /> 5 days ago</span>
               </div>
               <FileCardDropdown />
             </div>
             <div class="file-box">
-              <img
-                src="/images/icons/files/sheet.svg"
-                alt=""
-              >
+              <img src="/images/icons/files/sheet.svg" alt="" />
               <div class="meta">
                 <span>Project Budget</span>
-                <span>0.6MB <i
-                  aria-hidden="true"
-                  class="fas fa-circle"
-                /> 8 days ago</span>
+                <span
+                  >0.6MB <i aria-hidden="true" class="fas fa-circle" /> 8 days ago</span
+                >
               </div>
               <FileCardDropdown />
             </div>
             <div class="file-box">
-              <img
-                src="/images/icons/files/video.svg"
-                alt=""
-              >
+              <img src="/images/icons/files/video.svg" alt="" />
               <div class="meta">
                 <span>POC Demo</span>
-                <span>8.75MB <i
-                  aria-hidden="true"
-                  class="fas fa-circle"
-                /> 8 days ago</span>
+                <span
+                  >8.75MB <i aria-hidden="true" class="fas fa-circle" /> 8 days ago</span
+                >
               </div>
               <FileCardDropdown />
             </div>
@@ -161,42 +120,23 @@ const panels = usePanels()
           <h3>Messages</h3>
           <div class="field has-textarea-addon">
             <div class="control">
-              <textarea
-                class="textarea"
-                rows="3"
-                placeholder="Send a quick message..."
-              />
+              <textarea class="textarea" rows="3" placeholder="Send a quick message..." />
             </div>
             <div class="control is-textarea-addon">
               <div class="start">
                 <div class="avatar-stack">
-                  <VAvatar
-                    size="small"
-                    picture="/images/avatars/svg/vuero-1.svg"
-                  />
+                  <VAvatar size="small" picture="/images/avatars/svg/vuero-1.svg" />
                 </div>
               </div>
               <div class="end">
                 <a class="message-action">
-                  <i
-                    aria-hidden="true"
-                    class="iconify"
-                    data-icon="feather:smile"
-                  />
+                  <i aria-hidden="true" class="iconify" data-icon="feather:smile" />
                 </a>
                 <a class="message-action">
-                  <i
-                    aria-hidden="true"
-                    class="iconify"
-                    data-icon="feather:at-sign"
-                  />
+                  <i aria-hidden="true" class="iconify" data-icon="feather:at-sign" />
                 </a>
                 <a class="message-action">
-                  <i
-                    aria-hidden="true"
-                    class="iconify"
-                    data-icon="feather:paperclip"
-                  />
+                  <i aria-hidden="true" class="iconify" data-icon="feather:paperclip" />
                 </a>
                 <a class="button v-button is-primary is-bold is-raised">Send</a>
               </div>

@@ -15,10 +15,7 @@ const tab = ref(props.activeTab)
 </script>
 
 <template>
-  <div
-    class="widget social-buttons-widget"
-    :class="[props.straight && 'is-straight']"
-  >
+  <div class="widget social-buttons-widget" :class="[props.straight && 'is-straight']">
     <div class="social-buttons">
       <div
         v-for="(button, index) in props.buttons"
@@ -37,10 +34,7 @@ const tab = ref(props.activeTab)
           @keydown.space.prevent="tab = index"
           @click="tab = index"
         >
-          <i
-            aria-hidden="true"
-            :class="button.icon"
-          />
+          <i aria-hidden="true" :class="button.icon" />
         </a>
       </div>
     </div>

@@ -349,22 +349,10 @@ watch(
 
 <template>
   <div class="dashboard-map-wrapper">
-    <div
-      class="dashboard-map-wrapper-inner"
-      :class="[props.reversed && 'is-reversed']"
-    >
-      <div
-        ref="mapElement"
-        class="map-section"
-      />
-      <div
-        ref="geocoderElement"
-        class="geocoder"
-      />
-      <div
-        ref="popupElement"
-        style="display: none; visibility: hidden"
-      >
+    <div class="dashboard-map-wrapper-inner" :class="[props.reversed && 'is-reversed']">
+      <div ref="mapElement" class="map-section" />
+      <div ref="geocoderElement" class="geocoder" />
+      <div ref="popupElement" style="display: none; visibility: hidden">
         <MapMarker
           v-if="selectedFeature"
           :logo="selectedFeature.properties.logo"
@@ -375,14 +363,9 @@ watch(
       </div>
       <div class="content-section">
         <slot name="header" />
-        <div
-          class="content-section-body"
-          data-simplebar
-        >
+        <div class="content-section-body" data-simplebar>
           <!--Title-->
-          <h4 class="content-section-title">
-            Recent Locations
-          </h4>
+          <h4 class="content-section-title">Recent Locations</h4>
 
           <!--Map Box-->
           <div
@@ -403,10 +386,7 @@ watch(
                   center
                 >
                   <template #icon>
-                    <VAvatar
-                      size="small"
-                      :picture="feature.properties.logo"
-                    />
+                    <VAvatar size="small" :picture="feature.properties.logo" />
                   </template>
                 </VBlock>
               </div>
@@ -416,22 +396,12 @@ watch(
                 </p>
               </div>
               <div class="map-box-actions">
-                <VRangeRating
-                  :model-value="5"
-                  readonly
-                >
-                  <i
-                    class="fas fa-star"
-                    aria-hidden="true"
-                  />
+                <VRangeRating :model-value="5" readonly>
+                  <i class="fas fa-star" aria-hidden="true" />
                 </VRangeRating>
                 <div class="actions">
                   <div class="action">
-                    <i
-                      aria-hidden="true"
-                      class="iconify"
-                      data-icon="feather:flag"
-                    />
+                    <i aria-hidden="true" class="iconify" data-icon="feather:flag" />
                     <span class="dark-inverted">
                       {{ feature.properties.distance }} mile
                     </span>

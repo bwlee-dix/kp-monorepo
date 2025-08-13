@@ -13,26 +13,19 @@
             class="light-image"
             src="/@dds/assets/illustrations/onboarding/set1-1.svg"
             alt=""
-          >
+          />
           <img
             class="dark-image"
             src="/@dds/sets/illustrations/onboarding/set1-1-dark.svg"
             alt=""
-          >
+          />
           <h3>Configure Shop</h3>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Recte dicis; Ita enim
             vivunt quidam, ut eorum vita refellatur oratio. Sed tament.
           </p>
           <div class="button-wrap">
-            <VButton
-              color="primary"
-              outlined
-              rounded
-              raised
-            >
-              Configure Shop
-            </VButton>
+            <VButton color="primary" outlined rounded raised> Configure Shop </VButton>
           </div>
         </div>
         <!--Card-->
@@ -41,26 +34,19 @@
             class="light-image"
             src="/@dds/sets/illustrations/onboarding/set1-2.svg"
             alt=""
-          >
+          />
           <img
             class="dark-image"
             src="/@dds/sets/illustrations/onboarding/set1-2-dark.svg"
             alt=""
-          >
+          />
           <h3>Manage Products</h3>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Recte dicis; Ita enim
             vivunt quidam, ut eorum vita refellatur oratio. Sed tament.
           </p>
           <div class="button-wrap">
-            <VButton
-              color="primary"
-              outlined
-              rounded
-              raised
-            >
-              Manage Products
-            </VButton>
+            <VButton color="primary" outlined rounded raised> Manage Products </VButton>
           </div>
         </div>
         <!--Card-->
@@ -69,26 +55,19 @@
             class="light-image"
             src="/@dds/sets/illustrations/onboarding/set1-3.svg"
             alt=""
-          >
+          />
           <img
             class="dark-image"
             src="/@dds/sets/illustrations/onboarding/set1-3-dark.svg"
             alt=""
-          >
+          />
           <h3>Setup Payments</h3>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Recte dicis; Ita enim
             vivunt quidam, ut eorum vita refellatur oratio. Sed tament.
           </p>
           <div class="button-wrap">
-            <VButton
-              color="primary"
-              outlined
-              rounded
-              raised
-            >
-              Setup Payments
-            </VButton>
+            <VButton color="primary" outlined rounded raised> Setup Payments </VButton>
           </div>
         </div>
       </div>

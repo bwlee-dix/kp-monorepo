@@ -8,23 +8,13 @@ const props = defineProps<{
 </script>
 
 <template>
-  <div
-    :class="[props.isOpen && 'is-active']"
-    class="mobile-main-sidebar"
-  >
+  <div :class="[props.isOpen && 'is-active']" class="mobile-main-sidebar">
     <div class="inner">
       <ul class="icon-side-menu">
         <slot name="links">
           <li>
-            <a
-              aria-label="Back to homepage"
-              href="/"
-            >
-              <i
-                aria-hidden="true"
-                class="iconify"
-                data-icon="feather:activity"
-              />
+            <a aria-label="Back to homepage" href="/">
+              <i aria-hidden="true" class="iconify" data-icon="feather:activity" />
             </a>
           </li>
         </slot>

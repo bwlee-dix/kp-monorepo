@@ -16,11 +16,7 @@ const chat = useChat()
     "
     @click="chat.setMobileConversationDetailsOpen(!chat.mobileConversationDetailsOpen)"
   >
-    <i
-      aria-hidden="true"
-      class="iconify"
-      data-icon="feather:chevron-left"
-    />
+    <i aria-hidden="true" class="iconify" data-icon="feather:chevron-left" />
   </a>
 </template>
 

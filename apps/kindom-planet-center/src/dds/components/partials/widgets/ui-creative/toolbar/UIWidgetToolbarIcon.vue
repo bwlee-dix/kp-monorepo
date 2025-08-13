@@ -18,11 +18,7 @@ const props = withDefaults(
     </div>
     <div class="right">
       <a class="right-icon has-indicator">
-        <i
-          aria-hidden="true"
-          class="iconify"
-          :data-icon="props.icon"
-        />
+        <i aria-hidden="true" class="iconify" :data-icon="props.icon" />
       </a>
     </div>
   </div>

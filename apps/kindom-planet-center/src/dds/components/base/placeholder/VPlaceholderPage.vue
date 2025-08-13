@@ -17,10 +17,7 @@ const props = withDefaults(defineProps<VPlaceholderPageProps>(), {
       <h3 class="dark-inverted">
         {{ props.title }}
       </h3>
-      <p
-        v-if="props.subtitle"
-        :class="[props.larger && 'is-larger']"
-      >
+      <p v-if="props.subtitle" :class="[props.larger && 'is-larger']">
         {{ props.subtitle }}
       </p>
       <slot name="action" />

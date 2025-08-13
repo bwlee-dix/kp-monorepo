@@ -1,19 +1,16 @@
 <script setup lang="ts">
-
 import { useViewWrapper } from '/@dds/stores/viewWrapper'
 
 import { userList } from '/@dds/ta/layouts/datatable-v1'
 
 import type { VAvatarProps } from '/@dds/mponents/base/avatar/VAvatar.vue'
 
-
 const viewWrapper = useViewWrapper()
 
 const router = useRouter()
 
-const eventId = (router.currentRoute.value.params as any).eventId as string;
+const eventId = (router.currentRoute.value.params as any).eventId as string
 viewWrapper.setPageTitle('KOSTA 2025 참가자 목록')
-
 
 useHead({
   title: 'Event - App name - KingdomPlanet',
@@ -55,17 +52,12 @@ const filteredData = computed(() => {
 const clickRegistration = (id: string) => {
   router.push(`/event/${eventId}/registration/${id}`)
 }
-
 </script>
 
 <template>
-  <AdminSideblockLayout
-    theme="curved"
-    open-on-mounted
-  >
+  <AdminSideblockLayout theme="curved" open-on-mounted>
     <!-- Content Wrapper -->
     <div class="page-content-inner">
-
       <div>
         <div class="datatable-wrapper">
           <div class="table-container">
@@ -90,10 +82,7 @@ const clickRegistration = (id: string) => {
                   <td>{{ user.id }}</td>
                   <td>
                     <div class="flex-media">
-                      <VAvatar
-                        :picture="user.picture"
-                        alt="Avatar"
-                      />
+                      <VAvatar :picture="user.picture" alt="Avatar" />
                       <div class="meta">
                         <h3>{{ user.username }}</h3>
                         <span>{{ user.position }}</span>
@@ -104,11 +93,7 @@ const clickRegistration = (id: string) => {
                   <td>{{ user.industry }}</td>
                   <td>
                     <div>
-                      <VAvatarStack
-                        :avatars="user.contacts"
-                        size="small"
-                        :limit="3"
-                      />
+                      <VAvatarStack :avatars="user.contacts" size="small" :limit="3" />
                     </div>
                   </td>
                   <td>
@@ -130,12 +115,12 @@ const clickRegistration = (id: string) => {
                 class="light-image"
                 src="/@dds/sets/illustrations/placeholders/search-7.svg"
                 alt=""
-              >
+              />
               <img
                 class="dark-image"
                 src="/@dds/sets/illustrations/placeholders/search-7-dark.svg"
                 alt=""
-              >
+              />
             </template>
           </VPlaceholderPage>
         </div>

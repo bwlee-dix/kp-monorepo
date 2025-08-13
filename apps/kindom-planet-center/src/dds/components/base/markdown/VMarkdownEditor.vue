@@ -221,17 +221,10 @@ watchEffect((cleanup) => {
 
 <template>
   <div class="markdown-editor">
-    <VFlex
-      justify-content="space-between"
-      class="toolbar"
-    >
+    <VFlex justify-content="space-between" class="toolbar">
       <VFlexItem class="toolbar-mode">
         <VButtons addons>
-          <VAction
-            dark="2"
-            :active="mode === 'write'"
-            @click="mode = 'write'"
-          >
+          <VAction dark="2" :active="mode === 'write'" @click="mode = 'write'">
             <VIcon icon="feather:edit-3" />
             <span>Write</span>
           </VAction>
@@ -248,15 +241,8 @@ watchEffect((cleanup) => {
       </VFlexItem>
       <VFlexItem class="toolbar-actions">
         <!-- toolbar -->
-        <VButtons
-          v-if="mode === 'write'"
-          addons
-        >
-          <div
-            v-for="(command, key) in props.toolbar"
-            :key="key"
-            class="toolbar-item"
-          >
+        <VButtons v-if="mode === 'write'" addons>
+          <div v-for="(command, key) in props.toolbar" :key="key" class="toolbar-item">
             <VAction
               v-if="'action' in command"
               v-tooltip.rounded="command.tooltip"
@@ -264,10 +250,7 @@ watchEffect((cleanup) => {
               class="toolbar-action"
               @click.prevent="() => triggerAction(command.action)"
             >
-              <VIcon
-                v-if="command.icon"
-                :icon="command.icon"
-              />
+              <VIcon v-if="command.icon" :icon="command.icon" />
               <span v-if="command.label">{{ command.label }}</span>
             </VAction>
             <VDropdown
@@ -284,19 +267,13 @@ watchEffect((cleanup) => {
                   @keydown.space.prevent="dropdown.toggle"
                   @click="dropdown.toggle"
                 >
-                  <VIcon
-                    v-if="command.icon"
-                    :icon="command.icon"
-                  />
+                  <VIcon v-if="command.icon" :icon="command.icon" />
                   <span v-if="command.label">{{ command.label }}</span>
                 </VAction>
               </template>
 
               <template #content>
-                <VButtons
-                  class="mt-1"
-                  addons
-                >
+                <VButtons class="mt-1" addons>
                   <VAction
                     v-for="(sub, subkey) in command.children"
                     :key="`action-${subkey}`"
@@ -305,10 +282,7 @@ watchEffect((cleanup) => {
                     dark="2"
                     @click.prevent="() => triggerAction(sub.action)"
                   >
-                    <VIcon
-                      v-if="sub.icon"
-                      :icon="sub.icon"
-                    />
+                    <VIcon v-if="sub.icon" :icon="sub.icon" />
                     <span v-if="sub.label">{{ sub.label }}</span>
                   </VAction>
                 </VButtons>
@@ -320,10 +294,7 @@ watchEffect((cleanup) => {
     </VFlex>
 
     <!-- textarea input -->
-    <slot
-      v-if="mode === 'write'"
-      name="before-textarea"
-    />
+    <slot v-if="mode === 'write'" name="before-textarea" />
     <textarea
       v-show="mode === 'write'"
       :id="id"
@@ -335,16 +306,9 @@ watchEffect((cleanup) => {
       rows="10"
       @input="fitSize"
     />
-    <slot
-      v-if="mode === 'write'"
-      name="after-textarea"
-    />
+    <slot v-if="mode === 'write'" name="after-textarea" />
 
-    <slot
-      v-if="mode === 'preview'"
-      name="preview"
-      v-bind="{ value: internal }"
-    >
+    <slot v-if="mode === 'preview'" name="preview" v-bind="{ value: internal }">
       <VCard radius="smooth">
         <VMarkdownPreview :source="internal" />
       </VCard>

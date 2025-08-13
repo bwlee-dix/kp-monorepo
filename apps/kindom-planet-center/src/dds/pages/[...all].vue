@@ -43,16 +43,14 @@ useHead({
             type="checkbox"
             :checked="!darkmode.isDark"
             @change="darkmode.onChange"
-          >
+          />
           <span />
         </label>
       </div>
 
       <div class="error-wrapper">
         <div class="error-inner has-text-centered">
-          <div class="bg-number">
-            404
-          </div>
+          <div class="bg-number">404</div>
           <SVGErrorPlaceholder />
 
           <h3>{{ t('pages.not-found.page-heading') }}</h3>
@@ -60,11 +58,7 @@ useHead({
             {{ t('pages.not-found.page-body') }}
           </p>
           <div class="button-wrap">
-            <VButton
-              color="primary"
-              elevated
-              to="/"
-            >
+            <VButton color="primary" elevated to="/">
               {{ t('pages.not-found.back-button') }}
             </VButton>
           </div>

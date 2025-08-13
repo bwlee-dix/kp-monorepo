@@ -35,40 +35,28 @@ onMounted(async () => {
     <div class="company-header is-dark-card-bordered is-dark-bg-6">
       <div class="header-item is-dark-bordered-12">
         <div class="item-inner">
-          <i
-            aria-hidden="true"
-            class="lnil lnil-users-alt is-dark-primary"
-          />
+          <i aria-hidden="true" class="lnil lnil-users-alt is-dark-primary" />
           <span class="dark-inverted">162</span>
           <p>New Users</p>
         </div>
       </div>
       <div class="header-item is-dark-bordered-12">
         <div class="item-inner">
-          <i
-            aria-hidden="true"
-            class="lnil lnil-diamond-alt is-dark-primary"
-          />
+          <i aria-hidden="true" class="lnil lnil-diamond-alt is-dark-primary" />
           <span class="dark-inverted">$1,835.41</span>
           <p>Daily Income</p>
         </div>
       </div>
       <div class="header-item is-dark-bordered-12">
         <div class="item-inner">
-          <i
-            aria-hidden="true"
-            class="lnil lnil-briefcase-alt is-dark-primary"
-          />
+          <i aria-hidden="true" class="lnil lnil-briefcase-alt is-dark-primary" />
           <span class="dark-inverted">378</span>
           <p>Completed Projects</p>
         </div>
       </div>
       <div class="header-item is-dark-bordered-12">
         <div class="item-inner">
-          <i
-            aria-hidden="true"
-            class="lnil lnil-ticket is-dark-primary"
-          />
+          <i aria-hidden="true" class="lnil lnil-ticket is-dark-primary" />
           <span class="dark-inverted">192</span>
           <p>Active Tickets</p>
         </div>
@@ -86,19 +74,13 @@ onMounted(async () => {
             <template #badge>
               <button class="button icon-button is-circle is-dark-outlined">
                 <span class="icon is-small">
-                  <i
-                    aria-hidden="true"
-                    class="iconify"
-                    data-icon="feather:plus"
-                  />
+                  <i aria-hidden="true" class="iconify" data-icon="feather:plus" />
                 </span>
               </button>
             </template>
           </VAvatar>
 
-          <h3 class="dark-inverted">
-            U Learning
-          </h3>
+          <h3 class="dark-inverted">U Learning</h3>
           <p>Online Courses</p>
           <div class="description">
             <p>
@@ -194,10 +176,7 @@ onMounted(async () => {
 
       <div class="column is-3">
         <!--Widget-->
-        <UIWidget
-          class="gauge-widget"
-          straight
-        >
+        <UIWidget class="gauge-widget" straight>
           <template #header>
             <UIWidgetToolbarDropdown title="Gauge Widget" />
           </template>
@@ -218,9 +197,7 @@ onMounted(async () => {
       <div class="column is-6">
         <div class="dashboard-card">
           <div class="card-head">
-            <h3 class="dark-inverted">
-              Subscriptions
-            </h3>
+            <h3 class="dark-inverted">Subscriptions</h3>
           </div>
           <ApexChart
             id="bar-chart"
@@ -233,10 +210,7 @@ onMounted(async () => {
       </div>
       <div class="column is-3">
         <!--Widget-->
-        <UIWidget
-          class="picker-widget"
-          straight
-        >
+        <UIWidget class="picker-widget" straight>
           <template #header>
             <div class="widget-toolbar">
               <div class="left">
@@ -276,41 +250,21 @@ onMounted(async () => {
             <table class="calendar">
               <thead>
                 <tr>
-                  <th scope="col">
-                    Mon
-                  </th>
-                  <th scope="col">
-                    Tue
-                  </th>
-                  <th scope="col">
-                    Wed
-                  </th>
-                  <th scope="col">
-                    Thu
-                  </th>
-                  <th scope="col">
-                    Fri
-                  </th>
-                  <th scope="col">
-                    Sat
-                  </th>
-                  <th scope="col">
-                    Sun
-                  </th>
+                  <th scope="col">Mon</th>
+                  <th scope="col">Tue</th>
+                  <th scope="col">Wed</th>
+                  <th scope="col">Thu</th>
+                  <th scope="col">Fri</th>
+                  <th scope="col">Sat</th>
+                  <th scope="col">Sun</th>
                 </tr>
               </thead>
 
               <tbody>
                 <tr>
-                  <td class="prev-month">
-                    29
-                  </td>
-                  <td class="prev-month">
-                    30
-                  </td>
-                  <td class="prev-month">
-                    31
-                  </td>
+                  <td class="prev-month">29</td>
+                  <td class="prev-month">30</td>
+                  <td class="prev-month">31</td>
                   <td>1</td>
                   <td>2</td>
                   <td>3</td>
@@ -334,9 +288,7 @@ onMounted(async () => {
                   <td>15</td>
                   <td>16</td>
                   <td>17</td>
-                  <td class="current-day">
-                    18
-                  </td>
+                  <td class="current-day">18</td>
                 </tr>
 
                 <tr>
@@ -356,9 +308,7 @@ onMounted(async () => {
                   <td>29</td>
                   <td>30</td>
                   <td>31</td>
-                  <td class="next-month">
-                    1
-                  </td>
+                  <td class="next-month">1</td>
                 </tr>
               </tbody>
             </table>
@@ -369,13 +319,8 @@ onMounted(async () => {
       <div class="column is-12">
         <div class="dashboard-card is-tickets">
           <div class="card-head">
-            <h3 class="dark-inverted">
-              Pending Tickets
-            </h3>
-            <a
-              class="action-link"
-              tabindex="0"
-            >View All</a>
+            <h3 class="dark-inverted">Pending Tickets</h3>
+            <a class="action-link" tabindex="0">View All</a>
           </div>
 
           <div class="ticket-list">
@@ -395,22 +340,14 @@ onMounted(async () => {
                   :offset="[0, 10]"
                   placement="top-start"
                 >
-                  <VAvatar
-                    size="medium"
-                    picture="/demo/avatars/31.jpg"
-                  />
+                  <VAvatar size="medium" picture="/demo/avatars/31.jpg" />
                   <template #content>
                     <UserPopoverContent :user="popovers.user31" />
                   </template>
                 </Tippy>
               </template>
               <template #action>
-                <VButton
-                  color="primary"
-                  raised
-                >
-                  Manage
-                </VButton>
+                <VButton color="primary" raised> Manage </VButton>
               </template>
             </VBlock>
 
@@ -430,22 +367,14 @@ onMounted(async () => {
                   :offset="[0, 10]"
                   placement="top-start"
                 >
-                  <VAvatar
-                    size="medium"
-                    picture="/demo/avatars/23.jpg"
-                  />
+                  <VAvatar size="medium" picture="/demo/avatars/23.jpg" />
                   <template #content>
                     <UserPopoverContent :user="popovers.user23" />
                   </template>
                 </Tippy>
               </template>
               <template #action>
-                <VButton
-                  color="primary"
-                  raised
-                >
-                  Manage
-                </VButton>
+                <VButton color="primary" raised> Manage </VButton>
               </template>
             </VBlock>
 
@@ -465,22 +394,14 @@ onMounted(async () => {
                   :offset="[0, 10]"
                   placement="top-start"
                 >
-                  <VAvatar
-                    size="medium"
-                    picture="/demo/avatars/32.jpg"
-                  />
+                  <VAvatar size="medium" picture="/demo/avatars/32.jpg" />
                   <template #content>
                     <UserPopoverContent :user="popovers.user32" />
                   </template>
                 </Tippy>
               </template>
               <template #action>
-                <VButton
-                  color="primary"
-                  raised
-                >
-                  Manage
-                </VButton>
+                <VButton color="primary" raised> Manage </VButton>
               </template>
             </VBlock>
 
@@ -500,22 +421,14 @@ onMounted(async () => {
                   :offset="[0, 10]"
                   placement="top-start"
                 >
-                  <VAvatar
-                    size="medium"
-                    picture="/demo/avatars/13.jpg"
-                  />
+                  <VAvatar size="medium" picture="/demo/avatars/13.jpg" />
                   <template #content>
                     <UserPopoverContent :user="popovers.user13" />
                   </template>
                 </Tippy>
               </template>
               <template #action>
-                <VButton
-                  color="primary"
-                  raised
-                >
-                  Manage
-                </VButton>
+                <VButton color="primary" raised> Manage </VButton>
               </template>
             </VBlock>
           </div>

@@ -63,18 +63,9 @@ const isIconify = computed(() => {
       :src="props.picture"
       alt=""
       @error.once="onceImageErrored(32)"
-    >
-    <i
-      v-else-if="isIconify"
-      aria-hidden="true"
-      class="iconify"
-      :data-icon="props.icon"
     />
-    <i
-      v-else-if="props.icon"
-      aria-hidden="true"
-      :class="props.icon"
-    />
+    <i v-else-if="isIconify" aria-hidden="true" class="iconify" :data-icon="props.icon" />
+    <i v-else-if="props.icon" aria-hidden="true" :class="props.icon" />
     <slot name="after" />
   </div>
 </template>

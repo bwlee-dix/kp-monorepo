@@ -24,9 +24,7 @@ useHead({
     <MapsDashboard reversed>
       <template #header>
         <div class="content-section-header">
-          <h2 class="title is-4 is-narrow">
-            Maps 2
-          </h2>
+          <h2 class="title is-4 is-narrow">Maps 2</h2>
 
           <Toolbar class="desktop-toolbar">
             <ToolbarNotification />
@@ -39,11 +37,7 @@ useHead({
               @keydown.space.prevent="panels.setActive('activity')"
               @click="panels.setActive('activity')"
             >
-              <i
-                aria-hidden="true"
-                class="iconify"
-                data-icon="feather:grid"
-              />
+              <i aria-hidden="true" class="iconify" data-icon="feather:grid" />
             </a>
           </Toolbar>
         </div>

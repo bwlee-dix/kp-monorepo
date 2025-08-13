@@ -19,11 +19,7 @@ const props = withDefaults(
       class="inner-list-item"
     >
       <template #icon>
-        <img
-          class="image-icon"
-          :src="file.icon"
-          alt=""
-        >
+        <img class="image-icon" :src="file.icon" alt="" />
       </template>
       <template #action>
         <ListWidgetFileDropdown />

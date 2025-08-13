@@ -42,27 +42,15 @@ onMounted(() => {
   <div class="finance-dashboard sales-dashboard">
     <!--Header-->
     <div class="dashboard-header">
-      <VAvatar
-        size="large"
-        picture="/images/avatars/svg/vuero-1.svg"
-      />
+      <VAvatar size="large" picture="/images/avatars/svg/vuero-1.svg" />
 
       <div class="start">
-        <h3 class="dark-inverted">
-          Welcome back, Erik Kovalsky
-        </h3>
+        <h3 class="dark-inverted">Welcome back, Erik Kovalsky</h3>
         <p>We're very happy to see you again on your dashboard.</p>
       </div>
       <div class="end">
-        <VButton dark="3">
-          View Reports
-        </VButton>
-        <VButton
-          color="primary"
-          elevated
-        >
-          Transactions
-        </VButton>
+        <VButton dark="3"> View Reports </VButton>
+        <VButton color="primary" elevated> Transactions </VButton>
       </div>
     </div>
 
@@ -115,9 +103,7 @@ onMounted(() => {
         <div class="column is-7">
           <div class="dashboard-card">
             <div class="card-head">
-              <h3 class="dark-inverted">
-                Revenue Overview
-              </h3>
+              <h3 class="dark-inverted">Revenue Overview</h3>
             </div>
             <div class="revenue-stats">
               <div class="revenue-stat">
@@ -146,9 +132,7 @@ onMounted(() => {
           <div class="dashboard-card flex-chart">
             <div class="chart-media">
               <div class="meta">
-                <h4 class="dark-inverted">
-                  Sales Revenue
-                </h4>
+                <h4 class="dark-inverted">Sales Revenue</h4>
                 <span class="is-dark-primary">$8,641.26</span>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bonum
@@ -168,9 +152,7 @@ onMounted(() => {
           </div>
           <div class="dashboard-card flex-chart">
             <div class="card-head">
-              <h3 class="dark-inverted">
-                Additional Stats
-              </h3>
+              <h3 class="dark-inverted">Additional Stats</h3>
             </div>
             <div class="chart-group">
               <div class="group">
@@ -227,19 +209,14 @@ onMounted(() => {
           <div class="widget gauge-widget is-straight">
             <div class="widget-toolbar">
               <div class="left">
-                <h3 class="is-bigger">
-                  Personal Score
-                </h3>
+                <h3 class="is-bigger">Personal Score</h3>
               </div>
               <div class="right">
                 <WidgetDropdown />
               </div>
             </div>
             <div class="gauge-wrap">
-              <div
-                id="gauge-holder"
-                class="gauge-holder"
-              />
+              <div id="gauge-holder" class="gauge-holder" />
               <VBillboardJS
                 :options="personalScoreGaugeOptions"
                 @ready="onPersonalScoreGaugeReady"
@@ -253,9 +230,7 @@ onMounted(() => {
         <div class="column is-6">
           <div class="dashboard-card">
             <div class="card-head">
-              <h3 class="dark-inverted">
-                Orders Summary
-              </h3>
+              <h3 class="dark-inverted">Orders Summary</h3>
             </div>
             <ApexChart
               id="bar-chart"
@@ -268,10 +243,7 @@ onMounted(() => {
         </div>
         <div class="column is-3">
           <!--Widget-->
-          <UIWidget
-            class="picker-widget"
-            straight
-          >
+          <UIWidget class="picker-widget" straight>
             <template #header>
               <div class="widget-toolbar">
                 <div class="left">
@@ -311,41 +283,21 @@ onMounted(() => {
               <table class="calendar">
                 <thead>
                   <tr>
-                    <th scope="col">
-                      Mon
-                    </th>
-                    <th scope="col">
-                      Tue
-                    </th>
-                    <th scope="col">
-                      Wed
-                    </th>
-                    <th scope="col">
-                      Thu
-                    </th>
-                    <th scope="col">
-                      Fri
-                    </th>
-                    <th scope="col">
-                      Sat
-                    </th>
-                    <th scope="col">
-                      Sun
-                    </th>
+                    <th scope="col">Mon</th>
+                    <th scope="col">Tue</th>
+                    <th scope="col">Wed</th>
+                    <th scope="col">Thu</th>
+                    <th scope="col">Fri</th>
+                    <th scope="col">Sat</th>
+                    <th scope="col">Sun</th>
                   </tr>
                 </thead>
 
                 <tbody>
                   <tr>
-                    <td class="prev-month">
-                      29
-                    </td>
-                    <td class="prev-month">
-                      30
-                    </td>
-                    <td class="prev-month">
-                      31
-                    </td>
+                    <td class="prev-month">29</td>
+                    <td class="prev-month">30</td>
+                    <td class="prev-month">31</td>
                     <td>1</td>
                     <td>2</td>
                     <td>3</td>
@@ -369,9 +321,7 @@ onMounted(() => {
                     <td>15</td>
                     <td>16</td>
                     <td>17</td>
-                    <td class="current-day">
-                      18
-                    </td>
+                    <td class="current-day">18</td>
                   </tr>
 
                   <tr>
@@ -391,9 +341,7 @@ onMounted(() => {
                     <td>29</td>
                     <td>30</td>
                     <td>31</td>
-                    <td class="next-month">
-                      1
-                    </td>
+                    <td class="next-month">1</td>
                   </tr>
                 </tbody>
               </table>

@@ -22,10 +22,7 @@ useHead({
 </script>
 
 <template>
-  <SideblockLayout
-    theme="color"
-    open-on-mounted
-  >
+  <SideblockLayout theme="color" open-on-mounted>
     <!-- Content Wrapper -->
     <div class="page-content-inner">
       <!--

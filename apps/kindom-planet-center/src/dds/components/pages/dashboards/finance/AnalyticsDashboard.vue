@@ -23,30 +23,18 @@ const { optionsCircle } = useGrowthRadialChart()
           <div class="column is-4">
             <div class="dashboard-tile">
               <div class="tile-head">
-                <h3 class="dark-inverted">
-                  Transactions
-                </h3>
-                <VIconBox
-                  color="primary"
-                  size="small"
-                  rounded
-                >
-                  <i
-                    aria-hidden="true"
-                    class="fas fa-gem"
-                  />
+                <h3 class="dark-inverted">Transactions</h3>
+                <VIconBox color="primary" size="small" rounded>
+                  <i aria-hidden="true" class="fas fa-gem" />
                 </VIconBox>
               </div>
               <div class="tile-body">
                 <span class="dark-inverted">8,637</span>
               </div>
               <div class="tile-foot">
-                <span class="text-h-green">+6.4%
-                  <i
-                    aria-hidden="true"
-                    class="iconify"
-                    data-icon="feather:trending-up"
-                  />
+                <span class="text-h-green"
+                  >+6.4%
+                  <i aria-hidden="true" class="iconify" data-icon="feather:trending-up" />
                 </span>
                 <span>since last month</span>
               </div>
@@ -56,25 +44,17 @@ const { optionsCircle } = useGrowthRadialChart()
           <div class="column is-4">
             <div class="dashboard-tile">
               <div class="tile-head">
-                <h3 class="dark-inverted">
-                  Subscriptions
-                </h3>
-                <VIconBox
-                  color="orange"
-                  size="small"
-                  rounded
-                >
-                  <i
-                    aria-hidden="true"
-                    class="fas fa-user-plus"
-                  />
+                <h3 class="dark-inverted">Subscriptions</h3>
+                <VIconBox color="orange" size="small" rounded>
+                  <i aria-hidden="true" class="fas fa-user-plus" />
                 </VIconBox>
               </div>
               <div class="tile-body">
                 <span class="dark-inverted">1,378</span>
               </div>
               <div class="tile-foot">
-                <span class="text-h-red">-2.1%
+                <span class="text-h-red"
+                  >-2.1%
                   <i
                     aria-hidden="true"
                     class="iconify"
@@ -89,30 +69,18 @@ const { optionsCircle } = useGrowthRadialChart()
           <div class="column is-4">
             <div class="dashboard-tile">
               <div class="tile-head">
-                <h3 class="dark-inverted">
-                  Referals
-                </h3>
-                <VIconBox
-                  color="green"
-                  size="small"
-                  rounded
-                >
-                  <i
-                    aria-hidden="true"
-                    class="fas fa-bullhorn"
-                  />
+                <h3 class="dark-inverted">Referals</h3>
+                <VIconBox color="green" size="small" rounded>
+                  <i aria-hidden="true" class="fas fa-bullhorn" />
                 </VIconBox>
               </div>
               <div class="tile-body">
                 <span class="dark-inverted">1,911</span>
               </div>
               <div class="tile-foot">
-                <span class="text-h-green">+4.2%
-                  <i
-                    aria-hidden="true"
-                    class="iconify"
-                    data-icon="feather:trending-up"
-                  />
+                <span class="text-h-green"
+                  >+4.2%
+                  <i aria-hidden="true" class="iconify" data-icon="feather:trending-up" />
                 </span>
                 <span>going up</span>
               </div>
@@ -122,9 +90,7 @@ const { optionsCircle } = useGrowthRadialChart()
           <div class="column is-8">
             <div class="dashboard-card">
               <div class="card-head">
-                <h3 class="dark-inverted">
-                  Revenue
-                </h3>
+                <h3 class="dark-inverted">Revenue</h3>
               </div>
               <div class="revenue-stats">
                 <div class="revenue-stat">
@@ -149,9 +115,7 @@ const { optionsCircle } = useGrowthRadialChart()
           <div class="column is-4">
             <div class="dashboard-card">
               <div class="card-head">
-                <h3 class="dark-inverted">
-                  Goal Overview
-                </h3>
+                <h3 class="dark-inverted">Goal Overview</h3>
               </div>
 
               <div class="radial-wrap">
@@ -179,21 +143,17 @@ const { optionsCircle } = useGrowthRadialChart()
           <div class="column is-4">
             <div class="dashboard-card">
               <div class="card-head">
-                <h3 class="dark-inverted">
-                  Sales
-                </h3>
+                <h3 class="dark-inverted">Sales</h3>
               </div>
 
               <div class="progress-block">
                 <div class="value">
                   <span class="dark-inverted">78%</span>
                 </div>
-                <VProgress
-                  size="tiny"
-                  :value="78"
-                />
+                <VProgress size="tiny" :value="78" />
                 <div class="progress-foot">
-                  <span class="text-h-green">+6.4%
+                  <span class="text-h-green"
+                    >+6.4%
                     <i
                       aria-hidden="true"
                       class="iconify"
@@ -218,9 +178,7 @@ const { optionsCircle } = useGrowthRadialChart()
           <div class="column is-8">
             <div class="dashboard-card">
               <div class="card-head">
-                <h3 class="dark-inverted">
-                  Profit
-                </h3>
+                <h3 class="dark-inverted">Profit</h3>
               </div>
               <ApexChart
                 id="profit-chart"
@@ -250,10 +208,7 @@ const { optionsCircle } = useGrowthRadialChart()
         />
 
         <!--Widget-->
-        <UIWidget
-          class="picker-widget"
-          straight
-        >
+        <UIWidget class="picker-widget" straight>
           <template #header>
             <div class="widget-toolbar">
               <div class="left">
@@ -293,41 +248,21 @@ const { optionsCircle } = useGrowthRadialChart()
             <table class="calendar">
               <thead>
                 <tr>
-                  <th scope="col">
-                    Mon
-                  </th>
-                  <th scope="col">
-                    Tue
-                  </th>
-                  <th scope="col">
-                    Wed
-                  </th>
-                  <th scope="col">
-                    Thu
-                  </th>
-                  <th scope="col">
-                    Fri
-                  </th>
-                  <th scope="col">
-                    Sat
-                  </th>
-                  <th scope="col">
-                    Sun
-                  </th>
+                  <th scope="col">Mon</th>
+                  <th scope="col">Tue</th>
+                  <th scope="col">Wed</th>
+                  <th scope="col">Thu</th>
+                  <th scope="col">Fri</th>
+                  <th scope="col">Sat</th>
+                  <th scope="col">Sun</th>
                 </tr>
               </thead>
 
               <tbody>
                 <tr>
-                  <td class="prev-month">
-                    29
-                  </td>
-                  <td class="prev-month">
-                    30
-                  </td>
-                  <td class="prev-month">
-                    31
-                  </td>
+                  <td class="prev-month">29</td>
+                  <td class="prev-month">30</td>
+                  <td class="prev-month">31</td>
                   <td>1</td>
                   <td>2</td>
                   <td>3</td>
@@ -351,9 +286,7 @@ const { optionsCircle } = useGrowthRadialChart()
                   <td>15</td>
                   <td>16</td>
                   <td>17</td>
-                  <td class="current-day">
-                    18
-                  </td>
+                  <td class="current-day">18</td>
                 </tr>
 
                 <tr>
@@ -373,9 +306,7 @@ const { optionsCircle } = useGrowthRadialChart()
                   <td>29</td>
                   <td>30</td>
                   <td>31</td>
-                  <td class="next-month">
-                    1
-                  </td>
+                  <td class="next-month">1</td>
                 </tr>
               </tbody>
             </table>
@@ -383,20 +314,15 @@ const { optionsCircle } = useGrowthRadialChart()
         </UIWidget>
 
         <!--Widget-->
-        <UIWidget
-          class="text-widget"
-          straight
-        >
+        <UIWidget class="text-widget" straight>
           <template #header>
-            <UIWidgetToolbarFollowers
-              title="New Followers"
-              :avatars="followersList"
-            />
+            <UIWidgetToolbarFollowers title="New Followers" :avatars="followersList" />
           </template>
           <template #body>
             <div class="widget-content">
               <p>
-                Great News! <span>{{ followersList[0].name }}</span>, <span>{{ followersList[1].name }}</span> and
+                Great News! <span>{{ followersList[0].name }}</span
+                >, <span>{{ followersList[1].name }}</span> and
                 <span>{{ followersList[2].name }}</span> are now following you. Take some
                 time to look at their profile.
               </p>
@@ -405,10 +331,7 @@ const { optionsCircle } = useGrowthRadialChart()
         </UIWidget>
 
         <!--Widget-->
-        <UIWidget
-          class="list-widget"
-          straight
-        >
+        <UIWidget class="list-widget" straight>
           <template #header>
             <UIWidgetToolbarDropdown title="Notifications" />
           </template>

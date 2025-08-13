@@ -19,10 +19,7 @@ const { progressChartOptions } = useProgressChart()
   <div class="lifestyle-dashboard lifestyle-dashboard-v3">
     <div class="illustration-header">
       <div class="header-image">
-        <img
-          src="/@dds/sets/illustrations/dashboards/lifestyle/doctor.svg"
-          alt=""
-        >
+        <img src="/@dds/sets/illustrations/dashboards/lifestyle/doctor.svg" alt="" />
       </div>
       <div class="header-meta">
         <h3>Today's Summary</h3>
@@ -58,19 +55,14 @@ const { progressChartOptions } = useProgressChart()
         <div class="health-tile">
           <div class="tile-head">
             <VIconBox color="primary">
-              <i
-                aria-hidden="true"
-                class="fas fa-tint"
-              />
+              <i aria-hidden="true" class="fas fa-tint" />
             </VIconBox>
             <h4>
               <span class="dark-inverted">114/90</span>
               <span>Min/Max</span>
             </h4>
           </div>
-          <h3 class="dark-inverted">
-            Blood
-          </h3>
+          <h3 class="dark-inverted">Blood</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit Illis videtur.</p>
         </div>
       </div>
@@ -80,19 +72,14 @@ const { progressChartOptions } = useProgressChart()
         <div class="health-tile">
           <div class="tile-head">
             <VIconBox color="primary">
-              <i
-                aria-hidden="true"
-                class="fas fa-heart"
-              />
+              <i aria-hidden="true" class="fas fa-heart" />
             </VIconBox>
             <h4>
               <span class="dark-inverted">112</span>
               <span>Bpm</span>
             </h4>
           </div>
-          <h3 class="dark-inverted">
-            Heart Rate
-          </h3>
+          <h3 class="dark-inverted">Heart Rate</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit Illis videtur.</p>
         </div>
       </div>
@@ -102,19 +89,14 @@ const { progressChartOptions } = useProgressChart()
         <div class="health-tile">
           <div class="tile-head">
             <VIconBox color="primary">
-              <i
-                aria-hidden="true"
-                class="fas fa-pump-medical"
-              />
+              <i aria-hidden="true" class="fas fa-pump-medical" />
             </VIconBox>
             <h4>
               <span class="dark-inverted">12/14</span>
               <span>units</span>
             </h4>
           </div>
-          <h3 class="dark-inverted">
-            Blood Pressure
-          </h3>
+          <h3 class="dark-inverted">Blood Pressure</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit Illis videtur.</p>
         </div>
       </div>
@@ -124,19 +106,14 @@ const { progressChartOptions } = useProgressChart()
         <div class="health-tile">
           <div class="tile-head">
             <VIconBox color="primary">
-              <i
-                aria-hidden="true"
-                class="fas fa-weight"
-              />
+              <i aria-hidden="true" class="fas fa-weight" />
             </VIconBox>
             <h4>
               <span class="dark-inverted">60.4</span>
               <span>lbs</span>
             </h4>
           </div>
-          <h3 class="dark-inverted">
-            Weight
-          </h3>
+          <h3 class="dark-inverted">Weight</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit Illis videtur.</p>
         </div>
       </div>
@@ -149,18 +126,12 @@ const { progressChartOptions } = useProgressChart()
           <div class="column is-6">
             <div class="dashboard-card">
               <div class="card-head">
-                <h3 class="dark-inverted">
-                  Overall Condition
-                </h3>
+                <h3 class="dark-inverted">Overall Condition</h3>
                 <WidgetDropdown />
               </div>
               <div class="chart-meta">
                 <p>
-                  <i
-                    aria-hidden="true"
-                    class="iconify"
-                    data-icon="feather:help-circle"
-                  />
+                  <i aria-hidden="true" class="iconify" data-icon="feather:help-circle" />
                   Your overall condition is very good. Make it even better.
                   <a class="is-dark-primary">Read how</a>
                 </p>
@@ -179,18 +150,12 @@ const { progressChartOptions } = useProgressChart()
           <div class="column is-6">
             <div class="dashboard-card">
               <div class="card-head">
-                <h3 class="dark-inverted">
-                  Energy Report
-                </h3>
+                <h3 class="dark-inverted">Energy Report</h3>
                 <WidgetDropdown />
               </div>
               <div class="chart-meta">
                 <p>
-                  <i
-                    aria-hidden="true"
-                    class="iconify"
-                    data-icon="feather:help-circle"
-                  />
+                  <i aria-hidden="true" class="iconify" data-icon="feather:help-circle" />
                   Your energy seems a bit unstable. You can improve it.
                   <a class="is-dark-primary">Read how</a>
                 </p>
@@ -209,18 +174,12 @@ const { progressChartOptions } = useProgressChart()
           <div class="column is-6">
             <div class="dashboard-card">
               <div class="card-head">
-                <h3 class="dark-inverted">
-                  Oxygenation
-                </h3>
+                <h3 class="dark-inverted">Oxygenation</h3>
                 <WidgetDropdown />
               </div>
               <div class="chart-meta">
                 <p>
-                  <i
-                    aria-hidden="true"
-                    class="iconify"
-                    data-icon="feather:help-circle"
-                  />
+                  <i aria-hidden="true" class="iconify" data-icon="feather:help-circle" />
                   Your oxygen seems a bit unstable. You can improve it.
                   <a class="is-dark-primary">Read how</a>
                 </p>
@@ -239,18 +198,12 @@ const { progressChartOptions } = useProgressChart()
           <div class="column is-6">
             <div class="dashboard-card">
               <div class="card-head">
-                <h3 class="dark-inverted">
-                  Overall Progress
-                </h3>
+                <h3 class="dark-inverted">Overall Progress</h3>
                 <WidgetDropdown />
               </div>
               <div class="chart-meta">
                 <p>
-                  <i
-                    aria-hidden="true"
-                    class="iconify"
-                    data-icon="feather:help-circle"
-                  />
+                  <i aria-hidden="true" class="iconify" data-icon="feather:help-circle" />
                   Your overall condition is very good. Make it even better.
                   <a class="is-dark-primary">Read how</a>
                 </p>
@@ -273,17 +226,9 @@ const { progressChartOptions } = useProgressChart()
           <template #body>
             <div class="field">
               <div class="control">
-                <input
-                  type="text"
-                  class="input"
-                  placeholder="Search..."
-                >
+                <input type="text" class="input" placeholder="Search..." />
                 <button class="searcv-button">
-                  <i
-                    aria-hidden="true"
-                    class="iconify"
-                    data-icon="feather:search"
-                  />
+                  <i aria-hidden="true" class="iconify" data-icon="feather:search" />
                 </button>
               </div>
 
@@ -337,41 +282,21 @@ const { progressChartOptions } = useProgressChart()
             <table class="calendar">
               <thead>
                 <tr>
-                  <th scope="col">
-                    Mon
-                  </th>
-                  <th scope="col">
-                    Tue
-                  </th>
-                  <th scope="col">
-                    Wed
-                  </th>
-                  <th scope="col">
-                    Thu
-                  </th>
-                  <th scope="col">
-                    Fri
-                  </th>
-                  <th scope="col">
-                    Sat
-                  </th>
-                  <th scope="col">
-                    Sun
-                  </th>
+                  <th scope="col">Mon</th>
+                  <th scope="col">Tue</th>
+                  <th scope="col">Wed</th>
+                  <th scope="col">Thu</th>
+                  <th scope="col">Fri</th>
+                  <th scope="col">Sat</th>
+                  <th scope="col">Sun</th>
                 </tr>
               </thead>
 
               <tbody>
                 <tr>
-                  <td class="prev-month">
-                    29
-                  </td>
-                  <td class="prev-month">
-                    30
-                  </td>
-                  <td class="prev-month">
-                    31
-                  </td>
+                  <td class="prev-month">29</td>
+                  <td class="prev-month">30</td>
+                  <td class="prev-month">31</td>
                   <td>1</td>
                   <td>2</td>
                   <td>3</td>
@@ -395,9 +320,7 @@ const { progressChartOptions } = useProgressChart()
                   <td>15</td>
                   <td>16</td>
                   <td>17</td>
-                  <td class="current-day">
-                    18
-                  </td>
+                  <td class="current-day">18</td>
                 </tr>
 
                 <tr>
@@ -417,9 +340,7 @@ const { progressChartOptions } = useProgressChart()
                   <td>29</td>
                   <td>30</td>
                   <td>31</td>
-                  <td class="next-month">
-                    1
-                  </td>
+                  <td class="next-month">1</td>
                 </tr>
               </tbody>
             </table>
@@ -448,15 +369,13 @@ const { progressChartOptions } = useProgressChart()
         <!--Widget-->
         <UIWidget class="text-widget">
           <template #header>
-            <UIWidgetToolbarFollowers
-              title="New Friends"
-              :avatars="followersList"
-            />
+            <UIWidgetToolbarFollowers title="New Friends" :avatars="followersList" />
           </template>
           <template #body>
             <div class="widget-content">
               <p>
-                Great News! <span>{{ followersList[0].name }}</span>, <span>{{ followersList[1].name }}</span> and
+                Great News! <span>{{ followersList[0].name }}</span
+                >, <span>{{ followersList[1].name }}</span> and
                 <span>{{ followersList[2].name }}</span> are now friends with you. Take
                 some time to look at their profile.
               </p>

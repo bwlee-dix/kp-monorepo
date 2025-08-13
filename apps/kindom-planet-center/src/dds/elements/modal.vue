@@ -67,118 +67,40 @@ useHead({
           <VModalBaseDocumentation />
 
           <div class="buttons mb-6">
-            <VButton
-              bold
-              @click="leftActionsOpen = true"
-            >
-              Left Actions
-            </VButton>
-            <VButton
-              bold
-              @click="centeredActionsOpen = true"
-            >
-              Center Actions
-            </VButton>
-            <VButton
-              bold
-              @click="rightActionsOpen = true"
-            >
-              Right Actions
-            </VButton>
-            <VButton
-              bold
-              @click="customLabelActionsOpen = true"
-            >
-              Custom label
-            </VButton>
+            <VButton bold @click="leftActionsOpen = true"> Left Actions </VButton>
+            <VButton bold @click="centeredActionsOpen = true"> Center Actions </VButton>
+            <VButton bold @click="rightActionsOpen = true"> Right Actions </VButton>
+            <VButton bold @click="customLabelActionsOpen = true"> Custom label </VButton>
           </div>
 
           <!--VModal sizes-->
           <VModalSizesDocumentation />
 
           <div class="buttons mb-6">
-            <VButton
-              bold
-              @click="smallOpen = true"
-            >
-              Small Modal
-            </VButton>
-            <VButton
-              bold
-              @click="standardOpen = true"
-            >
-              Standard Modal
-            </VButton>
-            <VButton
-              bold
-              @click="mediumOpen = true"
-            >
-              Medium Modal
-            </VButton>
-            <VButton
-              bold
-              @click="largeOpen = true"
-            >
-              Large Modal
-            </VButton>
-            <VButton
-              bold
-              @click="bigOpen = true"
-            >
-              Big Modal
-            </VButton>
+            <VButton bold @click="smallOpen = true"> Small Modal </VButton>
+            <VButton bold @click="standardOpen = true"> Standard Modal </VButton>
+            <VButton bold @click="mediumOpen = true"> Medium Modal </VButton>
+            <VButton bold @click="largeOpen = true"> Large Modal </VButton>
+            <VButton bold @click="bigOpen = true"> Big Modal </VButton>
           </div>
 
           <!--VModal forms-->
           <VModalFormsDocumentation />
 
           <div class="buttons mb-6">
-            <VButton
-              bold
-              @click="smallFormOpen = true"
-            >
-              Small Modal
-            </VButton>
-            <VButton
-              bold
-              @click="standardFormOpen = true"
-            >
-              Standard Modal
-            </VButton>
-            <VButton
-              bold
-              @click="mediumFormOpen = true"
-            >
-              Medium Modal
-            </VButton>
-            <VButton
-              bold
-              @click="largeFormOpen = true"
-            >
-              Large Modal
-            </VButton>
-            <VButton
-              bold
-              @click="bigFormOpen = true"
-            >
-              Big Modal
-            </VButton>
+            <VButton bold @click="smallFormOpen = true"> Small Modal </VButton>
+            <VButton bold @click="standardFormOpen = true"> Standard Modal </VButton>
+            <VButton bold @click="mediumFormOpen = true"> Medium Modal </VButton>
+            <VButton bold @click="largeFormOpen = true"> Large Modal </VButton>
+            <VButton bold @click="bigFormOpen = true"> Big Modal </VButton>
           </div>
 
           <!--VModal options-->
           <VModalOptionsDocumentation />
 
           <div class="buttons mb-6">
-            <VButton
-              bold
-              @click="noscrollOpen = true"
-            >
-              Scroll disabled
-            </VButton>
-            <VButton
-              bold
-              @click="nocloseOpen = true"
-            >
+            <VButton bold @click="noscrollOpen = true"> Scroll disabled </VButton>
+            <VButton bold @click="nocloseOpen = true">
               No background close handler
             </VButton>
           </div>
@@ -192,10 +114,7 @@ useHead({
           <!--Events-->
           <VModalEventsDocumentation />
         </div>
-        <div
-          v-if="toc.length"
-          class="column is-3 toc-column"
-        >
+        <div v-if="toc.length" class="column is-3 toc-column">
           <DocumentationToc :toc="toc" />
         </div>
       </div>
@@ -213,13 +132,7 @@ useHead({
         />
       </template>
       <template #action="{ close }">
-        <VButton
-          color="primary"
-          raised
-          @click="close()"
-        >
-          Confirm
-        </VButton>
+        <VButton color="primary" raised @click="close()"> Confirm </VButton>
       </template>
     </VModal>
 
@@ -236,13 +149,7 @@ useHead({
         />
       </template>
       <template #action="{ close }">
-        <VButton
-          color="primary"
-          raised
-          @click="close()"
-        >
-          Confirm
-        </VButton>
+        <VButton color="primary" raised @click="close()"> Confirm </VButton>
       </template>
     </VModal>
 
@@ -259,13 +166,7 @@ useHead({
         />
       </template>
       <template #action="{ close }">
-        <VButton
-          color="primary"
-          raised
-          @click="close()"
-        >
-          Confirm
-        </VButton>
+        <VButton color="primary" raised @click="close()"> Confirm </VButton>
       </template>
     </VModal>
 
@@ -306,14 +207,7 @@ useHead({
         </VPlaceholderSection>
       </template>
       <template #action="{ close }">
-        <VButton
-          color="primary"
-          rounded
-          raised
-          @click="close()"
-        >
-          Confirm
-        </VButton>
+        <VButton color="primary" rounded raised @click="close()"> Confirm </VButton>
       </template>
     </VModal>
 
@@ -338,14 +232,7 @@ useHead({
         </VPlaceholderSection>
       </template>
       <template #action="{ close }">
-        <VButton
-          color="primary"
-          rounded
-          raised
-          @click="close()"
-        >
-          Confirm
-        </VButton>
+        <VButton color="primary" rounded raised @click="close()"> Confirm </VButton>
       </template>
     </VModal>
 
@@ -371,14 +258,7 @@ useHead({
         </VPlaceholderSection>
       </template>
       <template #action="{ close }">
-        <VButton
-          color="primary"
-          rounded
-          raised
-          @click="close()"
-        >
-          Confirm
-        </VButton>
+        <VButton color="primary" rounded raised @click="close()"> Confirm </VButton>
       </template>
     </VModal>
 
@@ -404,14 +284,7 @@ useHead({
         </VPlaceholderSection>
       </template>
       <template #action="{ close }">
-        <VButton
-          color="primary"
-          rounded
-          raised
-          @click="close()"
-        >
-          Confirm
-        </VButton>
+        <VButton color="primary" rounded raised @click="close()"> Confirm </VButton>
       </template>
     </VModal>
 
@@ -437,14 +310,7 @@ useHead({
         </VPlaceholderSection>
       </template>
       <template #action="{ close }">
-        <VButton
-          color="primary"
-          rounded
-          raised
-          @click="close()"
-        >
-          Confirm
-        </VButton>
+        <VButton color="primary" rounded raised @click="close()"> Confirm </VButton>
       </template>
     </VModal>
 
@@ -463,38 +329,23 @@ useHead({
         <div class="modal-form">
           <VField label="Username *">
             <VControl>
-              <VInput
-                type="text"
-                placeholder="Username"
-              />
+              <VInput type="text" placeholder="Username" />
             </VControl>
           </VField>
           <VField label="Email *">
             <VControl>
-              <VInput
-                type="text"
-                placeholder="Email Address"
-              />
+              <VInput type="text" placeholder="Email Address" />
             </VControl>
           </VField>
           <VField label="Comment *">
             <VControl>
-              <VTextarea
-                rows="4"
-                placeholder="Your message..."
-              />
+              <VTextarea rows="4" placeholder="Your message..." />
             </VControl>
           </VField>
         </div>
       </template>
       <template #action>
-        <VButton
-          type="submit"
-          color="primary"
-          raised
-        >
-          Publish
-        </VButton>
+        <VButton type="submit" color="primary" raised> Publish </VButton>
       </template>
     </VModal>
 
@@ -512,38 +363,23 @@ useHead({
         <div class="modal-form">
           <VField label="Username *">
             <VControl>
-              <VInput
-                type="text"
-                placeholder="Username"
-              />
+              <VInput type="text" placeholder="Username" />
             </VControl>
           </VField>
           <VField label="Email *">
             <VControl>
-              <VInput
-                type="text"
-                placeholder="Email Address"
-              />
+              <VInput type="text" placeholder="Email Address" />
             </VControl>
           </VField>
           <VField label="Comment *">
             <VControl>
-              <VTextarea
-                rows="4"
-                placeholder="Your message..."
-              />
+              <VTextarea rows="4" placeholder="Your message..." />
             </VControl>
           </VField>
         </div>
       </template>
       <template #action>
-        <VButton
-          type="submit"
-          color="primary"
-          raised
-        >
-          Publish
-        </VButton>
+        <VButton type="submit" color="primary" raised> Publish </VButton>
       </template>
     </VModal>
 
@@ -560,49 +396,25 @@ useHead({
     >
       <template #content>
         <div class="modal-form">
-          <VField
-            label="Username *"
-            horizontal
-          >
+          <VField label="Username *" horizontal>
             <VControl expanded>
-              <VInput
-                type="text"
-                placeholder="Username"
-              />
+              <VInput type="text" placeholder="Username" />
             </VControl>
           </VField>
-          <VField
-            label="Email *"
-            horizontal
-          >
+          <VField label="Email *" horizontal>
             <VControl expanded>
-              <VInput
-                type="text"
-                placeholder="Username"
-              />
+              <VInput type="text" placeholder="Username" />
             </VControl>
           </VField>
-          <VField
-            label="Comment *"
-            horizontal
-          >
+          <VField label="Comment *" horizontal>
             <VControl expanded>
-              <VTextarea
-                rows="4"
-                placeholder="Your message..."
-              />
+              <VTextarea rows="4" placeholder="Your message..." />
             </VControl>
           </VField>
         </div>
       </template>
       <template #action>
-        <VButton
-          type="submit"
-          color="primary"
-          raised
-        >
-          Publish
-        </VButton>
+        <VButton type="submit" color="primary" raised> Publish </VButton>
       </template>
     </VModal>
 
@@ -623,20 +435,14 @@ useHead({
             <div class="column is-12">
               <VField label="Project Name *">
                 <VControl>
-                  <VInput
-                    type="text"
-                    placeholder="Ex: A cool project"
-                  />
+                  <VInput type="text" placeholder="Ex: A cool project" />
                 </VControl>
               </VField>
             </div>
             <div class="column is-6">
               <VField label="Project Budget *">
                 <VControl>
-                  <VInput
-                    type="text"
-                    placeholder="Ex: $3,500"
-                  />
+                  <VInput type="text" placeholder="Ex: $3,500" />
                 </VControl>
               </VField>
             </div>
@@ -654,10 +460,7 @@ useHead({
             <div class="column is-12">
               <VField label="Description *">
                 <VControl>
-                  <VTextarea
-                    rows="3"
-                    placeholder="Details about the project..."
-                  />
+                  <VTextarea rows="3" placeholder="Details about the project..." />
                 </VControl>
               </VField>
             </div>
@@ -665,13 +468,7 @@ useHead({
         </div>
       </template>
       <template #action>
-        <VButton
-          type="submit"
-          color="primary"
-          raised
-        >
-          Save Changes
-        </VButton>
+        <VButton type="submit" color="primary" raised> Save Changes </VButton>
       </template>
     </VModal>
 
@@ -690,18 +487,12 @@ useHead({
             <div class="column is-12">
               <VField label="Project Name *">
                 <VControl>
-                  <VInput
-                    type="text"
-                    placeholder="Ex: A cool project"
-                  />
+                  <VInput type="text" placeholder="Ex: A cool project" />
                 </VControl>
               </VField>
             </div>
             <div class="column is-6">
-              <VField
-                class="is-image-select"
-                label="Project Member"
-              >
+              <VField class="is-image-select" label="Project Member">
                 <VControl>
                   <Multiselect
                     placeholder="Select employees"
@@ -749,20 +540,12 @@ useHead({
                   >
                     <template #singlelabel="{ value }">
                       <div class="multiselect-single-label">
-                        <img
-                          class="select-label-icon"
-                          :src="value.image"
-                          alt=""
-                        >
+                        <img class="select-label-icon" :src="value.image" alt="" />
                         {{ value.name }}
                       </div>
                     </template>
                     <template #option="{ option }">
-                      <img
-                        class="select-option-icon"
-                        :src="option.image"
-                        alt=""
-                      >
+                      <img class="select-option-icon" :src="option.image" alt="" />
                       {{ option.name }}
                     </template>
                   </Multiselect>
@@ -770,10 +553,7 @@ useHead({
               </VField>
             </div>
             <div class="column is-6">
-              <VField
-                class="is-image-select"
-                label="Project Type *"
-              >
+              <VField class="is-image-select" label="Project Type *">
                 <VControl>
                   <Multiselect
                     placeholder="Select language"
@@ -801,20 +581,12 @@ useHead({
                   >
                     <template #singlelabel="{ value }">
                       <div class="multiselect-single-label">
-                        <img
-                          class="select-label-icon"
-                          :src="value.image"
-                          alt=""
-                        >
+                        <img class="select-label-icon" :src="value.image" alt="" />
                         {{ value.name }}
                       </div>
                     </template>
                     <template #option="{ option }">
-                      <img
-                        class="select-option-icon"
-                        :src="option.image"
-                        alt=""
-                      >
+                      <img class="select-option-icon" :src="option.image" alt="" />
                       {{ option.name }}
                     </template>
                   </Multiselect>
@@ -824,10 +596,7 @@ useHead({
             <div class="column is-6">
               <VField label="Project Budget *">
                 <VControl>
-                  <VInput
-                    type="text"
-                    placeholder="Ex: $3,500"
-                  />
+                  <VInput type="text" placeholder="Ex: $3,500" />
                 </VControl>
               </VField>
             </div>
@@ -845,10 +614,7 @@ useHead({
             <div class="column is-12">
               <VField label="Description *">
                 <VControl>
-                  <VTextarea
-                    rows="3"
-                    placeholder="Details about the project..."
-                  />
+                  <VTextarea rows="3" placeholder="Details about the project..." />
                 </VControl>
               </VField>
             </div>
@@ -856,13 +622,7 @@ useHead({
         </div>
       </template>
       <template #action>
-        <VButton
-          type="submit"
-          color="primary"
-          raised
-        >
-          Save Changes
-        </VButton>
+        <VButton type="submit" color="primary" raised> Save Changes </VButton>
       </template>
     </VModal>
 
@@ -881,13 +641,7 @@ useHead({
         />
       </template>
       <template #action="{ close }">
-        <VButton
-          color="primary"
-          raised
-          @click="close()"
-        >
-          Confirm
-        </VButton>
+        <VButton color="primary" raised @click="close()"> Confirm </VButton>
       </template>
     </VModal>
 
@@ -906,13 +660,7 @@ useHead({
         />
       </template>
       <template #action="{ close }">
-        <VButton
-          color="primary"
-          raised
-          @click="close()"
-        >
-          Confirm
-        </VButton>
+        <VButton color="primary" raised @click="close()"> Confirm </VButton>
       </template>
     </VModal>
   </div>
