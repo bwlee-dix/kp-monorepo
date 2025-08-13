@@ -209,141 +209,139 @@ const cancelSelection = () => {
 </script>
 
 <template>
-  <DeveloperSideblockLayout theme="curved" open-on-mounted>
-    <!-- Content Wrapper -->
-    <div class="list-view-toolbar">
-      <div class="buttons">
-        <VButton color="primary" elevated @click="isShowAPIList = true">
-          KP API List
-        </VButton>
-      </div>
+  <!-- Content Wrapper -->
+  <div class="list-view-toolbar">
+    <div class="buttons">
+      <VButton color="primary" elevated @click="isShowAPIList = true">
+        KP API List
+      </VButton>
     </div>
+  </div>
 
-    <div class="page-content-inner">
-      <!--List-->
-      <div class="list-view list-view-v1">
-        <!--List Empty Search Placeholder -->
-        <VPlaceholderPage
-          :class="[apiList.length !== 0 && 'is-hidden']"
-          title="선택된 API가 없습니다."
-          subtitle="KP API List에서 사용할 API들을 선택해주세요.
-          위의 'KP API List' 버튼을 클릭하여 원하는 API 엔드포인트들을 추가할 수 있습니다."
-          larger
-        >
-          <template #image>
-            <img
-              class="light-image"
-              src="/@dds/assets/illustrations/placeholders/search-1.svg"
-              alt=""
-            />
-            <img
-              class="dark-image"
-              src="/@dds/assets/illustrations/placeholders/search-1-dark.svg"
-              alt=""
-            />
-          </template>
-        </VPlaceholderPage>
+  <div class="page-content-inner">
+    <!--List-->
+    <div class="list-view list-view-v1">
+      <!--List Empty Search Placeholder -->
+      <VPlaceholderPage
+        :class="[apiList.length !== 0 && 'is-hidden']"
+        title="선택된 API가 없습니다."
+        subtitle="KP API List에서 사용할 API들을 선택해주세요.
+        위의 'KP API List' 버튼을 클릭하여 원하는 API 엔드포인트들을 추가할 수 있습니다."
+        larger
+      >
+        <template #image>
+          <img
+            class="light-image"
+            src="/@dds/assets/illustrations/placeholders/search-1.svg"
+            alt=""
+          />
+          <img
+            class="dark-image"
+            src="/@dds/assets/illustrations/placeholders/search-1-dark.svg"
+            alt=""
+          />
+        </template>
+      </VPlaceholderPage>
 
-        <div class="list-view-inner">
-          <!--Item-->
-          <TransitionGroup name="list-complete" tag="div">
-            <div v-for="(item, key) in apiList" :key="key" class="list-view-item">
-              <RouterLink :to="`/api/${item.id}`">
-                <div class="list-view-item-inner">
-                  <div class="tags">
-                    <VTag
-                      :label="item.method"
-                      :color="getTagColor(item.method)"
-                      rounded
-                      elevated
-                    />
-                  </div>
-                  <div class="meta-left">
-                    <h3>{{ item.title }}</h3>
-                    <span>
-                      <i aria-hidden="true" class="iconify" data-icon="feather:map-pin" />
-                      <span>{{ item.url }}</span>
-                    </span>
-                  </div>
-                  <div class="meta-right">
-                    <div class="stats">
-                      <div class="stat">
-                        <span>123</span>
-                        <span>Projects</span>
-                      </div>
-                      <div class="separator" />
-                      <div class="stat">
-                        <span>234</span>
-                        <span>Replies</span>
-                      </div>
-                      <div class="separator" />
-                      <div class="stat">
-                        <span>345</span>
-                        <span>Posts</span>
-                      </div>
-                    </div>
-
-                    <!--Dropdown-->
-                    <ListViewV1Dropdown />
-                  </div>
+      <div class="list-view-inner">
+        <!--Item-->
+        <TransitionGroup name="list-complete" tag="div">
+          <div v-for="(item, key) in apiList" :key="key" class="list-view-item">
+            <RouterLink :to="`/api/${item.id}`">
+              <div class="list-view-item-inner">
+                <div class="tags">
+                  <VTag
+                    :label="item.method"
+                    :color="getTagColor(item.method)"
+                    rounded
+                    elevated
+                  />
                 </div>
-              </RouterLink>
-            </div>
-          </TransitionGroup>
-        </div>
+                <div class="meta-left">
+                  <h3>{{ item.title }}</h3>
+                  <span>
+                    <i aria-hidden="true" class="iconify" data-icon="feather:map-pin" />
+                    <span>{{ item.url }}</span>
+                  </span>
+                </div>
+                <div class="meta-right">
+                  <div class="stats">
+                    <div class="stat">
+                      <span>123</span>
+                      <span>Projects</span>
+                    </div>
+                    <div class="separator" />
+                    <div class="stat">
+                      <span>234</span>
+                      <span>Replies</span>
+                    </div>
+                    <div class="separator" />
+                    <div class="stat">
+                      <span>345</span>
+                      <span>Posts</span>
+                    </div>
+                  </div>
+
+                  <!--Dropdown-->
+                  <ListViewV1Dropdown />
+                </div>
+              </div>
+            </RouterLink>
+          </div>
+        </TransitionGroup>
       </div>
     </div>
-    <VModal
-      :open="isShowAPIList"
-      title="Kingdom Planet API List"
-      size="big"
-      actions="center"
-      rounded
-      noscroll
-      class="api-list-modal"
-      @close="cancelSelection()"
-    >
-      <template #content>
-        <div class="list-view list-view-v1">
-          <div v-for="item in kpApiList" :key="item.id" class="list-view-item">
-            <div class="list-view-item-inner">
-              <div class="tags">
-                <VTag
-                  :label="item.method"
-                  :color="getTagColor(item.method)"
-                  rounded
-                  elevated
-                />
-              </div>
-              <div class="meta-left">
-                <h3>{{ item.title }}</h3>
-                <span>
-                  <span>{{ item.url }}</span>
-                </span>
-              </div>
-              <div class="meta-right">
-                <button
-                  :class="[
-                    'button',
-                    'is-rounded',
-                    isSelected(item.id) ? 'is-danger' : 'is-primary',
-                  ]"
-                  @click="toggleApiItem(item)"
-                >
-                  {{ isSelected(item.id) ? 'Remove' : 'Add' }}
-                </button>
-              </div>
+  </div>
+  <VModal
+    :open="isShowAPIList"
+    title="Kingdom Planet API List"
+    size="big"
+    actions="center"
+    rounded
+    noscroll
+    class="api-list-modal"
+    @close="cancelSelection()"
+  >
+    <template #content>
+      <div class="list-view list-view-v1">
+        <div v-for="item in kpApiList" :key="item.id" class="list-view-item">
+          <div class="list-view-item-inner">
+            <div class="tags">
+              <VTag
+                :label="item.method"
+                :color="getTagColor(item.method)"
+                rounded
+                elevated
+              />
+            </div>
+            <div class="meta-left">
+              <h3>{{ item.title }}</h3>
+              <span>
+                <span>{{ item.url }}</span>
+              </span>
+            </div>
+            <div class="meta-right">
+              <button
+                :class="[
+                  'button',
+                  'is-rounded',
+                  isSelected(item.id) ? 'is-danger' : 'is-primary',
+                ]"
+                @click="toggleApiItem(item)"
+              >
+                {{ isSelected(item.id) ? 'Remove' : 'Add' }}
+              </button>
             </div>
           </div>
         </div>
-      </template>
-      <template #action>
-        <VButton color="primary" rounded raised @click="confirmSelection()">
-          Confirm
-        </VButton>
-      </template>
-    </VModal>
-  </DeveloperSideblockLayout>
+      </div>
+    </template>
+    <template #action>
+      <VButton color="primary" rounded raised @click="confirmSelection()">
+        Confirm
+      </VButton>
+    </template>
+  </VModal>
 </template>
 
 <style lang="scss">

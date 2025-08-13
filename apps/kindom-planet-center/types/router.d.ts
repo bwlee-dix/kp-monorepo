@@ -41,14 +41,16 @@ declare module 'vue-router/auto/routes' {
   export interface RouteNamedMap {
     '/': RouteRecordInfo<'/', '/', Record<never, never>, Record<never, never>>,
     '/[...404]': RouteRecordInfo<'/[...404]', '/:404(.*)', { 404: ParamValue<true> }, { 404: ParamValue<false> }>,
-    '/api/': RouteRecordInfo<'/api/', '/api', Record<never, never>, Record<never, never>>,
-    '/api/[apiId]/': RouteRecordInfo<'/api/[apiId]/', '/api/:apiId', { apiId: ParamValue<true> }, { apiId: ParamValue<false> }>,
-    '/app/': RouteRecordInfo<'/app/', '/app', Record<never, never>, Record<never, never>>,
-    '/app-list/': RouteRecordInfo<'/app-list/', '/app-list', Record<never, never>, Record<never, never>>,
     '/auth/': RouteRecordInfo<'/auth/', '/auth', Record<never, never>, Record<never, never>>,
-    '/dashboard/': RouteRecordInfo<'/dashboard/', '/dashboard', Record<never, never>, Record<never, never>>,
+    '/body': RouteRecordInfo<'/body', '/body', Record<never, never>, Record<never, never>>,
+    '/body/api/': RouteRecordInfo<'/body/api/', '/body/api', Record<never, never>, Record<never, never>>,
+    '/body/api/[apiId]/': RouteRecordInfo<'/body/api/[apiId]/', '/body/api/:apiId', { apiId: ParamValue<true> }, { apiId: ParamValue<false> }>,
+    '/body/app/': RouteRecordInfo<'/body/app/', '/body/app', Record<never, never>, Record<never, never>>,
+    '/body/app-list/': RouteRecordInfo<'/body/app-list/', '/body/app-list', Record<never, never>, Record<never, never>>,
+    '/body/dashboard/': RouteRecordInfo<'/body/dashboard/', '/body/dashboard', Record<never, never>, Record<never, never>>,
+    '/body/log/': RouteRecordInfo<'/body/log/', '/body/log', Record<never, never>, Record<never, never>>,
+    '/body/team/': RouteRecordInfo<'/body/team/', '/body/team', Record<never, never>, Record<never, never>>,
     '/register/': RouteRecordInfo<'/register/', '/register', Record<never, never>, Record<never, never>>,
-    '/team/': RouteRecordInfo<'/team/', '/team', Record<never, never>, Record<never, never>>,
   }
 }
 

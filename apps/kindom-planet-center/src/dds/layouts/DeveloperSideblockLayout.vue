@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { SideblockTheme } from '/@dds/components/navigation/desktop/Sideblock.vue'
-import { usePanels } from '../stores/panels'
-import { useViewWrapper } from '../stores/viewWrapper'
+import { usePanels } from '/@dds/stores/panels'
+import { useViewWrapper } from '/@dds/stores/viewWrapper'
 
 const props = withDefaults(
   defineProps<{
@@ -20,19 +20,17 @@ const props = withDefaults(
 const viewWrapper = useViewWrapper()
 const panels = usePanels()
 const route = useRoute()
+
 const isMobileSideblockOpen = ref(false)
 const isDesktopSideblockOpen = ref(props.openOnMounted)
 const activeMobileSubsidebar = ref(props.defaultSideblock)
 
-/**
- * watchPostEffect callback will be executed each time dependent reactive values has changed
- */
+const body = 'body'
+
 watchPostEffect(() => {
   viewWrapper.setPushedBlock(isDesktopSideblockOpen.value ?? false)
 })
-onMounted(() => {
-  viewWrapper.setPushed(false)
-})
+
 watch(
   () => route.fullPath,
   () => {
@@ -43,13 +41,16 @@ watch(
     }
   }
 )
+
+onMounted(() => {
+  viewWrapper.setPushed(false)
+})
 </script>
 
 <template>
   <div class="sidebar-layout">
     <div class="app-overlay" />
 
-    <!-- Mobile navigation -->
     <MobileNavbar
       :is-open="isMobileSideblockOpen"
       @toggle="isMobileSideblockOpen = !isMobileSideblockOpen"
@@ -66,7 +67,6 @@ watch(
       </template>
     </MobileNavbar>
 
-    <!-- Mobile sidebar links -->
     <MobileSidebar
       :is-open="isMobileSideblockOpen"
       @toggle="isMobileSideblockOpen = !isMobileSideblockOpen"
@@ -110,7 +110,6 @@ watch(
       </template>
     </MobileSidebar>
 
-    <!-- Mobile subsidebar links -->
     <Transition name="slide-x">
       <LayoutsMobileSubsidebar
         v-if="isMobileSideblockOpen && activeMobileSubsidebar === 'layout'"
@@ -126,14 +125,12 @@ watch(
       />
     </Transition>
 
-    <!-- Desktop navigation -->
     <CircularMenu />
 
     <Transition name="slide-x">
       <Sideblock v-if="isDesktopSideblockOpen" :theme="props.theme">
         <template #header>
           <RouterLink to="/" class="sidebar-block-logo">
-            <!-- <AnimatedLogo width="36px" /> -->
             <img src="/images/kp_logo.png" alt="" class="logo" />
           </RouterLink>
           <h3>Developer</h3>
@@ -159,7 +156,7 @@ watch(
 
         <template #links>
           <li>
-            <RouterLink to="/dashboard" class="single-link">
+            <RouterLink :to="`/${body}/dashboard`" class="single-link">
               <span class="icon">
                 <i class="iconify" data-icon="feather:grid" />
               </span>
@@ -167,7 +164,7 @@ watch(
             </RouterLink>
           </li>
           <li>
-            <RouterLink to="/app" class="single-link">
+            <RouterLink :to="`/${body}/app`" class="single-link">
               <span class="icon">
                 <i class="iconify" data-icon="feather:box" />
               </span>
@@ -175,7 +172,7 @@ watch(
             </RouterLink>
           </li>
           <li>
-            <RouterLink to="/team" class="single-link">
+            <RouterLink :to="`/${body}/team`" class="single-link">
               <span class="icon">
                 <i class="iconify" data-icon="feather:users" />
               </span>
@@ -183,7 +180,7 @@ watch(
             </RouterLink>
           </li>
           <li>
-            <RouterLink to="/api" class="single-link">
+            <RouterLink :to="`/${body}/api`" class="single-link">
               <span class="icon">
                 <i class="iconify" data-icon="feather:list" />
               </span>
@@ -191,7 +188,7 @@ watch(
             </RouterLink>
           </li>
           <li>
-            <RouterLink to="/log" class="single-link">
+            <RouterLink :to="`/${body}/log`" class="single-link">
               <span class="icon">
                 <i class="iconify" data-icon="feather:alert-circle" />
               </span>
@@ -219,7 +216,6 @@ watch(
         </template>
         <VPageContent v-else class="is-relative">
           <div class="page-title has-text-centered">
-            <!-- Sidebar Trigger -->
             <div
               class="vuero-hamburger nav-trigger push-resize"
               tabindex="0"
