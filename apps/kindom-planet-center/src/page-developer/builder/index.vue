@@ -6,7 +6,7 @@ import { useDarkmode } from '/@src/stores/darkmode'
 import VueScrollTo from 'vue-scrollto'
 import { useNotyf } from '/@src/composable/useNotyf'
 import sleep from '/@src/utils/sleep'
-import { ref, watch, nextTick } from 'vue'
+import { ref, watch, nextTick, computed } from 'vue'
 import { useRouter } from 'vue-router'
 
 // Field interface
@@ -49,6 +49,8 @@ const editingFieldId = ref<string | null>(null)
 const isValidationInProgress = ref(false)
 const currentExecutionId = ref<string | null>(null)
 const isExecuting = ref(false)
+
+// Add computed property for execution state
 
 // Watch for type changes and reset options
 watch(type, (newType) => {
@@ -389,18 +391,22 @@ const handleAddField = () => {
     return
   }
   
+  // Set flag immediately and synchronously
   isExecuting.value = true
   console.log('Setting isExecuting to true')
   
-  try {
-    addField()
-  } finally {
-    // Ensure flag is reset after execution
-    setTimeout(() => {
-      isExecuting.value = false
-      console.log('Reset isExecuting to false')
-    }, 100)
-  }
+  // Use nextTick to ensure the flag is set before any other processing
+  nextTick(() => {
+    try {
+      addField()
+    } finally {
+      // Use longer delay to prevent VButton's multiple event handling
+      setTimeout(() => {
+        isExecuting.value = false
+        console.log('Reset isExecuting to false')
+      }, 300)
+    }
+  })
 }
 
 const handleUpdateField = () => {
@@ -413,18 +419,22 @@ const handleUpdateField = () => {
     return
   }
   
+  // Set flag immediately and synchronously
   isExecuting.value = true
   console.log('Setting isExecuting to true')
   
-  try {
-    updateField()
-  } finally {
-    // Ensure flag is reset after execution
-    setTimeout(() => {
-      isExecuting.value = false
-      console.log('Reset isExecuting to false')
-    }, 100)
-  }
+  // Use nextTick to ensure the flag is set before any other processing
+  nextTick(() => {
+    try {
+      updateField()
+    } finally {
+      // Use longer delay to prevent VButton's multiple event handling
+      setTimeout(() => {
+        isExecuting.value = false
+        console.log('Reset isExecuting to false')
+      }, 300)
+    }
+  })
 }
 
 const removeField = (fieldId: string) => {
@@ -740,7 +750,7 @@ const handleUpdatePage = () => {
                           bold
                           fullwidth
                           icon="feather:plus"
-                          @click.once="handleAddPage"
+                          @click="handleAddPage"
                         >
                           Add Page
                         </VButton>
@@ -757,7 +767,7 @@ const handleUpdatePage = () => {
                                 bold
                                 fullwidth
                                 icon="feather:check"
-                                @click.once="handleUpdatePage"
+                                @click="handleUpdatePage"
                               >
                                 Update Page
                               </VButton>
@@ -769,7 +779,7 @@ const handleUpdatePage = () => {
                                 color="light"
                                 fullwidth
                                 icon="feather:x"
-                                @click.once="cancelPageEdit"
+                                @click="cancelPageEdit"
                               >
                                 Cancel
                               </VButton>
@@ -1004,7 +1014,7 @@ const handleUpdatePage = () => {
                             fullwidth
                             icon="feather:plus"
                             :disabled="isLoading || isValidationInProgress || isExecuting"
-                            @click.once="handleAddField"
+                            @click="handleAddField"
                           >
                             {{ isLoading || isValidationInProgress || isExecuting ? 'Adding...' : 'Add Field' }}
                           </VButton>
@@ -1021,7 +1031,7 @@ const handleUpdatePage = () => {
                                   fullwidth
                                   icon="feather:check"
                                   :disabled="isLoading || isValidationInProgress || isExecuting"
-                                  @click.once="handleUpdateField"
+                                  @click="handleUpdateField"
                                 >
                                   {{ isLoading || isValidationInProgress || isExecuting ? 'Updating...' : 'Update Field' }}
                                 </VButton>
@@ -1033,7 +1043,7 @@ const handleUpdatePage = () => {
                                   color="light"
                                   fullwidth
                                   icon="feather:x"
-                                  @click.once="cancelEdit"
+                                  @click="cancelEdit"
                                 >
                                   Cancel
                                 </VButton>
@@ -2408,7 +2418,7 @@ const handleUpdatePage = () => {
         margin-top: 1.5rem;
 
         .output {
-          height: 52px;
+          height: 64px;
           width: 100%;
           border: 1px solid var(--border);
           border-radius: 0.65rem;

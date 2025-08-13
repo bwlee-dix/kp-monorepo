@@ -174,3 +174,5 @@ public/robots.txt
 
 # shiki assets (copied from node_modules)
 public/shiki
+
+.firebase
