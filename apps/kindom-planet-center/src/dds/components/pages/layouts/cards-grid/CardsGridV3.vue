@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { VAvatarProps, VAvatarColor } from '/@dds/components/base/avatar/VAvatar.vue'
-import { projects } from '/@dds/ta/layouts/card-grid-v3'
+import { projects } from '/@dds/data/layouts/card-grid-v3'
 
 const filters = ref('')
 

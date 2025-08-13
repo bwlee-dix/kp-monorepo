@@ -2,14 +2,14 @@
 import ApexChart from 'vue3-apexcharts'
 
 import { followersList } from '/@dds/data/widgets/ui/followers'
-import { tagList1, tagList2 } from '/@dds/ta/widgets/ui/tagList'
-import { tabs } from '/@dds/ta/widgets/ui/tabList'
-import { days } from '/@dds/ta/widgets/ui/dayList'
-import { iconList } from '/@dds/ta/widgets/ui/menuList'
-import { notifications } from '/@dds/ta/widgets/ui/notificationList'
-import { useTrendWidgetChart } from '/@dds/ta/widgets/charts/trendWidgetChart'
+import { tagList1, tagList2 } from '/@dds/data/widgets/ui/tagList'
+import { tabs } from '/@dds/data/widgets/ui/tabList'
+import { days } from '/@dds/data/widgets/ui/dayList'
+import { iconList } from '/@dds/data/widgets/ui/menuList'
+import { notifications } from '/@dds/data/widgets/ui/notificationList'
+import { useTrendWidgetChart } from '/@dds/data/widgets/charts/trendWidgetChart'
 import { onceImageErrored } from '/@dds/utils/via-placeholder'
-import { usePersonalScoreGauge } from '/@dds/ta/widgets/charts/personalScoreGauge'
+import { usePersonalScoreGauge } from '/@dds/data/widgets/charts/personalScoreGauge'
 
 const { personalScoreGaugeOptions, onPersonalScoreGaugeReady } = usePersonalScoreGauge()
 const { trendWidgetChartOptions } = useTrendWidgetChart()

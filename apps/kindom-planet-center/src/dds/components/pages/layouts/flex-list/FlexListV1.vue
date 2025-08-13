@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { VAvatarProps } from '/@dds/components/base/avatar/VAvatar.vue'
-import * as listData from '/@dds/ta/layouts/flex-list-v1'
+import * as listData from '/@dds/data/layouts/flex-list-v1'
 
 export interface UserData extends VAvatarProps {
   id: number

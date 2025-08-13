@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import ApexChart from 'vue3-apexcharts'
 import { useBitcoinPriceChart } from '/@dds/data/dashboards/banking-v3/bitcoinPriceChart'
-import { useEvolutionRadialChart } from '/@dds/ta/dashboards/banking-v3/evolutionRadialChart'
-import { usePopularityGaugeChart } from '/@dds/ta/dashboards/banking-v3/popularityGaugeChart'
-import { popovers } from '/@dds/ta/users/userPopovers'
+import { useEvolutionRadialChart } from '/@dds/data/dashboards/banking-v3/evolutionRadialChart'
+import { usePopularityGaugeChart } from '/@dds/data/dashboards/banking-v3/popularityGaugeChart'
+import { popovers } from '/@dds/data/users/userPopovers'
 
 const { bitcoinChartOptions } = useBitcoinPriceChart()
 const { evolutionRadialOptions } = useEvolutionRadialChart()

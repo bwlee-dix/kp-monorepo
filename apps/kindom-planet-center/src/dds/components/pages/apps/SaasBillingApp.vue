@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { plans } from '/@dds/data/apps/saas-billing'
-import { useCreditcardMask } from '/@dds/commposable/useCreditcardMask'
-import { popovers } from '/@dds/ta/users/userPopovers'
+import { useCreditcardMask } from '/@dds/composable/useCreditcardMask'
+import { popovers } from '/@dds/data/users/userPopovers'
 
 const {
   creditcardIcon,

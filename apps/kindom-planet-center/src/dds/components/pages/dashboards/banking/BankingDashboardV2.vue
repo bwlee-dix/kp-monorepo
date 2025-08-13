@@ -8,7 +8,7 @@ import { useExpensesAreaChart } from '/@dds/data/dashboards/banking-v2/expensesA
 import {
   valueSingle,
   optionsSingle,
-} from '/@dds/ta/dashboards/banking-v2/dashboardData'
+} from '/@dds/data/dashboards/banking-v2/dashboardData'
 
 let slider: TinySliderInstance
 

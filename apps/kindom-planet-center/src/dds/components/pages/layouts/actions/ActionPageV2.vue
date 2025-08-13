@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import sleep from '/@dds/utils/sleep'
-import { useNotyf } from '/@dds/commposable/useNotyf'
-import { popovers } from '/@dds/ta/users/userPopovers'
+import { useNotyf } from '/@dds/composable/useNotyf'
+import { popovers } from '/@dds/data/users/userPopovers'
 
 const notyf = useNotyf()
 const router = useRouter()

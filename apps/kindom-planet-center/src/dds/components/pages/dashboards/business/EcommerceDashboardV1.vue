@@ -2,17 +2,17 @@
 import ApexChart from 'vue3-apexcharts'
 
 import { useFlexRadialChartCircle } from '/@dds/data/widgets/charts/flexRadialChartCircleChart'
-import { useFlexRadialChartStripes } from '/@dds/ta/widgets/charts/flexRadialChartStripesChart'
-import { useRevenueAreaChart } from '/@dds/ta/widgets/charts/revenueAreaChart'
-import { useLineStatsWidgetCharts } from '/@dds/ta/widgets/charts/lineStatsWidgetChart'
-import { useGroupedCircleCharts } from '/@dds/ta/widgets/charts/groupedCircleCharts'
-import { useGroupedRadialCharts } from '/@dds/ta/widgets/charts/groupedRadialCharts'
-import { useSparksCharts } from '/@dds/ta/dashboards/ecommerce/sparksCharts'
+import { useFlexRadialChartStripes } from '/@dds/data/widgets/charts/flexRadialChartStripesChart'
+import { useRevenueAreaChart } from '/@dds/data/widgets/charts/revenueAreaChart'
+import { useLineStatsWidgetCharts } from '/@dds/data/widgets/charts/lineStatsWidgetChart'
+import { useGroupedCircleCharts } from '/@dds/data/widgets/charts/groupedCircleCharts'
+import { useGroupedRadialCharts } from '/@dds/data/widgets/charts/groupedRadialCharts'
+import { useSparksCharts } from '/@dds/data/dashboards/ecommerce/sparksCharts'
 import {
   valueSingle,
   optionsSingle,
   flexRowsOrders,
-} from '/@dds/ta/dashboards/ecommerce/dashboardData'
+} from '/@dds/data/dashboards/ecommerce/dashboardData'
 
 const { flexRadialChartCircleOptions } = useFlexRadialChartCircle()
 const { flexRadialChartStripesOptions } = useFlexRadialChartStripes()

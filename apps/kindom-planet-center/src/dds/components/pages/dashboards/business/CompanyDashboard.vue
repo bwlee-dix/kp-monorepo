@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import ApexChart from 'vue3-apexcharts'
 import { useSharingChart } from '/@dds/data/dashboards/company/sharingChart'
-import { useUsersChart } from '/@dds/ta/dashboards/company/usersChart'
-import { useUsersBarChart } from '/@dds/ta/dashboards/company/usersBarChart'
-import { usePersonalScoreGauge } from '/@dds/ta/widgets/charts/personalScoreGauge'
-import { popovers } from '/@dds/ta/users/userPopovers'
+import { useUsersChart } from '/@dds/data/dashboards/company/usersChart'
+import { useUsersBarChart } from '/@dds/data/dashboards/company/usersBarChart'
+import { usePersonalScoreGauge } from '/@dds/data/widgets/charts/personalScoreGauge'
+import { popovers } from '/@dds/data/users/userPopovers'
 const { personalScoreGaugeOptions, onPersonalScoreGaugeReady } = usePersonalScoreGauge()
 const { barData, barData2, usersBarOptions } = useUsersBarChart()
 const { sharingOptions } = useSharingChart()

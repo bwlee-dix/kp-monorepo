@@ -3,7 +3,7 @@ import { onceImageErrored } from '/@dds/utils/via-placeholder'
 import {
   valueSingle,
   optionsSingle,
-} from '/@dds/ta/dashboards/lifestyle-v1/dashboardData'
+} from '/@dds/data/dashboards/lifestyle-v1/dashboardData'
 </script>
 
 <template>

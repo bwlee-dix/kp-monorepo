@@ -5,10 +5,10 @@ import {
   valueSingle,
   optionsSingle,
 } from '/@dds/data/dashboards/lifestyle-v1/dashboardData'
-import { useGroupedSocialChart } from '/@dds/ta/dashboards/lifestyle-v1/groupedSocialCharts'
-import { useReputationChart } from '/@dds/ta/dashboards/lifestyle-v1/reputationChart'
-import { useInfluenceChart } from '/@dds/ta/dashboards/lifestyle-v1/influenceChart'
-import { useGroupedCircleCharts } from '/@dds/ta/widgets/charts/groupedCircleCharts'
+import { useGroupedSocialChart } from '/@dds/data/dashboards/lifestyle-v1/groupedSocialCharts'
+import { useReputationChart } from '/@dds/data/dashboards/lifestyle-v1/reputationChart'
+import { useInfluenceChart } from '/@dds/data/dashboards/lifestyle-v1/influenceChart'
+import { useGroupedCircleCharts } from '/@dds/data/widgets/charts/groupedCircleCharts'
 
 const { reputationChartOptions } = useReputationChart()
 const { influenceChartOptions } = useInfluenceChart()

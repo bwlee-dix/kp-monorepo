@@ -2,11 +2,11 @@
 import ApexChart from 'vue3-apexcharts'
 
 import { useEnergyChart } from '/@dds/data/dashboards/lifestyle-v3/energyChart'
-import { useOverallChart } from '/@dds/ta/dashboards/lifestyle-v3/overallChart'
-import { useOxygenChart } from '/@dds/ta/dashboards/lifestyle-v3/oxygenChart'
-import { useProgressChart } from '/@dds/ta/dashboards/lifestyle-v3/progressChart'
-import { followersList } from '/@dds/ta/widgets/ui/followers'
-import { usePersonalScoreGauge } from '/@dds/ta/widgets/charts/personalScoreGauge'
+import { useOverallChart } from '/@dds/data/dashboards/lifestyle-v3/overallChart'
+import { useOxygenChart } from '/@dds/data/dashboards/lifestyle-v3/oxygenChart'
+import { useProgressChart } from '/@dds/data/dashboards/lifestyle-v3/progressChart'
+import { followersList } from '/@dds/data/widgets/ui/followers'
+import { usePersonalScoreGauge } from '/@dds/data/widgets/charts/personalScoreGauge'
 
 const { personalScoreGaugeOptions, onPersonalScoreGaugeReady } = usePersonalScoreGauge()
 const { energyChartOptions } = useEnergyChart()

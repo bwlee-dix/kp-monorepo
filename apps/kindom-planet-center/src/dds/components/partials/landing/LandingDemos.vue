@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import sidebar from '/@dds/data/landing/sidebar.json'
-import auth from '/@dds/ta/landing/auth.json'
-import minimal from '/@dds/ta/landing/minimal.json'
-import starters from '/@dds/ta/landing/starters.json'
-import navbar from '/@dds/ta/landing/navbar.json'
+import auth from '/@dds/data/landing/auth.json'
+import minimal from '/@dds/data/landing/minimal.json'
+import starters from '/@dds/data/landing/starters.json'
+import navbar from '/@dds/data/landing/navbar.json'
 import { type ComputedRef, type Ref } from 'vue'
 
 export interface DemoItem {

@@ -2,11 +2,11 @@
 import ApexChart from 'vue3-apexcharts'
 
 import { useSalesSparksCharts } from '/@dds/data/widgets/charts/salesSparksChart'
-import { useRevenueAreaChart } from '/@dds/ta/widgets/charts/revenueAreaChart'
-import { useSalesRevenueRadialChart } from '/@dds/ta/dashboards/sales/salesRevenueRadialChart'
-import { useSalesRadialGroupChart } from '/@dds/ta/dashboards/sales/salesRadialGroupChart'
-import { useSalesBarChart } from '/@dds/ta/dashboards/sales/salesBarChart'
-import { usePersonalScoreGauge } from '/@dds/ta/widgets/charts/personalScoreGauge'
+import { useRevenueAreaChart } from '/@dds/data/widgets/charts/revenueAreaChart'
+import { useSalesRevenueRadialChart } from '/@dds/data/dashboards/sales/salesRevenueRadialChart'
+import { useSalesRadialGroupChart } from '/@dds/data/dashboards/sales/salesRadialGroupChart'
+import { useSalesBarChart } from '/@dds/data/dashboards/sales/salesBarChart'
+import { usePersonalScoreGauge } from '/@dds/data/widgets/charts/personalScoreGauge'
 
 const { personalScoreGaugeOptions, onPersonalScoreGaugeReady } = usePersonalScoreGauge()
 const { barData, barData2, salesBarOptions } = useSalesBarChart()

@@ -2,9 +2,9 @@
 import ApexChart from 'vue3-apexcharts'
 
 import type { VAvatarProps } from '/@dds/components/base/avatar/VAvatar.vue'
-import { useInterviewsChart } from '/@dds/ta/dashboards/personal-v3/interviewsChart'
-import { useProgressChart } from '/@dds/ta/dashboards/personal-v3/progressChart'
-import * as userData from '/@dds/ta/dashboards/personal-v3/users'
+import { useInterviewsChart } from '/@dds/data/dashboards/personal-v3/interviewsChart'
+import { useProgressChart } from '/@dds/data/dashboards/personal-v3/progressChart'
+import * as userData from '/@dds/data/dashboards/personal-v3/users'
 
 const { progressGaugeOptions, onprogressGaugeReady } = useProgressChart()
 const { interviewsOptions } = useInterviewsChart()

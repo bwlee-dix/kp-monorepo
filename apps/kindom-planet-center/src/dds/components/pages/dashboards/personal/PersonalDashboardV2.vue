@@ -2,10 +2,10 @@
 import ApexChart from 'vue3-apexcharts'
 
 import type { VAvatarProps } from '/@dds/components/base/avatar/VAvatar.vue'
-import { useTaskCompletionChart } from '/@dds/ta/dashboards/personal-v2/taskCompletionChart'
-import { useTeamEfficiencyChart } from '/@dds/ta/dashboards/personal-v2/teamEfficiencyChart'
-import { popovers } from '/@dds/ta/users/userPopovers'
-import * as usersData from '/@dds/ta/dashboards/personal-v2/users'
+import { useTaskCompletionChart } from '/@dds/data/dashboards/personal-v2/taskCompletionChart'
+import { useTeamEfficiencyChart } from '/@dds/data/dashboards/personal-v2/teamEfficiencyChart'
+import { popovers } from '/@dds/data/users/userPopovers'
+import * as usersData from '/@dds/data/dashboards/personal-v2/users'
 
 const { completionOptions } = useTaskCompletionChart()
 const { barOptions } = useTeamEfficiencyChart()
@@ -14,7 +14,7 @@ const avatarStack2 = usersData.avatarStack1 as VAvatarProps[]
 const avatarStack3 = usersData.avatarStack1 as VAvatarProps[]
 const avatarStack4 = usersData.avatarStack1 as VAvatarProps[]
 
-const democheck = ref(['value_2'])
+const democheck = ref<{ id: string | number }[]>([{ id: 'value_2' }])
 </script>
 
 <template>
@@ -376,7 +376,7 @@ const democheck = ref(['value_2'])
                 <!-- Animated checkbox-->
                 <VAnimatedCheckbox
                   v-model="democheck"
-                  value="value_1"
+                  :value="{ id: 'value_1' }"
                 />
                 <div class="item-meta">
                   <span class="dark-inverted">Call Mr. Markstrom</span>
@@ -388,7 +388,7 @@ const democheck = ref(['value_2'])
                 <!-- Animated checkbox-->
                 <VAnimatedCheckbox
                   v-model="democheck"
-                  value="value_2"
+                  :value="{ id: 'value_2' }"
                 />
                 <div class="item-meta">
                   <span class="dark-inverted">Finish wireframes</span>
@@ -400,7 +400,7 @@ const democheck = ref(['value_2'])
                 <!-- Animated checkbox-->
                 <VAnimatedCheckbox
                   v-model="democheck"
-                  value="value_3"
+                  :value="{ id: 'value_3' }"
                 />
                 <div class="item-meta">
                   <span class="dark-inverted">Update timesheets</span>
@@ -412,7 +412,7 @@ const democheck = ref(['value_2'])
                 <!-- Animated checkbox-->
                 <VAnimatedCheckbox
                   v-model="democheck"
-                  value="value_4"
+                  :value="{ id: 'value_4' }"
                 />
                 <div class="item-meta">
                   <span class="dark-inverted">Request payout</span>

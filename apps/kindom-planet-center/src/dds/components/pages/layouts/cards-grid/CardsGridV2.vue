@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { VAvatarProps } from '/@dds/components/base/avatar/VAvatar.vue'
 import { onceImageErrored } from '/@dds/utils/via-placeholder'
-import * as gridData from '/@dds/ta/layouts/card-grid-v2'
+import * as gridData from '/@dds/data/layouts/card-grid-v2'
 
 export interface ProjectData {
   name: string

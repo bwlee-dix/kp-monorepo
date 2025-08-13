@@ -3,9 +3,9 @@ import { avatarList, avatarListCreative } from '/@dds/data/widgets/ui/avatarList
 import {
   socialButtonList1,
   socialButtonList2,
-} from '/@dds/ta/widgets/ui/socialButtonList'
-import { followersStats } from '/@dds/ta/widgets/ui/followers'
-import { products } from '/@dds/ta/widgets/ui/productList'
+} from '/@dds/data/widgets/ui/socialButtonList'
+import { followersStats } from '/@dds/data/widgets/ui/followers'
+import { products } from '/@dds/data/widgets/ui/productList'
 
 import Widget1 from '/@dds/sets/illustrations/widgets/1.svg'
 import Widget2 from '/@dds/sets/illustrations/widgets/2.svg'

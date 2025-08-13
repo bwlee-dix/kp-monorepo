@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { VAvatarProps } from '/@dds/components/base/avatar/VAvatar.vue'
-import * as dashboardData from '/@dds/ta/dashboards/lifestyle-v2/dashboardData'
+import * as dashboardData from '/@dds/data/dashboards/lifestyle-v2/dashboardData'
 
 const avatarStack1 = dashboardData.avatarStack1 as VAvatarProps[]
 const avatarStack2 = dashboardData.avatarStack1 as VAvatarProps[]

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { VAvatarProps, VAvatarColor } from '/@dds/components/base/avatar/VAvatar.vue'
-import { users } from '/@dds/ta/layouts/user-grid-v1'
+import { users } from '/@dds/data/layouts/user-grid-v1'
 
 const filters = ref('')
 

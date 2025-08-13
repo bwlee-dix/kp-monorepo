@@ -2,9 +2,9 @@
 import { radar } from 'billboard.js'
 
 import { useMarkdownToc } from '/@dds/composable/useMarkdownToc'
-import { useSplineSimple } from '/@dds/ta/dashboards/billboardjs-demo/splineSimple'
-import { useThemeColors } from '/@dds/commposable/useThemeColors'
-import { useViewWrapper } from '/@dds/ores/viewWrapper'
+import { useSplineSimple } from '/@dds/data/dashboards/billboardjs-demo/splineSimple'
+import { useThemeColors } from '/@dds/composable/useThemeColors'
+import { useViewWrapper } from '/@dds/stores/viewWrapper'
 
 const markdownContainer = ref<HTMLElement>()
 const toc = useMarkdownToc(markdownContainer)

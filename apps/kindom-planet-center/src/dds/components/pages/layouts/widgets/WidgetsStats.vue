@@ -2,13 +2,13 @@
 import ApexChart from 'vue3-apexcharts'
 
 import { useSalesSparksCharts } from '/@dds/data/widgets/charts/salesSparksChart'
-import { useRevenueAreaChart } from '/@dds/ta/widgets/charts/revenueAreaChart'
-import { useLineStatsWidgetCharts } from '/@dds/ta/widgets/charts/lineStatsWidgetChart'
-import { useFlexRadialChartCircle } from '/@dds/ta/widgets/charts/flexRadialChartCircleChart'
-import { useFlexRadialChartStripes } from '/@dds/ta/widgets/charts/flexRadialChartStripesChart'
-import { useGroupedCircleCharts } from '/@dds/ta/widgets/charts/groupedCircleCharts'
-import { useGroupedRadialCharts } from '/@dds/ta/widgets/charts/groupedRadialCharts'
-import { memberList } from '/@dds/ta/widgets/table/memberList'
+import { useRevenueAreaChart } from '/@dds/data/widgets/charts/revenueAreaChart'
+import { useLineStatsWidgetCharts } from '/@dds/data/widgets/charts/lineStatsWidgetChart'
+import { useFlexRadialChartCircle } from '/@dds/data/widgets/charts/flexRadialChartCircleChart'
+import { useFlexRadialChartStripes } from '/@dds/data/widgets/charts/flexRadialChartStripesChart'
+import { useGroupedCircleCharts } from '/@dds/data/widgets/charts/groupedCircleCharts'
+import { useGroupedRadialCharts } from '/@dds/data/widgets/charts/groupedRadialCharts'
+import { memberList } from '/@dds/data/widgets/table/memberList'
 
 const { spark1, spark2, spark3, spark4 } = useSalesSparksCharts()
 const { revenueOptions } = useRevenueAreaChart()

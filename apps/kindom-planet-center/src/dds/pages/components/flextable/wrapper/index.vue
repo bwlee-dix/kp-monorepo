@@ -3,9 +3,9 @@ import type {
   VFlexTableWrapperSortFunction,
   VFlexTableWrapperFilterFunction,
 } from '/@dds/components/base/table/VFlexTableWrapper.vue'
-import { users } from '/@dds/ta/layouts/card-grid-v1'
-import { useViewWrapper } from '/@dds/ores/viewWrapper'
-import { useMarkdownToc } from '/@dds/commposable/useMarkdownToc'
+import { users } from '/@dds/data/layouts/card-grid-v1'
+import { useViewWrapper } from '/@dds/stores/viewWrapper'
+import { useMarkdownToc } from '/@dds/composable/useMarkdownToc'
 
 const markdownContainer = ref<HTMLElement>()
 const toc = useMarkdownToc(markdownContainer)

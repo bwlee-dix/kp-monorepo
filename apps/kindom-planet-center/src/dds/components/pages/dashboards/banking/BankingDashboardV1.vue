@@ -2,7 +2,7 @@
 import ApexChart from 'vue3-apexcharts'
 
 import { useIncomeHistoryChart } from '/@dds/data/dashboards/banking-v1/incomeHistoryChart'
-import { popovers } from '/@dds/ta/users/userPopovers'
+import { popovers } from '/@dds/data/users/userPopovers'
 
 const selectSlotValue = ref(['default'])
 const selectSlotOptions = [

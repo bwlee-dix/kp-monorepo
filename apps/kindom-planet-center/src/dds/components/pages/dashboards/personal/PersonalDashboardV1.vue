@@ -2,8 +2,8 @@
 import ApexChart from 'vue3-apexcharts'
 
 import { useCustomersCharts } from '/@dds/data/dashboards/personal-v1/customersChart'
-import { useTeamGaugeChart } from '/@dds/ta/dashboards/personal-v1/teamGaugeChart'
-import { useProfitChart } from '/@dds/ta/dashboards/personal-v1/profitChart'
+import { useTeamGaugeChart } from '/@dds/data/dashboards/personal-v1/teamGaugeChart'
+import { useProfitChart } from '/@dds/data/dashboards/personal-v1/profitChart'
 
 const { customersOptions } = useCustomersCharts()
 const { teamGaugeOptions } = useTeamGaugeChart()
