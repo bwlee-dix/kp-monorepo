@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import { useViewWrapper } from '/@src/stores/viewWrapper'
+import { useViewWrapper } from '../../../../stores/viewWrapper'
 
 import { userList } from '/@src/data/layouts/datatable-v1'
 

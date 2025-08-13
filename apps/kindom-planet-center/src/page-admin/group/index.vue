@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import { useViewWrapper } from '/@src/stores/viewWrapper'
+import { useViewWrapper } from '../../stores/viewWrapper'
 
 const viewWrapper = useViewWrapper()
 viewWrapper.setPageTitle('Group')

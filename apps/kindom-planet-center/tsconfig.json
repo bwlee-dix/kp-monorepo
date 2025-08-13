@@ -25,7 +25,8 @@
       "photoswipe/lightbox": [
         "./node_modules/photoswipe/dist/types/lightbox/lightbox.d.ts"
       ],
-      "/@src/*": ["./src/*"]
+      "/@src/*": ["./src/*"],
+      "/@vuero/*": ["./src/vuero/*"]
     }
   },
   "include": [

@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { useDarkmode } from '/@src/stores/darkmode'
-import { useUserSession } from '/@src/stores/userSession'
+import { useDarkmode } from '../../stores/darkmode'
+import { useUserSession } from '../../stores/userSession'
 import { useNotyf } from '/@src/composable/useNotyf'
-import sleep from '/@src/utils/sleep'
+import sleep from '../../vuero/utils/sleep'
 
 const isLoading = ref(false)
 const darkmode = useDarkmode()

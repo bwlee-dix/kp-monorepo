@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
-import { useDarkmode } from '/@src/stores/darkmode'
+import { useDarkmode } from '../stores/darkmode'
 
 const darkmode = useDarkmode()
 const { t } = useI18n()

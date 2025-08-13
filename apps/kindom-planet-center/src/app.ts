@@ -4,21 +4,20 @@ import { createHead } from '@unhead/vue'
 import { InferSeoMetaPlugin } from '@unhead/addons'
 import { createPinia } from 'pinia'
 import { createRouter } from './router'
-import VueroApp from './VueroApp.vue'
+import App from './App.vue'
 import './styles'
 
-export type VueroAppContext = Awaited<ReturnType<typeof createApp>>
-export type VueroPlugin = (vuero: VueroAppContext) => void | Promise<void>
+export type AppContext = Awaited<ReturnType<typeof createApp>>
+export type KPPlugin = (kp: AppContext) => void | Promise<void>
 
-const plugins = import.meta.glob<{ default: VueroPlugin }>('./plugins/*.ts')
+const plugins = import.meta.glob<{ default: KPPlugin }>('/@vuero/plugins/*.ts')
 
-// this is a helper function to define plugins with autocompletion
-export function definePlugin(plugin: VueroPlugin) {
+export function definePlugin(plugin: KPPlugin) {
   return plugin
 }
 
 export async function createApp() {
-  const app = createClientApp(VueroApp)
+  const app = createClientApp(App)
   const router = createRouter()
 
   const head = createHead({
@@ -29,27 +28,26 @@ export async function createApp() {
   const pinia = createPinia()
   app.use(pinia)
 
-  const vuero = {
+  const kp = {
     app,
     router,
     head,
     pinia,
   }
 
-  app.provide('vuero', vuero)
+  app.provide('kp', kp)
 
   for (const path in plugins) {
     try {
       const { default: plugin } = await plugins[path]()
-      await plugin(vuero)
+      await plugin(kp)
     } catch (error) {
       console.error(`Error while loading plugin "${path}".`)
       console.error(error)
     }
   }
 
-  // use router after plugin registration, so we can register navigation guards
-  app.use(vuero.router)
+  app.use(kp.router)
 
-  return vuero
+  return kp
 }

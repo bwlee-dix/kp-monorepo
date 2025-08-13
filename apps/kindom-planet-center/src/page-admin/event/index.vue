@@ -1,9 +1,9 @@
 <script setup lang="ts">
 
-import { useViewWrapper } from '/@src/stores/viewWrapper'
+import { useViewWrapper } from '../../stores/viewWrapper'
 
 import { offers } from '/@src/data/layouts/view-list-v3'
-import { onceImageErrored } from '/@src/utils/via-placeholder'
+import { onceImageErrored } from '../../vuero/utils/via-placeholder'
 
 const router = useRouter()
 
@@ -182,7 +182,7 @@ const clickEvent = (id: string) => {
                             color="primary"
                             outlined
                             raised
-                            
+
                             :to="`/event/${item.id}`"
                           >
                             Go to Detail

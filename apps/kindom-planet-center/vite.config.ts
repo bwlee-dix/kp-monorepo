@@ -16,8 +16,6 @@ import purgecss from 'rollup-plugin-purgecss'
 import UnheadVite from '@unhead/addons/vite'
 import { unheadVueComposablesImports } from '@unhead/vue'
 
-// local vite plugin
-import { VitePluginVueroDoc } from './vite-plugin-vuero-doc'
 import { VitePluginPurgeComments } from './vite-plugin-purge-comments'
 
 // options via env variables
@@ -45,7 +43,7 @@ export default defineConfig({
   // development server configuration
   server: {
     // Vite 4 defaults to 5173, but you can override it with the port option.
-    port: 3000,
+    port: 4000,
   },
   /**
    * Define allow to replace string in the code at build time.
@@ -128,6 +126,10 @@ export default defineConfig({
         find: '/@src/',
         replacement: `/src/`,
       },
+      {
+        find: '/@vuero/',
+        replacement: `/src/vuero/`,
+      },
     ],
   },
   build: {
@@ -174,8 +176,8 @@ export default defineConfig({
      */
     VueRouter({
       // routesFolder: 'src/pages',
-      // routesFolder: 'src/page-developer',
-      routesFolder: 'src/page-admin',
+      routesFolder: 'src/kp-developer/page',
+      // routesFolder: 'src/page-admin',
       dts: './types/router.d.ts',
 
       /**
