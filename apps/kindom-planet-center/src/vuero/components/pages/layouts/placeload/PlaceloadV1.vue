@@ -61,7 +61,7 @@ const filters = ref('')
 </template>
 
 <style lang="scss">
-@import '/@src/scss/abstracts/all';
+@import '/@vuero/scss/abstracts/all';
 
 .list-view-v1 {
   .list-view-item {

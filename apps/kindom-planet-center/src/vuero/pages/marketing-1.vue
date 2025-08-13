@@ -92,12 +92,12 @@ useHead({
                 <div class="hero-mockup">
                   <img
                     class="light-image-block-l"
-                    src="/@src/assets/illustrations/landing/app-1.webp"
+                    src="/@vuero/assets/illustrations/landing/app-1.webp"
                     alt=""
                   >
                   <img
                     class="dark-image-block-l"
-                    src="/@src/assets/illustrations/landing/app-1.webp"
+                    src="/@vuero/assets/illustrations/landing/app-1.webp"
                     alt=""
                   >
                 </div>
@@ -145,8 +145,8 @@ useHead({
 </template>
 
 <style lang="scss">
-@import '/@src/scss/abstracts/all';
-@import '/@src/scss/_demo/landing';
+@import '/@vuero/scss/abstracts/all';
+@import '/@vuero/scss/_demo/landing';
 
 .marketing-hero {
   position: relative;

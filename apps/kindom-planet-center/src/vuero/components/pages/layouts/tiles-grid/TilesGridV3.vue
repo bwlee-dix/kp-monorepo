@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { posts } from '/@src/data/layouts/tile-grid-v3'
-import { onceImageErrored } from '/@src/utils/via-placeholder'
+import { posts } from '/@vuero/data/layouts/tile-grid-v3'
+import { onceImageErrored } from '/@vuero/utils/via-placeholder'
 
 const filters = ref('')
 
@@ -70,12 +70,12 @@ const optionsSingle = ['All Posts', 'Recent Posts', 'Older Posts', 'Popular Post
         <template #image>
           <img
             class="light-image"
-            src="/@src/assets/illustrations/placeholders/search-6.svg"
+            src="/@vuero/assets/illustrations/placeholders/search-6.svg"
             alt=""
           >
           <img
             class="dark-image"
-            src="/@src/assets/illustrations/placeholders/search-6-dark.svg"
+            src="/@vuero/assets/illustrations/placeholders/search-6-dark.svg"
             alt=""
           >
         </template>
@@ -641,7 +641,7 @@ const optionsSingle = ['All Posts', 'Recent Posts', 'Older Posts', 'Popular Post
 </template>
 
 <style lang="scss">
-@import '/@src/scss/abstracts/all';
+@import '/@vuero/scss/abstracts/all';
 
 .tile-grid {
   .columns {

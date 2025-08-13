@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { usePanels } from '../stores/panels'
 
-import type { VAvatarProps } from '/@src/components/base/avatar/VAvatar.vue'
-import { useDropdown } from '/@src/composable/useDropdown'
+import type { VAvatarProps } from '/@vuero/components/base/avatar/VAvatar.vue'
+import { useDropdown } from '/@vuero/composable/useDropdown'
 import { onceImageErrored } from '../utils/via-placeholder'
 
 export interface conversationData {

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { useDarkmode } from '../../stores/darkmode'
-import { useUserSession } from '../../stores/userSession'
+import { useDarkmode } from '/@vuero/stores/darkmode'
+import { useUserSession } from '/@vuero/stores/userSession'
 import { useNotyf } from '../../composable/useNotyf'
 import sleep from '../../utils/sleep'
 
@@ -52,7 +52,7 @@ useHead({
                 <div class="column">
                   <img
                     class="hero-image"
-                    src="/@src/assets/illustrations/login/station.svg"
+                    src="/@vuero/assets/illustrations/login/station.svg"
                     alt=""
                   >
                 </div>

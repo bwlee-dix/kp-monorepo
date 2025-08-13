@@ -1,6 +1,6 @@
 import { useFetch } from '/@vuero/composable/useFetch'
 import { definePlugin } from '/@src/app'
-import { useUserSession } from '../stores/userSession'
+import { useUserSession } from '/@vuero/stores/userSession'
 
 /**
  * Here we are setting up two router navigation guards

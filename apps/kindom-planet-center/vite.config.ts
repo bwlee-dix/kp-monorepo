@@ -162,7 +162,7 @@ export default defineConfig({
      * @see https://github.com/intlify/bundle-tools/blob/main/packages/unplugin-vue-i18n/README.md
      */
     VueI18nPlugin({
-      include: resolve(dirname(fileURLToPath(import.meta.url)), './src/locales/**'),
+      include: resolve(dirname(fileURLToPath(import.meta.url)), './src/vuero/locales/**'),
       fullInstall: false,
       compositionOnly: true,
     }),
@@ -175,9 +175,9 @@ export default defineConfig({
      * @see https://github.com/vuejs/rfcs/blob/ad69da2aee9242ef88f036713db68f3ef274bb1b/active-rfcs/0000-router-use-loader.md
      */
     VueRouter({
-      // routesFolder: 'src/pages',
-      routesFolder: 'src/kp-developer/page',
-      // routesFolder: 'src/page-admin',
+      // routesFolder: 'src/vuero/pages',
+      // routesFolder: 'src/kp-developer/page',
+      routesFolder: 'src/kp-admin/page',
       dts: './types/router.d.ts',
 
       /**
@@ -220,7 +220,7 @@ export default defineConfig({
      * @see https://github.com/antfu/unplugin-vue-components
      */
     Components({
-      dirs: ['documentation', 'src/components', 'src/layouts'],
+      dirs: ['documentation', 'src/vuero/components', 'src/vuero/layouts'],
       extensions: ['vue', 'md'],
       dts: './types/components.d.ts',
       include: [/\.vue$/, /\.vue\?vue/, /\.md$/],

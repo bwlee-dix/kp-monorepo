@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { jobs } from '/@src/data/dashboards/jobs'
+import { jobs } from '/@vuero/data/dashboards/jobs'
 
 export type Job = 'web-developer' | 'uiux-designer' | 'backend-developer'
 
@@ -380,7 +380,7 @@ const jobSalary = ref(['job-salary-5', 'job-salary-6'])
 </template>
 
 <style lang="scss">
-@import '/@src/scss/abstracts/all';
+@import '/@vuero/scss/abstracts/all';
 
 :root {
   --header-bg-color: #fff;

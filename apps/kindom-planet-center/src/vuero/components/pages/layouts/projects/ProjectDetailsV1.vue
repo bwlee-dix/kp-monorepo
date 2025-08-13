@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { usePanels } from '/@src/stores/panels'
+import { usePanels } from '/@vuero/stores/panels'
 
 const panels = usePanels()
 const props = withDefaults(
@@ -351,7 +351,7 @@ const participants = [
                 <template #icon>
                   <VAvatar
                     size="small"
-                    picture="/@src/assets/illustrations/dashboards/flights/company1.svg"
+                    picture="/@vuero/assets/illustrations/dashboards/flights/company1.svg"
                   />
                 </template>
               </VBlock>
@@ -851,7 +851,7 @@ const participants = [
 </template>
 
 <style lang="scss">
-@import '/@src/scss/abstracts/all';
+@import '/@vuero/scss/abstracts/all';
 
 .is-navbar {
   .project-details {

@@ -2,12 +2,12 @@
 import type { TinySliderInstance } from 'tiny-slider/src/tiny-slider'
 import { tns } from 'tiny-slider/src/tiny-slider'
 
-import FoodWidget from '/@src/assets/illustrations/dashboards/food/widget.svg'
+import FoodWidget from '/@vuero/assets/illustrations/dashboards/food/widget.svg'
 
-import * as foodDelivery from '/@src/data/dashboards/food-delivery'
-import { followersStats } from '/@src/data/widgets/ui/followers'
-import { iconList } from '/@src/data/widgets/ui/menuList'
-import { onceImageErrored } from '/@src/utils/via-placeholder'
+import * as foodDelivery from '/@vuero/data/dashboards/food-delivery'
+import { followersStats } from '/@vuero/data/widgets/ui/followers'
+import { iconList } from '/@vuero/data/widgets/ui/menuList'
+import { onceImageErrored } from '/@vuero/utils/via-placeholder'
 
 const activeSection = ref('cart')
 
@@ -66,7 +66,7 @@ onUnmounted(() => {
       <div class="left-header">
         <div class="header-image">
           <img
-            src="/@src/assets/illustrations/dashboards/food/header.svg"
+            src="/@vuero/assets/illustrations/dashboards/food/header.svg"
             alt=""
           >
         </div>
@@ -302,12 +302,12 @@ onUnmounted(() => {
             <template #image>
               <img
                 class="light-image"
-                src="/@src/assets/illustrations/dashboards/food/cart-placeholder.svg"
+                src="/@vuero/assets/illustrations/dashboards/food/cart-placeholder.svg"
                 alt=""
               >
               <img
                 class="dark-image"
-                src="/@src/assets/illustrations/dashboards/food/cart-placeholder.svg"
+                src="/@vuero/assets/illustrations/dashboards/food/cart-placeholder.svg"
                 alt=""
               >
             </template>
@@ -433,7 +433,7 @@ onUnmounted(() => {
 </template>
 
 <style lang="scss">
-@import '/@src/scss/abstracts/all';
+@import '/@vuero/scss/abstracts/all';
 
 .food-delivery-dashboard {
   display: flex;

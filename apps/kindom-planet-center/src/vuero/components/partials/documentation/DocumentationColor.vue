@@ -157,7 +157,7 @@ function updateColor({ colors }: any) {
 </template>
 
 <style lang="scss" scoped>
-@import '/@src/scss/abstracts/all';
+@import '/@vuero/scss/abstracts/all';
 
 .color-picker {
   margin: 0 auto;

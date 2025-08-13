@@ -10,8 +10,8 @@ Check the markup for more details about usage.
 
 ```vue
 <script setup lang="ts">
-import type { VFlexTableWrapperDataResolver } from '/@src/components/base/table/VFlexTableWrapper.vue'
-import { useFetch } from '/@src/composable/useFetch'
+import type { VFlexTableWrapperDataResolver } from '/@vuero/components/base/table/VFlexTableWrapper.vue'
+import { useFetch } from '/@vuero/composable/useFetch'
 
 // the total data will be set by the fetchData function
 const total = ref(0)
@@ -347,12 +347,12 @@ function onCallClick(row: any) {
               <template #image>
                 <img
                   class="light-image"
-                  src="/@src/assets/illustrations/placeholders/search-4.svg"
+                  src="/@vuero/assets/illustrations/placeholders/search-4.svg"
                   alt=""
                 />
                 <img
                   class="dark-image"
-                  src="/@src/assets/illustrations/placeholders/search-4-dark.svg"
+                  src="/@vuero/assets/illustrations/placeholders/search-4-dark.svg"
                   alt=""
                 />
               </template>

@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
 
-import { useDarkmode } from '/@src/stores/darkmode'
-import { usePanels } from '/@src/stores/panels'
+import { useDarkmode } from '/@vuero/stores/darkmode'
+import { usePanels } from '/@vuero/stores/panels'
 
 const darkmode = useDarkmode()
 const panels = usePanels()

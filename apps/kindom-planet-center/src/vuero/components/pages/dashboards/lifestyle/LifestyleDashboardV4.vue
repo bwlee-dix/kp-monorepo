@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onceImageErrored } from '/@src/utils/via-placeholder'
+import { onceImageErrored } from '/@vuero/utils/via-placeholder'
 </script>
 
 <template>
@@ -12,7 +12,7 @@ import { onceImageErrored } from '/@src/utils/via-placeholder'
             <div class="illustration-header-2">
               <div class="header-image">
                 <img
-                  src="/@src/assets/illustrations/dashboards/lifestyle/reading.svg"
+                  src="/@vuero/assets/illustrations/dashboards/lifestyle/reading.svg"
                   alt=""
                 >
               </div>
@@ -277,7 +277,7 @@ import { onceImageErrored } from '/@src/utils/via-placeholder'
 </template>
 
 <style lang="scss">
-@import '/@src/scss/abstracts/all';
+@import '/@vuero/scss/abstracts/all';
 
 .lifestyle-dashboard-v4 {
   .illustration-header-2 {

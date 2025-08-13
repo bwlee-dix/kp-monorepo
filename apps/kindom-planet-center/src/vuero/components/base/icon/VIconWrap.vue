@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onceImageErrored } from '/@src/utils/via-placeholder'
+import { onceImageErrored } from '/@vuero/utils/via-placeholder'
 
 export type VIconWrapDark = '1' | '2' | '3' | '4' | '5' | '6'
 export type VIconWrapSize = 'small' | 'medium' | 'large'

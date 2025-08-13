@@ -1,5 +1,5 @@
 import dayjs from 'dayjs'
-import { useThemeColors } from '/@src/composable/useThemeColors'
+import { useThemeColors } from '/@vuero/composable/useThemeColors'
 
 export function useDemo13RangeBar() {
   const themeColors = useThemeColors()

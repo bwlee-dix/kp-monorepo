@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import { useViewWrapper } from '../../../stores/viewWrapper'
+import { useViewWrapper } from '/@vuero/stores/viewWrapper'
 
 const viewWrapper = useViewWrapper()
 viewWrapper.setPageTitle('App')
@@ -192,8 +192,8 @@ const webUrl=ref("https://gmma.kingdompla.net")
 </template>
 
 <style lang="scss">
-@import '/@src/scss/abstracts/all';
-@import '/@src/scss/components/forms-outer';
+@import '/@vuero/scss/abstracts/all';
+@import '/@vuero/scss/components/forms-outer';
 
 .form-layout {
   max-width: 740px;

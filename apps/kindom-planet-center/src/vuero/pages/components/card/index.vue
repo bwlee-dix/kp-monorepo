@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useMarkdownToc } from '../../../composable/useMarkdownToc'
-import { useViewWrapper } from '../../../stores/viewWrapper'
+import { useViewWrapper } from '/@vuero/stores/viewWrapper'
 import { popovers } from '../../../data/users/userPopovers'
 
 const markdownContainer = ref<HTMLElement>()

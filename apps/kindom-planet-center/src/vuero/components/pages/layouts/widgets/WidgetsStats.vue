@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import ApexChart from 'vue3-apexcharts'
 
-import { useSalesSparksCharts } from '/@src/data/widgets/charts/salesSparksChart'
-import { useRevenueAreaChart } from '/@src/data/widgets/charts/revenueAreaChart'
-import { useLineStatsWidgetCharts } from '/@src/data/widgets/charts/lineStatsWidgetChart'
-import { useFlexRadialChartCircle } from '/@src/data/widgets/charts/flexRadialChartCircleChart'
-import { useFlexRadialChartStripes } from '/@src/data/widgets/charts/flexRadialChartStripesChart'
-import { useGroupedCircleCharts } from '/@src/data/widgets/charts/groupedCircleCharts'
-import { useGroupedRadialCharts } from '/@src/data/widgets/charts/groupedRadialCharts'
-import { memberList } from '/@src/data/widgets/table/memberList'
+import { useSalesSparksCharts } from '/@vuero/data/widgets/charts/salesSparksChart'
+import { useRevenueAreaChart } from '/@vuero/data/widgets/charts/revenueAreaChart'
+import { useLineStatsWidgetCharts } from '/@vuero/data/widgets/charts/lineStatsWidgetChart'
+import { useFlexRadialChartCircle } from '/@vuero/data/widgets/charts/flexRadialChartCircleChart'
+import { useFlexRadialChartStripes } from '/@vuero/data/widgets/charts/flexRadialChartStripesChart'
+import { useGroupedCircleCharts } from '/@vuero/data/widgets/charts/groupedCircleCharts'
+import { useGroupedRadialCharts } from '/@vuero/data/widgets/charts/groupedRadialCharts'
+import { memberList } from '/@vuero/data/widgets/table/memberList'
 
 const { spark1, spark2, spark3, spark4 } = useSalesSparksCharts()
 const { revenueOptions } = useRevenueAreaChart()

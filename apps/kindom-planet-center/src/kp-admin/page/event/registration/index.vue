@@ -1,18 +1,17 @@
 <script setup lang="ts">
 
-import { useViewWrapper } from '../../../../stores/viewWrapper'
+import { useViewWrapper } from '/@vuero/stores/viewWrapper'
 
-import { userList } from '/@src/data/layouts/datatable-v1'
+import { userList } from '/@vuero/data/layouts/datatable-v1'
 
-import type { VAvatarProps } from '/@src/components/base/avatar/VAvatar.vue'
+import type { VAvatarProps } from '/@vuero/components/base/avatar/VAvatar.vue'
 
 
 const viewWrapper = useViewWrapper()
 
-const route = useRoute();
 const router = useRouter()
 
-const eventId = route.params.eventId;
+const eventId = (router.currentRoute.value.params as any).eventId as string;
 viewWrapper.setPageTitle('KOSTA 2025 참가자 목록')
 
 
@@ -66,6 +65,7 @@ const clickRegistration = (id: string) => {
   >
     <!-- Content Wrapper -->
     <div class="page-content-inner">
+
       <div>
         <div class="datatable-wrapper">
           <div class="table-container">
@@ -84,8 +84,8 @@ const clickRegistration = (id: string) => {
                   :key="user.id"
                   role="button"
                   tabindex="0"
-                  @click="clickRegistration(user.id)"
-                  @keydown.enter="clickRegistration(user.id)"
+                  @click="clickRegistration(user.id.toString())"
+                  @keydown.enter="clickRegistration(user.id.toString())"
                 >
                   <td>{{ user.id }}</td>
                   <td>
@@ -128,12 +128,12 @@ const clickRegistration = (id: string) => {
             <template #image>
               <img
                 class="light-image"
-                src="/@src/assets/illustrations/placeholders/search-7.svg"
+                src="/@vuero/assets/illustrations/placeholders/search-7.svg"
                 alt=""
               >
               <img
                 class="dark-image"
-                src="/@src/assets/illustrations/placeholders/search-7-dark.svg"
+                src="/@vuero/assets/illustrations/placeholders/search-7-dark.svg"
                 alt=""
               >
             </template>

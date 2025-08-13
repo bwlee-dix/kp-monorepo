@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import ApexChart from 'vue3-apexcharts'
 
-import { useEnergyChart } from '/@src/data/dashboards/lifestyle-v3/energyChart'
-import { useOverallChart } from '/@src/data/dashboards/lifestyle-v3/overallChart'
-import { useOxygenChart } from '/@src/data/dashboards/lifestyle-v3/oxygenChart'
-import { useProgressChart } from '/@src/data/dashboards/lifestyle-v3/progressChart'
-import { followersList } from '/@src/data/widgets/ui/followers'
-import { usePersonalScoreGauge } from '/@src/data/widgets/charts/personalScoreGauge'
+import { useEnergyChart } from '/@vuero/data/dashboards/lifestyle-v3/energyChart'
+import { useOverallChart } from '/@vuero/data/dashboards/lifestyle-v3/overallChart'
+import { useOxygenChart } from '/@vuero/data/dashboards/lifestyle-v3/oxygenChart'
+import { useProgressChart } from '/@vuero/data/dashboards/lifestyle-v3/progressChart'
+import { followersList } from '/@vuero/data/widgets/ui/followers'
+import { usePersonalScoreGauge } from '/@vuero/data/widgets/charts/personalScoreGauge'
 
 const { personalScoreGaugeOptions, onPersonalScoreGaugeReady } = usePersonalScoreGauge()
 const { energyChartOptions } = useEnergyChart()
@@ -20,7 +20,7 @@ const { progressChartOptions } = useProgressChart()
     <div class="illustration-header">
       <div class="header-image">
         <img
-          src="/@src/assets/illustrations/dashboards/lifestyle/doctor.svg"
+          src="/@vuero/assets/illustrations/dashboards/lifestyle/doctor.svg"
           alt=""
         >
       </div>
@@ -469,7 +469,7 @@ const { progressChartOptions } = useProgressChart()
 </template>
 
 <style lang="scss">
-@import '/@src/scss/abstracts/all';
+@import '/@vuero/scss/abstracts/all';
 
 .lifestyle-dashboard-v3 {
   .illustration-header {

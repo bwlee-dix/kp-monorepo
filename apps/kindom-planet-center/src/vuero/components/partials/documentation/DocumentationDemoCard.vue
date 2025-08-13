@@ -12,7 +12,7 @@ const stayFocus = useLocalStorage('disable-stay-focus', '')
 </template>
 
 <style lang="scss">
-@import '/@src/scss/abstracts/all';
+@import '/@vuero/scss/abstracts/all';
 
 .demo-card {
   @include vuero-s-card;

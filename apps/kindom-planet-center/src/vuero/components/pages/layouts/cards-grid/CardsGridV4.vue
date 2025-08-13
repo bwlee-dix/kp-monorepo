@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { posts } from '/@src/data/layouts/card-grid-v4'
-import { onceImageErrored } from '/@src/utils/via-placeholder'
+import { posts } from '/@vuero/data/layouts/card-grid-v4'
+import { onceImageErrored } from '/@vuero/utils/via-placeholder'
 
 const filters = ref('')
 
@@ -71,12 +71,12 @@ const optionsSingle = ['All Posts', 'Recent Posts', 'Older Posts', 'Popular Post
         <template #image>
           <img
             class="light-image"
-            src="/@src/assets/illustrations/placeholders/search-4.svg"
+            src="/@vuero/assets/illustrations/placeholders/search-4.svg"
             alt=""
           >
           <img
             class="dark-image"
-            src="/@src/assets/illustrations/placeholders/search-4-dark.svg"
+            src="/@vuero/assets/illustrations/placeholders/search-4-dark.svg"
             alt=""
           >
         </template>
@@ -125,7 +125,7 @@ const optionsSingle = ['All Posts', 'Recent Posts', 'Older Posts', 'Popular Post
 </template>
 
 <style lang="scss">
-@import '/@src/scss/abstracts/all';
+@import '/@vuero/scss/abstracts/all';
 
 .card-grid {
   .columns {

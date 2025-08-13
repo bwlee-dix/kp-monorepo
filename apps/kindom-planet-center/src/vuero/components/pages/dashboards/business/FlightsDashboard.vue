@@ -15,12 +15,12 @@ const options = ref(['All Flights', 'All Options'])
         <div class="booking-bar-wrapper">
           <img
             class="travel-illustration light-image"
-            src="/@src/assets/illustrations/dashboards/flights/travel.svg"
+            src="/@vuero/assets/illustrations/dashboards/flights/travel.svg"
             alt=""
           >
           <img
             class="travel-illustration dark-image"
-            src="/@src/assets/illustrations/dashboards/flights/travel-dark.svg"
+            src="/@vuero/assets/illustrations/dashboards/flights/travel-dark.svg"
             alt=""
           >
           <div class="booking-bar-info">
@@ -117,7 +117,7 @@ const options = ref(['All Flights', 'All Options'])
           <!--Flight-->
           <a class="flight-card">
             <img
-              src="/@src/assets/illustrations/dashboards/flights/company1.svg"
+              src="/@vuero/assets/illustrations/dashboards/flights/company1.svg"
               alt=""
             >
             <div class="start">
@@ -149,7 +149,7 @@ const options = ref(['All Flights', 'All Options'])
           <!--Flight-->
           <a class="flight-card">
             <img
-              src="/@src/assets/illustrations/dashboards/flights/company2.svg"
+              src="/@vuero/assets/illustrations/dashboards/flights/company2.svg"
               alt=""
             >
             <div class="start">
@@ -181,7 +181,7 @@ const options = ref(['All Flights', 'All Options'])
           <!--Flight-->
           <a class="flight-card">
             <img
-              src="/@src/assets/illustrations/dashboards/flights/company1.svg"
+              src="/@vuero/assets/illustrations/dashboards/flights/company1.svg"
               alt=""
             >
             <div class="start">
@@ -213,7 +213,7 @@ const options = ref(['All Flights', 'All Options'])
           <!--Flight-->
           <a class="flight-card">
             <img
-              src="/@src/assets/illustrations/dashboards/flights/company3.svg"
+              src="/@vuero/assets/illustrations/dashboards/flights/company3.svg"
               alt=""
             >
             <div class="start">
@@ -245,7 +245,7 @@ const options = ref(['All Flights', 'All Options'])
           <!--Flight-->
           <a class="flight-card">
             <img
-              src="/@src/assets/illustrations/dashboards/flights/company1.svg"
+              src="/@vuero/assets/illustrations/dashboards/flights/company1.svg"
               alt=""
             >
             <div class="start">
@@ -537,7 +537,7 @@ const options = ref(['All Flights', 'All Options'])
 </template>
 
 <style lang="scss">
-@import '/@src/scss/abstracts/all';
+@import '/@vuero/scss/abstracts/all';
 
 .flights-dashboard {
   .booking-bar-wrapper {

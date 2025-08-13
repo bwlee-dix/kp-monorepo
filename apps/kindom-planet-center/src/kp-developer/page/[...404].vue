@@ -46,7 +46,7 @@ useHead({
             <VButton
               color="primary"
               elevated
-              to="/"
+              @click="$router.go(-1)"
             >
               {{ t('pages.not-found.page-button') }}
             </VButton>

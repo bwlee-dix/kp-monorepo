@@ -18,7 +18,7 @@ router.afterEach(() => {
 
 <template>
   <img
-    src="/images/kp_logo.png"
+    src="/@vuero/images/kp_logo.png"
     alt=""
     class="logo"
   >

@@ -1,11 +1,11 @@
 <script setup lang="ts">
 
-import { useViewWrapper } from '../../../../../stores/viewWrapper'
-import VTag from '/@src/components/base/tags/VTag.vue'
-import FlexTableDropdown from '/@src/components/partials/dropdowns/FlexTableDropdown.vue'
-import VAvatarStack from '/@src/components/base/avatar/VAvatarStack.vue'
-import { flexRowsAdvanced } from '/@src/data/documentation/table'
-import { onceImageErrored } from '../../../../../vuero/utils/via-placeholder'
+import { useViewWrapper } from '/@vuero/stores/viewWrapper'
+import VTag from '/@vuero/components/base/tags/VTag.vue'
+import FlexTableDropdown from '/@vuero/components/partials/dropdowns/FlexTableDropdown.vue'
+import VAvatarStack from '/@vuero/components/base/avatar/VAvatarStack.vue'
+import { flexRowsAdvanced } from '/@vuero/data/documentation/table'
+import { onceImageErrored } from '/@vuero/utils/via-placeholder'
 import { RouterLink } from 'vue-router/auto'
 
 
@@ -16,11 +16,8 @@ const numberFormat = new Intl.NumberFormat('en-US', {
 })
 const viewWrapper = useViewWrapper()
 
-const route = useRoute();
 const router = useRouter()
 
-const eventId = route.params.eventId;
-const registrationId = route.params.registrationId;
 viewWrapper.setPageTitle('KOSTA 2025 참가자 상세')
 
 
@@ -29,7 +26,7 @@ useHead({
 })
 
 const sortedData = computed(() => {
-  switch (router.query?.sort) {
+  switch (router.currentRoute.value.query?.sort) {
     case 'username:asc': {
       return [...flexRowsAdvanced].sort((a, b) =>
         collator.compare(a.username, b.username)
@@ -306,7 +303,7 @@ const exampleColumns = {
             <a class="project-grid-item">
               <img
                 class="project-avatar"
-                src="/@src/assets/illustrations/dashboards/flights/company1.svg"
+                src="/@vuero/assets/illustrations/dashboards/flights/company1.svg"
                 alt=""
                 @error.once="onceImageErrored(150)"
               >

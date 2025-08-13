@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { useTodoList } from '/@src/data/widgets/list/todoList'
-import { fileList1, fileList2 } from '/@src/data/widgets/list/fileList'
-import { userList } from '/@src/data/widgets/list/userList'
-import { topicList } from '/@src/data/widgets/list/topicList'
-import { timeline } from '/@src/data/widgets/list/timeline'
+import { useTodoList } from '/@vuero/data/widgets/list/todoList'
+import { fileList1, fileList2 } from '/@vuero/data/widgets/list/fileList'
+import { userList } from '/@vuero/data/widgets/list/userList'
+import { topicList } from '/@vuero/data/widgets/list/topicList'
+import { timeline } from '/@vuero/data/widgets/list/timeline'
 
 const { todoList1, todoList2, todoList3, todoList4 } = useTodoList()
 

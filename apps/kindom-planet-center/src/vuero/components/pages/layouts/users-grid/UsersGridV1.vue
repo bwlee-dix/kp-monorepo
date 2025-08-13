@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import type { VAvatarProps, VAvatarColor } from '/@src/components/base/avatar/VAvatar.vue'
-import { users } from '/@src/data/layouts/user-grid-v1'
+import type { VAvatarProps, VAvatarColor } from '/@vuero/components/base/avatar/VAvatar.vue'
+import { users } from '/@vuero/data/layouts/user-grid-v1'
 
 const filters = ref('')
 
@@ -87,12 +87,12 @@ function getAvatarData(user: any): VAvatarProps {
         <template #image>
           <img
             class="light-image"
-            src="/@src/assets/illustrations/placeholders/search-4.svg"
+            src="/@vuero/assets/illustrations/placeholders/search-4.svg"
             alt=""
           >
           <img
             class="dark-image"
-            src="/@src/assets/illustrations/placeholders/search-4-dark.svg"
+            src="/@vuero/assets/illustrations/placeholders/search-4-dark.svg"
             alt=""
           >
         </template>
@@ -157,7 +157,7 @@ function getAvatarData(user: any): VAvatarProps {
 </template>
 
 <style lang="scss">
-@import '/@src/scss/abstracts/all';
+@import '/@vuero/scss/abstracts/all';
 
 .is-dark {
   .user-grid {

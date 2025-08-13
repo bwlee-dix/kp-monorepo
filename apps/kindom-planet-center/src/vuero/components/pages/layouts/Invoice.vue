@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { popovers } from '/@src/data/users/userPopovers'
+import { popovers } from '/@vuero/data/users/userPopovers'
 
 const data = ref([
   {
@@ -222,7 +222,7 @@ const totalColumns = {
 </template>
 
 <style lang="scss">
-@import '/@src/scss/abstracts/all';
+@import '/@vuero/scss/abstracts/all';
 
 /* ==========================================================================
 4. Invoice

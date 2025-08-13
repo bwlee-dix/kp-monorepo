@@ -1,18 +1,14 @@
 <script setup lang="ts">
 
-import { useViewWrapper } from '../../../stores/viewWrapper'
+import { useViewWrapper } from '/@vuero/stores/viewWrapper'
 
-import { userList } from '/@src/data/layouts/datatable-v1'
-
-import type { VAvatarProps } from '/@src/components/base/avatar/VAvatar.vue'
 
 
 const viewWrapper = useViewWrapper()
 
-const route = useRoute();
 const router = useRouter()
 
-const eventId = route.params.eventId;
+const eventId = (router.currentRoute.value.params as any).eventId as string;
 viewWrapper.setPageTitle('Event detail')
 
 
@@ -287,8 +283,8 @@ const onSubmit = () => {
 </template>
 
 <style lang="scss">
-@import '/@src/scss/abstracts/all';
-@import '/@src/scss/components/forms-outer';
+@import '/@vuero/scss/abstracts/all';
+@import '/@vuero/scss/components/forms-outer';
 
 .form-layout {
   max-width: 740px;

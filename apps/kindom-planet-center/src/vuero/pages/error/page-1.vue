@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useDarkmode } from '../../stores/darkmode'
+import { useDarkmode } from '/@vuero/stores/darkmode'
 
 const darkmode = useDarkmode()
 

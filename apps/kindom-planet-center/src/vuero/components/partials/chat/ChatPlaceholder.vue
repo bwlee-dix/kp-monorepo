@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { onceImageErrored } from '/@src/utils/via-placeholder'
+import { onceImageErrored } from '/@vuero/utils/via-placeholder'
 </script>
 
 <template>
   <div class="is-chat-placeholder animated preFadeInUp fadeInUp is-hidden">
     <div class="caption">
       <img
-        src="/@src/assets/illustrations/placeholders/having-coffee.svg"
+        src="/@vuero/assets/illustrations/placeholders/having-coffee.svg"
         alt=""
         @error.once="onceImageErrored(150)"
       >

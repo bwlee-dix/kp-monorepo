@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { useViewWrapper } from '../../../stores/viewWrapper'
-import { lineIconsRegular } from '/@src/data/icons/lineIconsRegular'
+import { useViewWrapper } from '/@vuero/stores/viewWrapper'
+import { lineIconsRegular } from '/@vuero/data/icons/lineIconsRegular'
 
 const { text, copy, copied } = useClipboard()
 const { y } = useWindowScroll()

@@ -2,9 +2,9 @@
 import Dropzone from 'dropzone'
 import 'dropzone/dist/dropzone.css'
 
-import { useWizard } from '/@src/composable/useWizard'
-import { onceImageErrored } from '../../vuero/utils/via-placeholder'
-import sleep from '../../vuero/utils/sleep'
+import { useWizard } from '/@vuero/composable/useWizard'
+import { onceImageErrored } from '/@vuero/utils/via-placeholder'
+import sleep from '/@vuero/utils/sleep'
 Dropzone.autoDiscover = false
 
 let isInit = false
@@ -66,7 +66,7 @@ const initDropzone = () => {
   })
 
   dropzone.value.on('removedfile', (file: any) => {
-    const fileIndex = wizard.data.attachments.findIndex((item) => {
+    const fileIndex = wizard.data.attachments.findIndex((item: any) => {
       return item.upload.uuid === file.upload.uuid
     })
 
@@ -217,12 +217,12 @@ watch(previewTemplate, () => {
         <template #image>
           <img
             class="light-image is-rounded"
-            src="/@src/assets/illustrations/wizard/upload-placeholder.svg"
+            src="/@vuero/assets/illustrations/wizard/upload-placeholder.svg"
             alt=""
           >
           <img
             class="dark-image is-rounded"
-            src="/@src/assets/illustrations/wizard/upload-placeholder.svg"
+            src="/@vuero/assets/illustrations/wizard/upload-placeholder.svg"
             alt=""
           >
         </template>

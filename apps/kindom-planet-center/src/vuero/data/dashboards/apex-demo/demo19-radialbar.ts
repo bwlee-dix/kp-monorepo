@@ -1,4 +1,4 @@
-import { useThemeColors } from '/@src/composable/useThemeColors'
+import { useThemeColors } from '/@vuero/composable/useThemeColors'
 
 export function useDemo19RadialBar() {
   const themeColors = useThemeColors()

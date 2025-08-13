@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useWizard } from '/@src/composable/useWizard'
+import { useWizard } from '/@vuero/composable/useWizard'
 
 const wizard = useWizard()
 
@@ -68,7 +68,7 @@ useHead({
 </template>
 
 <style lang="scss">
-@import '/@src/scss/abstracts/all';
+@import '/@vuero/scss/abstracts/all';
 
 /* ==========================================================================
 1. Wizard V1 Navigation

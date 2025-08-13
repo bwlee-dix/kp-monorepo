@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { usePanels } from '/@src/stores/panels'
+import { usePanels } from '/@vuero/stores/panels'
 const panels = usePanels()
 </script>
 

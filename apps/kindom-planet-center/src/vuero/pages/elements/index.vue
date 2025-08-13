@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useViewWrapper } from '../../stores/viewWrapper'
+import { useViewWrapper } from '/@vuero/stores/viewWrapper'
 
 const viewWrapper = useViewWrapper()
 viewWrapper.setPageTitle('Elements Hub')
@@ -43,12 +43,12 @@ useHead({
                 <template #icon>
                   <img
                     class="light-image"
-                    src="/@src/assets/illustrations/components/buttons.svg"
+                    src="/@vuero/assets/illustrations/components/buttons.svg"
                     alt=""
                   >
                   <img
                     class="dark-image"
-                    src="/@src/assets/illustrations/components/buttons-dark.svg"
+                    src="/@vuero/assets/illustrations/components/buttons-dark.svg"
                     alt=""
                   >
                 </template>
@@ -66,12 +66,12 @@ useHead({
                 <template #icon>
                   <img
                     class="light-image"
-                    src="/@src/assets/illustrations/components/icons.svg"
+                    src="/@vuero/assets/illustrations/components/icons.svg"
                     alt=""
                   >
                   <img
                     class="dark-image"
-                    src="/@src/assets/illustrations/components/icons-dark.svg"
+                    src="/@vuero/assets/illustrations/components/icons-dark.svg"
                     alt=""
                   >
                 </template>
@@ -89,12 +89,12 @@ useHead({
                 <template #icon>
                   <img
                     class="light-image"
-                    src="/@src/assets/illustrations/components/dropdown.svg"
+                    src="/@vuero/assets/illustrations/components/dropdown.svg"
                     alt=""
                   >
                   <img
                     class="dark-image"
-                    src="/@src/assets/illustrations/components/dropdown-dark.svg"
+                    src="/@vuero/assets/illustrations/components/dropdown-dark.svg"
                     alt=""
                   >
                 </template>
@@ -112,12 +112,12 @@ useHead({
                 <template #icon>
                   <img
                     class="light-image"
-                    src="/@src/assets/illustrations/components/modal.svg"
+                    src="/@vuero/assets/illustrations/components/modal.svg"
                     alt=""
                   >
                   <img
                     class="dark-image"
-                    src="/@src/assets/illustrations/components/modal-dark.svg"
+                    src="/@vuero/assets/illustrations/components/modal-dark.svg"
                     alt=""
                   >
                 </template>
@@ -135,12 +135,12 @@ useHead({
                 <template #icon>
                   <img
                     class="light-image"
-                    src="/@src/assets/illustrations/components/progress.svg"
+                    src="/@vuero/assets/illustrations/components/progress.svg"
                     alt=""
                   >
                   <img
                     class="dark-image"
-                    src="/@src/assets/illustrations/components/progress-dark.svg"
+                    src="/@vuero/assets/illustrations/components/progress-dark.svg"
                     alt=""
                   >
                 </template>
@@ -158,12 +158,12 @@ useHead({
                 <template #icon>
                   <img
                     class="light-image"
-                    src="/@src/assets/illustrations/components/forms.svg"
+                    src="/@vuero/assets/illustrations/components/forms.svg"
                     alt=""
                   >
                   <img
                     class="dark-image"
-                    src="/@src/assets/illustrations/components/forms-dark.svg"
+                    src="/@vuero/assets/illustrations/components/forms-dark.svg"
                     alt=""
                   >
                 </template>
@@ -181,12 +181,12 @@ useHead({
                 <template #icon>
                   <img
                     class="light-image"
-                    src="/@src/assets/illustrations/components/checkboxes.svg"
+                    src="/@vuero/assets/illustrations/components/checkboxes.svg"
                     alt=""
                   >
                   <img
                     class="dark-image"
-                    src="/@src/assets/illustrations/components/checkboxes-dark.svg"
+                    src="/@vuero/assets/illustrations/components/checkboxes-dark.svg"
                     alt=""
                   >
                 </template>
@@ -204,12 +204,12 @@ useHead({
                 <template #icon>
                   <img
                     class="light-image"
-                    src="/@src/assets/illustrations/components/switches.svg"
+                    src="/@vuero/assets/illustrations/components/switches.svg"
                     alt=""
                   >
                   <img
                     class="dark-image"
-                    src="/@src/assets/illustrations/components/switches-dark.svg"
+                    src="/@vuero/assets/illustrations/components/switches-dark.svg"
                     alt=""
                   >
                 </template>

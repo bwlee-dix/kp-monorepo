@@ -1,19 +1,19 @@
 <script setup lang="ts">
-import { avatarList, avatarListCreative } from '/@src/data/widgets/ui/avatarList'
+import { avatarList, avatarListCreative } from '/@vuero/data/widgets/ui/avatarList'
 import {
   socialButtonList1,
   socialButtonList2,
-} from '/@src/data/widgets/ui/socialButtonList'
-import { followersStats } from '/@src/data/widgets/ui/followers'
-import { products } from '/@src/data/widgets/ui/productList'
+} from '/@vuero/data/widgets/ui/socialButtonList'
+import { followersStats } from '/@vuero/data/widgets/ui/followers'
+import { products } from '/@vuero/data/widgets/ui/productList'
 
-import Widget1 from '/@src/assets/illustrations/widgets/1.svg'
-import Widget2 from '/@src/assets/illustrations/widgets/2.svg'
-import Widget3 from '/@src/assets/illustrations/widgets/3.svg'
-import Widget4 from '/@src/assets/illustrations/widgets/4.svg'
-import Widget5 from '/@src/assets/illustrations/widgets/5.svg'
-import Widget7 from '/@src/assets/illustrations/widgets/7.svg'
-import Widget8 from '/@src/assets/illustrations/widgets/8.svg'
+import Widget1 from '/@vuero/assets/illustrations/widgets/1.svg'
+import Widget2 from '/@vuero/assets/illustrations/widgets/2.svg'
+import Widget3 from '/@vuero/assets/illustrations/widgets/3.svg'
+import Widget4 from '/@vuero/assets/illustrations/widgets/4.svg'
+import Widget5 from '/@vuero/assets/illustrations/widgets/5.svg'
+import Widget7 from '/@vuero/assets/illustrations/widgets/7.svg'
+import Widget8 from '/@vuero/assets/illustrations/widgets/8.svg'
 </script>
 
 <template>
@@ -162,7 +162,7 @@ import Widget8 from '/@src/assets/illustrations/widgets/8.svg'
 
       <!--Widget-->
       <CallWidget
-        picture="/@src/assets/illustrations/widgets/6.svg"
+        picture="/@vuero/assets/illustrations/widgets/6.svg"
         badge="/demo/avatars/7.jpg"
         username="Alice"
       />

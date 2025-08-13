@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useViewWrapper } from '../../../stores/viewWrapper'
+import { useViewWrapper } from '/@vuero/stores/viewWrapper'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()

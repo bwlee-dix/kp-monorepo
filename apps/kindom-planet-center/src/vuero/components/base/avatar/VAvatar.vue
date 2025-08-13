@@ -30,7 +30,7 @@ export interface VAvatarProps {
 const props = withDefaults(defineProps<VAvatarProps>(), {
   picture: undefined,
   pictureDark: undefined,
-  placeholder: 'https://via.placeholder.com/50x50',
+  placeholder: '/@vuero/images/placeholder.png',
   initials: '?',
   badge: undefined,
   size: undefined,

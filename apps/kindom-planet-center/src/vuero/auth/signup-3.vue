@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { useNotyf } from '/@src/composable/useNotyf'
+import { useNotyf } from '/@vuero/composable/useNotyf'
 
-import { useDarkmode } from '../../stores/darkmode'
+import { useDarkmode } from '/@vuero/stores/darkmode'
 import sleep from '../../vuero/utils/sleep'
 
 const darkmode = useDarkmode()

@@ -1,4 +1,4 @@
-import { useThemeColors } from '/@src/composable/useThemeColors'
+import { useThemeColors } from '/@vuero/composable/useThemeColors'
 import { asMinutes, perSession, toString } from '../../../utils/apex-formatters'
 
 export function useDemo2Line() {

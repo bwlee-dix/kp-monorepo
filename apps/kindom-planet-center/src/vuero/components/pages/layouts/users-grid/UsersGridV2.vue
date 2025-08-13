@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import type { VAvatarProps } from '/@src/components/base/avatar/VAvatar.vue'
-import * as gridData from '/@src/data/layouts/user-grid-v2'
+import type { VAvatarProps } from '/@vuero/components/base/avatar/VAvatar.vue'
+import * as gridData from '/@vuero/data/layouts/user-grid-v2'
 
 export interface UserData extends VAvatarProps {
   id: number
@@ -95,12 +95,12 @@ const optionsSingle = [
         <template #image>
           <img
             class="light-image"
-            src="/@src/assets/illustrations/placeholders/search-4.svg"
+            src="/@vuero/assets/illustrations/placeholders/search-4.svg"
             alt=""
           >
           <img
             class="dark-image"
-            src="/@src/assets/illustrations/placeholders/search-4-dark.svg"
+            src="/@vuero/assets/illustrations/placeholders/search-4-dark.svg"
             alt=""
           >
         </template>
@@ -243,7 +243,7 @@ const optionsSingle = [
 </template>
 
 <style lang="scss">
-@import '/@src/scss/abstracts/all';
+@import '/@vuero/scss/abstracts/all';
 
 .user-grid-v2 {
   .columns {

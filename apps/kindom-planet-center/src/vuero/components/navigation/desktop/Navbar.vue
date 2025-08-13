@@ -52,7 +52,7 @@ const isScrolling = computed(() => {
             </a>
           </div>
 
-          <!-- 
+          <!--
           Dropdown default links
           <div class="centered-drops">
             <div class="centered-drop">
@@ -74,7 +74,7 @@ const isScrolling = computed(() => {
                 </div>
               </div>
             </div>
-          </div> 
+          </div>
           -->
         </slot>
       </div>
@@ -90,9 +90,9 @@ const isScrolling = computed(() => {
 </template>
 
 <style lang="scss">
-@import '/@src/scss/abstracts/all';
-@import '/@src/scss/layout/navbar';
-@import '/@src/scss/layout/responsive';
+@import '/@vuero/scss/abstracts/all';
+@import '/@vuero/scss/layout/navbar';
+@import '/@vuero/scss/layout/responsive';
 
 .navbar-navbar {
   position: fixed;

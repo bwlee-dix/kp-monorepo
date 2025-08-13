@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onceImageErrored } from '/@src/utils/via-placeholder'
+import { onceImageErrored } from '/@vuero/utils/via-placeholder'
 
 const emit = defineEmits<{
   (e: 'selectConversation', id: number): void

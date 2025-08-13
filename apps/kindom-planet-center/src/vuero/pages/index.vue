@@ -70,12 +70,12 @@ useHead({
               <div class="hero-mockup">
                 <img
                   class="light-image-block-l"
-                  src="/@src/assets/illustrations/landing/app-1.png"
+                  src="/@vuero/assets/illustrations/landing/app-1.png"
                   alt=""
                 >
                 <img
                   class="dark-image-block-l"
-                  src="/@src/assets/illustrations/landing/app-1-dark.png"
+                  src="/@vuero/assets/illustrations/landing/app-1-dark.png"
                   alt=""
                 >
               </div>
@@ -593,12 +593,12 @@ useHead({
             <div class="column is-6 has-text-centered gridlines">
               <img
                 class="light-image-l featured-image"
-                src="/@src/assets/illustrations/landing/feature-1.webp"
+                src="/@vuero/assets/illustrations/landing/feature-1.webp"
                 alt=""
               >
               <img
                 class="dark-image-l featured-image"
-                src="/@src/assets/illustrations/landing/feature-1-dark.webp"
+                src="/@vuero/assets/illustrations/landing/feature-1-dark.webp"
                 alt=""
               >
             </div>
@@ -618,12 +618,12 @@ useHead({
             <div class="column is-6 has-text-centered h-hidden-desktop h-hidden-tablet-p">
               <img
                 class="light-image-l featured-image"
-                src="/@src/assets/illustrations/landing/feature-2.svg"
+                src="/@vuero/assets/illustrations/landing/feature-2.svg"
                 alt=""
               >
               <img
                 class="dark-image-l featured-image"
-                src="/@src/assets/illustrations/landing/feature-2-dark.svg"
+                src="/@vuero/assets/illustrations/landing/feature-2-dark.svg"
                 alt=""
               >
             </div>
@@ -639,12 +639,12 @@ useHead({
             <div class="column is-6 has-text-centered h-hidden-mobile">
               <img
                 class="light-image-l featured-image"
-                src="/@src/assets/illustrations/landing/feature-2.svg"
+                src="/@vuero/assets/illustrations/landing/feature-2.svg"
                 alt=""
               >
               <img
                 class="dark-image-l featured-image"
-                src="/@src/assets/illustrations/landing/feature-2-dark.svg"
+                src="/@vuero/assets/illustrations/landing/feature-2-dark.svg"
                 alt=""
               >
             </div>
@@ -654,12 +654,12 @@ useHead({
             <div class="column is-6 has-text-centered gridlines">
               <img
                 class="light-image-l featured-image"
-                src="/@src/assets/illustrations/landing/feature-3.svg"
+                src="/@vuero/assets/illustrations/landing/feature-3.svg"
                 alt=""
               >
               <img
                 class="dark-image-l featured-image"
-                src="/@src/assets/illustrations/landing/feature-3-dark.svg"
+                src="/@vuero/assets/illustrations/landing/feature-3-dark.svg"
                 alt=""
               >
             </div>
@@ -861,12 +861,12 @@ useHead({
               <div class="column is-5 is-offset-1 has-text-centered">
                 <img
                   class="light-image-l featured-image"
-                  src="/@src/assets/illustrations/landing/feature-4.svg"
+                  src="/@vuero/assets/illustrations/landing/feature-4.svg"
                   alt=""
                 >
                 <img
                   class="dark-image-l featured-image"
-                  src="/@src/assets/illustrations/landing/feature-4-dark.svg"
+                  src="/@vuero/assets/illustrations/landing/feature-4-dark.svg"
                   alt=""
                 >
               </div>
@@ -889,12 +889,12 @@ useHead({
               >
                 <img
                   class="light-image-l featured-image"
-                  src="/@src/assets/illustrations/landing/feature-5.svg"
+                  src="/@vuero/assets/illustrations/landing/feature-5.svg"
                   alt=""
                 >
                 <img
                   class="dark-image-l featured-image"
-                  src="/@src/assets/illustrations/landing/feature-5-dark.svg"
+                  src="/@vuero/assets/illustrations/landing/feature-5-dark.svg"
                   alt=""
                 >
               </div>
@@ -912,12 +912,12 @@ useHead({
               <div class="column is-5 has-text-centered h-hidden-mobile">
                 <img
                   class="light-image-l featured-image"
-                  src="/@src/assets/illustrations/landing/feature-5.svg"
+                  src="/@vuero/assets/illustrations/landing/feature-5.svg"
                   alt=""
                 >
                 <img
                   class="dark-image-l featured-image"
-                  src="/@src/assets/illustrations/landing/feature-5-dark.svg"
+                  src="/@vuero/assets/illustrations/landing/feature-5-dark.svg"
                   alt=""
                 >
               </div>
@@ -928,12 +928,12 @@ useHead({
               <div class="column is-5 is-offset-1 has-text-centered">
                 <img
                   class="light-image-l featured-image"
-                  src="/@src/assets/illustrations/landing/feature-6.svg"
+                  src="/@vuero/assets/illustrations/landing/feature-6.svg"
                   alt=""
                 >
                 <img
                   class="dark-image-l featured-image"
-                  src="/@src/assets/illustrations/landing/feature-6-dark.svg"
+                  src="/@vuero/assets/illustrations/landing/feature-6-dark.svg"
                   alt=""
                 >
               </div>
@@ -989,6 +989,6 @@ useHead({
 </template>
 
 <style lang="scss">
-@import '/@src/scss/abstracts/all';
-@import '/@src/scss/_demo/landing';
+@import '/@vuero/scss/abstracts/all';
+@import '/@vuero/scss/_demo/landing';
 </style>

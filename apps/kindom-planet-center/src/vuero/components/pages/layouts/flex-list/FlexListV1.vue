@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import type { VAvatarProps } from '/@src/components/base/avatar/VAvatar.vue'
-import * as listData from '/@src/data/layouts/flex-list-v1'
+import type { VAvatarProps } from '/@vuero/components/base/avatar/VAvatar.vue'
+import * as listData from '/@vuero/data/layouts/flex-list-v1'
 
 export interface UserData extends VAvatarProps {
   id: number
@@ -91,12 +91,12 @@ const filteredData = computed(() => {
           <template #image>
             <img
               class="light-image"
-              src="/@src/assets/illustrations/placeholders/search-4.svg"
+              src="/@vuero/assets/illustrations/placeholders/search-4.svg"
               alt=""
             >
             <img
               class="dark-image"
-              src="/@src/assets/illustrations/placeholders/search-4-dark.svg"
+              src="/@vuero/assets/illustrations/placeholders/search-4-dark.svg"
               alt=""
             >
           </template>

@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import ApexChart from 'vue3-apexcharts'
 
-import { useSalesSparksCharts } from '/@src/data/widgets/charts/salesSparksChart'
-import { useRevenueAreaChart } from '/@src/data/widgets/charts/revenueAreaChart'
-import { useSalesRevenueRadialChart } from '/@src/data/dashboards/sales/salesRevenueRadialChart'
-import { useSalesRadialGroupChart } from '/@src/data/dashboards/sales/salesRadialGroupChart'
-import { useSalesBarChart } from '/@src/data/dashboards/sales/salesBarChart'
-import { usePersonalScoreGauge } from '/@src/data/widgets/charts/personalScoreGauge'
+import { useSalesSparksCharts } from '/@vuero/data/widgets/charts/salesSparksChart'
+import { useRevenueAreaChart } from '/@vuero/data/widgets/charts/revenueAreaChart'
+import { useSalesRevenueRadialChart } from '/@vuero/data/dashboards/sales/salesRevenueRadialChart'
+import { useSalesRadialGroupChart } from '/@vuero/data/dashboards/sales/salesRadialGroupChart'
+import { useSalesBarChart } from '/@vuero/data/dashboards/sales/salesBarChart'
+import { usePersonalScoreGauge } from '/@vuero/data/widgets/charts/personalScoreGauge'
 
 const { personalScoreGaugeOptions, onPersonalScoreGaugeReady } = usePersonalScoreGauge()
 const { barData, barData2, salesBarOptions } = useSalesBarChart()
@@ -406,7 +406,7 @@ onMounted(() => {
 </template>
 
 <style lang="scss">
-@import '/@src/scss/abstracts/all';
+@import '/@vuero/scss/abstracts/all';
 
 .sales-dashboard {
   .dashboard-header {

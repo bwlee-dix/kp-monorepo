@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { onceImageErrored } from '/@src/utils/via-placeholder'
+import { onceImageErrored } from '/@vuero/utils/via-placeholder'
 import {
   valueSingle,
   optionsSingle,
-} from '/@src/data/dashboards/lifestyle-v1/dashboardData'
+} from '/@vuero/data/dashboards/lifestyle-v1/dashboardData'
 </script>
 
 <template>

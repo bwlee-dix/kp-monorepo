@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import ApexChart from 'vue3-apexcharts'
 
-import { useIncomeHistoryChart } from '/@src/data/dashboards/banking-v1/incomeHistoryChart'
-import { popovers } from '/@src/data/users/userPopovers'
+import { useIncomeHistoryChart } from '/@vuero/data/dashboards/banking-v1/incomeHistoryChart'
+import { popovers } from '/@vuero/data/users/userPopovers'
 
 const selectSlotValue = ref(['default'])
 const selectSlotOptions = [
@@ -538,7 +538,7 @@ const optionsSingle = ['Last 10 days', 'Last month', 'Last 3 months', 'Last 6 mo
 </template>
 
 <style lang="scss">
-@import '/@src/scss/abstracts/all';
+@import '/@vuero/scss/abstracts/all';
 
 .banking-dashboard-v1 {
   .columns {

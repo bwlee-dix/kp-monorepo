@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { users } from '/@src/data/layouts/user-grid-v4'
+import { users } from '/@vuero/data/layouts/user-grid-v4'
 
 const filters = ref('')
 
@@ -78,12 +78,12 @@ const optionsSingle = [
         <template #image>
           <img
             class="light-image"
-            src="/@src/assets/illustrations/placeholders/search-5.svg"
+            src="/@vuero/assets/illustrations/placeholders/search-5.svg"
             alt=""
           >
           <img
             class="dark-image"
-            src="/@src/assets/illustrations/placeholders/search-5-dark.svg"
+            src="/@vuero/assets/illustrations/placeholders/search-5-dark.svg"
             alt=""
           >
         </template>
@@ -138,7 +138,7 @@ const optionsSingle = [
 </template>
 
 <style lang="scss">
-@import '/@src/scss/abstracts/all';
+@import '/@vuero/scss/abstracts/all';
 
 .user-grid-v4 {
   .columns {

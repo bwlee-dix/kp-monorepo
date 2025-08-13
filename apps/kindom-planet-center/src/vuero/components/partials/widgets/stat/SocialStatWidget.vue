@@ -42,7 +42,7 @@ const props = defineProps<{
 </template>
 
 <style lang="scss">
-@import '/@src/scss/abstracts/all';
+@import '/@vuero/scss/abstracts/all';
 
 .stat-widget {
   &.followers-stat-widget-v1 {

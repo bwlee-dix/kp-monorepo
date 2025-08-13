@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { useViewWrapper } from '../../../stores/viewWrapper'
-import { fontAwesome } from '/@src/data/icons/fontAwesome'
+import { useViewWrapper } from '/@vuero/stores/viewWrapper'
+import { fontAwesome } from '/@vuero/data/icons/fontAwesome'
 
 const { text, copy, copied } = useClipboard()
 const { y } = useWindowScroll()

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useViewWrapper } from '../../../stores/viewWrapper'
+import { useViewWrapper } from '/@vuero/stores/viewWrapper'
 import { iconifyFeather } from '../../../data/icons/iconifyFeather'
 
 const { text, copy, copied } = useClipboard()

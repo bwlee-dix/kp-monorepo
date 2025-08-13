@@ -1,4 +1,4 @@
-import { useThemeColors } from '/@src/composable/useThemeColors'
+import { useThemeColors } from '/@vuero/composable/useThemeColors'
 import { toDate, toFixed } from '../../../utils/apex-formatters'
 
 export function useDemo6Area() {

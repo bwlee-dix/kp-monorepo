@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import sleep from '/@src/utils/sleep'
-import { useNotyf } from '/@src/composable/useNotyf'
-import { popovers } from '/@src/data/users/userPopovers'
+import sleep from '/@vuero/utils/sleep'
+import { useNotyf } from '/@vuero/composable/useNotyf'
+import { popovers } from '/@vuero/data/users/userPopovers'
 
 const notyf = useNotyf()
 const router = useRouter()
@@ -123,7 +123,7 @@ const accept = async () => {
 </template>
 
 <style lang="scss">
-@import '/@src/scss/abstracts/all';
+@import '/@vuero/scss/abstracts/all';
 
 .action-page-wrapper {
   &.action-page-v1 {

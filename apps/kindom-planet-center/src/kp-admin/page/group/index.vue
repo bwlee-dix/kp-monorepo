@@ -1,12 +1,12 @@
 <script setup lang="ts">
 
-import { useViewWrapper } from '../../stores/viewWrapper'
+import { useViewWrapper } from '/@vuero/stores/viewWrapper'
 
 const viewWrapper = useViewWrapper()
-viewWrapper.setPageTitle('Dashboard')
+viewWrapper.setPageTitle('Group')
 
 useHead({
-  title: 'Dashboard - App name - KingdomPlanet',
+  title: 'Group - App name - KingdomPlanet',
 })
 </script>
 
@@ -17,7 +17,7 @@ useHead({
   >
     <!-- Content Wrapper -->
     <div class="page-content-inner">
-      <AnalyticsDashboard />
+      <TableListV2 />
     </div>
   </AdminSideblockLayout>
 </template>

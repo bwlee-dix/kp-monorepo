@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import type { VAvatarProps, VAvatarColor } from '/@src/components/base/avatar/VAvatar.vue'
-import { projects } from '/@src/data/layouts/card-grid-v3'
+import type { VAvatarProps, VAvatarColor } from '/@vuero/components/base/avatar/VAvatar.vue'
+import { projects } from '/@vuero/data/layouts/card-grid-v3'
 
 const filters = ref('')
 
@@ -85,12 +85,12 @@ function getAvatarData(user: any): VAvatarProps {
         <template #image>
           <img
             class="light-image"
-            src="/@src/assets/illustrations/placeholders/search-3.svg"
+            src="/@vuero/assets/illustrations/placeholders/search-3.svg"
             alt=""
           >
           <img
             class="dark-image"
-            src="/@src/assets/illustrations/placeholders/search-3-dark.svg"
+            src="/@vuero/assets/illustrations/placeholders/search-3-dark.svg"
             alt=""
           >
         </template>
@@ -185,7 +185,7 @@ function getAvatarData(user: any): VAvatarProps {
 </template>
 
 <style lang="scss">
-@import '/@src/scss/abstracts/all';
+@import '/@vuero/scss/abstracts/all';
 
 .card-grid {
   .columns {

@@ -1,6 +1,6 @@
-<script setup lang="ts">
-import VLabel from '/@src/components/base/form/VLabel.vue'
-import { useVFieldContext } from '/@src/composable/useVFieldContext'
+    <script setup lang="ts">
+import VLabel from '/@vuero/components/base/form/VLabel.vue'
+import { useVFieldContext } from '/@vuero/composable/useVFieldContext'
 
 const props = defineProps({
   id: {

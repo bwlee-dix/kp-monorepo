@@ -803,5 +803,5 @@ const emit = defineEmits(['close'])
 </template>
 
 <style lang="scss">
-@import '/@src/scss/layout/sidebar-panel';
+@import '/@vuero/scss/layout/sidebar-panel';
 </style>

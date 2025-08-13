@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { useDarkmode } from '../../stores/darkmode'
-import { useUserSession } from '../../stores/userSession'
-import { useNotyf } from '/@src/composable/useNotyf'
+import { useDarkmode } from '/@vuero/stores/darkmode'
+import { useUserSession } from '/@vuero/stores/userSession'
+import { useNotyf } from '/@vuero/composable/useNotyf'
 import sleep from '../../vuero/utils/sleep'
 
 type StepId = 'login' | 'forgot-password'
@@ -52,7 +52,7 @@ useHead({
                 <div class="column">
                   <img
                     class="hero-image"
-                    src="/@src/assets/illustrations/login/station.svg"
+                    src="/@vuero/assets/illustrations/login/station.svg"
                     alt=""
                   >
                 </div>

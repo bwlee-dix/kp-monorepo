@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { type Map, Popup } from 'mapbox-gl'
-import { useThemeColors } from '/@src/composable/useThemeColors'
-import { useDarkmode } from '/@src/stores/darkmode'
+import { useThemeColors } from '/@vuero/composable/useThemeColors'
+import { useDarkmode } from '/@vuero/stores/darkmode'
 import 'mapbox-gl/src/css/mapbox-gl.css'
 import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css'
 

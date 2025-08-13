@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { useNotyf } from '/@src/composable/useNotyf'
-import sleep from '/@src/utils/sleep'
+import { useNotyf } from '/@vuero/composable/useNotyf'
+import sleep from '/@vuero/utils/sleep'
 
 const notyf = useNotyf()
 const { y } = useWindowScroll()

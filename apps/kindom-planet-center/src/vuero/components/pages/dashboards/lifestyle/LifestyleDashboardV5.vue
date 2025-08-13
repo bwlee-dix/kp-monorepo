@@ -4,7 +4,7 @@ import {
   featuredLeft,
   featuredRight,
   feed,
-} from '/@src/data/dashboards/lifestyle-v5'
+} from '/@vuero/data/dashboards/lifestyle-v5'
 </script>
 
 <template>
@@ -262,7 +262,7 @@ import {
 </template>
 
 <style lang="scss">
-@import '/@src/scss/abstracts/all';
+@import '/@vuero/scss/abstracts/all';
 
 .lifestyle-dashboard-v5 {
   .dashboard-title {

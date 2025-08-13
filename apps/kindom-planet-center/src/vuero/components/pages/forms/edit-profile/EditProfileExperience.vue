@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { useNotyf } from '/@src/composable/useNotyf'
-import sleep from '/@src/utils/sleep'
-import { onceImageErrored } from '/@src/utils/via-placeholder'
+import { useNotyf } from '/@vuero/composable/useNotyf'
+import sleep from '/@vuero/utils/sleep'
+import { onceImageErrored } from '/@vuero/utils/via-placeholder'
 
 const isUploading = ref(false)
 const isLoading = ref(false)

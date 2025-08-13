@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { useLayoutSwitcher } from '../../stores/layoutSwitcher'
-import { useViewWrapper } from '../../stores/viewWrapper'
+import { useLayoutSwitcher } from '/@vuero/stores/layoutSwitcher'
+import { useViewWrapper } from '/@vuero/stores/viewWrapper'
 
 const layoutSwitcher = useLayoutSwitcher()
 const viewWrapper = useViewWrapper()

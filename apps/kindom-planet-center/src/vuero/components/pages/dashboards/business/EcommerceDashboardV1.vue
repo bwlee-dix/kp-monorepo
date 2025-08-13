@@ -1,18 +1,18 @@
 <script setup lang="ts">
 import ApexChart from 'vue3-apexcharts'
 
-import { useFlexRadialChartCircle } from '/@src/data/widgets/charts/flexRadialChartCircleChart'
-import { useFlexRadialChartStripes } from '/@src/data/widgets/charts/flexRadialChartStripesChart'
-import { useRevenueAreaChart } from '/@src/data/widgets/charts/revenueAreaChart'
-import { useLineStatsWidgetCharts } from '/@src/data/widgets/charts/lineStatsWidgetChart'
-import { useGroupedCircleCharts } from '/@src/data/widgets/charts/groupedCircleCharts'
-import { useGroupedRadialCharts } from '/@src/data/widgets/charts/groupedRadialCharts'
-import { useSparksCharts } from '/@src/data/dashboards/ecommerce/sparksCharts'
+import { useFlexRadialChartCircle } from '/@vuero/data/widgets/charts/flexRadialChartCircleChart'
+import { useFlexRadialChartStripes } from '/@vuero/data/widgets/charts/flexRadialChartStripesChart'
+import { useRevenueAreaChart } from '/@vuero/data/widgets/charts/revenueAreaChart'
+import { useLineStatsWidgetCharts } from '/@vuero/data/widgets/charts/lineStatsWidgetChart'
+import { useGroupedCircleCharts } from '/@vuero/data/widgets/charts/groupedCircleCharts'
+import { useGroupedRadialCharts } from '/@vuero/data/widgets/charts/groupedRadialCharts'
+import { useSparksCharts } from '/@vuero/data/dashboards/ecommerce/sparksCharts'
 import {
   valueSingle,
   optionsSingle,
   flexRowsOrders,
-} from '/@src/data/dashboards/ecommerce/dashboardData'
+} from '/@vuero/data/dashboards/ecommerce/dashboardData'
 
 const { flexRadialChartCircleOptions } = useFlexRadialChartCircle()
 const { flexRadialChartStripesOptions } = useFlexRadialChartStripes()
@@ -440,7 +440,7 @@ const {
 </template>
 
 <style lang="scss">
-@import '/@src/scss/abstracts/all';
+@import '/@vuero/scss/abstracts/all';
 
 .ecommerce-dashboard-v1 {
   .dashboard-header {

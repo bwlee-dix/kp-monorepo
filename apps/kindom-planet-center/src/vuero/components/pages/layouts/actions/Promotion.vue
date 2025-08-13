@@ -6,12 +6,12 @@
           <div class="box-content">
             <img
               class="light-image is-larger"
-              src="/@src/assets/illustrations/placeholders/promotion.svg"
+              src="/@vuero/assets/illustrations/placeholders/promotion.svg"
               alt=""
             >
             <img
               class="dark-image is-larger"
-              src="/@src/assets/illustrations/placeholders/promotion-dark.svg"
+              src="/@vuero/assets/illustrations/placeholders/promotion-dark.svg"
               alt=""
             >
             <h3 class="dark-inverted">
@@ -94,7 +94,7 @@
 </template>
 
 <style lang="scss" scoped>
-@import '/@src/scss/abstracts/all';
+@import '/@vuero/scss/abstracts/all';
 
 /* ==========================================================================
 1. Confirm Account

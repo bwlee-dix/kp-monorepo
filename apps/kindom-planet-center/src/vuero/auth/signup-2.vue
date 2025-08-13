@@ -5,8 +5,8 @@ import { toTypedSchema } from '@vee-validate/zod'
 import { useForm } from 'vee-validate'
 import { z } from 'zod'
 
-import { useDarkmode } from '../../stores/darkmode'
-import { useNotyf } from '/@src/composable/useNotyf'
+import { useDarkmode } from '/@vuero/stores/darkmode'
+import { useNotyf } from '/@vuero/composable/useNotyf'
 import sleep from '../../vuero/utils/sleep'
 
 const darkmode = useDarkmode()
@@ -263,12 +263,12 @@ useHead({
           <div class="is-flex is-justify-content-center is-fullwidth">
             <img
               class="light-image has-light-shadow has-light-border"
-              src="/@src/assets/illustrations/apps/vuero-banking-light.webp"
+              src="/@vuero/assets/illustrations/apps/vuero-banking-light.webp"
               alt=""
             >
             <img
               class="dark-image has-light-shadow"
-              src="/@src/assets/illustrations/apps/vuero-banking-dark.webp"
+              src="/@vuero/assets/illustrations/apps/vuero-banking-dark.webp"
               alt=""
             >
           </div>

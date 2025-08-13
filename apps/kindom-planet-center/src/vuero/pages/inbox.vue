@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useDarkmode } from '../stores/darkmode'
-import { useDropdown } from '/@src/composable/useDropdown'
+import { useDropdown } from '/@vuero/composable/useDropdown'
 import { onceImageErrored } from '../utils/via-placeholder'
 
 const darkmode = useDarkmode()

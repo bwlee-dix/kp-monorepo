@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { users } from '/@src/data/layouts/card-grid-v1'
+import { users } from '/@vuero/data/layouts/card-grid-v1'
 
 const filters = ref('')
 
@@ -77,12 +77,12 @@ const optionsSingle = [
         <template #image>
           <img
             class="light-image"
-            src="/@src/assets/illustrations/placeholders/search-4.svg"
+            src="/@vuero/assets/illustrations/placeholders/search-4.svg"
             alt=""
           >
           <img
             class="dark-image"
-            src="/@src/assets/illustrations/placeholders/search-4-dark.svg"
+            src="/@vuero/assets/illustrations/placeholders/search-4-dark.svg"
             alt=""
           >
         </template>

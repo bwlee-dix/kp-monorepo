@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { useFetch } from '/@src/composable/useFetch'
-import { useViewWrapper } from '../../../../stores/viewWrapper'
-import type { VFlexTableWrapperDataResolver } from '/@src/components/base/table/VFlexTableWrapper.vue'
-import sleep from '../../../../vuero/utils/sleep'
+import { useFetch } from '/@vuero/composable/useFetch'
+import { useViewWrapper } from '/@vuero/stores/viewWrapper'
+import type { VFlexTableWrapperDataResolver } from '/@vuero/components/base/table/VFlexTableWrapper.vue'
+import sleep from '/@vuero/utils/sleep'
 const isMobileScreen = useMediaQuery('(max-width: 767px)')
 
 const viewWrapper = useViewWrapper()
@@ -425,12 +425,12 @@ function onCallClick(row: any) {
                     <template #image>
                       <img
                         class="light-image"
-                        src="/@src/assets/illustrations/placeholders/search-4.svg"
+                        src="/@vuero/assets/illustrations/placeholders/search-4.svg"
                         alt=""
                       >
                       <img
                         class="dark-image"
-                        src="/@src/assets/illustrations/placeholders/search-4-dark.svg"
+                        src="/@vuero/assets/illustrations/placeholders/search-4-dark.svg"
                         alt=""
                       >
                     </template>

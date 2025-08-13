@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { usePanels } from '/@src/stores/panels'
-import { onceImageErrored } from '/@src/utils/via-placeholder'
+import { usePanels } from '/@vuero/stores/panels'
+import { onceImageErrored } from '/@vuero/utils/via-placeholder'
 
 type TabId = 'team' | 'projects' | 'schedule'
 
@@ -481,7 +481,7 @@ const activeTab = ref<TabId>('team')
 </template>
 
 <style lang="scss">
-@import '/@src/scss/abstracts/all';
+@import '/@vuero/scss/abstracts/all';
 
 .right-panel-wrapper {
   &.is-activity {

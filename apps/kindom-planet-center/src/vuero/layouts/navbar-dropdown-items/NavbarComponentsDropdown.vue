@@ -90,12 +90,12 @@ watch([() => route.fullPath, dropdownElement], () => {
 
           <img
             class="placeholder-image light-image"
-            src="/@src/assets/illustrations/components/icons.svg"
+            src="/@vuero/assets/illustrations/components/icons.svg"
             alt=""
           >
           <img
             class="placeholder-image dark-image"
-            src="/@src/assets/illustrations/components/icons-dark.svg"
+            src="/@vuero/assets/illustrations/components/icons-dark.svg"
             alt=""
           >
         </div>

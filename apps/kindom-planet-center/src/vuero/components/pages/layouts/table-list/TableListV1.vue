@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { userList } from '/@src/data/layouts/datatable-v1'
+import { userList } from '/@vuero/data/layouts/datatable-v1'
 
-import type { VAvatarProps } from '/@src/components/base/avatar/VAvatar.vue'
+import type { VAvatarProps } from '/@vuero/components/base/avatar/VAvatar.vue'
 
 export interface UserData extends VAvatarProps {
   id: number
@@ -117,12 +117,12 @@ const filteredData = computed(() => {
         <template #image>
           <img
             class="light-image"
-            src="/@src/assets/illustrations/placeholders/search-7.svg"
+            src="/@vuero/assets/illustrations/placeholders/search-7.svg"
             alt=""
           >
           <img
             class="dark-image"
-            src="/@src/assets/illustrations/placeholders/search-7-dark.svg"
+            src="/@vuero/assets/illustrations/placeholders/search-7-dark.svg"
             alt=""
           >
         </template>

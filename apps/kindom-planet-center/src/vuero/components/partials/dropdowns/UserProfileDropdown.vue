@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useUserSession } from '/@src/stores/userSession'
+import { useUserSession } from '/@vuero/stores/userSession'
 
 const userSession = useUserSession()
 const router = useRouter()

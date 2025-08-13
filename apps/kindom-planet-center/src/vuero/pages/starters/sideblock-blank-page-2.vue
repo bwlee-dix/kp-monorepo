@@ -11,7 +11,7 @@
  * @see /src/router.ts
  */
 
-import { useViewWrapper } from '../../stores/viewWrapper'
+import { useViewWrapper } from '/@vuero/stores/viewWrapper'
 
 const viewWrapper = useViewWrapper()
 viewWrapper.setPageTitle('Blank Page 2')

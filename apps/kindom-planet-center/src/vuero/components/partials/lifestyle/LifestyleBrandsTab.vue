@@ -12,12 +12,12 @@
       <template #image>
         <img
           class="light-image"
-          src="/@src/assets/illustrations/placeholders/having-coffee.svg"
+          src="/@vuero/assets/illustrations/placeholders/having-coffee.svg"
           alt=""
         >
         <img
           class="dark-image"
-          src="/@src/assets/illustrations/placeholders/having-coffee-dark.svg"
+          src="/@vuero/assets/illustrations/placeholders/having-coffee-dark.svg"
           alt=""
         >
       </template>

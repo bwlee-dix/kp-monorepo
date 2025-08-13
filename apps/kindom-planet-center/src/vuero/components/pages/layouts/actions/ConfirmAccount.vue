@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import sleep from '/@src/utils/sleep'
-import { useNotyf } from '/@src/composable/useNotyf'
+import sleep from '/@vuero/utils/sleep'
+import { useNotyf } from '/@vuero/composable/useNotyf'
 
 const notyf = useNotyf()
 const router = useRouter()
@@ -27,12 +27,12 @@ const confirm = async () => {
           <div class="box-content">
             <img
               class="light-image"
-              src="/@src/assets/illustrations/placeholders/launch.svg"
+              src="/@vuero/assets/illustrations/placeholders/launch.svg"
               alt=""
             >
             <img
               class="dark-image"
-              src="/@src/assets/illustrations/placeholders/launch-dark.svg"
+              src="/@vuero/assets/illustrations/placeholders/launch-dark.svg"
               alt=""
             >
             <h3 class="dark-inverted">
@@ -62,7 +62,7 @@ const confirm = async () => {
 </template>
 
 <style lang="scss">
-@import '/@src/scss/abstracts/all';
+@import '/@vuero/scss/abstracts/all';
 
 /* ==========================================================================
 1. Confirm Account

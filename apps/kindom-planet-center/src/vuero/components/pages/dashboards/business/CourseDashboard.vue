@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { courses, files, students } from '/@src/data/dashboards/course'
+import { courses, files, students } from '/@vuero/data/dashboards/course'
 </script>
 
 <template>
@@ -240,7 +240,7 @@ import { courses, files, students } from '/@src/data/dashboards/course'
 </template>
 
 <style lang="scss">
-@import '/@src/scss/abstracts/all';
+@import '/@vuero/scss/abstracts/all';
 
 .course-dashboard {
   .dashboard-title {

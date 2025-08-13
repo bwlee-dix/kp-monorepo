@@ -2,10 +2,10 @@
 import type { Lang, Theme } from 'shiki'
 import type { Processor } from 'unified'
 import { h, type PropType } from 'vue'
-import { useDarkmode } from '/@src/stores/darkmode'
+import { useDarkmode } from '/@vuero/stores/darkmode'
 import VPlaceload, {
   type VPlaceloadProps,
-} from '/@src/components/base/loader/VPlaceload.vue'
+} from '/@vuero/components/base/loader/VPlaceload.vue'
 
 async function loadModules() {
   const [

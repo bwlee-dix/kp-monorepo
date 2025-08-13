@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { retails } from '/@src/data/layouts/view-list-v2'
+import { retails } from '/@vuero/data/layouts/view-list-v2'
 
 type TabId = 'active' | 'inactive'
 const activeTab = ref<TabId>('active')
@@ -75,12 +75,12 @@ const filteredData = computed(() => {
         <template #image>
           <img
             class="light-image"
-            src="/@src/assets/illustrations/placeholders/search-2.svg"
+            src="/@vuero/assets/illustrations/placeholders/search-2.svg"
             alt=""
           >
           <img
             class="dark-image"
-            src="/@src/assets/illustrations/placeholders/search-2-dark.svg"
+            src="/@vuero/assets/illustrations/placeholders/search-2-dark.svg"
             alt=""
           >
         </template>
@@ -276,12 +276,12 @@ const filteredData = computed(() => {
             <template #image>
               <img
                 class="light-image"
-                src="/@src/assets/illustrations/placeholders/having-coffee.svg"
+                src="/@vuero/assets/illustrations/placeholders/having-coffee.svg"
                 alt=""
               >
               <img
                 class="dark-image"
-                src="/@src/assets/illustrations/placeholders/having-coffee-dark.svg"
+                src="/@vuero/assets/illustrations/placeholders/having-coffee-dark.svg"
                 alt=""
               >
             </template>
@@ -293,7 +293,7 @@ const filteredData = computed(() => {
 </template>
 
 <style lang="scss">
-@import '/@src/scss/abstracts/all';
+@import '/@vuero/scss/abstracts/all';
 
 .list-view-v2 {
   .list-view-item {

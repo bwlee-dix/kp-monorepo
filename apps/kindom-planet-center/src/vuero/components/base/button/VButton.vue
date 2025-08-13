@@ -2,7 +2,7 @@
 import type { RouteLocationAsString } from 'unplugin-vue-router'
 import type { PropType } from 'vue'
 import { RouterLink } from 'vue-router/auto'
-import { CssUnitRe } from '/@src/utils/regex'
+import { CssUnitRe } from '/@vuero/utils/regex'
 
 import VPlaceload from '../loader/VPlaceload.vue'
 
@@ -233,9 +233,9 @@ export default defineComponent({
     }
 
     const onClick = (e: MouseEvent) => {
-      e.stopPropagation(); 
+      e.stopPropagation();
       if (attrs.onClick && typeof attrs.onClick === 'function') {
-        attrs.onClick(e); 
+        attrs.onClick(e);
       }
     }
 

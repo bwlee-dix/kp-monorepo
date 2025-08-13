@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import ApexChart from 'vue3-apexcharts'
-import { useSharingChart } from '/@src/data/dashboards/company/sharingChart'
-import { useUsersChart } from '/@src/data/dashboards/company/usersChart'
-import { useUsersBarChart } from '/@src/data/dashboards/company/usersBarChart'
-import { usePersonalScoreGauge } from '/@src/data/widgets/charts/personalScoreGauge'
-import { popovers } from '/@src/data/users/userPopovers'
+import { useSharingChart } from '/@vuero/data/dashboards/company/sharingChart'
+import { useUsersChart } from '/@vuero/data/dashboards/company/usersChart'
+import { useUsersBarChart } from '/@vuero/data/dashboards/company/usersBarChart'
+import { usePersonalScoreGauge } from '/@vuero/data/widgets/charts/personalScoreGauge'
+import { popovers } from '/@vuero/data/users/userPopovers'
 const { personalScoreGaugeOptions, onPersonalScoreGaugeReady } = usePersonalScoreGauge()
 const { barData, barData2, usersBarOptions } = useUsersBarChart()
 const { sharingOptions } = useSharingChart()
@@ -526,7 +526,7 @@ onMounted(async () => {
 </template>
 
 <style lang="scss">
-@import '/@src/scss/abstracts/all';
+@import '/@vuero/scss/abstracts/all';
 
 .company-dashboard {
   .company-header {

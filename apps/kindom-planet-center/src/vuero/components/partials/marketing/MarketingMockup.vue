@@ -46,12 +46,12 @@
           <!--Mockup-->
           <img
             class="light-image-l centered-mockup"
-            src="/@src/assets/illustrations/landing/app-1.webp"
+            src="/@vuero/assets/illustrations/landing/app-1.webp"
             alt=""
           >
           <img
             class="dark-image-l centered-mockup"
-            src="/@src/assets/illustrations/landing/app-1-dark.webp"
+            src="/@vuero/assets/illustrations/landing/app-1-dark.webp"
             alt=""
           >
         </div>

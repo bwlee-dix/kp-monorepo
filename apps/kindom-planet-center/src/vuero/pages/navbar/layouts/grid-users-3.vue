@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useViewWrapper } from '../../../stores/viewWrapper'
+import { useViewWrapper } from '/@vuero/stores/viewWrapper'
 
 type TabId = 'all' | 'team'
 const activeTab = ref<TabId>('all')

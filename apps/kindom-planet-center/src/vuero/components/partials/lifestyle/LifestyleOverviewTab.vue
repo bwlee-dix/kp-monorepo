@@ -4,11 +4,11 @@ import ApexChart from 'vue3-apexcharts'
 import {
   valueSingle,
   optionsSingle,
-} from '/@src/data/dashboards/lifestyle-v1/dashboardData'
-import { useGroupedSocialChart } from '/@src/data/dashboards/lifestyle-v1/groupedSocialCharts'
-import { useReputationChart } from '/@src/data/dashboards/lifestyle-v1/reputationChart'
-import { useInfluenceChart } from '/@src/data/dashboards/lifestyle-v1/influenceChart'
-import { useGroupedCircleCharts } from '/@src/data/widgets/charts/groupedCircleCharts'
+} from '/@vuero/data/dashboards/lifestyle-v1/dashboardData'
+import { useGroupedSocialChart } from '/@vuero/data/dashboards/lifestyle-v1/groupedSocialCharts'
+import { useReputationChart } from '/@vuero/data/dashboards/lifestyle-v1/reputationChart'
+import { useInfluenceChart } from '/@vuero/data/dashboards/lifestyle-v1/influenceChart'
+import { useGroupedCircleCharts } from '/@vuero/data/widgets/charts/groupedCircleCharts'
 
 const { reputationChartOptions } = useReputationChart()
 const { influenceChartOptions } = useInfluenceChart()

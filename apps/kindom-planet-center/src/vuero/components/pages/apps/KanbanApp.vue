@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import 'dragula/dist/dragula.css'
 
-import { useKanban } from '/@src/data/apps/kanban'
-import { onceImageErrored } from '/@src/utils/via-placeholder'
+import { useKanban } from '/@vuero/data/apps/kanban'
+import { onceImageErrored } from '/@vuero/utils/via-placeholder'
 
 const {
   tasks,
@@ -185,12 +185,12 @@ onMounted(() => {
               >
                 <img
                   class="empty-state theme-image light-image"
-                  src="/@src/assets/illustrations/projects/board/new.svg"
+                  src="/@vuero/assets/illustrations/projects/board/new.svg"
                   alt=""
                 >
                 <img
                   class="empty-state theme-image dark-image"
-                  src="/@src/assets/illustrations/projects/board/new-dark.svg"
+                  src="/@vuero/assets/illustrations/projects/board/new-dark.svg"
                   alt=""
                 >
                 <p class="empty-text">
@@ -303,12 +303,12 @@ onMounted(() => {
               >
                 <img
                   class="empty-state theme-image light-image-block"
-                  src="/@src/assets/illustrations/projects/board/progress.svg"
+                  src="/@vuero/assets/illustrations/projects/board/progress.svg"
                   alt=""
                 >
                 <img
                   class="empty-state theme-image dark-image-block"
-                  src="/@src/assets/illustrations/projects/board/progress-dark.svg"
+                  src="/@vuero/assets/illustrations/projects/board/progress-dark.svg"
                   alt=""
                 >
                 <p class="empty-text">
@@ -409,12 +409,12 @@ onMounted(() => {
                 <!-- Empty state image / text -->
                 <img
                   class="empty-state theme-image light-image-block"
-                  src="/@src/assets/illustrations/projects/board/ready.svg"
+                  src="/@vuero/assets/illustrations/projects/board/ready.svg"
                   alt=""
                 >
                 <img
                   class="empty-state theme-image dark-image-block"
-                  src="/@src/assets/illustrations/projects/board/ready-dark.svg"
+                  src="/@vuero/assets/illustrations/projects/board/ready-dark.svg"
                   alt=""
                 >
                 <p class="empty-text">
@@ -521,12 +521,12 @@ onMounted(() => {
                 <!-- Empty state image / text -->
                 <img
                   class="empty-state theme-image light-image-block"
-                  src="/@src/assets/illustrations/projects/board/test.svg"
+                  src="/@vuero/assets/illustrations/projects/board/test.svg"
                   alt=""
                 >
                 <img
                   class="empty-state theme-image dark-image-block"
-                  src="/@src/assets/illustrations/projects/board/test-dark.svg"
+                  src="/@vuero/assets/illustrations/projects/board/test-dark.svg"
                   alt=""
                 >
                 <p class="empty-text">
@@ -627,12 +627,12 @@ onMounted(() => {
               >
                 <img
                   class="empty-state theme-image light-image-block"
-                  src="/@src/assets/illustrations/projects/board/complete.svg"
+                  src="/@vuero/assets/illustrations/projects/board/complete.svg"
                   alt=""
                 >
                 <img
                   class="empty-state theme-image dark-image-block"
-                  src="/@src/assets/illustrations/projects/board/complete-dark.svg"
+                  src="/@vuero/assets/illustrations/projects/board/complete-dark.svg"
                   alt=""
                 >
                 <p class="empty-text">

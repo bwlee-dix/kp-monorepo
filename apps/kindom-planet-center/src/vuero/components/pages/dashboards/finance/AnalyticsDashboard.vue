@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import ApexChart from 'vue3-apexcharts'
 
-import { useRevenueChart } from '/@src/data/dashboards/analytics/revenueChart'
-import { useGoalCharts } from '/@src/data/dashboards/analytics/goalChart'
-import { useProfitBarChart } from '/@src/data/dashboards/analytics/profitBarChart'
-import { useGrowthRadialChart } from '/@src/data/dashboards/analytics/growthRadialChart'
-import { followersList } from '/@src/data/widgets/ui/followers'
-import { notifications } from '/@src/data/widgets/ui/notificationList'
+import { useRevenueChart } from '/@vuero/data/dashboards/analytics/revenueChart'
+import { useGoalCharts } from '/@vuero/data/dashboards/analytics/goalChart'
+import { useProfitBarChart } from '/@vuero/data/dashboards/analytics/profitBarChart'
+import { useGrowthRadialChart } from '/@vuero/data/dashboards/analytics/growthRadialChart'
+import { followersList } from '/@vuero/data/widgets/ui/followers'
+import { notifications } from '/@vuero/data/widgets/ui/notificationList'
 
 const { revenueOptions } = useRevenueChart()
 const { gaugeOptions } = useGoalCharts()
@@ -422,7 +422,7 @@ const { optionsCircle } = useGrowthRadialChart()
 </template>
 
 <style lang="scss">
-@import '/@src/scss/abstracts/all';
+@import '/@vuero/scss/abstracts/all';
 
 .analytics-dashboard {
   .text-h-green {

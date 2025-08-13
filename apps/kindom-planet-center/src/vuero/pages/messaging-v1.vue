@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { useChat } from './stores/chat'
-import { useSidebar } from './stores/sidebar'
-import { useLayoutSwitcher } from './stores/layoutSwitcher'
-import { useViewWrapper } from './stores/viewWrapper'
-import { useNotyf } from '/@src/composable/useNotyf'
+import { useChat } from '/@vuero/stores/chat'
+import { useSidebar } from '/@vuero/stores/sidebar'
+import { useLayoutSwitcher } from '/@vuero/stores/layoutSwitcher'
+import { useViewWrapper } from '/@vuero/stores/viewWrapper'
+import { useNotyf } from '/@vuero/composable/useNotyf'
 
 /**
  * The chat store keep the chat data across the app
@@ -189,12 +189,12 @@ watchPostEffect(() => {
                 >
                   <img
                     class="light-image"
-                    src="/@src/assets/illustrations/placeholders/search-4.svg"
+                    src="/@vuero/assets/illustrations/placeholders/search-4.svg"
                     alt=""
                   >
                   <img
                     class="dark-image"
-                    src="/@src/assets/illustrations/placeholders/search-4-dark.svg"
+                    src="/@vuero/assets/illustrations/placeholders/search-4-dark.svg"
                     alt=""
                   >
                   <div class="text">

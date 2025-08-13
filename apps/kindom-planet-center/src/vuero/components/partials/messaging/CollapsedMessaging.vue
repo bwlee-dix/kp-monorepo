@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { useSidebar } from '/@src/stores/sidebar'
-import { onceImageErrored } from '/@src/utils/via-placeholder'
+import { useSidebar } from '/@vuero/stores/sidebar'
+import { onceImageErrored } from '/@vuero/utils/via-placeholder'
 
 const emit = defineEmits<{
   (e: 'addConversation'): void
@@ -97,5 +97,5 @@ const sidebar = useSidebar()
 </template>
 
 <style lang="scss">
-@import '/@src/scss/layout/sidebar-panel';
+@import '/@vuero/scss/layout/sidebar-panel';
 </style>

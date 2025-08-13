@@ -32,7 +32,6 @@
   "include": [
     "server.ts",
     "vite-plugin-purge-comments/**/*.ts",
-    "vite-plugin-vuero-doc/**/*.ts",
     "types/**/*.d.ts",
     "auto-imports.d.ts",
     "typed-router.d.ts",

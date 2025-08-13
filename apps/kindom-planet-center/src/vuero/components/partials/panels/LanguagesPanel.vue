@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
 
-import { usePanels } from '/@src/stores/panels'
+import { usePanels } from '/@vuero/stores/panels'
 
 const panels = usePanels()
 const { locale, t } = useI18n()
@@ -36,7 +36,7 @@ watch(locale, () => {
 
     <div class="right-panel">
       <div class="right-panel-head">
-        <h3>{{ t('select-language') }}</h3>
+        <h3>{{ t('common.select-language') }}</h3>
         <a
           class="close-panel"
           tabindex="0"
@@ -207,12 +207,12 @@ watch(locale, () => {
         <div class="img-wrap has-text-centered">
           <img
             class="light-image"
-            src="/@src/assets/illustrations/right-panel/languages.svg"
+            src="/@vuero/assets/illustrations/right-panel/languages.svg"
             alt=""
           >
           <img
             class="dark-image"
-            src="/@src/assets/illustrations/right-panel/languages-dark.svg"
+            src="/@vuero/assets/illustrations/right-panel/languages-dark.svg"
             alt=""
           >
         </div>

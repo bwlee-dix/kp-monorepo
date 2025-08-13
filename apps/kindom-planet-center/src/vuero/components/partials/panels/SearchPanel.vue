@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import type { VAvatarProps, VAvatarColor } from '/@src/components/base/avatar/VAvatar.vue'
-import { usePanels } from '/@src/stores/panels'
-import { popovers } from '/@src/data/users/userPopovers'
+import type { VAvatarProps, VAvatarColor } from '/@vuero/components/base/avatar/VAvatar.vue'
+import { usePanels } from '/@vuero/stores/panels'
+import { popovers } from '/@vuero/data/users/userPopovers'
 import { type UserPopover } from '/@src/models/users'
 
 const panels = usePanels()

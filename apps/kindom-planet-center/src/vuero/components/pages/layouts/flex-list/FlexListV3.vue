@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { classes } from '/@src/data/layouts/flex-list-v3'
-import { onceImageErrored } from '/@src/utils/via-placeholder'
+import { classes } from '/@vuero/data/layouts/flex-list-v3'
+import { onceImageErrored } from '/@vuero/utils/via-placeholder'
 
 const props = withDefaults(
   defineProps<{
@@ -95,12 +95,12 @@ const filteredData = computed(() => {
         <template #image>
           <img
             class="light-image"
-            src="/@src/assets/illustrations/placeholders/search-4.svg"
+            src="/@vuero/assets/illustrations/placeholders/search-4.svg"
             alt=""
           >
           <img
             class="dark-image"
-            src="/@src/assets/illustrations/placeholders/search-4-dark.svg"
+            src="/@vuero/assets/illustrations/placeholders/search-4-dark.svg"
             alt=""
           >
         </template>
@@ -228,12 +228,12 @@ const filteredData = computed(() => {
           <template #image>
             <img
               class="light-image is-larger"
-              src="/@src/assets/illustrations/placeholders/courses.svg"
+              src="/@vuero/assets/illustrations/placeholders/courses.svg"
               alt=""
             >
             <img
               class="dark-image is-larger"
-              src="/@src/assets/illustrations/placeholders/courses-dark.svg"
+              src="/@vuero/assets/illustrations/placeholders/courses-dark.svg"
               alt=""
             >
           </template>

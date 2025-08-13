@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { isLargeScreen } from '/@src/utils/responsive'
+import { isLargeScreen } from '/@vuero/utils/responsive'
 import VueScrollTo from 'vue-scrollto'
 
-import { useDarkmode } from '/@src/stores/darkmode'
+import { useDarkmode } from '/@vuero/stores/darkmode'
 
 const isMobileNavOpen = ref(false)
 const darkmode = useDarkmode()

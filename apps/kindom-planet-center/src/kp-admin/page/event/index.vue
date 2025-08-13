@@ -1,9 +1,9 @@
 <script setup lang="ts">
 
-import { useViewWrapper } from '../../stores/viewWrapper'
+import { useViewWrapper } from '/@vuero/stores/viewWrapper'
 
-import { offers } from '/@src/data/layouts/view-list-v3'
-import { onceImageErrored } from '../../vuero/utils/via-placeholder'
+import { offers } from '/@vuero/data/layouts/view-list-v3'
+import { onceImageErrored } from '/@vuero/utils/via-placeholder'
 
 const router = useRouter()
 
@@ -104,12 +104,12 @@ const clickEvent = (id: string) => {
               <template #image>
                 <img
                   class="light-image"
-                  src="/@src/assets/illustrations/placeholders/search-3.svg"
+                  src="/@vuero/assets/illustrations/placeholders/search-3.svg"
                   alt=""
                 >
                 <img
                   class="dark-image"
-                  src="/@src/assets/illustrations/placeholders/search-3-dark.svg"
+                  src="/@vuero/assets/illustrations/placeholders/search-3-dark.svg"
                   alt=""
                 >
               </template>
@@ -219,12 +219,12 @@ const clickEvent = (id: string) => {
                   <template #image>
                     <img
                       class="light-image"
-                      src="/@src/assets/illustrations/placeholders/thinking-canvas.svg"
+                      src="/@vuero/assets/illustrations/placeholders/thinking-canvas.svg"
                       alt=""
                     >
                     <img
                       class="dark-image"
-                      src="/@src/assets/illustrations/placeholders/thinking-canvas-dark.svg"
+                      src="/@vuero/assets/illustrations/placeholders/thinking-canvas-dark.svg"
                       alt=""
                     >
                   </template>
@@ -239,7 +239,7 @@ const clickEvent = (id: string) => {
 </template>
 
 <style lang="scss">
-@import '/@src/scss/abstracts/all';
+@import '/@vuero/scss/abstracts/all';
 
 .list-view-v3 {
   .list-view-item {

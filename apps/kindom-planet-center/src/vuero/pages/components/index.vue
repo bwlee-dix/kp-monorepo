@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useViewWrapper } from '../../stores/viewWrapper'
+import { useViewWrapper } from '/@vuero/stores/viewWrapper'
 
 const viewWrapper = useViewWrapper()
 viewWrapper.setPageTitle('Components Hub')
@@ -43,12 +43,12 @@ useHead({
                 <template #icon>
                   <img
                     class="light-image"
-                    src="/@src/assets/illustrations/components/lists.svg"
+                    src="/@vuero/assets/illustrations/components/lists.svg"
                     alt=""
                   >
                   <img
                     class="dark-image"
-                    src="/@src/assets/illustrations/components/lists-dark.svg"
+                    src="/@vuero/assets/illustrations/components/lists-dark.svg"
                     alt=""
                   >
                 </template>
@@ -66,12 +66,12 @@ useHead({
                 <template #icon>
                   <img
                     class="light-image"
-                    src="/@src/assets/illustrations/components/tags.svg"
+                    src="/@vuero/assets/illustrations/components/tags.svg"
                     alt=""
                   >
                   <img
                     class="dark-image"
-                    src="/@src/assets/illustrations/components/tags-dark.svg"
+                    src="/@vuero/assets/illustrations/components/tags-dark.svg"
                     alt=""
                   >
                 </template>
@@ -89,12 +89,12 @@ useHead({
                 <template #icon>
                   <img
                     class="light-image"
-                    src="/@src/assets/illustrations/components/tabs.svg"
+                    src="/@vuero/assets/illustrations/components/tabs.svg"
                     alt=""
                   >
                   <img
                     class="dark-image"
-                    src="/@src/assets/illustrations/components/tabs-dark.svg"
+                    src="/@vuero/assets/illustrations/components/tabs-dark.svg"
                     alt=""
                   >
                 </template>
@@ -112,12 +112,12 @@ useHead({
                 <template #icon>
                   <img
                     class="light-image"
-                    src="/@src/assets/illustrations/components/cards.svg"
+                    src="/@vuero/assets/illustrations/components/cards.svg"
                     alt=""
                   >
                   <img
                     class="dark-image"
-                    src="/@src/assets/illustrations/components/cards-dark.svg"
+                    src="/@vuero/assets/illustrations/components/cards-dark.svg"
                     alt=""
                   >
                 </template>
@@ -134,12 +134,12 @@ useHead({
                 <template #icon>
                   <img
                     class="light-image"
-                    src="/@src/assets/illustrations/components/avatar.svg"
+                    src="/@vuero/assets/illustrations/components/avatar.svg"
                     alt=""
                   >
                   <img
                     class="dark-image"
-                    src="/@src/assets/illustrations/components/avatar-dark.svg"
+                    src="/@vuero/assets/illustrations/components/avatar-dark.svg"
                     alt=""
                   >
                 </template>
@@ -157,12 +157,12 @@ useHead({
                 <template #icon>
                   <img
                     class="light-image"
-                    src="/@src/assets/illustrations/components/accordion.svg"
+                    src="/@vuero/assets/illustrations/components/accordion.svg"
                     alt=""
                   >
                   <img
                     class="dark-image"
-                    src="/@src/assets/illustrations/components/accordion-dark.svg"
+                    src="/@vuero/assets/illustrations/components/accordion-dark.svg"
                     alt=""
                   >
                 </template>
@@ -180,12 +180,12 @@ useHead({
                 <template #icon>
                   <img
                     class="light-image"
-                    src="/@src/assets/illustrations/components/breadcrumb.svg"
+                    src="/@vuero/assets/illustrations/components/breadcrumb.svg"
                     alt=""
                   >
                   <img
                     class="dark-image"
-                    src="/@src/assets/illustrations/components/breadcrumb-dark.svg"
+                    src="/@vuero/assets/illustrations/components/breadcrumb-dark.svg"
                     alt=""
                   >
                 </template>
@@ -203,12 +203,12 @@ useHead({
                 <template #icon>
                   <img
                     class="light-image"
-                    src="/@src/assets/illustrations/components/icon-box.svg"
+                    src="/@vuero/assets/illustrations/components/icon-box.svg"
                     alt=""
                   >
                   <img
                     class="dark-image"
-                    src="/@src/assets/illustrations/components/icon-box-dark.svg"
+                    src="/@vuero/assets/illustrations/components/icon-box-dark.svg"
                     alt=""
                   >
                 </template>
@@ -226,12 +226,12 @@ useHead({
                 <template #icon>
                   <img
                     class="light-image"
-                    src="/@src/assets/illustrations/components/table.svg"
+                    src="/@vuero/assets/illustrations/components/table.svg"
                     alt=""
                   >
                   <img
                     class="dark-image"
-                    src="/@src/assets/illustrations/components/table-dark.svg"
+                    src="/@vuero/assets/illustrations/components/table-dark.svg"
                     alt=""
                   >
                 </template>
@@ -249,12 +249,12 @@ useHead({
                 <template #icon>
                   <img
                     class="light-image"
-                    src="/@src/assets/illustrations/components/snacks.svg"
+                    src="/@vuero/assets/illustrations/components/snacks.svg"
                     alt=""
                   >
                   <img
                     class="dark-image"
-                    src="/@src/assets/illustrations/components/snacks-dark.svg"
+                    src="/@vuero/assets/illustrations/components/snacks-dark.svg"
                     alt=""
                   >
                 </template>

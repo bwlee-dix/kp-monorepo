@@ -10,7 +10,7 @@ import './styles'
 export type AppContext = Awaited<ReturnType<typeof createApp>>
 export type KPPlugin = (kp: AppContext) => void | Promise<void>
 
-const plugins = import.meta.glob<{ default: KPPlugin }>('/@vuero/plugins/*.ts')
+const plugins = import.meta.glob<{ default: KPPlugin }>('/src/vuero/plugins/*.ts')
 
 export function definePlugin(plugin: KPPlugin) {
   return plugin

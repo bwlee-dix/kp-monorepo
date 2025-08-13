@@ -1,12 +1,13 @@
 <script setup lang="ts">
-
-import { useViewWrapper } from '../../stores/viewWrapper'
+import { useViewWrapper } from '/@vuero/stores/viewWrapper'
 
 const viewWrapper = useViewWrapper()
-viewWrapper.setPageTitle('Group')
+viewWrapper.setPageTitle('Notice')
+
+const activeTab = ref<string>('all')
 
 useHead({
-  title: 'Group - App name - KingdomPlanet',
+  title: 'Notice - App name - KingdomPlanet',
 })
 </script>
 
@@ -15,9 +16,8 @@ useHead({
     theme="curved"
     open-on-mounted
   >
-    <!-- Content Wrapper -->
     <div class="page-content-inner">
-      <TableListV2 />
+      <ViewListV3 :active-tab="activeTab" />
     </div>
   </AdminSideblockLayout>
 </template>

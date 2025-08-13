@@ -104,7 +104,7 @@
 </template>
 
 <style lang="scss">
-@import '/@src/scss/abstracts/all';
+@import '/@vuero/scss/abstracts/all';
 
 .is-navbar {
   .account-wrapper {

@@ -1,5 +1,5 @@
-<script setup lang="ts">
-import { CssUnitRe } from '/@src/utils/regex'
+  <script setup lang="ts">
+import { CssUnitRe } from '/@vuero/utils/regex'
 
 export type VPlaceloadProps = {
   width?: string

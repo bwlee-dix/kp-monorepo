@@ -4,11 +4,11 @@ import { tns } from 'tiny-slider/src/tiny-slider'
 
 import ApexChart from 'vue3-apexcharts'
 
-import { useExpensesAreaChart } from '/@src/data/dashboards/banking-v2/expensesAreaChart'
+import { useExpensesAreaChart } from '/@vuero/data/dashboards/banking-v2/expensesAreaChart'
 import {
   valueSingle,
   optionsSingle,
-} from '/@src/data/dashboards/banking-v2/dashboardData'
+} from '/@vuero/data/dashboards/banking-v2/dashboardData'
 
 let slider: TinySliderInstance
 
@@ -424,7 +424,7 @@ const goto = (index: number) => {
 </template>
 
 <style lang="scss">
-@import '/@src/scss/abstracts/all';
+@import '/@vuero/scss/abstracts/all';
 
 .banking-dashboard-v2 {
   .dashboard-card {

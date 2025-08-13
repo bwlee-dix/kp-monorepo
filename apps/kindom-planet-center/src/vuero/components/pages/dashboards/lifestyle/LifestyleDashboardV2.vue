@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import type { VAvatarProps } from '/@src/components/base/avatar/VAvatar.vue'
-import * as dashboardData from '/@src/data/dashboards/lifestyle-v2/dashboardData'
+import type { VAvatarProps } from '/@vuero/components/base/avatar/VAvatar.vue'
+import * as dashboardData from '/@vuero/data/dashboards/lifestyle-v2/dashboardData'
 
 const avatarStack1 = dashboardData.avatarStack1 as VAvatarProps[]
 const avatarStack2 = dashboardData.avatarStack1 as VAvatarProps[]
@@ -504,7 +504,7 @@ const topicList = dashboardData.topicList as any[]
 </template>
 
 <style lang="scss">
-@import '/@src/scss/abstracts/all';
+@import '/@vuero/scss/abstracts/all';
 
 .lifestyle-dashboard-v2 {
   .dashboard-title {

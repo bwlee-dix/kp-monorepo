@@ -21,8 +21,8 @@ Check the markup for more details about usage.
 import type {
   VFlexTableWrapperSortFunction,
   VFlexTableWrapperFilterFunction,
-} from '/@src/components/base/table/VFlexTableWrapper.vue'
-import { users } from '/@src/data/layouts/card-grid-v1'
+} from '/@vuero/components/base/table/VFlexTableWrapper.vue'
+import { users } from '/@vuero/data/layouts/card-grid-v1'
 
 type User = (typeof users)[0]
 

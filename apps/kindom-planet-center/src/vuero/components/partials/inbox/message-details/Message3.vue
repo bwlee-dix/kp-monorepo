@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { useDropdown } from '/@src/composable/useDropdown'
-import { onceImageErrored } from '/@src/utils/via-placeholder'
-import { isMediumScreen } from '/@src/utils/responsive'
+import { useDropdown } from '/@vuero/composable/useDropdown'
+import { onceImageErrored } from '/@vuero/utils/via-placeholder'
+import { isMediumScreen } from '/@vuero/utils/responsive'
 
 const emit = defineEmits<{
   (e: 'update:mobileMessageOpen', value: boolean): void

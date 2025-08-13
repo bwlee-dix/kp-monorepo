@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import type { VAvatarProps } from '/@src/components/base/avatar/VAvatar.vue'
-import * as listData from '/@src/data/layouts/view-list-v4'
-import { onceImageErrored } from '/@src/utils/via-placeholder'
+import type { VAvatarProps } from '/@vuero/components/base/avatar/VAvatar.vue'
+import * as listData from '/@vuero/data/layouts/view-list-v4'
+import { onceImageErrored } from '/@vuero/utils/via-placeholder'
 
 export interface RecipeData {
   icon: string
@@ -97,12 +97,12 @@ const filteredData = computed(() => {
         <template #image>
           <img
             class="light-image"
-            src="/@src/assets/illustrations/placeholders/search-3.svg"
+            src="/@vuero/assets/illustrations/placeholders/search-3.svg"
             alt=""
           >
           <img
             class="dark-image"
-            src="/@src/assets/illustrations/placeholders/search-3-dark.svg"
+            src="/@vuero/assets/illustrations/placeholders/search-3-dark.svg"
             alt=""
           >
         </template>
@@ -233,12 +233,12 @@ const filteredData = computed(() => {
             <template #image>
               <img
                 class="light-image"
-                src="/@src/assets/illustrations/placeholders/cooking.svg"
+                src="/@vuero/assets/illustrations/placeholders/cooking.svg"
                 alt=""
               >
               <img
                 class="dark-image"
-                src="/@src/assets/illustrations/placeholders/cooking-dark.svg"
+                src="/@vuero/assets/illustrations/placeholders/cooking-dark.svg"
                 alt=""
               >
             </template>
@@ -250,7 +250,7 @@ const filteredData = computed(() => {
 </template>
 
 <style lang="scss">
-@import '/@src/scss/abstracts/all';
+@import '/@vuero/scss/abstracts/all';
 
 .list-view-v4 {
   .list-view-item {

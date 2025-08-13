@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import ApexChart from 'vue3-apexcharts'
 
-import type { VAvatarProps } from '/@src/components/base/avatar/VAvatar.vue'
-import { useInterviewsChart } from '/@src/data/dashboards/personal-v3/interviewsChart'
-import { useProgressChart } from '/@src/data/dashboards/personal-v3/progressChart'
-import * as userData from '/@src/data/dashboards/personal-v3/users'
+import type { VAvatarProps } from '/@vuero/components/base/avatar/VAvatar.vue'
+import { useInterviewsChart } from '/@vuero/data/dashboards/personal-v3/interviewsChart'
+import { useProgressChart } from '/@vuero/data/dashboards/personal-v3/progressChart'
+import * as userData from '/@vuero/data/dashboards/personal-v3/users'
 
 const { progressGaugeOptions, onprogressGaugeReady } = useProgressChart()
 const { interviewsOptions } = useInterviewsChart()
@@ -165,7 +165,7 @@ const userStack = userData.userStack as VAvatarProps[]
 
           <div class="column is-6 h-hidden-mobile h-hidden-tablet-p">
             <img
-              src="/@src/assets/illustrations/dashboards/personal/interviews.svg"
+              src="/@vuero/assets/illustrations/dashboards/personal/interviews.svg"
               alt=""
             >
           </div>
@@ -398,7 +398,7 @@ const userStack = userData.userStack as VAvatarProps[]
 </template>
 
 <style lang="scss">
-@import '/@src/scss/abstracts/all';
+@import '/@vuero/scss/abstracts/all';
 
 .is-navbar {
   .personal-dashboard {

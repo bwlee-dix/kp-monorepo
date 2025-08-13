@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onceImageErrored } from '/@src/utils/via-placeholder'
+import { onceImageErrored } from '/@vuero/utils/via-placeholder'
 </script>
 
 <template>
@@ -699,8 +699,8 @@ import { onceImageErrored } from '/@src/utils/via-placeholder'
 </template>
 
 <style lang="scss">
-@import '/@src/scss/abstracts/all';
-@import '/@src/scss/components/profile-stats';
+@import '/@vuero/scss/abstracts/all';
+@import '/@vuero/scss/components/profile-stats';
 
 .is-navbar {
   .profile-wrapper {

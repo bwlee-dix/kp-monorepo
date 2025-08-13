@@ -1,17 +1,11 @@
 <script setup lang="ts">
-
-import { useDarkmode } from '../../../stores/darkmode'
-import { useUserSession } from '../../../stores/userSession'
-import { useNotyf } from '/@src/composable/useNotyf'
-import sleep from '../../../vuero/utils/sleep'
+import { useDarkmode } from '/@vuero/stores/darkmode'
+import sleep from '/@vuero/utils/sleep'
 
 const isLoading = ref(false)
 const darkmode = useDarkmode()
 const router = useRouter()
-const route = useRoute()
-const notyf = useNotyf()
-const userSession = useUserSession()
-const redirect = route.query.redirect as string
+
 
 useHead({
   title: 'Register Developer - Kingdom Planet',
@@ -19,10 +13,6 @@ useHead({
 
 const companySize = ref('')
 const businessType = ref('')
-const productToDemo = ref('')
-const date = ref(new Date())
-
-const { y } = useWindowScroll()
 
 const onSubmit = async () => {
 if (!isLoading.value) {
@@ -268,8 +258,8 @@ if (!isLoading.value) {
 </template>
 
 <style lang="scss">
-@import '/@src/scss/abstracts/all';
-@import '/@src/scss/components/forms-outer';
+@import '/@vuero/scss/abstracts/all';
+@import '/@vuero/scss/components/forms-outer';
 
 .form-layout {
   max-width: 740px;

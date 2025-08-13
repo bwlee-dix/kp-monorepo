@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { radar } from 'billboard.js'
 
-import { useMarkdownToc } from '/@src/composable/useMarkdownToc'
-import { useSplineSimple } from '/@src/data/dashboards/billboardjs-demo/splineSimple'
-import { useThemeColors } from '/@src/composable/useThemeColors'
-import { useViewWrapper } from '../../../stores/viewWrapper'
+import { useMarkdownToc } from '/@vuero/composable/useMarkdownToc'
+import { useSplineSimple } from '/@vuero/data/dashboards/billboardjs-demo/splineSimple'
+import { useThemeColors } from '/@vuero/composable/useThemeColors'
+import { useViewWrapper } from '/@vuero/stores/viewWrapper'
 
 const markdownContainer = ref<HTMLElement>()
 const toc = useMarkdownToc(markdownContainer)

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useDarkmode } from '../../stores/darkmode'
+import { useDarkmode } from '/@vuero/stores/darkmode'
 
 const darkmode = useDarkmode()
 
@@ -34,12 +34,12 @@ useHead({
         </div>
         <img
           class="light-image"
-          src="/@src/assets/illustrations/placeholders/error-2.svg"
+          src="/@vuero/assets/illustrations/placeholders/error-2.svg"
           alt=""
         >
         <img
           class="dark-image"
-          src="/@src/assets/illustrations/placeholders/error-2-dark.svg"
+          src="/@vuero/assets/illustrations/placeholders/error-2-dark.svg"
           alt=""
         >
         <h3 class="dark-inverted">

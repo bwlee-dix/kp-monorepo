@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
 
-import { useDarkmode } from '/@src/stores/darkmode'
-import { usePanels } from '/@src/stores/panels'
-import { useDropdown } from '/@src/composable/useDropdown'
-import { onceImageErrored } from '/@src/utils/via-placeholder'
+import { useDarkmode } from '/@vuero/stores/darkmode'
+import { usePanels } from '/@vuero/stores/panels'
+import { useDropdown } from '/@vuero/composable/useDropdown'
+import { onceImageErrored } from '/@vuero/utils/via-placeholder'
 
 const panels = usePanels()
 const darkmode = useDarkmode()

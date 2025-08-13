@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { SideblockTheme } from '/@src/components/navigation/desktop/Sideblock.vue'
+import type { SideblockTheme } from '/@vuero/components/navigation/desktop/Sideblock.vue'
 import { usePanels } from '../stores/panels'
 import { useViewWrapper } from '../stores/viewWrapper'
 

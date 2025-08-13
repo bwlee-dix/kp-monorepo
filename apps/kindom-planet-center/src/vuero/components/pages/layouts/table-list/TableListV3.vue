@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { offers } from '/@src/data/layouts/view-list-v3'
+import { offers } from '/@vuero/data/layouts/view-list-v3'
 
 export interface OfferData {
   id: string
@@ -102,12 +102,12 @@ const filteredData = computed(() => {
         <template #image>
           <img
             class="light-image"
-            src="/@src/assets/illustrations/placeholders/search-7.svg"
+            src="/@vuero/assets/illustrations/placeholders/search-7.svg"
             alt=""
           >
           <img
             class="dark-image"
-            src="/@src/assets/illustrations/placeholders/search-7-dark.svg"
+            src="/@vuero/assets/illustrations/placeholders/search-7-dark.svg"
             alt=""
           >
         </template>

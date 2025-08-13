@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { useViewWrapper } from '../../../stores/viewWrapper'
-import { iconifyFeather } from '/@src/data/icons/iconifyFeather'
+import { useViewWrapper } from '/@vuero/stores/viewWrapper'
+import { iconifyFeather } from '/@vuero/data/icons/iconifyFeather'
 
 const { text, copy, copied } = useClipboard()
 const { y } = useWindowScroll()

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useMarkdownToc } from '../../composable/useMarkdownToc'
-import { useViewWrapper } from '../../stores/viewWrapper'
+import { useViewWrapper } from '/@vuero/stores/viewWrapper'
 
 const markdownContainer = ref<HTMLElement>()
 const toc = useMarkdownToc(markdownContainer)
@@ -52,12 +52,12 @@ useHead({
           <template #image>
             <img
               class="light-image"
-              src="/@src/assets/illustrations/placeholders/search-1.svg"
+              src="/@vuero/assets/illustrations/placeholders/search-1.svg"
               alt=""
             >
             <img
               class="dark-image"
-              src="/@src/assets/illustrations/placeholders/search-1-dark.svg"
+              src="/@vuero/assets/illustrations/placeholders/search-1-dark.svg"
               alt=""
             >
           </template>

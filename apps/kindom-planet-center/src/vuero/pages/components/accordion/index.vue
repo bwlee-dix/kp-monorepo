@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useSidebar } from '../../../stores/sidebar'
+import { useSidebar } from '/@vuero/stores/sidebar'
 
 const sidebar = useSidebar()
 

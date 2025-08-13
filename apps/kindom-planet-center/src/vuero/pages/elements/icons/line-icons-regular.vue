@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useViewWrapper } from '../../../stores/viewWrapper'
+import { useViewWrapper } from '/@vuero/stores/viewWrapper'
 import { lineIconsRegular } from '../../../data/icons/lineIconsRegular'
 
 const { text, copy, copied } = useClipboard()

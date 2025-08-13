@@ -4,8 +4,8 @@
 import { onceImageErrored } from '../../vuero/utils/via-placeholder'
 
 import sleep from '../../vuero/utils/sleep'
-import { useNotyf } from '/@src/composable/useNotyf'
-import { useDarkmode } from '../../stores/darkmode'
+import { useNotyf } from '/@vuero/composable/useNotyf'
+import { useDarkmode } from '/@vuero/stores/darkmode'
 
 // let slider: TinySliderInstance
 // const sliderElement = ref<HTMLElement>()
@@ -128,7 +128,7 @@ useHead({
       <img
         :class="[step > 0 && 'is-hidden']"
         class="card-bg"
-        src="/@src/assets/backgrounds/signup/vuero-signup.webp"
+        src="/@vuero/assets/backgrounds/signup/vuero-signup.webp"
         alt=""
       >
 

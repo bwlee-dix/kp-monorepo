@@ -4,8 +4,8 @@ import { useField, useFieldArray, useForm } from 'vee-validate'
 import { z } from 'zod'
 import VueScrollTo from 'vue-scrollto'
 
-import { useNotyf } from '/@src/composable/useNotyf'
-import sleep from '/@src/utils/sleep'
+import { useNotyf } from '/@vuero/composable/useNotyf'
+import sleep from '/@vuero/utils/sleep'
 
 const notyf = useNotyf()
 const { scrollTo } = VueScrollTo

@@ -2,10 +2,10 @@
 import type {
   VFlexTableWrapperSortFunction,
   VFlexTableWrapperFilterFunction,
-} from '/@src/components/base/table/VFlexTableWrapper.vue'
-import { users } from '/@src/data/layouts/card-grid-v1'
-import { useViewWrapper } from '../../../../stores/viewWrapper'
-import { useMarkdownToc } from '/@src/composable/useMarkdownToc'
+} from '/@vuero/components/base/table/VFlexTableWrapper.vue'
+import { users } from '/@vuero/data/layouts/card-grid-v1'
+import { useViewWrapper } from '/@vuero/stores/viewWrapper'
+import { useMarkdownToc } from '/@vuero/composable/useMarkdownToc'
 
 const markdownContainer = ref<HTMLElement>()
 const toc = useMarkdownToc(markdownContainer)

@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { plans } from '/@src/data/apps/saas-billing'
-import { useCreditcardMask } from '/@src/composable/useCreditcardMask'
-import { popovers } from '/@src/data/users/userPopovers'
+import { plans } from '/@vuero/data/apps/saas-billing'
+import { useCreditcardMask } from '/@vuero/composable/useCreditcardMask'
+import { popovers } from '/@vuero/data/users/userPopovers'
 
 const {
   creditcardIcon,
@@ -433,7 +433,7 @@ const selected = ref('value_2')
 </template>
 
 <style lang="scss">
-@import '/@src/scss/abstracts/all';
+@import '/@vuero/scss/abstracts/all';
 
 .saas-billing-wrapper {
   max-width: 980px;

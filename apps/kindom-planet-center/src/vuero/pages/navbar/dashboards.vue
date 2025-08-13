@@ -4,7 +4,7 @@ meta:
 </route>
 
 <script setup lang="ts">
-import { useLayoutSwitcher } from '../../stores/layoutSwitcher'
+import { useLayoutSwitcher } from '/@vuero/stores/layoutSwitcher'
 
 const layoutSwitcher = useLayoutSwitcher()
 </script>

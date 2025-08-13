@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import VueScrollTo from 'vue-scrollto'
-import { useNotyf } from '/@src/composable/useNotyf'
-import sleep from '/@src/utils/sleep'
+import { useNotyf } from '/@vuero/composable/useNotyf'
+import sleep from '/@vuero/utils/sleep'
 
 const router = useRouter()
 const notyf = useNotyf()
@@ -681,7 +681,7 @@ const validateStep = async () => {
                 </div>
                 <div class="box-illustration">
                   <img
-                    src="/@src/assets/illustrations/plants/1.svg"
+                    src="/@vuero/assets/illustrations/plants/1.svg"
                     alt=""
                   >
                 </div>

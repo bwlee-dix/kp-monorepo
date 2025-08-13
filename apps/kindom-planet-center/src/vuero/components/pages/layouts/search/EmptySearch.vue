@@ -60,12 +60,12 @@ const activeTab = ref<TabId>('all')
         <template #image>
           <img
             class="light-image"
-            src="/@src/assets/illustrations/placeholders/search-7.svg"
+            src="/@vuero/assets/illustrations/placeholders/search-7.svg"
             alt=""
           >
           <img
             class="dark-image"
-            src="/@src/assets/illustrations/placeholders/search-7-dark.svg"
+            src="/@vuero/assets/illustrations/placeholders/search-7-dark.svg"
             alt=""
           >
         </template>
@@ -75,7 +75,7 @@ const activeTab = ref<TabId>('all')
 </template>
 
 <style lang="scss">
-@import '/@src/scss/abstracts/all';
+@import '/@vuero/scss/abstracts/all';
 
 .is-navbar {
   .search-results-wrapper {

@@ -1151,7 +1151,7 @@ const activeTab = ref<TabId>('list')
 </template>
 
 <style lang="scss">
-@import '/@src/scss/abstracts/mixins';
-@import '/@src/scss/layout/navbar';
-@import '/@src/scss/layout/responsive';
+@import '/@vuero/scss/abstracts/mixins';
+@import '/@vuero/scss/layout/navbar';
+@import '/@vuero/scss/layout/responsive';
 </style>

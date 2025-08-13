@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { popovers } from '/@src/data/users/userPopovers'
+import { popovers } from '/@vuero/data/users/userPopovers'
 
 const selectedColor = ref('')
 const calendarTarget = ref('')
@@ -503,8 +503,8 @@ const onSubmit = () => {
 </template>
 
 <style lang="scss">
-@import '/@src/scss/abstracts/all';
-@import '/@src/scss/components/forms-outer';
+@import '/@vuero/scss/abstracts/all';
+@import '/@vuero/scss/components/forms-outer';
 
 .is-navbar {
   .form-layout {

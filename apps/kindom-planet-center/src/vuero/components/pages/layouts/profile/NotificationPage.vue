@@ -266,7 +266,7 @@
 </template>
 
 <style lang="scss" scoped>
-@import '/@src/scss/abstracts/all';
+@import '/@vuero/scss/abstracts/all';
 
 /*
   1. Timeline

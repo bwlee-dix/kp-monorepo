@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import type { VAvatarProps } from '/@src/components/base/avatar/VAvatar.vue'
-import { onceImageErrored } from '/@src/utils/via-placeholder'
-import * as gridData from '/@src/data/layouts/card-grid-v2'
+import type { VAvatarProps } from '/@vuero/components/base/avatar/VAvatar.vue'
+import { onceImageErrored } from '/@vuero/utils/via-placeholder'
+import * as gridData from '/@vuero/data/layouts/card-grid-v2'
 
 export interface ProjectData {
   name: string
@@ -93,12 +93,12 @@ const optionsSingle = [
         <template #image>
           <img
             class="light-image"
-            src="/@src/assets/illustrations/placeholders/search-3.svg"
+            src="/@vuero/assets/illustrations/placeholders/search-3.svg"
             alt=""
           >
           <img
             class="dark-image"
-            src="/@src/assets/illustrations/placeholders/search-3-dark.svg"
+            src="/@vuero/assets/illustrations/placeholders/search-3-dark.svg"
             alt=""
           >
         </template>

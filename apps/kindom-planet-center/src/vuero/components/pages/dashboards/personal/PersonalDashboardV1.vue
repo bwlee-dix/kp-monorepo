@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import ApexChart from 'vue3-apexcharts'
 
-import { useCustomersCharts } from '/@src/data/dashboards/personal-v1/customersChart'
-import { useTeamGaugeChart } from '/@src/data/dashboards/personal-v1/teamGaugeChart'
-import { useProfitChart } from '/@src/data/dashboards/personal-v1/profitChart'
+import { useCustomersCharts } from '/@vuero/data/dashboards/personal-v1/customersChart'
+import { useTeamGaugeChart } from '/@vuero/data/dashboards/personal-v1/teamGaugeChart'
+import { useProfitChart } from '/@vuero/data/dashboards/personal-v1/profitChart'
 
 const { customersOptions } = useCustomersCharts()
 const { teamGaugeOptions } = useTeamGaugeChart()
@@ -210,7 +210,7 @@ const { profitChartOptions } = useProfitChart()
 </template>
 
 <style lang="scss">
-@import '/@src/scss/abstracts/all';
+@import '/@vuero/scss/abstracts/all';
 
 .is-navbar {
   .personal-dashboard {

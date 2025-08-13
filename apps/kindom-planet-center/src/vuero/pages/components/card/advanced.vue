@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { VAvatarProps } from '../../../components/base/avatar/VAvatar.vue'
-import { useViewWrapper } from '../../../stores/viewWrapper'
+import { useViewWrapper } from '/@vuero/stores/viewWrapper'
 import * as userStacks from '../../../data/users/userStacks'
 
 const userStack2 = userStacks.userStack2 as VAvatarProps[]

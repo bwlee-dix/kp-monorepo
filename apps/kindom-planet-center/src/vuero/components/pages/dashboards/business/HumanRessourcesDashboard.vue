@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useTodoList } from '/@src/data/widgets/list/todoList'
+import { useTodoList } from '/@vuero/data/widgets/list/todoList'
 
 const { todoList3, todoList4 } = useTodoList()
 
@@ -484,7 +484,7 @@ const columns = {
 </template>
 
 <style lang="scss">
-@import '/@src/scss/abstracts/all';
+@import '/@vuero/scss/abstracts/all';
 
 .hr-dashboard {
   .block-header {

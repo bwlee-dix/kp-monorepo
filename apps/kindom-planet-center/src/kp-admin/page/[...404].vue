@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
-import { useDarkmode } from '../stores/darkmode'
+import { useDarkmode } from '/@vuero/stores/darkmode'
 
 const darkmode = useDarkmode()
 const { t } = useI18n()
@@ -46,7 +46,7 @@ useHead({
             <VButton
               color="primary"
               elevated
-              to="/"
+              @click="$router.go(-1)"
             >
               {{ t('pages.not-found.page-button') }}
             </VButton>

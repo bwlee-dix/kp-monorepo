@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import sidebar from '/@src/data/landing/sidebar.json'
-import auth from '/@src/data/landing/auth.json'
-import minimal from '/@src/data/landing/minimal.json'
-import starters from '/@src/data/landing/starters.json'
-import navbar from '/@src/data/landing/navbar.json'
+import sidebar from '/@vuero/data/landing/sidebar.json'
+import auth from '/@vuero/data/landing/auth.json'
+import minimal from '/@vuero/data/landing/minimal.json'
+import starters from '/@vuero/data/landing/starters.json'
+import navbar from '/@vuero/data/landing/navbar.json'
 import { type ComputedRef, type Ref } from 'vue'
 
 export interface DemoItem {
@@ -156,12 +156,12 @@ debouncedWatch(
         <template #image>
           <img
             class="light-image"
-            src="/@src/assets/illustrations/placeholders/search-4.svg"
+            src="/@vuero/assets/illustrations/placeholders/search-4.svg"
             alt=""
           >
           <img
             class="dark-image"
-            src="/@src/assets/illustrations/placeholders/search-4-dark.svg"
+            src="/@vuero/assets/illustrations/placeholders/search-4-dark.svg"
             alt=""
           >
         </template>

@@ -531,7 +531,7 @@
 </template>
 
 <style lang="scss">
-@import '/@src/scss/abstracts/all';
+@import '/@vuero/scss/abstracts/all';
 
 .soccer-dashboard {
   .soccer-dashboard-inner {

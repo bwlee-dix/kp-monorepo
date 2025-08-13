@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import ApexChart from 'vue3-apexcharts'
 
-import type { VAvatarProps } from '/@src/components/base/avatar/VAvatar.vue'
-import { useTaskCompletionChart } from '/@src/data/dashboards/personal-v2/taskCompletionChart'
-import { useTeamEfficiencyChart } from '/@src/data/dashboards/personal-v2/teamEfficiencyChart'
-import { popovers } from '/@src/data/users/userPopovers'
-import * as usersData from '/@src/data/dashboards/personal-v2/users'
+import type { VAvatarProps } from '/@vuero/components/base/avatar/VAvatar.vue'
+import { useTaskCompletionChart } from '/@vuero/data/dashboards/personal-v2/taskCompletionChart'
+import { useTeamEfficiencyChart } from '/@vuero/data/dashboards/personal-v2/teamEfficiencyChart'
+import { popovers } from '/@vuero/data/users/userPopovers'
+import * as usersData from '/@vuero/data/dashboards/personal-v2/users'
 
 const { completionOptions } = useTaskCompletionChart()
 const { barOptions } = useTeamEfficiencyChart()
@@ -431,12 +431,12 @@ const democheck = ref(['value_2'])
             <template #image>
               <img
                 class="light-image"
-                src="/@src/assets/illustrations/placeholders/chart-guy.svg"
+                src="/@vuero/assets/illustrations/placeholders/chart-guy.svg"
                 alt=""
               >
               <img
                 class="dark-image"
-                src="/@src/assets/illustrations/placeholders/chart-guy-dark.svg"
+                src="/@vuero/assets/illustrations/placeholders/chart-guy-dark.svg"
                 alt=""
               >
             </template>
@@ -457,7 +457,7 @@ const democheck = ref(['value_2'])
 </template>
 
 <style lang="scss">
-@import '/@src/scss/abstracts/all';
+@import '/@vuero/scss/abstracts/all';
 
 .is-navbar {
   .personal-dashboard {

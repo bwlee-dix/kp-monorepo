@@ -1,12 +1,12 @@
 <script setup lang="ts">
 
-import { useViewWrapper } from '../../stores/viewWrapper'
+import { useViewWrapper } from '/@vuero/stores/viewWrapper'
 
 const viewWrapper = useViewWrapper()
-viewWrapper.setPageTitle('Notice')
+viewWrapper.setPageTitle('Dashboard')
 
 useHead({
-  title: 'Notice - App name - KingdomPlanet',
+  title: 'Dashboard - App name - KingdomPlanet',
 })
 </script>
 
@@ -17,7 +17,7 @@ useHead({
   >
     <!-- Content Wrapper -->
     <div class="page-content-inner">
-      <ViewListV3 :active-tab="activeTab" />
+      <AnalyticsDashboard />
     </div>
   </AdminSideblockLayout>
 </template>

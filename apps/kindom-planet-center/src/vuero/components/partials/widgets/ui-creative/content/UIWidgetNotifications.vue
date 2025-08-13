@@ -29,7 +29,7 @@ const props = withDefaults(
 </template>
 
 <style lang="scss">
-@import '/@src/scss/abstracts/all';
+@import '/@vuero/scss/abstracts/all';
 
 .list-widget {
   @include vuero-l-card;

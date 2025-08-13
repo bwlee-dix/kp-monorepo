@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useMarkdownToc } from '../../composable/useMarkdownToc'
-import { useViewWrapper } from '../../stores/viewWrapper'
+import { useViewWrapper } from '/@vuero/stores/viewWrapper'
 import { demoMarkdown } from '../../data/documentation/markdown'
 
 const markdownContainer = ref<HTMLElement>()

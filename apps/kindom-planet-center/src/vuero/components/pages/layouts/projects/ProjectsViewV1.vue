@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import VTag from '/@src/components/base/tags/VTag.vue'
-import FlexTableDropdown from '/@src/components/partials/dropdowns/FlexTableDropdown.vue'
-import VAvatarStack from '/@src/components/base/avatar/VAvatarStack.vue'
-import { flexRowsAdvanced } from '/@src/data/documentation/table'
-import { onceImageErrored } from '/@src/utils/via-placeholder'
+import VTag from '/@vuero/components/base/tags/VTag.vue'
+import FlexTableDropdown from '/@vuero/components/partials/dropdowns/FlexTableDropdown.vue'
+import VAvatarStack from '/@vuero/components/base/avatar/VAvatarStack.vue'
+import { flexRowsAdvanced } from '/@vuero/data/documentation/table'
+import { onceImageErrored } from '/@vuero/utils/via-placeholder'
 import { RouterLink } from 'vue-router/auto'
 
 const collator = new Intl.Collator('en')
@@ -282,7 +282,7 @@ const exampleColumns = {
         <a class="project-grid-item">
           <img
             class="project-avatar"
-            src="/@src/assets/illustrations/dashboards/flights/company1.svg"
+            src="/@vuero/assets/illustrations/dashboards/flights/company1.svg"
             alt=""
             @error.once="onceImageErrored(150)"
           >
@@ -343,7 +343,7 @@ const exampleColumns = {
 </template>
 
 <style lang="scss">
-@import '/@src/scss/abstracts/all';
+@import '/@vuero/scss/abstracts/all';
 
 .all-projects {
   .section-heading {
