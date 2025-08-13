@@ -45,6 +45,8 @@ declare module 'vue-router/auto/routes' {
     '/app/': RouteRecordInfo<'/app/', '/app', Record<never, never>, Record<never, never>>,
     '/app-list/': RouteRecordInfo<'/app-list/', '/app-list', Record<never, never>, Record<never, never>>,
     '/auth/': RouteRecordInfo<'/auth/', '/auth', Record<never, never>, Record<never, never>>,
+    '/builder/': RouteRecordInfo<'/builder/', '/builder', Record<never, never>, Record<never, never>>,
+    '/builder/index copy': RouteRecordInfo<'/builder/index copy', '/builder/index copy', Record<never, never>, Record<never, never>>,
     '/dashboard/': RouteRecordInfo<'/dashboard/', '/dashboard', Record<never, never>, Record<never, never>>,
     '/register/': RouteRecordInfo<'/register/', '/register', Record<never, never>, Record<never, never>>,
     '/team/': RouteRecordInfo<'/team/', '/team', Record<never, never>, Record<never, never>>,

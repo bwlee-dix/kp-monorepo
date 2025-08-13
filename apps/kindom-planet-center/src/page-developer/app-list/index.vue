@@ -61,6 +61,10 @@ const clickNewAppSubmit = async () => {
 const  clickApp =(id: string) =>{
   router.push("/dashboard")
 }
+const clickWebBuilder = () => {
+    router.push("/builder")
+
+}
 </script>
 
 <template>
@@ -109,7 +113,22 @@ const  clickApp =(id: string) =>{
             >
           </VControl>
 
+
           <div class="buttons">
+            <VButton
+              color="primary"
+              raised
+              @click="clickWebBuilder"
+            >
+              <span class="icon">
+                <i
+                  aria-hidden="true"
+                  class="fas fa-plus"
+                />
+              </span>
+              <span>New App By Web Builder</span>
+            </VButton>
+        
             <VButton
               color="primary"
               raised
@@ -910,6 +929,6 @@ const  clickApp =(id: string) =>{
   }
 }
 .page-content-inner {
-  margin: 6rem 4rem;
+  padding: 6rem 4rem;
 }
 </style>
