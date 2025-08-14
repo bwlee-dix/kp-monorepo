@@ -6,7 +6,7 @@ import { useDarkmode } from '/@src/stores/darkmode'
 import VueScrollTo from 'vue-scrollto'
 import { useNotyf } from '/@src/composable/useNotyf'
 import sleep from '/@src/utils/sleep'
-import { ref, watch, nextTick, computed } from 'vue'
+import { ref, watch, nextTick } from 'vue'
 import { useRouter } from 'vue-router'
 
 // Field interface
@@ -63,11 +63,6 @@ watch(type, (newType) => {
   }
 })
 
-const date = ref({
-  start: new Date(),
-  end: new Date(),
-})
-
 const validateStep = async () => {
   if (currentStep.value === 1) {
     // Validate that at least one page exists
@@ -80,15 +75,6 @@ const validateStep = async () => {
       return
     }
 
-    isLoading.value = true
-    await sleep(400)
-    currentStep.value += 1
-
-    nextTick(() => {
-      scrollTo(`#form-step-${currentStep.value}`, 1000)
-      isLoading.value = false
-    })
-    return
   }
   
   if (currentStep.value === 3) {
@@ -98,9 +84,18 @@ const validateStep = async () => {
 
     isLoading.value = true
     notyf.success('Web builder configuration completed successfully!')
-    await sleep(1000)
+    
+    // Save builder configuration to localStorage for preview
+    const builderConfig = {
+      pages: pages.value,
+      timestamp: new Date().toISOString()
+    }
+    localStorage.setItem('builderConfig', JSON.stringify(builderConfig))
+    
+    // Wait longer to ensure localStorage is saved and navigation is ready
+    await sleep(2000)
 
-    router.push('/app')
+    await router.push('/builder/preview')    
     return
   }
   // if (currentStep.value === 4) {
@@ -1602,50 +1597,6 @@ const handleUpdatePage = () => {
       </div>
     </div>
   </div>
-
-  <!-- Add Page Modal -->
-  <VModal
-    v-model="showAddPageModal"
-    title="Add New Page"
-    size="medium"
-  >
-    <div class="modal-content">
-      <VField label="Page Name *">
-        <VControl>
-          <VInput
-            v-model="newPageName"
-            type="text"
-            placeholder="Enter page name"
-          />
-        </VControl>
-      </VField>
-      
-      <VField label="Page Description">
-        <VControl>
-          <VTextarea
-            v-model="newPageDescription"
-            rows="3"
-            placeholder="Enter page description"
-          />
-        </VControl>
-      </VField>
-    </div>
-    
-    <template #footer>
-      <VButton
-        color="light"
-        @click="showAddPageModal = false"
-      >
-        Cancel
-      </VButton>
-      <VButton
-        color="primary"
-        @click="addNewPage"
-      >
-        Add Page
-      </VButton>
-    </template>
-  </VModal>
 </template>
 
 <style lang="scss" scoped>
