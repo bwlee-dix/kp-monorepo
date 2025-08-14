@@ -157,7 +157,7 @@ watch(
       <Sideblock v-if="isDesktopSideblockOpen" :theme="props.theme">
         <template #header>
           <RouterLink to="/" class="sidebar-block-logo">
-            <AnimatedLogo width="36px" />
+            <img src="/images/kp_logo.png" alt="" class="logo" />
           </RouterLink>
           <h3>KP Admin</h3>
         </template>
@@ -165,32 +165,52 @@ watch(
           <VDropdown title="GMMA" spaced>
             <template #content>
               <a href="#" class="dropdown-item is-media">
-                <img class="item-img" src="/images/avatars/svg/vuero-1.svg" alt="" />
+                <img class="item-img" src="/images/gmma_v2.png" alt="" />
                 <div class="meta">
-                  <span>Erik K.</span>
-                  <span>New York, NY</span>
+                  <span>GMMA</span>
+                  <span>New York, UserData</span>
+                </div>
+              </a>
+              <a href="#" class="dropdown-item is-media is-active">
+                <img class="item-img" src="/images/kosta-v2.png" alt="" />
+                <div class="meta">
+                  <span>KOSTA</span>
+                  <span>Seoul, KOR</span>
+                </div>
+              </a>
+              <hr class="dropdown-divider" />
+              <a href="#" class="dropdown-item is-media">
+                <img class="item-img" src="/images/logo_type_deepenqt.svg" alt="" />
+                <div class="meta">
+                  <span>DeepenQT</span>
+                  <span>San Francisco, USA</span>
+                </div>
+              </a>
+            </template>
+          </VDropdown>
+          <div style="height: 12px" />
+          <VDropdown title="Organization" spaced>
+            <template #content>
+              <a href="#" class="dropdown-item is-media">
+                <img class="item-img" src="/demo/avatars/7.jpg" alt="" />
+                <div class="meta">
+                  <span>daeun lee</span>
+                  <span>Gangdong-gu, Seoul</span>
                 </div>
               </a>
               <a href="#" class="dropdown-item is-media is-active">
                 <img class="item-img" src="/demo/avatars/7.jpg" alt="" />
                 <div class="meta">
-                  <span>Alice C.</span>
-                  <span>San Diego, CA</span>
-                </div>
-              </a>
-              <a href="#" class="dropdown-item is-media">
-                <img class="item-img" src="/demo/avatars/25.jpg" alt="" />
-                <div class="meta">
-                  <span>Melany W.</span>
-                  <span>San Jose, CA</span>
+                  <span>bwlee-dix</span>
+                  <span>Ilsandong-gu, Goyang</span>
                 </div>
               </a>
               <hr class="dropdown-divider" />
               <a href="#" class="dropdown-item is-media">
-                <img class="item-img" src="/demo/avatars/9.jpg" alt="" />
+                <img class="item-img" src="/demo/avatars/7.jpg" alt="" />
                 <div class="meta">
-                  <span>Anna B</span>
-                  <span>San Francisco, CA</span>
+                  <span>jhkim-dix</span>
+                  <span>San Francisco, USA</span>
                 </div>
               </a>
             </template>
