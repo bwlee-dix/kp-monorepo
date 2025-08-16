@@ -6,7 +6,7 @@ import { useDarkmode } from '/@src/stores/darkmode'
 import VueScrollTo from 'vue-scrollto'
 import { useNotyf } from '/@src/composable/useNotyf'
 import sleep from '/@src/utils/sleep'
-import { ref, watch, nextTick } from 'vue'
+import { ref, watch, nextTick, computed } from 'vue'
 import { useRouter } from 'vue-router'
 
 // Field interface
@@ -29,6 +29,10 @@ const isB2C = ref(true);
 const type = ref('')
 const options = ref<string[]>([])
 
+// App information
+const appName = ref('')
+const appDescription = ref('')
+
 // Field data
 const fieldName = ref('')
 const fieldDescription = ref('')
@@ -39,7 +43,6 @@ const pages = ref<Array<{ id: string; name: string; description: string; fields:
 const currentPageId = ref<string>('')
 const newPageName = ref('')
 const newPageDescription = ref('')
-const showAddPageModal = ref(false)
 
 // Edit mode
 const isEditMode = ref(false)
@@ -74,7 +77,25 @@ const validateStep = async () => {
     if (isLoading.value) {
       return
     }
-
+  }
+  
+  if (currentStep.value === 2) {
+    // Validate that all fields have valid options
+    const currentPage = getCurrentPage()
+    if (currentPage && currentPage.fields.length > 0) {
+      for (const field of currentPage.fields) {
+        if (field.type === 'Radio' || field.type === 'Multi-Select') {
+          if (!field.options || field.options.length === 0 || field.options.every(option => !option.trim())) {
+            notyf.error(`Field "${field.name}" must have at least one valid option`)
+            return
+          }
+        }
+      }
+    }
+    
+    if (isLoading.value) {
+      return
+    }
   }
   
   if (currentStep.value === 3) {
@@ -149,8 +170,14 @@ const validateFieldForm = () => {
   
   // Check options for Radio and Multi-Select
   if (type.value === 'Radio' || type.value === 'Multi-Select') {
-    if (!options.value.length || options.value.every(option => !option.trim())) {
+    if (!options.value.length) {
       errors.push('At least one option is required for Radio/Multi-Select fields')
+    } else {
+      // Check if any option is empty or only whitespace
+      const hasEmptyOption = options.value.some(option => !option.trim())
+      if (hasEmptyOption) {
+        errors.push('All options must have valid text. Empty options are not allowed.')
+      }
     }
   }
   
@@ -191,11 +218,16 @@ const addNewPage = () => {
   // Set as current page if it's the first page
   if (pages.value.length === 1) {
     currentPageId.value = newPage.id
+    console.log('Set currentPageId to:', currentPageId.value)
   }
   
   // Reset form
   newPageName.value = ''
   newPageDescription.value = ''
+  
+  console.log('Pages after adding:', pages.value)
+  console.log('Current page ID:', currentPageId.value)
+  console.log('Current page fields:', getCurrentPageFields())
   
   notyf.success('Page added successfully!')
 }
@@ -264,6 +296,11 @@ const removePage = (pageId: string) => {
 
 // Add editingPageId for page editing
 const editingPageId = ref<string | null>(null)
+
+// Preview modal state
+const showPreviewModal = ref(false)
+const currentPreviewPageId = ref('')
+const previewFormData = ref<Record<string, any>>({})
 
 // Update field management to work with current page
 const addField = async () => {
@@ -508,6 +545,94 @@ const handleUpdatePage = () => {
   }
 }
 
+// Preview modal functions
+const openPreviewModal = () => {
+  console.log('openPreviewModal called')
+  console.log('pages.value:', pages.value)
+  console.log('pages.value.length:', pages.value.length)
+  
+  if (pages.value.length === 0) {
+    console.log('No pages found, showing error')
+    notyf.error('Please add at least one page before previewing')
+    return
+  }
+  
+  // Set first page as current preview page
+  currentPreviewPageId.value = pages.value[0].id
+  console.log('Set currentPreviewPageId to:', currentPreviewPageId.value)
+  
+  // Initialize form data for all fields
+  previewFormData.value = {}
+  pages.value.forEach(page => {
+    page.fields.forEach(field => {
+      if (field.type === 'Multi-Select') {
+        previewFormData.value[field.id] = []
+      } else {
+        previewFormData.value[field.id] = ''
+      }
+    })
+  })
+  
+  console.log('Initialized previewFormData:', previewFormData.value)
+  console.log('Setting showPreviewModal to true')
+  showPreviewModal.value = true
+  console.log('showPreviewModal.value is now:', showPreviewModal.value)
+  console.log('currentPreviewPage computed:', currentPreviewPage.value)
+}
+
+
+
+const switchPreviewPage = (pageId: string) => {
+  currentPreviewPageId.value = pageId
+  // Reset form data when switching pages
+  previewFormData.value = {}
+}
+
+const currentPreviewPage = computed(() => {
+  return pages.value.find(page => page.id === currentPreviewPageId.value)
+})
+
+const submitPreviewForm = () => {
+  // Validate required fields
+  const currentPage = currentPreviewPage.value
+  if (!currentPage) return
+
+  const errors: string[] = []
+  
+  currentPage.fields.forEach(field => {
+    if (field.required) {
+      if (field.type === 'Multi-Select') {
+        if (!previewFormData.value[field.id] || previewFormData.value[field.id].length === 0) {
+          errors.push(`${field.name} is required`)
+        }
+      } else {
+        if (!previewFormData.value[field.id] || previewFormData.value[field.id].toString().trim() === '') {
+          errors.push(`${field.name} is required`)
+        }
+      }
+    }
+  })
+
+  if (errors.length > 0) {
+    notyf.error(errors.join('. '))
+    return
+  }
+
+  // Show success message
+  notyf.success('Form submitted successfully!')
+  console.log('Preview form data:', previewFormData.value)
+  
+  // Reset form
+  previewFormData.value = {}
+}
+
+
+const closeModal = () => {
+  console.log('closeModal called')
+  showPreviewModal.value = false
+  console.log('showPreviewModal set to false')
+}
+
 </script>
 
 <template>
@@ -635,6 +760,7 @@ const handleUpdatePage = () => {
                       <VField label="App Name *">
                         <VControl>
                           <VInput
+                            v-model="appName"
                             type="text"
                             placeholder="Ex: A cool project"
                           />
@@ -647,6 +773,7 @@ const handleUpdatePage = () => {
                       >
                         <VControl fullwidth>
                           <VTextarea
+                            v-model="appDescription"
                             class="textarea"
                             rows="4"
                             placeholder="Tell us about any details you'd like us to know..."
@@ -900,7 +1027,7 @@ const handleUpdatePage = () => {
                             <VInput
                               v-model="fieldName"
                               type="text"
-                              placeholder="Conference room"
+                              placeholder="Name"
                             />
                           </VControl>
                         </VField>
@@ -914,7 +1041,7 @@ const handleUpdatePage = () => {
                               v-model="fieldDescription"
                               class="textarea"
                               rows="4"
-                              placeholder="Tell us about any details you'd like us to know..."
+                              placeholder="Tell us about any details the filed information"
                               autocomplete="off"
                               autocapitalize="off"
                               spellcheck="true"
@@ -946,7 +1073,7 @@ const handleUpdatePage = () => {
                               v-model="type"
                               :attrs="{ id }"
                               placeholder="Pick a field type"
-                              :options="['Text', 'Textarea', 'Number', 'Date', 'Address', 'Radio', 'Multi-Select']"
+                              :options="['Text', 'Textarea', 'Number', 'Date', 'Radio', 'Multi-Select']"
                             />
                           </VControl>
                         </VField>
@@ -1156,6 +1283,23 @@ const handleUpdatePage = () => {
                       />
                       <span>No fields added yet. Add your first field above.</span>
                     </div>
+                    
+                    <!-- Preview Button -->
+                    <div
+                      v-if="pages.length > 0 && getCurrentPageFields().length > 0"
+                      class="preview-section"
+                    >
+                      <VButton
+                        type="button"
+                        color="info"
+                        bold
+                        fullwidth
+                        icon="feather:eye"
+                        @click="openPreviewModal"
+                      >
+                        Preview Web Application
+                      </VButton>
+                    </div>
                   </div>
                 </div>
               </Transition>
@@ -1350,8 +1494,114 @@ const handleUpdatePage = () => {
                   </div>
                 </li> -->
               </ul>
+              
+              <!-- iPhone Preview -->
               <div
-                v-else
+                v-if="currentStep >= 2 && pages.length > 0"
+                class="iphone-preview"
+              >
+                <div class="iphone-frame">
+                  <div class="iphone-notch" />
+                  <div class="iphone-screen">
+                    <div class="preview-header">
+                      <h3>{{ getCurrentPage()?.name || 'Page Name' }}</h3>
+                      <p>{{ getCurrentPage()?.description || 'Page Description' }}</p>
+                    </div>
+                    
+                    <div class="preview-content">
+                      <div
+                        v-for="field in getCurrentPageFields()"
+                        :key="field.id"
+                        class="preview-field"
+                      >
+                        <div class="field-label">
+                          {{ field.name }}
+                          <span
+                            v-if="field.required"
+                            class="required"
+                          >*</span>
+                        </div>
+                        
+                        <div class="field-value">
+                          <!-- Text/Textarea -->
+                          <div
+                            v-if="field.type === 'Text' || field.type === 'Textarea'"
+                            class="text-preview"
+                          >
+                            {{ field.description || 'Sample text content' }}
+                          </div>
+                          
+                          <!-- Number -->
+                          <div
+                            v-else-if="field.type === 'Number'"
+                            class="number-preview"
+                          >
+                            123
+                          </div>
+                          
+                          <!-- Date -->
+                          <div
+                            v-else-if="field.type === 'Date'"
+                            class="date-preview"
+                          >
+                            {{ new Date().toISOString().split('T')[0] }}
+                          </div>
+                          
+                          <!-- Radio -->
+                          <div
+                            v-else-if="field.type === 'Radio'"
+                            class="radio-preview"
+                          >
+                            <div
+                              v-for="(option, index) in field.options"
+                              :key="index"
+                              class="radio-option"
+                            >
+                              <div 
+                                class="radio-dot"
+                                :class="{ 'is-selected': index === 0 }"
+                              />
+                              <span>{{ option }}</span>
+                            </div>
+                          </div>
+                          
+                          <!-- Multi-Select -->
+                          <div
+                            v-else-if="field.type === 'Multi-Select'"
+                            class="multiselect-preview"
+                          >
+                            <div
+                              v-for="(option, index) in field.options"
+                              :key="index"
+                              class="checkbox-option"
+                            >
+                              <div 
+                                class="checkbox-square"
+                                :class="{ 'is-selected': index === 0 }"
+                              />
+                              <span>{{ option }}</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div
+                        v-if="getCurrentPageFields().length === 0"
+                        class="no-fields-preview"
+                      >
+                        <i
+                          class="iconify"
+                          data-icon="feather:plus-circle"
+                        />
+                        <span>Add fields to see preview</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div
+                v-else-if="currentStep >= 2"
                 class="form-help"
               >
                 <div
@@ -1594,6 +1844,212 @@ const handleUpdatePage = () => {
             </div>
           </div>
         </form>
+      </div>
+    </div>
+
+
+    <!-- Preview Modal -->
+    <div
+      v-if="showPreviewModal"
+      class="native-modal-overlay"
+      role="dialog"
+      aria-modal="true"
+      tabindex="-1"
+      @click="closeModal"
+      @keydown.esc="closeModal"
+    >
+      <div
+        class="native-modal preview-modal"
+        @click.stop
+      >
+        <div class="native-modal-header">
+          <h3>Web Application Preview</h3>
+          <button
+            type="button"
+            class="close-button"
+            aria-label="Close modal"
+            @click="closeModal"
+          >
+            ×
+          </button>
+        </div>
+        
+        <div class="preview-modal-content">
+          <!-- Page Navigation Tabs -->
+          <div
+            v-if="pages.length > 1"
+            class="preview-tabs"
+          >
+            <div class="tabs is-boxed">
+              <ul>
+                <li
+                  v-for="page in pages"
+                  :key="page.id"
+                  :class="{ 'is-active': currentPreviewPageId === page.id }"
+                >
+                  <button
+                    type="button"
+                    class="tab-button"
+                    @click="switchPreviewPage(page.id)"
+                  >
+                    {{ page.name }}
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Page Content -->
+          <div
+            v-if="currentPreviewPage"
+            class="preview-content"
+          >
+            <div class="page-header">
+              <h2 class="page-title">
+                {{ currentPreviewPage.name }}
+              </h2>
+              <p
+                v-if="currentPreviewPage.description"
+                class="page-description"
+              >
+                {{ currentPreviewPage.description }}
+              </p>
+            </div>
+
+            <!-- Form Fields -->
+            <form
+              v-if="currentPreviewPage.fields && currentPreviewPage.fields.length > 0"
+              class="preview-form"
+              @submit.prevent="submitPreviewForm"
+            >
+              <div
+                v-for="field in currentPreviewPage.fields"
+                :key="field.id"
+                class="form-field"
+              >
+                <VField
+                  :label="field.name + (field.required ? ' *' : '')"
+                >
+                  <!-- Field Description -->
+                  <p
+                    v-if="field.description"
+                    class="field-description"
+                  >
+                    {{ field.description }}
+                  </p>
+                  
+                  <VControl fullwidth>
+                    <!-- Text Input -->
+                    <VInput
+                      v-if="field.type === 'Text'"
+                      v-model="previewFormData[field.id]"
+                      type="text"
+                      :placeholder="field.description || `Enter ${field.name.toLowerCase()}`"
+                      :required="field.required"
+                    />
+
+                    <!-- Textarea -->
+                    <VTextarea
+                      v-else-if="field.type === 'Textarea'"
+                      v-model="previewFormData[field.id]"
+                      type="text"
+                      :placeholder="field.description || `Enter ${field.name.toLowerCase()}`"
+                      :required="field.required"
+                      rows="4"
+                    />
+
+                    <!-- Number Input -->
+                    <VInput
+                      v-else-if="field.type === 'Number'"
+                      v-model="previewFormData[field.id]"
+                      type="number"
+                      :placeholder="field.description || `Enter ${field.name.toLowerCase()}`"
+                      :required="field.required"
+                    />
+
+                    <!-- Date Input -->
+                    <VInput
+                      v-else-if="field.type === 'Date'"
+                      v-model="previewFormData[field.id]"
+                      type="date"
+                      :required="field.required"
+                    />
+
+                    <!-- Radio Buttons -->
+                    <div
+                      v-else-if="field.type === 'Radio'"
+                      class="radio-group"
+                    >
+                      <VRadio
+                        v-for="(option, index) in field.options"
+                        :key="index"
+                        v-model="previewFormData[field.id]"
+                        :value="option"
+                        :label="option"
+                        name="radio-group"
+                        color="primary"
+                        square
+                        solid
+                      />
+                    </div>
+
+                    <!-- Multi-Select -->
+                    <div
+                      v-else-if="field.type === 'Multi-Select'"
+                      class="multiselect-group"
+                    >
+                      <VCheckbox
+                        v-for="(option, index) in field.options"
+                        :key="index"
+                        v-model="previewFormData[field.id]"
+                        :value="option"
+                        :label="option"
+                        color="primary"
+                      />
+                    </div>
+                  </VControl>
+                </VField>
+              </div>
+
+              <div class="form-actions">
+                <VButton
+                  type="submit"
+                  color="primary"
+                  bold
+                  fullwidth
+                >
+                  Submit
+                </VButton>
+              </div>
+            </form>
+
+            <!-- No Fields Message -->
+            <div
+              v-else
+              class="no-fields"
+            >
+              <i
+                aria-hidden="true"
+                class="iconify"
+                data-icon="feather:info"
+              />
+              <span>No fields configured for this page.</span>
+            </div>
+          </div>
+
+          <!-- No Pages Message -->
+          <div
+            v-else-if="pages.length === 0"
+            class="no-pages"
+          >
+            <i
+              aria-hidden="true"
+              class="iconify"
+              data-icon="feather:info"
+            />
+            <span>No pages found. Please complete the builder configuration first.</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -2546,6 +3002,267 @@ const handleUpdatePage = () => {
         }
       }
     }
+    
+    .iphone-preview {
+      margin-top: 2rem;
+      background: var(--white);
+      border-radius: 1rem;
+      
+      .iphone-frame {
+        // width: 200px;
+        height: 500px;
+        background: linear-gradient(145deg, #1a1a1a, #2d2d2d);
+        border-radius: 28px;
+        padding: 4px;
+        margin: 0 auto;
+        position: relative;
+        box-shadow: 
+          0 0 0 2px #000,
+          0 8px 32px rgba(0, 0, 0, 0.3),
+          inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        
+        &::before {
+          content: '';
+          position: absolute;
+          top: 50%;
+          right: -2px;
+          transform: translateY(-50%);
+          width: 3px;
+          height: 60px;
+          background: linear-gradient(to bottom, #1a1a1a, #2d2d2d);
+          border-radius: 2px;
+          box-shadow: 
+            0 0 0 1px #000,
+            inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+        
+        &::after {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: -2px;
+          transform: translateY(-50%);
+          width: 3px;
+          height: 60px;
+          background: linear-gradient(to bottom, #1a1a1a, #2d2d2d);
+          border-radius: 2px;
+          box-shadow: 
+            0 0 0 1px #000,
+            inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+        
+        .iphone-notch {
+          position: absolute;
+          top: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 80px;
+          height: 18px;
+          background: linear-gradient(145deg, #1a1a1a, #2d2d2d);
+          border-radius: 0 0 10px 10px;
+          z-index: 2;
+          box-shadow: 
+            0 0 0 2px #000,
+            inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+        
+        .iphone-screen {
+          width: 100%;
+          height: 100%;
+          background: var(--white);
+          border-radius: 25px;
+          overflow: hidden;
+          padding: 35px 4px 15px 4px;
+          box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          
+          &::after {
+            content: '';
+            position: absolute;
+            bottom: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 4px;
+            background: #000;
+            border-radius: 2px;
+            opacity: 0.3;
+          }
+          
+          .preview-header {
+            text-align: left;
+            margin-bottom: 1.5rem;
+            flex-shrink: 0;
+            margin-left: 4px;
+            margin-right: 4px;
+            
+            h3 {
+              font-size: 1.2rem;
+              font-weight: 600;
+              color: var(--dark-text);
+              margin: 0 0 0.5rem 0;
+            }
+            
+            p {
+              font-size: 0.9rem;
+              color: var(--light-text);
+              margin: 0;
+            }
+          }
+          
+          .preview-content {
+            flex: 1;
+            width: 100%;
+            overflow-y: auto;
+            padding-right: 4px;
+            padding-left: 4px;
+            
+            /* Webkit 스크롤바 스타일링 */
+            &::-webkit-scrollbar {
+              width: 4px;
+            }
+            
+            &::-webkit-scrollbar-track {
+              background: transparent;
+            }
+            
+            &::-webkit-scrollbar-thumb {
+              background: rgba(0, 0, 0, 0.2);
+              border-radius: 2px;
+            }
+            
+            &::-webkit-scrollbar-thumb:hover {
+              background: rgba(0, 0, 0, 0.3);
+            }
+            
+            .preview-field {
+              margin-bottom: 1rem;
+              padding: 0.75rem;
+              background: var(--widget-grey);
+              border-radius: 0.5rem;
+              
+              .field-label {
+                font-size: 0.9rem;
+                font-weight: 500;
+                color: var(--dark-text);
+                margin-bottom: 0.5rem;
+                text-align: left;
+                
+                .required {
+                  color: var(--danger);
+                  margin-left: 0.25rem;
+                }
+              }
+              
+              .field-value {
+                .text-preview,
+                .number-preview,
+                .date-preview {
+                  font-size: 0.8rem;
+                  color: var(--light-text);
+                  font-style: italic;
+                  padding: 0.25rem 0;
+                }
+                
+                .radio-preview,
+                .multiselect-preview {
+                  .radio-option,
+                  .checkbox-option {
+                    display: flex;
+                    align-items: center;
+                    margin-bottom: 0.5rem;
+                    
+                    .radio-dot,
+                    .checkbox-square {
+                      position: relative;
+                      top: -1px;
+                      background: var(--white);
+                      content: '';
+                      display: inline-block;
+                      margin-inline-end: 0.5rem;
+                      padding: 0;
+                      vertical-align: middle;
+                      width: 1.4em;
+                      height: 1.4em;
+                      border: 1px solid var(--fade-grey-dark-8);
+                      transform: translate3d(0, 0, 0);
+                      backface-visibility: hidden;
+                      transition: all 0.3s;
+                      flex-shrink: 0;
+                      
+                      &.is-selected {
+                        border-color: var(--primary);
+                        background: var(--primary);
+                      }
+                    }
+                    
+                    .radio-dot {
+                      border-radius: 100%;
+                      
+                      &.is-selected::after {
+                        background-size: contain;
+                        position: absolute;
+                        top: 49%;
+                        left: 50%;
+                        transform: translate(-50%, -50%) scale(1);
+                        content: '\f111';
+                        font-family: 'Font Awesome\ 5 Free';
+                        font-weight: 900;
+                        font-size: 0.6rem;
+                        color: var(--white);
+                      }
+                    }
+                    
+                    .checkbox-square {
+                      border-radius: var(--radius-small);
+                      
+                      &.is-selected::after {
+                        background-size: contain;
+                        position: absolute;
+                        top: 48%;
+                        left: 50%;
+                        transform: translate(-50%, -50%) scale(1);
+                        content: '\f00c';
+                        font-family: 'Font Awesome\ 5 Free';
+                        font-weight: 900;
+                        font-size: 0.7rem;
+                        color: var(--white);
+                      }
+                    }
+                    
+                    span {
+                      font-size: 0.9rem;
+                      color: var(--dark-text);
+                    }
+                  }
+                }
+              }
+            }
+            
+            .no-fields-preview {
+              display: flex;
+              flex-direction: column;
+              justify-items: center;
+              align-items: center;
+              padding: 2rem 1rem;
+              color: var(--light-text);
+              
+              .iconify {
+                font-size: 2rem;
+                margin-bottom: 0.5rem;
+                opacity: 0.5;
+              }
+              
+              span {
+                font-size: 0.8rem;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
 
@@ -2916,6 +3633,416 @@ const handleUpdatePage = () => {
   .v-button {
     min-height: 40px;
     font-size: 0.9rem;
+  }
+}
+
+.preview-section {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.debug-info {
+  background: var(--light-grey);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+  font-family: monospace;
+  font-size: 0.9rem;
+  color: var(--dark-text);
+}
+
+.test-modal-content {
+  padding: 2rem;
+  text-align: center;
+  
+  h3 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+  }
+  
+  p {
+    margin-bottom: 0.5rem;
+    color: var(--dark-text);
+  }
+}
+
+.native-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.native-modal {
+  background: var(--white);
+  border-radius: 0.5rem;
+  max-width: 500px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.native-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 1.5rem 1rem;
+  border-bottom: 1px solid var(--border);
+  
+  h3 {
+    margin: 0;
+    color: var(--dark-text);
+    font-size: 1rem;
+    font-weight: 600;
+  }
+  
+  .close-button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    color: var(--light-text);
+    
+    &:hover {
+      background: var(--widget-grey-dark-1);
+      color: var(--dark-text);
+    }
+  }
+}
+
+.native-modal-content {
+  padding: 1.5rem;
+  
+  p {
+    margin-bottom: 0.75rem;
+    color: var(--dark-text);
+  }
+}
+
+.preview-modal {
+  max-width: 95vw;
+  width: 95vw;
+  max-height: 95vh;
+  height: 95vh;
+}
+
+.preview-modal-content {
+  padding: 0;
+  max-height: calc(95vh - 68px);
+  height: calc(95vh - 68px);
+  overflow-y: auto;
+}
+
+.preview-tabs {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding: 0 1.5rem;
+  
+  .tabs {
+    &.is-boxed {
+      ul {
+        border-bottom-color: var(--border);
+        
+        li {
+          &.is-active {
+            .tab-button {
+              background-color: var(--primary);
+              border-color: var(--primary);
+              color: var(--white);
+            }
+          }
+          
+          .tab-button {
+            border-color: var(--border);
+            color: var(--dark-text);
+            
+            &:hover {
+              background-color: var(--widget-grey-dark-1);
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  .tab-button {
+    background: none;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    border-radius: 0.25rem 0.25rem 0 0;
+    transition: all 0.3s;
+    border: 1px solid transparent;
+    
+    &:hover {
+      background-color: var(--widget-grey-dark-1);
+    }
+  }
+}
+
+.preview-content {
+  padding: 0 1.5rem 1.5rem;
+  
+  .page-header {
+    margin-bottom: 2rem;
+    text-align: left !important;
+    
+    .page-title {
+      font-size: 1.75rem;
+      font-weight: 600;
+      color: var(--dark-text);
+      margin: 0 0 0.5rem 0;
+      text-align: left !important;
+    }
+    
+    .page-description {
+      font-size: 1rem;
+      color: var(--light-text);
+      margin: 0;
+      text-align: left !important;
+    }
+  }
+}
+
+.preview-form {
+  background: var(--white);
+  border-radius: 0.5rem;
+  padding: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
+  .form-field {
+    margin-bottom: 1.5rem;
+    
+    .field-help {
+      font-size: 0.9rem;
+      color: var(--light-text);
+      margin: 0.5rem 0 0 0;
+    }
+  }
+  
+  .form-actions {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+  }
+}
+
+.radio-group,
+.multiselect-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.no-fields,
+.no-pages {
+  text-align: center;
+  padding: 2rem;
+  color: var(--light-text);
+  
+  .iconify {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+  }
+  
+  span {
+    font-size: 0.9rem;
+  }
+}
+
+// Dark mode support
+.is-dark {
+  .preview-tabs {
+    .tabs.is-boxed {
+      ul {
+        border-bottom-color: var(--dark-sidebar-light-12);
+        
+        li {
+          .tab-button {
+            border-color: var(--dark-sidebar-light-12);
+            color: var(--dark-dark-text);
+            
+            &:hover {
+              background-color: var(--dark-sidebar-light-5);
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  .preview-content {
+    .page-header {
+      .page-title {
+        color: var(--dark-dark-text);
+      }
+    }
+  }
+}
+
+// Dark mode support
+.is-dark {
+  .native-modal {
+    background: var(--dark-sidebar-light-3);
+  }
+  
+  .native-modal-header {
+    border-color: var(--dark-sidebar-light-12);
+    
+    h3 {
+      color: var(--dark-dark-text);
+    }
+  }
+}
+
+.preview-container {
+  padding: 2rem;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.preview-tabs {
+  margin-bottom: 2rem;
+  
+  .tabs {
+    &.is-boxed {
+      ul {
+        border-bottom-color: var(--border);
+        
+        li {
+          &.is-active {
+            a {
+              background-color: var(--primary);
+              border-color: var(--primary);
+              color: var(--white);
+            }
+          }
+          
+          a {
+            border-color: var(--border);
+            color: var(--dark-text);
+            
+            &:hover {
+              background-color: var(--widget-grey-dark-1);
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  .tab-button {
+    background: none;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    border-radius: 0.25rem 0.25rem 0 0;
+    transition: all 0.3s;
+    
+    &:hover {
+      background-color: var(--widget-grey-dark-1);
+    }
+  }
+}
+
+.preview-content {
+  max-width: 800px;
+  margin: 0 auto;
+  
+  .page-header {
+    margin-bottom: 2rem;
+    text-align: left !important;
+    
+    .page-title {
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--dark-text);
+      margin: 0 0 0.5rem 0;
+      text-align: left !important;
+    }
+    
+    .page-description {
+      font-size: 1.1rem;
+      color: var(--light-text);
+      margin: 0;
+      text-align: left !important;
+    }
+  }
+}
+
+.preview-form {
+  background: var(--white);
+  border-radius: 0.5rem;
+  padding: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
+  .form-field {
+    margin-bottom: 1.5rem;
+    
+    .field-help {
+      font-size: 0.9rem;
+      color: var(--light-text);
+      margin: 0.5rem 0 0 0;
+    }
+  }
+  
+  .form-actions {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+  }
+}
+
+.radio-group,
+.multiselect-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+// Dark mode support
+.is-dark {
+  .preview-tabs {
+    .tabs.is-boxed {
+      ul {
+        border-bottom-color: var(--dark-sidebar-light-12);
+        
+        li {
+          a {
+            border-color: var(--dark-sidebar-light-12);
+            color: var(--dark-dark-text);
+            
+            &:hover {
+              background-color: var(--dark-sidebar-light-5);
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  .preview-form {
+    background: var(--dark-sidebar-light-3);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  .preview-content {
+    .page-header {
+      .page-title {
+        color: var(--dark-dark-text);
+      }
+    }
   }
 }
 </style>
