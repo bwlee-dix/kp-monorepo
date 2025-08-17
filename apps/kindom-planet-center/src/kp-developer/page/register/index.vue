@@ -2,23 +2,55 @@
 import { useDarkmode } from '/@dds/stores/darkmode'
 import sleep from '/@dds/utils/sleep'
 
-const isLoading = ref(false)
+const isLoading = ref<boolean>(false)
 const darkmode = useDarkmode()
 const router = useRouter()
+import { useCreditcardMask } from '/@dds/composable/useCreditcardMask'
+const {
+  creditcardIcon,
+  creditcardLogo,
+  creditcardColor,
+  creditcardMaskCVC,
+  creditcardMaskDate,
+  creditcardMaskNumber,
+  creditcardMaskNumberOnAccept,
+} = useCreditcardMask()
 
+const isCardFlipped = ref(false)
+const creditcardInput = reactive({
+  number: '',
+  name: '',
+  cvc: '',
+  expiry: '',
+})
+
+const testCards = [
+  '4000056655665556',
+  '5200828282828210',
+  '371449635398431',
+  '6011000990139424',
+  '30569309025904',
+  '3566002020360505',
+  '6200000000000005',
+  '6759649826438453',
+]
+const randomCard = () => {
+  const randomNumber = Math.floor(Math.random() * testCards.length)
+  if (creditcardInput.number.replace(/\s/g, '') !== testCards[randomNumber]) {
+    creditcardInput.number = testCards[randomNumber]
+  }
+}
 useHead({
   title: 'Register Developer - Kingdom Planet',
 })
 
-const companySize = ref('')
-const businessType = ref('')
+const companySize = ref<string>('')
+const businessType = ref<string>('')
 
 const onSubmit = async () => {
   if (!isLoading.value) {
     isLoading.value = true
-
-    await sleep(1000)
-
+    await sleep(500)
     router.push('/app-list')
 
     isLoading.value = false
@@ -29,14 +61,8 @@ const onSubmit = async () => {
 <template>
   <div class="auth-wrapper">
     <div class="register-wrapper-inner is-single">
-      <!--Fake navigation-->
       <div class="auth-nav">
         <div class="left" />
-        <div class="center">
-          <RouterLink to="/" class="header-item">
-            <AnimatedLogo width="38px" height="38px" />
-          </RouterLink>
-        </div>
         <div class="right">
           <label
             class="ml-auto dark-mode"
@@ -55,17 +81,14 @@ const onSubmit = async () => {
         </div>
       </div>
 
-      <!--Single Centered Form-->
       <div class="single-form-wrap">
         <div class="inner-wrap">
-          <!--Form Title-->
           <div class="auth-head">
             <h2>Hello Developer.</h2>
             <p>Please sign in to your account</p>
             <RouterLink to="/auth/signup-3"> I do not have an account yet </RouterLink>
           </div>
 
-          <!--Form-->
           <div class="form-card">
             <form method="post" novalidate class="form-layout" @submit.prevent="onSubmit">
               <div class="form-outer">
@@ -76,14 +99,6 @@ const onSubmit = async () => {
                     </div>
                     <div class="right">
                       <div class="buttons">
-                        <!-- <VButton
-                          icon="lnir lnir-arrow-left rem-100"
-                          to="/sidebar/layouts/profile-view"
-                          light
-                          dark-outlined
-                        >
-                          Cancel
-                        </VButton> -->
                         <VButton
                           :loading="isLoading"
                           type="submit"
@@ -96,139 +111,241 @@ const onSubmit = async () => {
                     </div>
                   </div>
                 </div>
-                <div class="form-body">
-                  <!--Fieldset-->
-                  <div class="form-fieldset">
-                    <div class="fieldset-heading">
-                      <h4>Personal Info</h4>
-                      <p>This helps us to know you</p>
-                    </div>
+                <div class="form-row">
+                  <div class="row">
+                    <div class="fieldset">
+                      <div class="fieldset-heading">
+                        <h4>Personal Info</h4>
+                        <p>This helps us to know you</p>
+                      </div>
 
-                    <div class="columns is-multiline">
-                      <div class="column is-6">
-                        <VField>
-                          <VLabel>First Name</VLabel>
-                          <VControl icon="feather:user">
-                            <VInput
-                              type="text"
-                              placeholder=""
-                              autocomplete="given-name"
-                            />
-                          </VControl>
-                        </VField>
+                      <div class="columns is-multiline">
+                        <div class="column is-6">
+                          <VField>
+                            <VLabel>First Name</VLabel>
+                            <VControl icon="feather:user">
+                              <VInput
+                                type="text"
+                                placeholder=""
+                                autocomplete="given-name"
+                              />
+                            </VControl>
+                          </VField>
+                        </div>
+                        <div class="column is-6">
+                          <VField>
+                            <VLabel>Last Name</VLabel>
+                            <VControl icon="feather:user">
+                              <VInput
+                                type="text"
+                                placeholder=""
+                                autocomplete="family-name"
+                              />
+                            </VControl>
+                          </VField>
+                        </div>
+                        <div class="column is-12">
+                          <VField>
+                            <VLabel>Email Address</VLabel>
+                            <VControl icon="feather:mail">
+                              <VInput
+                                type="email"
+                                placeholder=""
+                                autocomplete="email"
+                                inputmode="email"
+                              />
+                            </VControl>
+                          </VField>
+                        </div>
                       </div>
-                      <div class="column is-6">
-                        <VField>
-                          <VLabel>Last Name</VLabel>
-                          <VControl icon="feather:user">
-                            <VInput
-                              type="text"
-                              placeholder=""
-                              autocomplete="family-name"
-                            />
-                          </VControl>
-                        </VField>
+                    </div>
+                    <div class="fieldset">
+                      <div class="fieldset-heading">
+                        <h4>Company Info</h4>
+                        <p>Tell us about your company</p>
                       </div>
-                      <div class="column is-12">
-                        <VField>
-                          <VLabel>Email Address</VLabel>
-                          <VControl icon="feather:mail">
-                            <VInput
-                              type="email"
-                              placeholder=""
-                              autocomplete="email"
-                              inputmode="email"
-                            />
-                          </VControl>
-                        </VField>
+
+                      <div class="columns is-multiline">
+                        <div class="column is-6">
+                          <VField>
+                            <VLabel>Company Name</VLabel>
+                            <VControl icon="feather:briefcase">
+                              <VInput
+                                type="text"
+                                placeholder=""
+                                autocomplete="organization"
+                              />
+                            </VControl>
+                          </VField>
+                        </div>
+                        <div class="column is-6">
+                          <VField>
+                            <VLabel>Company Phone</VLabel>
+                            <VControl icon="feather:phone">
+                              <VInput
+                                type="tel"
+                                placeholder=""
+                                autocomplete="tel"
+                                inputmode="tel"
+                              />
+                            </VControl>
+                          </VField>
+                        </div>
+                        <div class="column is-6">
+                          <VField v-slot="{ id }">
+                            <VLabel>Company Size</VLabel>
+                            <VControl>
+                              <Multiselect
+                                v-model="companySize"
+                                :attrs="{ id }"
+                                placeholder="Select a size"
+                                :options="[
+                                  '1-5 Employees',
+                                  '5-25 Employees',
+                                  '25-50 Employees',
+                                  '50-100 Employees',
+                                  '100+ Employees',
+                                ]"
+                              />
+                            </VControl>
+                          </VField>
+                        </div>
+                        <div class="column is-6">
+                          <VField v-slot="{ id }">
+                            <VLabel>Business Type</VLabel>
+                            <VControl>
+                              <Multiselect
+                                v-model="businessType"
+                                :attrs="{ id }"
+                                placeholder="Select a type"
+                                :options="[
+                                  'Government',
+                                  'Medical',
+                                  'Finance',
+                                  'Services',
+                                  'Technology',
+                                ]"
+                              />
+                            </VControl>
+                          </VField>
+                        </div>
+                        <div class="column is-12">
+                          <VField>
+                            <VLabel>Company Email</VLabel>
+                            <VControl icon="feather:mail">
+                              <VInput
+                                type="email"
+                                placeholder=""
+                                autocomplete="email"
+                                inputmode="email"
+                              />
+                            </VControl>
+                          </VField>
+                        </div>
                       </div>
                     </div>
                   </div>
-                  <!--Fieldset-->
-                  <div class="form-fieldset">
-                    <div class="fieldset-heading">
-                      <h4>Company Info</h4>
-                      <p>Tell us about your company</p>
+                  <div class="row">
+                    <div class="payment-container-title">
+                      <h3>Payment information</h3>
+                      <span
+                        tabindex="0"
+                        role="button"
+                        @keydown.space.prevent="randomCard"
+                        @click="randomCard"
+                      >
+                        Randomize
+                      </span>
                     </div>
 
-                    <div class="columns is-multiline">
-                      <div class="column is-6">
-                        <VField>
-                          <VLabel>Company Name</VLabel>
-                          <VControl icon="feather:briefcase">
-                            <VInput
-                              type="text"
-                              placeholder=""
-                              autocomplete="organization"
-                            />
-                          </VControl>
-                        </VField>
-                      </div>
-                      <div class="column is-6">
-                        <VField>
-                          <VLabel>Company Phone</VLabel>
-                          <VControl icon="feather:phone">
-                            <VInput
-                              type="tel"
-                              placeholder=""
-                              autocomplete="tel"
-                              inputmode="tel"
-                            />
-                          </VControl>
-                        </VField>
-                      </div>
-                      <div class="column is-6">
-                        <VField v-slot="{ id }">
-                          <VLabel>Company Size</VLabel>
-                          <VControl>
-                            <Multiselect
-                              v-model="companySize"
-                              :attrs="{ id }"
-                              placeholder="Select a size"
-                              :options="[
-                                '1-5 Employees',
-                                '5-25 Employees',
-                                '25-50 Employees',
-                                '50-100 Employees',
-                                '100+ Employees',
-                              ]"
-                            />
-                          </VControl>
-                        </VField>
-                      </div>
-                      <div class="column is-6">
-                        <VField v-slot="{ id }">
-                          <VLabel>Business Type</VLabel>
-                          <VControl>
-                            <Multiselect
-                              v-model="businessType"
-                              :attrs="{ id }"
-                              placeholder="Select a type"
-                              :options="[
-                                'Government',
-                                'Medical',
-                                'Finance',
-                                'Services',
-                                'Technology',
-                              ]"
-                            />
-                          </VControl>
-                        </VField>
-                      </div>
-                      <div class="column is-12">
-                        <VField>
-                          <VLabel>Company Email</VLabel>
-                          <VControl icon="feather:mail">
-                            <VInput
-                              type="email"
-                              placeholder=""
-                              autocomplete="email"
-                              inputmode="email"
-                            />
-                          </VControl>
-                        </VField>
+                    <VCreditCard
+                      :color="creditcardColor"
+                      :flipped="isCardFlipped"
+                      :name="creditcardInput.name"
+                      :number="creditcardInput.number"
+                      :cvc="creditcardInput.cvc"
+                      :expiry="creditcardInput.expiry"
+                      @flip="isCardFlipped = !isCardFlipped"
+                    >
+                      <div v-if="creditcardLogo" id="ccsingle" v-html="creditcardLogo" />
+                    </VCreditCard>
+
+                    <div class="form-container">
+                      <div class="columns is-multiline">
+                        <div class="column is-12">
+                          <VField id="name" label="Name">
+                            <VControl>
+                              <VInput
+                                v-model="creditcardInput.name"
+                                autocomplete="cc-given-name"
+                                maxlength="20"
+                                type="text"
+                                placeholder="The name on the card"
+                                @focus="isCardFlipped = false"
+                              />
+                              <VField id="cardnumber" v-slot="{ id }" label="Card Number">
+                                <VControl>
+                                  <VIMaskInput
+                                    :id="id"
+                                    v-model="creditcardInput.number"
+                                    class="input"
+                                    autocomplete="cc-number"
+                                    :options="creditcardMaskNumber"
+                                    placeholder="Credit card number"
+                                    @focus="isCardFlipped = false"
+                                    @accept="creditcardMaskNumberOnAccept"
+                                  />
+                                  <div
+                                    id="creditcardIcon"
+                                    class="creditcardIcon"
+                                    v-html="creditcardIcon"
+                                  />
+                                </VControl>
+                              </VField>
+                            </VControl>
+                          </VField>
+                        </div>
+                        <div class="column is-12"></div>
+                        <div class="column is-6">
+                          <VField id="expirationdate" v-slot="{ id }" label="Expiration">
+                            <VControl>
+                              <VIMaskInput
+                                :id="id"
+                                v-model="creditcardInput.expiry"
+                                autocomplete="cc-exp"
+                                class="input"
+                                :options="creditcardMaskDate"
+                                placeholder="MM / YY"
+                                @focus="isCardFlipped = false"
+                              />
+                            </VControl>
+                          </VField>
+                        </div>
+                        <div class="column is-6">
+                          <VField id="securitycode" v-slot="{ id }" label="CVC">
+                            <VControl>
+                              <VIMaskInput
+                                :id="id"
+                                v-model="creditcardInput.cvc"
+                                autocomplete="cc-csc"
+                                class="input"
+                                :options="creditcardMaskCVC"
+                                placeholder="3 digits code"
+                                @focus="isCardFlipped = true"
+                              />
+                            </VControl>
+                          </VField>
+                        </div>
+                        <div class="column is-12">
+                          <div class="button-wrap">
+                            <VButton type="submit" color="primary" raised fullwidth>
+                              Save Payment Method
+                            </VButton>
+                          </div>
+                        </div>
                       </div>
                     </div>
+                    <div class="payment-form"></div>
                   </div>
                 </div>
               </div>
@@ -240,12 +357,49 @@ const onSubmit = async () => {
   </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '/@dds/scss/abstracts/all';
 @import '/@dds/scss/components/forms-outer';
 
+.form-row {
+  display: flex;
+  flex-direction: row;
+  gap: 48px;
+  padding: 24px;
+  width: 100%;
+
+  .row {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    .fieldset {
+      .fieldset-heading {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: row;
+        padding-bottom: 16px;
+      }
+    }
+    .payment-container-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: row;
+      padding-bottom: 16px;
+
+      span {
+        cursor: pointer;
+        &:hover {
+          color: var(--primary);
+        }
+      }
+    }
+  }
+}
 .form-layout {
-  max-width: 740px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 .register-wrapper-inner {
@@ -519,11 +673,6 @@ const onSubmit = async () => {
             a {
               color: var(--primary);
             }
-          }
-
-          .form-card {
-            background: var(--dark-sidebar-dark-4);
-            border-color: var(--dark-sidebar-light-1);
           }
         }
       }

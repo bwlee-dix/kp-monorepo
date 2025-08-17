@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useNotyf } from '/@dds/composable/useNotyf'
-import { useMarkdownToc } from '/@dds/commposable/useMarkdownToc'
-import { useViewWrapper } from '/@dds/ores/viewWrapper'
+import { useMarkdownToc } from '/@dds/composable/useMarkdownToc'
+import { useViewWrapper } from '/@dds/stores/viewWrapper'
 
 const markdownContainer = ref<HTMLElement>()
 const toc = useMarkdownToc(markdownContainer)

@@ -45,95 +45,93 @@ const filteredData = computed(() => {
 </script>
 
 <template>
-  <DeveloperSideblockLayout theme="curved" open-on-mounted>
-    <!-- Content Wrapper -->
-    <div class="page-content-inner">
-      <div class="datatable-toolbar">
-        <VField>
-          <VControl icon="feather:search">
-            <input
-              v-model="filters"
-              class="input custom-text-filter"
-              placeholder="Search..."
-            />
-          </VControl>
-        </VField>
+  <!-- Content Wrapper -->
+  <div class="page-content-inner">
+    <div class="datatable-toolbar">
+      <VField>
+        <VControl icon="feather:search">
+          <input
+            v-model="filters"
+            class="input custom-text-filter"
+            placeholder="Search..."
+          />
+        </VControl>
+      </VField>
 
-        <VButtons>
-          <VButton color="primary" icon="fas fa-plus" elevated> Add User </VButton>
-        </VButtons>
-      </div>
-      <div class="datatable-wrapper">
-        <div class="table-container">
-          <table class="table datatable-table is-fullwidth">
-            <thead>
-              <th>Id</th>
-              <th>Name</th>
-              <th>Location</th>
-              <th>Industry</th>
-              <th>Contacts</th>
-              <th>Actions</th>
-            </thead>
-            <tbody>
-              <tr v-for="user in filteredData" :key="user.id">
-                <td>{{ user.id }}</td>
-                <td>
-                  <div class="flex-media">
-                    <VAvatar :picture="user.picture" alt="Avatar" />
-                    <div class="meta">
-                      <h3>{{ user.username }}</h3>
-                      <span>{{ user.position }}</span>
-                    </div>
-                  </div>
-                </td>
-                <td>{{ user.location }}</td>
-                <td>{{ user.industry }}</td>
-                <td>
-                  <div>
-                    <VAvatarStack :avatars="user.contacts" size="small" :limit="3" />
-                  </div>
-                </td>
-                <td>
-                  <FlexTableDropdown />
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <VPlaceholderPage
-          v-if="filteredData.length === 0"
-          title="We couldn't find any matching results."
-          subtitle="Too bad. Looks like we couldn't find any matching results for the search terms
-            you've entered. Please try different search terms or criteria."
-          larger
-        >
-          <template #image>
-            <img
-              class="light-image"
-              src="/@dds/sets/illustrations/placeholders/search-7.svg"
-              alt=""
-            />
-            <img
-              class="dark-image"
-              src="/@dds/sets/illustrations/placeholders/search-7-dark.svg"
-              alt=""
-            />
-          </template>
-        </VPlaceholderPage>
-      </div>
-
-      <!--Table Pagination-->
-      <VFlexPagination
-        v-if="filteredData.length > 5"
-        v-model:current-page="page"
-        :item-per-page="10"
-        :total-items="873"
-        :max-links-displayed="7"
-        no-router
-        class="mt-4"
-      />
+      <VButtons>
+        <VButton color="primary" icon="fas fa-plus" elevated> Add User </VButton>
+      </VButtons>
     </div>
-  </DeveloperSideblockLayout>
+    <div class="datatable-wrapper">
+      <div class="table-container">
+        <table class="table datatable-table is-fullwidth">
+          <thead>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Location</th>
+            <th>Industry</th>
+            <th>Contacts</th>
+            <th>Actions</th>
+          </thead>
+          <tbody>
+            <tr v-for="user in filteredData" :key="user.id">
+              <td>{{ user.id }}</td>
+              <td>
+                <div class="flex-media">
+                  <VAvatar :picture="user.picture" alt="Avatar" />
+                  <div class="meta">
+                    <h3>{{ user.username }}</h3>
+                    <span>{{ user.position }}</span>
+                  </div>
+                </div>
+              </td>
+              <td>{{ user.location }}</td>
+              <td>{{ user.industry }}</td>
+              <td>
+                <div>
+                  <VAvatarStack :avatars="user.contacts" size="small" :limit="3" />
+                </div>
+              </td>
+              <td>
+                <FlexTableDropdown />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <VPlaceholderPage
+        v-if="filteredData.length === 0"
+        title="We couldn't find any matching results."
+        subtitle="Too bad. Looks like we couldn't find any matching results for the search terms
+          you've entered. Please try different search terms or criteria."
+        larger
+      >
+        <template #image>
+          <img
+            class="light-image"
+            src="/@dds/sets/illustrations/placeholders/search-7.svg"
+            alt=""
+          />
+          <img
+            class="dark-image"
+            src="/@dds/sets/illustrations/placeholders/search-7-dark.svg"
+            alt=""
+          />
+        </template>
+      </VPlaceholderPage>
+    </div>
+
+    <!--Table Pagination-->
+    <VFlexPagination
+      v-if="filteredData.length > 5"
+      v-model:current-page="page"
+      :item-per-page="10"
+      :total-items="873"
+      :max-links-displayed="7"
+      no-router
+      class="mt-4"
+    />
+  </div>
 </template>
 
 <style lang="scss" scoped>
