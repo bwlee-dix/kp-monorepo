@@ -2,10 +2,12 @@
 import type { VAvatarProps, VAvatarColor } from '/@dds/components/base/avatar/VAvatar.vue'
 import { projects } from '/@dds/data/layouts/card-grid-v3'
 
+import { useNotyf } from '/@dds/composable/useNotyf'
 import sleep from '/@dds/utils/sleep'
 
 const isLoading = ref<boolean>(false)
 const router = useRouter()
+const notyf = useNotyf()
 
 useHead({
   title: 'Register Developer - Kingdom Planet',
@@ -14,6 +16,8 @@ useHead({
 const isBigFormOpen = ref<boolean>(false)
 const filters = ref<string>('')
 const isB2C = ref<boolean>(true)
+const newAppName = ref<string>('')
+
 const filteredData = computed(() => {
   if (!filters.value) {
     return projects
@@ -38,8 +42,10 @@ function getAvatarData(user: any): VAvatarProps {
 const clickNewAppSubmit = async () => {
   isLoading.value = true
   await sleep(1000)
-  router.push('/app')
+  notyf.dismissAll()
+  notyf.success('App created successfully')
   isLoading.value = false
+  router.push(`/body/app/${newAppName.value.trim().toLowerCase().replace(/\s+/g, '-')}`)
 }
 
 const clickApp = (id: string) => {
@@ -152,7 +158,11 @@ const clickApp = (id: string) => {
           <div class="column is-12">
             <VField label="App Name *">
               <VControl>
-                <VInput type="text" placeholder="Ex: A cool project" />
+                <VInput
+                  v-model="newAppName"
+                  type="text"
+                  placeholder="Ex: A cool project"
+                />
               </VControl>
             </VField>
           </div>

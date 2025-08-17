@@ -47,6 +47,7 @@ declare module 'vue-router/auto/routes' {
     '/body/api/': RouteRecordInfo<'/body/api/', '/body/api', Record<never, never>, Record<never, never>>,
     '/body/api/[apiId]/': RouteRecordInfo<'/body/api/[apiId]/', '/body/api/:apiId', { apiId: ParamValue<true> }, { apiId: ParamValue<false> }>,
     '/body/app/': RouteRecordInfo<'/body/app/', '/body/app', Record<never, never>, Record<never, never>>,
+    '/body/app/[appName]/': RouteRecordInfo<'/body/app/[appName]/', '/body/app/:appName', { appName: ParamValue<true> }, { appName: ParamValue<false> }>,
     '/body/dashboard/': RouteRecordInfo<'/body/dashboard/', '/body/dashboard', Record<never, never>, Record<never, never>>,
     '/body/log/': RouteRecordInfo<'/body/log/', '/body/log', Record<never, never>, Record<never, never>>,
     '/body/team/': RouteRecordInfo<'/body/team/', '/body/team', Record<never, never>, Record<never, never>>,
