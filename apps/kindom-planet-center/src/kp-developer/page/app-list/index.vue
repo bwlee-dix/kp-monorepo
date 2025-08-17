@@ -4,16 +4,16 @@ import { projects } from '/@dds/data/layouts/card-grid-v3'
 
 import sleep from '/@dds/utils/sleep'
 
-const isLoading = ref(false)
+const isLoading = ref<boolean>(false)
 const router = useRouter()
 
 useHead({
   title: 'Register Developer - Kingdom Planet',
 })
 
-const isBigFormOpen = ref(false)
-const filters = ref('')
-const isB2C = ref(true)
+const isBigFormOpen = ref<boolean>(false)
+const filters = ref<string>('')
+const isB2C = ref<boolean>(true)
 const filteredData = computed(() => {
   if (!filters.value) {
     return projects
@@ -69,7 +69,6 @@ const clickApp = (id: string) => {
     </div>
 
     <div class="card-grid card-grid-v3">
-      <!--List Empty Search Placeholder -->
       <VPlaceholderPage
         :class="[filteredData.length !== 0 && 'is-hidden']"
         title="We couldn't find any matching results."
@@ -92,13 +91,11 @@ const clickApp = (id: string) => {
         </template>
       </VPlaceholderPage>
 
-      <!--Card Grid v3-->
       <TransitionGroup
         name="list"
         tag="div"
         class="columns is-multiline is-flex-tablet-p is-half-tablet-p"
       >
-        <!--Grid Item-->
         <div v-for="item in filteredData" :key="item.id" class="column is-4 app">
           <div
             class="card-grid-item"
@@ -331,6 +328,10 @@ const clickApp = (id: string) => {
 <style lang="scss" scoped>
 @import '/@dds/scss/abstracts/all';
 @import '/@dds/scss/components/forms-outer';
+
+.page-content-inner {
+  padding: 6rem 4rem;
+}
 
 .form-layout {
   max-width: 740px;
