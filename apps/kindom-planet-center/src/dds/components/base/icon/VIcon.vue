@@ -16,3 +16,9 @@ const isIconify = computed(() => {
     <i v-else aria-hidden="true" :class="props.icon" />
   </span>
 </template>
+
+<style lang="scss" scoped>
+span {
+  height: fit-content;
+}
+</style>

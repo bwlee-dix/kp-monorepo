@@ -88,6 +88,8 @@ defineExpose({
 
 <style lang="scss">
 .dropdown {
+  height: 100%;
+
   &:not(.is-right) {
     .dropdown-menu {
       inset-inline-start: 0;

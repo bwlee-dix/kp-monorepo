@@ -172,11 +172,11 @@ onMounted(() => {
             </RouterLink>
           </li>
           <li>
-            <RouterLink :to="`/${body}/team`" class="single-link">
+            <RouterLink :to="`/${body}/user`" class="single-link">
               <span class="icon">
                 <i class="iconify" data-icon="feather:users" />
               </span>
-              Team
+              User
             </RouterLink>
           </li>
           <li>

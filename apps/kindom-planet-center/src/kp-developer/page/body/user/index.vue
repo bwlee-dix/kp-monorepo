@@ -16,10 +16,10 @@ export interface UserData extends VAvatarProps {
 }
 
 const viewWrapper = useViewWrapper()
-viewWrapper.setPageTitle('Team')
+viewWrapper.setPageTitle('User')
 
 useHead({
-  title: 'Team - App name - KingdomPlanet',
+  title: 'User - App name - KingdomPlanet',
 })
 
 const page = ref(42)
@@ -35,7 +35,6 @@ const filteredData = computed(() => {
       return (
         item.username.match(filterRe) ||
         item.position.match(filterRe) ||
-        item.industry.match(filterRe) ||
         item.status.match(filterRe) ||
         item.location.match(filterRe)
       )
@@ -69,9 +68,8 @@ const filteredData = computed(() => {
             <th>Id</th>
             <th>Name</th>
             <th>Location</th>
-            <th>Industry</th>
-            <th>Contacts</th>
-            <th>Actions</th>
+            <th>Status</th>
+            <th>Role</th>
           </thead>
           <tbody>
             <tr v-for="user in filteredData" :key="user.id">
@@ -81,19 +79,24 @@ const filteredData = computed(() => {
                   <VAvatar :picture="user.picture" alt="Avatar" />
                   <div class="meta">
                     <h3>{{ user.username }}</h3>
-                    <span>{{ user.position }}</span>
                   </div>
                 </div>
               </td>
               <td>{{ user.location }}</td>
-              <td>{{ user.industry }}</td>
+              <td>{{ user.status }}</td>
               <td>
-                <div>
-                  <VAvatarStack :avatars="user.contacts" size="small" :limit="3" />
-                </div>
-              </td>
-              <td>
-                <FlexTableDropdown />
+                <VDropdown :title="user.position" right down>
+                  <template #content>
+                    <a href="#" class="dropdown-item"> Product Manager </a>
+                    <a href="#" class="dropdown-item"> Project Manager </a>
+                    <a href="#" class="dropdown-item is-active"> Web Developer </a>
+                    <a href="#" class="dropdown-item"> Backend Developer </a>
+                    <hr class="dropdown-divider" />
+                    <a href="#" class="dropdown-item"> UI/UX Designer </a>
+                    <a href="#" class="dropdown-item"> QA Engineer </a>
+                    <a href="#" class="dropdown-item"> DevOps Engineer </a>
+                  </template>
+                </VDropdown>
               </td>
             </tr>
           </tbody>
@@ -109,19 +112,18 @@ const filteredData = computed(() => {
         <template #image>
           <img
             class="light-image"
-            src="/@dds/sets/illustrations/placeholders/search-7.svg"
+            src="/@dds/assets/illustrations/placeholders/search-7.svg"
             alt=""
           />
           <img
             class="dark-image"
-            src="/@dds/sets/illustrations/placeholders/search-7-dark.svg"
+            src="/@dds/assets/illustrations/placeholders/search-7-dark.svg"
             alt=""
           />
         </template>
       </VPlaceholderPage>
     </div>
 
-    <!--Table Pagination-->
     <VFlexPagination
       v-if="filteredData.length > 5"
       v-model:current-page="page"
@@ -199,6 +201,10 @@ const filteredData = computed(() => {
 
 .datatable-wrapper {
   width: 100%;
+
+  .table-container {
+    overflow: initial;
+  }
 
   .datatable-container {
     background: var(--white);
