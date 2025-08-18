@@ -12,7 +12,8 @@
 1. Spacing helpers
 ========================================================================== */
 
-$spaceamounts: 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 60, 70, 80, 90, 100;
+$spaceamounts: 5, 8, 10, 15, 16, 20, 24, 25, 30, 32, 35, 40, 45, 48, 50, 56, 60, 64, 70,
+  72, 80, 90, 100, 120;
 $sides: top, bottom, left, right;
 
 @each $space in $spaceamounts {
@@ -23,6 +24,10 @@ $sides: top, bottom, left, right;
 
     .p-#{str-slice($side, 0, 1)}-#{$space} {
       padding-#{$side}: #{$space}px !important;
+    }
+
+    .gap-#{$space} {
+      gap: #{$space}px !important;
     }
   }
 }
@@ -209,4 +214,20 @@ $sides: top, bottom, left, right;
 
 .max-w-540 {
   max-width: 540px;
+}
+
+/* ==========================================================================
+6. Flex
+========================================================================== */
+
+.is-flex {
+  display: flex !important;
+}
+
+.flex-column {
+  flex-direction: column !important;
+}
+
+.flex-row {
+  flex-direction: row !important;
 }
