@@ -515,6 +515,8 @@ declare module 'vue' {
     VCardSocialSlotsDocumentation: typeof import('./../documentation/card-social/v-card-social-slots-documentation.md')['default']
     VCheckbox: typeof import('./../src/dds/components/base/form/VCheckbox.vue')['default']
     VCollapse: typeof import('./../src/dds/components/base/accordion/VCollapse.vue')['default']
+    VCollapseApi: typeof import('./../src/dds/components/base/accordion/VCollapseApi.vue')['default']
+    VCollapseApiSub: typeof import('./../src/dds/components/base/accordion/VCollapseApiSub.vue')['default']
     VCollapseLinks: typeof import('./../src/dds/components/base/collapse-links/VCollapseLinks.vue')['default']
     VCollapseModel: typeof import('./../src/dds/components/base/accordion/VCollapseModel.vue')['default']
     VControl: typeof import('./../src/dds/components/base/form/VControl.vue')['default']
