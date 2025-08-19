@@ -14,6 +14,7 @@ type TabId = 'Enable' | 'Disable'
 const activeTab = ref<TabId>('Enable')
 const filters = ref<string>('')
 const isModalOpen = ref<boolean>(false)
+const newNoticeName = ref<string>('')
 
 const filteredData = computed(() => {
   if (!filters.value) {
@@ -38,6 +39,10 @@ const clickNoticeDetail = (noticeId: string) => {
 const clickAddNotice = () => {
   isModalOpen.value = true
 }
+
+const clickNewNoticeSubmit = () => {
+  router.push('/notice')
+}
 </script>
 
 <template>
@@ -46,6 +51,12 @@ const clickAddNotice = () => {
       <!-- <ViewListV3 :active-tab="activeTab" /> -->
       <div>
         <div class="list-view-toolbar is-reversed">
+          <div>
+            <VButton color="primary" icon="fas fa-plus" @click="clickAddNotice" elevated>
+              New Notice
+            </VButton>
+          </div>
+
           <VControl icon="feather:search">
             <input
               v-model="filters"
@@ -57,11 +68,6 @@ const clickAddNotice = () => {
               <i aria-hidden="true" class="iconify" data-icon="feather:search" />
             </div>
           </VControl>
-          <VButton color="primary" icon="fas fa-plus" @click="clickAddNotice" elevated>
-            New Notice
-          </VButton>
-          <VModal v-if="isModalOpen" title="add notice"> Modal open </VModal>
-
           <div class="tabs-inner">
             <div class="tabs">
               <ul>
@@ -133,7 +139,10 @@ const clickAddNotice = () => {
                   >
                     <div class="list-view-item-inner">
                       <div class="meta-left">
-                        <h3>{{ item.title }}</h3>
+                        <h3>
+                          {{ item.title }}
+                          <!-- <VTag rounded color="primary" label="New" /> -->
+                        </h3>
                         <span>
                           <i
                             aria-hidden="true"
@@ -196,6 +205,46 @@ const clickAddNotice = () => {
         </div>
       </div>
     </div>
+    <VModal
+      title="Create New Notice"
+      :open="isModalOpen"
+      @submit.prevent="isModalOpen = false"
+      @close="isModalOpen = false"
+    >
+      <template #content>
+        <div class="modal-form">
+          <div class="columns is-multiline">
+            <div class="column is-12">
+              <VField label="Title">
+                <VControl>
+                  <VInput
+                    v-model="newNoticeName"
+                    type="text"
+                    placeholder="ex) [Update] New version"
+                  />
+                </VControl>
+              </VField>
+            </div>
+            <div class="column is-12">
+              <VField label="Content">
+                <VControl>
+                  <VTextarea
+                    v-model="newNoticeName"
+                    type="text"
+                    placeholder="Tell us about notice"
+                  />
+                </VControl>
+              </VField>
+            </div>
+          </div>
+        </div>
+      </template>
+      <template #action>
+        <VButton type="button" color="primary" raised @click="clickNewNoticeSubmit">
+          Submit
+        </VButton>
+      </template>
+    </VModal>
   </AdminSideblockLayout>
 </template>
 

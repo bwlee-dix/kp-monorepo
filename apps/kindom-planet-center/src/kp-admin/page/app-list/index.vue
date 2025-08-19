@@ -10,12 +10,12 @@ const router = useRouter()
 const notyf = useNotyf()
 
 useHead({
-  title: 'Register Developer - Kingdom Planet',
+  title: 'App List - Admin - Kingdom Planet',
 })
 
-const isBigFormOpen = ref<boolean>(false)
-const filters = ref<string>('')
+const isCreateModalOpen = ref<boolean>(false)
 const isB2C = ref<boolean>(true)
+const filters = ref<string>('')
 const newAppName = ref<string>('')
 
 const filteredData = computed(() => {
@@ -65,7 +65,7 @@ const clickApp = (id: string) => {
       </VControl>
 
       <div class="buttons">
-        <VButton color="primary" raised @click="isBigFormOpen = true">
+        <VButton color="primary" raised @click="isCreateModalOpen = true">
           <span class="icon">
             <i aria-hidden="true" class="fas fa-plus" />
           </span>
@@ -145,12 +145,12 @@ const clickApp = (id: string) => {
 
   <VModal
     is="form"
-    :open="isBigFormOpen"
+    :open="isCreateModalOpen"
     size="large"
     title="Create App"
     actions="right"
-    @submit.prevent="isBigFormOpen = false"
-    @close="isBigFormOpen = false"
+    @submit.prevent="isCreateModalOpen = false"
+    @close="isCreateModalOpen = false"
   >
     <template #content>
       <div class="modal-form">

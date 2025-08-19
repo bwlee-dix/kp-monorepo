@@ -1,323 +1,545 @@
 <script setup lang="ts">
-import { users } from '/@dds/data/layouts/card-grid-v1'
+import VTag from '/@src/dds/components/base/tags/VTag.vue'
+import VAvatarStack from '/@src/dds/components/base/avatar/VAvatarStack.vue'
+import FlexTableDropdown from '/@src/dds/components/partials/dropdowns/FlexTableDropdown.vue'
 
-const filters = ref('')
+import { useViewWrapper } from '/@dds/stores/viewWrapper'
+import { onceImageErrored } from '/@dds/utils/via-placeholder'
+import { RouterLink } from 'vue-router/auto'
+import { flexRowsAdvanced } from '/@src/dds/data/documentation/table'
 
-const filteredData = computed(() => {
-  if (!filters.value) {
-    return users
-  } else {
-    return users.filter((item) => {
-      return (
-        item.name.match(new RegExp(filters.value, 'i')) ||
-        item.role.match(new RegExp(filters.value, 'i')) ||
-        item.medias.badge.match(new RegExp(filters.value, 'i'))
+const collator = new Intl.Collator('en')
+const numberFormat = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'USD',
+})
+const viewWrapper = useViewWrapper()
+const router = useRouter()
+
+viewWrapper.setPageTitle('Group Detail')
+
+useHead({
+  title: 'Group Detail - KingdomPlanet',
+})
+
+const newMemberName = ref<string>('')
+const isMemberModalOpen = ref<boolean>(false)
+
+const clickAddMember = () => {
+  isMemberModalOpen.value = true
+}
+
+const clickNewMemberSubmit = () => {
+  isMemberModalOpen.value = false
+}
+
+const sortedData = computed(() => {
+  switch (router.currentRoute.value.query?.sort) {
+    case 'username:asc': {
+      return [...flexRowsAdvanced].sort((a, b) =>
+        collator.compare(a.username, b.username)
       )
-    })
+    }
+    case 'username:desc': {
+      return [...flexRowsAdvanced].sort((a, b) =>
+        collator.compare(b.username, a.username)
+      )
+    }
+    case 'annual-earnings:asc': {
+      return [...flexRowsAdvanced].sort((a, b) =>
+        a.annualEarnings > b.annualEarnings ? 1 : -1
+      )
+    }
+    case 'annual-earnings:desc': {
+      return [...flexRowsAdvanced].sort((a, b) =>
+        a.annualEarnings > b.annualEarnings ? -1 : 1
+      )
+    }
+    case 'position:asc': {
+      return [...flexRowsAdvanced].sort((a, b) =>
+        collator.compare(a.position, b.position)
+      )
+    }
+    case 'position:desc': {
+      return [...flexRowsAdvanced].sort((a, b) =>
+        collator.compare(b.position, a.position)
+      )
+    }
+    case 'status:asc': {
+      return [...flexRowsAdvanced].sort((a, b) => collator.compare(a.status, b.status))
+    }
+    case 'status:desc': {
+      return [...flexRowsAdvanced].sort((a, b) => collator.compare(b.status, a.status))
+    }
+    case 'contacts:asc': {
+      return [...flexRowsAdvanced].sort((a, b) =>
+        a.contacts.length > b.contacts.length ? 1 : -1
+      )
+    }
+    case 'contacts:desc': {
+      return [...flexRowsAdvanced].sort((a, b) =>
+        a.contacts.length > b.contacts.length ? -1 : 1
+      )
+    }
+    default: {
+      return flexRowsAdvanced
+    }
   }
 })
+
+const SortColumnComponent = defineComponent({
+  props: {
+    label: {
+      type: String,
+      required: true,
+    },
+    id: {
+      type: String,
+      required: true,
+    },
+  },
+  setup(props) {
+    const currentRoute = useRoute()
+    return () =>
+      h(
+        RouterLink,
+        {
+          to: {
+            ...currentRoute,
+            query: {
+              sort:
+                currentRoute.query.sort === `${props.id}:asc`
+                  ? `${props.id}:desc`
+                  : currentRoute.query.sort === `${props.id}:desc`
+                  ? undefined
+                  : `${props.id}:asc`,
+            },
+          },
+        },
+        {
+          default() {
+            const icon = h(
+              'span',
+              { key: `${currentRoute.query.sort}`, class: 'is-inline' },
+              h('span', {
+                class: 'iconify is-inline',
+                'data-icon':
+                  currentRoute.query.sort === `${props.id}:asc`
+                    ? 'fa6-solid:sort-up'
+                    : currentRoute.query.sort === `${props.id}:desc`
+                    ? 'fa6-solid:sort-down'
+                    : 'fa6-solid:sort',
+              })
+            )
+
+            return [props.label, icon]
+          },
+        }
+      )
+  },
+})
+
+// this is the how rows and columns are rendered
+const exampleColumns = {
+  username: {
+    bold: true,
+    // we can use custom render function for column heading
+    renderHeader: () =>
+      h(
+        'span',
+        {},
+        h(SortColumnComponent, {
+          label: 'Name',
+          id: 'username',
+        })
+      ),
+  },
+  position: {
+    renderHeader: () =>
+      h(
+        'span',
+        {},
+        h(SortColumnComponent, {
+          label: 'Position',
+          id: 'position',
+        })
+      ),
+  },
+  annualEarnings: {
+    inverted: true,
+    format: (value: any) => numberFormat.format(value),
+    // we can use custom render function for column heading
+    renderHeader: () =>
+      h(
+        'span',
+        {},
+        h(SortColumnComponent, {
+          label: 'Revenue',
+          id: 'annual-earnings',
+        })
+      ),
+  },
+  status: {
+    label: 'Status',
+    // we can use custom render function for each rows
+    renderRow: (row: any) =>
+      h(
+        VTag,
+        {
+          rounded: true,
+          color:
+            row.status === 'Active'
+              ? 'success'
+              : row.status === 'New'
+              ? 'info'
+              : row.status === 'Suspended'
+              ? 'orange'
+              : undefined,
+        },
+        // that notation is to render content in the default slot
+        {
+          default() {
+            return `${row.status}`
+          },
+        }
+      ),
+    // we can use custom render function for column heading
+    renderHeader: () =>
+      h(
+        'span',
+        {},
+        h(SortColumnComponent, {
+          label: 'Status',
+          id: 'status',
+        })
+      ),
+  },
+  contacts: {
+    renderHeader: () =>
+      h(
+        'span',
+        {},
+        h(SortColumnComponent, {
+          label: 'Contacts',
+          id: 'contacts',
+        })
+      ),
+    renderRow: (row: any) =>
+      // We can render custom components and set props
+      h(VAvatarStack, {
+        class: 'is-pushed-mobile',
+        size: 'small',
+        avatars: row.contacts,
+        limit: 3,
+      }),
+  },
+  actions: {
+    label: '',
+    align: 'end',
+    renderRow: (row: any) =>
+      h(FlexTableDropdown, {
+        // We can catch all events from vue
+        onView: () => {
+          console.log('viewing', row)
+        },
+        onProjects: () => {
+          console.log('projects', row)
+        },
+        onSchedule: () => {
+          console.log('schedule', row)
+        },
+        onRemove: () => {
+          console.log('remove', row)
+        },
+      }),
+  },
+} as const
 </script>
 
 <template>
-  <AdminSideblockLayout>
-    <div>
-      <div class="card-grid-toolbar">
-        <VControl icon="feather:search">
-          <input
-            v-model="filters"
-            class="input custom-text-filter"
-            placeholder="Search..."
-          />
-        </VControl>
-
-        <div class="buttons">
-          <VField class="h-hidden-mobile"> </VField>
-          <VButton color="primary" raised>
+  <AdminSideblockLayout theme="curved" open-on-mounted>
+    <!-- Content Wrapper -->
+    <div class="page-content-inner">
+      <div class="all-projects">
+        <div class="projects-toolbar">
+          <VField raw>
+            <VControl icon="feather:search">
+              <VInput placeholder="Search again..." />
+            </VControl>
+          </VField>
+          <VButton color="primary" raised @click="clickAddMember">
             <span class="icon">
               <i aria-hidden="true" class="fas fa-plus" />
             </span>
-            <span>Add User</span>
+            <span>Add Member</span>
           </VButton>
         </div>
-      </div>
+        <h3 class="section-heading">Group List</h3>
 
-      <div class="card-grid card-grid-v1">
-        <!--List Empty Search Placeholder -->
-        <VPlaceholderPage
-          :class="[filteredData.length !== 0 && 'is-hidden']"
-          title="We couldn't find any matching results."
-          subtitle="Too bad. Looks like we couldn't find any matching results for the
-          search terms you've entered. Please try different search terms or
-          criteria."
-          larger
-        >
-          <template #image>
-            <img
-              class="light-image"
-              src="/@dds/sets/illustrations/placeholders/search-4.svg"
-              alt=""
-            />
-            <img
-              class="dark-image"
-              src="/@dds/sets/illustrations/placeholders/search-4-dark.svg"
-              alt=""
-            />
-          </template>
-        </VPlaceholderPage>
-
-        <!--Card Grid v1-->
-        <TransitionGroup
-          name="list"
-          tag="div"
-          class="columns is-flex-tablet-p is-half-tablet-p"
-        >
-          <!--Grid item-->
-          <div
-            v-for="(item, index) in filteredData"
-            :key="index"
-            class="column is-one-quarter"
-          >
-            <div class="card-grid-item">
-              <div class="card-grid-item-body">
-                <div class="left">
-                  <VAvatar
-                    size="big"
-                    :picture="item.medias.avatar"
-                    :badge="item.medias.badge"
-                  />
-                  <div class="meta">
-                    <span class="dark-inverted">{{ item.name }}</span>
-                    <span>{{ item.role }}</span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="card-grid-item-footer">
-                <div class="left">
-                  <div class="progress-stats">
-                    <span class="dark-inverted">Progress</span>
-                    <span>{{ item.progress }}%</span>
-                  </div>
-                  <div class="progress-bar">
-                    <VProgress size="tiny" :value="item.progress" />
-                  </div>
-                </div>
-              </div>
-            </div>
+        <div class="columns is-multiline project-grid is-flex-tablet-p is-half-tablet-p">
+          <div class="column is-one-fifth">
+            <a class="project-grid-item">
+              <img
+                class="project-avatar"
+                src="/images/icons/logos/slicer.svg"
+                alt=""
+                @error.once="onceImageErrored(150)"
+              />
+              <h3>The Slicer project</h3>
+              <p>Design project</p>
+              <VProgress size="tiny" :value="31" />
+            </a>
           </div>
-        </TransitionGroup>
 
-        <table class="table datatable-table is-fullwidth">
-          <thead>
-            <th>Index</th>
-            <th>Group Name</th>
-            <th>Region</th>
-            <th>Role</th>
-          </thead>
-          <tbody>
-            <tr v-for="(item, index) in filteredData" :key="index">
-              <td>{{ item.id }}</td>
-              <td>{{ item.name }}</td>
-              <td><VAvatar :picture="item.medias.badge" /></td>
-              <td>{{ item.role }}</td>
-            </tr>
-          </tbody>
-        </table>
+          <div class="column is-one-fifth">
+            <a class="project-grid-item">
+              <img
+                class="project-avatar"
+                src="/images/icons/logos/metamovies.svg"
+                alt=""
+                @error.once="onceImageErrored(150)"
+              />
+              <h3>Metamovies reworked</h3>
+              <p>Design project</p>
+              <VProgress size="tiny" :value="84" />
+            </a>
+          </div>
+
+          <div class="column is-one-fifth">
+            <a class="project-grid-item">
+              <img
+                class="project-avatar"
+                src="/@dds/sets/illustrations/dashboards/flights/company1.svg"
+                alt=""
+                @error.once="onceImageErrored(150)"
+              />
+              <h3>Supreme Flights app</h3>
+              <p>Software project</p>
+              <VProgress size="tiny" :value="45" />
+            </a>
+          </div>
+
+          <div class="column is-one-fifth">
+            <a class="project-grid-item">
+              <img
+                class="project-avatar"
+                src="/images/icons/logos/fastpizza.svg"
+                alt=""
+                @error.once="onceImageErrored(150)"
+              />
+              <h3>Fastpizza delivery app</h3>
+              <p>Software project</p>
+              <VProgress size="tiny" :value="90" />
+            </a>
+          </div>
+
+          <div class="column is-one-fifth">
+            <a class="project-grid-item">
+              <img
+                class="project-avatar"
+                src="/images/icons/logos/drop.svg"
+                alt=""
+                @error.once="onceImageErrored(150)"
+              />
+              <h3>Drop website redesign</h3>
+              <p>Design project</p>
+              <VProgress size="tiny" :value="12" />
+            </a>
+          </div>
+        </div>
+
+        <div class="columns">
+          <div class="column is-12">
+            <VFlexTable :data="sortedData" :columns="exampleColumns" rounded />
+          </div>
+        </div>
       </div>
     </div>
+    <VModal
+      :open="isMemberModalOpen"
+      title="Create Member"
+      actions="right"
+      @submit.prevent="isMemberModalOpen = false"
+      @close="isMemberModalOpen = false"
+    >
+      <template #content>
+        <div class="modal-form">
+          <div class="columns is-multiline">
+            <div class="column is-12">
+              <VField label="Member Name">
+                <VControl>
+                  <VInput
+                    v-model="newMemberName"
+                    type="text"
+                    placeholder="Write member name"
+                  />
+                </VControl>
+              </VField>
+            </div>
+
+            <div class="column is-12">
+              <VField class="is-image-select" label="Member Type">
+                <VControl>
+                  <Multiselect
+                    placeholder="Select language"
+                    track-by="name"
+                    label="name"
+                    :search="true"
+                    :options="[
+                      {
+                        value: 'javascript',
+                        name: 'Javascript',
+                        image: '/images/icons/stacks/js.svg',
+                      },
+                      {
+                        value: 'reactjs',
+                        name: 'ReactJS',
+                        image: '/images/icons/stacks/reactjs.svg',
+                      },
+                      {
+                        value: 'vuejs',
+                        name: 'VueJS',
+                        image: '/images/icons/stacks/vuejs.svg',
+                      },
+                    ]"
+                    :max-height="145"
+                  >
+                    <template #singlelabel="{ value }">
+                      <div class="multiselect-single-label">
+                        <img class="select-label-icon" :src="value.image" alt="" />
+                        {{ value.name }}
+                      </div>
+                    </template>
+                    <template #option="{ option }">
+                      <img class="select-option-icon" :src="option.image" alt="" />
+                      {{ option.name }}
+                    </template>
+                  </Multiselect>
+                </VControl>
+              </VField>
+            </div>
+            <div class="column is-12">
+              <VField label="Description">
+                <VControl>
+                  <VTextarea rows="3" placeholder="Details about the member..." />
+                </VControl>
+              </VField>
+            </div>
+          </div>
+        </div>
+      </template>
+      <template #action>
+        <VButton type="button" color="primary" raised @click="clickNewMemberSubmit">
+          Submit
+        </VButton>
+      </template>
+    </VModal>
   </AdminSideblockLayout>
 </template>
 
 <style lang="scss">
-.card-grid {
-  .columns {
-    margin-inline-start: -0.5rem !important;
-    margin-inline-end: -0.5rem !important;
-    margin-top: -0.5rem !important;
+@import '/@dds/scss/abstracts/all';
+
+.all-projects {
+  .projects-toolbar {
     display: flex;
-    overflow-x: scroll;
-    overflow-y: hidden;
-    white-space: nowrap;
+    align-items: center;
+    margin-bottom: 20px;
+
+    .avatar-stack {
+      margin-inline-start: 16px;
+    }
+
+    .button {
+      margin-inline-start: auto;
+      min-width: 140px;
+    }
   }
 
-  .column {
-    padding: 0.5rem !important;
-  }
-}
-
-.card-grid-v1 {
-  .card-grid-item {
-    flex: 1;
-    display: inline-block;
-    width: 100%;
-    background-color: var(--white);
-    border-radius: 6px;
-    border: 1px solid var(--fade-grey-dark-3);
-    transition: all 0.3s; // transition-all test
-
-    .card-grid-item-body {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 20px;
-      border-bottom: 1px solid var(--fade-grey-dark-3);
-
-      .left {
-        display: flex;
-        align-items: center;
-
-        .meta {
-          margin-inline-start: 12px;
-          line-height: 1.3;
-
-          span {
-            display: block;
-
-            &:first-child {
-              font-size: 1.1rem;
-              font-weight: 600;
-              font-family: var(--font-alt);
-              color: var(--dark-text);
-            }
-
-            &:nth-child(2) {
-              font-family: var(--font);
-              font-size: 0.85rem;
-              color: var(--light-text);
-            }
-          }
-        }
-      }
-
-      .right {
-        .social-links {
-          display: flex;
-          align-items: center;
-          justify-content: flex-end;
-
-          .social-link {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 32px;
-            width: 32px;
-            min-width: 32px;
-            border-radius: 50%;
-            border: 1px solid var(--fade-grey-dark-3);
-            margin: 0 4px;
-            color: var(--primary);
-            box-shadow: var(--light-box-shadow);
-            transition: all 0.3s; // transition-all test
-
-            &:hover {
-              color: var(--white);
-              background: var(--primary);
-              border-color: var(--primary);
-              box-shadow: var(--primary-box-shadow);
-            }
-
-            i {
-              font-size: 12px;
-            }
-          }
+  .is-dark {
+    .projects-toolbar {
+      .avatar-stack {
+        .avatar {
+          border-color: var(--dark-sidebar-light-3);
         }
       }
     }
+  }
 
-    .card-grid-item-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 20px;
+  @media only screen and (width <= 767px) {
+    .projects-toolbar {
+      .avatar-stack {
+        display: none;
+      }
 
-      .left {
-        flex-grow: 2;
-        max-width: 50%;
+      .v-button {
+        min-width: 110px;
+      }
+    }
+  }
 
-        .progress-stats {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          margin-bottom: 8px;
+  .section-heading {
+    font-family: var(--font-alt);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    color: var(--light-text);
+    margin-bottom: 1rem;
+  }
 
-          span {
-            display: block;
+  .project-grid {
+    margin-bottom: 1.5rem;
 
-            &:first-child {
-              font-family: var(--font-alt);
-              font-size: 0.9rem;
-              font-weight: 600;
-              color: var(--dark-text);
-            }
+    .project-grid-item {
+      @include vuero-s-card;
 
-            &:nth-child(2) {
-              font-size: 0.9rem;
-              color: var(--light-text);
-            }
-          }
-        }
+      text-align: center;
+      box-shadow: none;
 
-        .progress {
-          margin-bottom: 0;
+      &:hover,
+      &:focus {
+        border-color: var(--fade-grey-dark-6);
+        box-shadow: var(--light-box-shadow);
+
+        .project-avatar {
+          filter: grayscale(0);
+          opacity: 1;
         }
       }
 
-      .right {
-        .v-button {
-          color: var(--light-text);
+      .project-avatar {
+        display: block;
+        height: 40px;
+        width: 40px;
+        border-radius: 10px;
+        margin: 0 auto 10px;
+        filter: grayscale(1);
+        opacity: 0.6;
+        transition: all 0.3s; // transition-all test
+      }
 
-          &:hover,
-          &:focus {
-            border-color: var(--primary);
-            background: var(--primary);
-            color: var(--smoke-white);
-            box-shadow: var(--primary-box-shadow);
-          }
-        }
+      h3 {
+        font-size: 0.95rem;
+        font-family: var(--font-alt);
+        font-weight: 600;
+        color: var(--dark-text);
+      }
+
+      p {
+        font-size: 0.9rem;
+        margin-bottom: 10px;
       }
     }
   }
 }
 
 .is-dark {
-  .card-grid-v1 {
-    .card-grid-item {
-      background: var(--dark-sidebar-light-6);
-      border-color: var(--dark-sidebar-light-12);
+  .all-projects {
+    .project-grid {
+      .project-grid-item {
+        @include vuero-card--dark;
 
-      .card-grid-item-body {
-        border-color: var(--dark-sidebar-light-12);
-
-        .left {
-          .v-avatar {
-            .badge {
-              border-color: var(--dark-sidebar-light-6);
-            }
-          }
-        }
-
-        .right {
-          .social-links {
-            .social-link {
-              background: var(--dark-sidebar-light-2);
-              border-color: var(--dark-sidebar-light-12);
-              color: var(--dark-dark-text);
-
-              &:hover,
-              &:focus {
-                border-color: var(--primary) !important;
-                color: var(--primary) !important;
-              }
-            }
-          }
-        }
-      }
-
-      .card-grid-item-footer {
-        .right {
-          .v-button {
-            box-shadow: none !important;
-          }
+        h3 {
+          color: var(--dark-dark-text);
         }
       }
     }
@@ -325,17 +547,154 @@ const filteredData = computed(() => {
 }
 
 @media only screen and (width <= 767px) {
-  .card-grid-v1 {
-    .card-grid-item {
-      .card-grid-item-body {
-        flex-direction: column;
+  .all-projects {
+    .all-projects-header {
+      flex-direction: column;
 
-        .left {
-          flex-direction: column;
-          text-align: center;
+      .header-item {
+        width: 100%;
+        border-inline-end: none;
+        border-bottom: 1px solid var(--fade-grey-dark-3);
+        padding: 16px 0;
 
-          .meta {
-            margin: 5px 0 20px;
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+    }
+
+    .projects-card-grid {
+      .grid-item {
+        .bottom-section {
+          flex-wrap: wrap;
+
+          .foot-block {
+            &:first-child {
+              width: 100%;
+              margin: 0;
+              text-align: center;
+              padding: 16px 0;
+
+              .developers {
+                justify-content: center;
+
+                .v-avatar {
+                  margin: 0 4px;
+                }
+              }
+            }
+
+            &:not(:first-child) {
+              width: 33.3%;
+              text-align: center;
+              margin: 0;
+            }
+          }
+        }
+      }
+    }
+
+    .illustration-header {
+      > img {
+        display: none !important;
+      }
+
+      .header-stats {
+        .stats-inner {
+          flex-wrap: wrap;
+
+          .stat-item {
+            width: 50%;
+            margin: 0;
+            padding: 16px 0;
+          }
+        }
+      }
+    }
+
+    .project-minimal-grid {
+      .grid-header {
+        .filter {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (width >= 768px) and (width <= 1024px) and (orientation: portrait) {
+  .all-projects {
+    .illustration-header {
+      > img {
+        display: none !important;
+      }
+
+      .header-stats {
+        .stats-inner {
+          width: 100%;
+
+          .stat-item {
+            width: 25%;
+          }
+        }
+      }
+    }
+
+    .project-minimal-grid {
+      .grid-body {
+        display: flex;
+
+        .column {
+          min-width: 50%;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (width >= 768px) and (width <= 1024px) and (orientation: landscape) {
+  .all-projects {
+    .illustration-header {
+      .header-stats {
+        .stats-inner {
+          .stat-item {
+            width: 25%;
+          }
+        }
+      }
+    }
+
+    .recent-projects {
+      .project-box {
+        h3 {
+          font-size: 1.1rem;
+        }
+      }
+    }
+
+    .project-minimal-grid {
+      .grid-body {
+        .grid-item {
+          .item-title {
+            padding: 30px 0;
+
+            h3 {
+              font-size: 1.5rem;
+            }
+          }
+        }
+      }
+    }
+
+    .projects-card-grid {
+      .grid-item {
+        .bottom-section {
+          margin-top: 0.75rem;
+
+          .foot-block {
+            &:first-child {
+              display: none;
+            }
           }
         }
       }

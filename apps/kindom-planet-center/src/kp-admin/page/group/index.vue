@@ -43,15 +43,21 @@ const filteredData = computed(() => {
   }
 })
 
-const isModalOpen = ref<boolean>(false)
+const newGroupName = ref<string>('')
+const isGroupModalOpen = ref<boolean>(false)
 
 const clickAddGroup = () => {
-  isModalOpen.value = true
+  isGroupModalOpen.value = true
   console.log('click button')
 }
 
 const clickGroupDetail = (groupId: number) => {
   router.push(`/group/${groupId}`)
+}
+
+const clickSave = () => {
+  isGroupModalOpen.value = false
+  router.push('/group')
 }
 </script>
 
@@ -71,14 +77,10 @@ const clickGroupDetail = (groupId: number) => {
               />
             </VControl>
           </VField>
-
           <VButtons>
             <VButton color="primary" icon="fas fa-plus" @click="clickAddGroup" elevated>
               New Group
             </VButton>
-            <VModal title="Add Group" v-if="isModalOpen">
-              <div>Test modal</div>
-            </VModal>
           </VButtons>
         </div>
         <div class="datatable-wrapper">
@@ -155,6 +157,220 @@ const clickGroupDetail = (groupId: number) => {
         />
       </div>
     </div>
+    <VModal
+      title="Create New Group"
+      size="large"
+      :open="isGroupModalOpen"
+      @submit.prevent="isGroupModalOpen = false"
+      @close="isGroupModalOpen = false"
+    >
+      <template #content>
+        <div class="modal-form">
+          <div class="columns is-multiline">
+            <div class="column is-12">
+              <VField label="Title">
+                <VControl>
+                  <VInput
+                    v-model="newGroupName"
+                    type="text"
+                    placeholder="Write Group Name"
+                  />
+                </VControl>
+              </VField>
+            </div>
+            <div class="column is-6">
+              <VField class="is-image-select" label="Country">
+                <VControl>
+                  <Multiselect
+                    placeholder="Select Country"
+                    track-by="name"
+                    label="name"
+                    :search="true"
+                    :options="[
+                      {
+                        value: 'Canada',
+                        name: 'Canada',
+                        image: '/images/icons/flags/canada.svg',
+                      },
+                      {
+                        value: 'USA',
+                        name: 'USA',
+                        image: '/images/icons/flags/united-states-of-america.svg',
+                      },
+                      {
+                        value: 'Mexico',
+                        name: 'Mexico',
+                        image: '/images/icons/flags/mexico.svg',
+                      },
+                    ]"
+                    :max-height="145"
+                  >
+                    <template #singlelabel="{ value }">
+                      <div class="multiselect-single-label">
+                        <img class="select-label-icon" :src="value.image" alt="" />
+                        {{ value.name }}
+                      </div>
+                    </template>
+                    <template #option="{ option }">
+                      <img class="select-option-icon" :src="option.image" alt="" />
+                      {{ option.name }}
+                    </template>
+                  </Multiselect>
+                </VControl>
+              </VField>
+            </div>
+            <div class="column is-6">
+              <VField class="is-image-select" label="City">
+                <VControl>
+                  <Multiselect
+                    placeholder="Select City"
+                    track-by="name"
+                    label="name"
+                    :search="true"
+                    :options="[
+                      {
+                        value: 'San Francisco',
+                        name: 'San Francisco',
+                        image: '/images/icons/flags/united-states-of-america.svg',
+                      },
+                      {
+                        value: 'New York',
+                        name: 'New York',
+                        image: '/images/icons/flags/united-states-of-america.svg',
+                      },
+                      {
+                        value: 'California',
+                        name: 'California',
+                        image: '/images/icons/flags/united-states-of-america.svg',
+                      },
+                    ]"
+                    :max-height="145"
+                  >
+                    <template #singlelabel="{ value }">
+                      <div class="multiselect-single-label">
+                        <img class="select-label-icon" :src="value.image" alt="" />
+                        {{ value.name }}
+                      </div>
+                    </template>
+                    <template #option="{ option }">
+                      <img class="select-option-icon" :src="option.image" alt="" />
+                      {{ option.name }}
+                    </template>
+                  </Multiselect>
+                </VControl>
+              </VField>
+            </div>
+            <div class="column is-6">
+              <VField class="is-image-select" label="Member">
+                <VControl>
+                  <Multiselect
+                    placeholder="Select employees"
+                    track-by="name"
+                    label="name"
+                    :search="true"
+                    :options="[
+                      {
+                        value: 'alice',
+                        name: 'Alice Carasca',
+                        image: '/demo/avatars/7.jpg',
+                      },
+                      {
+                        value: 'erik',
+                        name: 'Erik Kovalsky',
+                        image: '/images/avatars/svg/vuero-1.svg',
+                      },
+                      {
+                        value: 'melany',
+                        name: 'melany Wallace',
+                        image: '/demo/avatars/25.jpg',
+                      },
+                      {
+                        value: 'tara',
+                        name: 'Tara Svenson',
+                        image: '/demo/avatars/13.jpg',
+                      },
+                      {
+                        value: 'mary',
+                        name: 'Mary Lebowski',
+                        image: '/demo/avatars/5.jpg',
+                      },
+                      {
+                        value: 'irina',
+                        name: 'Irina Vierbovsky',
+                        image: '/demo/avatars/23.jpg',
+                      },
+                      {
+                        value: 'jonathan',
+                        name: 'Jonathan Krugger',
+                        image: '/demo/avatars/32.jpg',
+                      },
+                    ]"
+                    :max-height="145"
+                  >
+                    <template #singlelabel="{ value }">
+                      <div class="multiselect-single-label">
+                        <img class="select-label-icon" :src="value.image" alt="" />
+                        {{ value.name }}
+                      </div>
+                    </template>
+                    <template #option="{ option }">
+                      <img class="select-option-icon" :src="option.image" alt="" />
+                      {{ option.name }}
+                    </template>
+                  </Multiselect>
+                </VControl>
+              </VField>
+            </div>
+            <div class="column is-6">
+              <VField class="is-image-select" label="Type">
+                <VControl>
+                  <Multiselect
+                    placeholder="Select language"
+                    track-by="name"
+                    label="name"
+                    :search="true"
+                    :options="[
+                      {
+                        value: 'javascript',
+                        name: 'Javascript',
+                        image: '/images/icons/stacks/js.svg',
+                      },
+                      {
+                        value: 'reactjs',
+                        name: 'ReactJS',
+                        image: '/images/icons/stacks/reactjs.svg',
+                      },
+                      {
+                        value: 'vuejs',
+                        name: 'VueJS',
+                        image: '/images/icons/stacks/vuejs.svg',
+                      },
+                    ]"
+                    :max-height="145"
+                  >
+                    <template #singlelabel="{ value }">
+                      <div class="multiselect-single-label">
+                        <img class="select-label-icon" :src="value.image" alt="" />
+                        {{ value.name }}
+                      </div>
+                    </template>
+                    <template #option="{ option }">
+                      <img class="select-option-icon" :src="option.image" alt="" />
+                      {{ option.name }}
+                    </template>
+                  </Multiselect>
+                </VControl>
+              </VField>
+            </div>
+          </div>
+        </div>
+      </template>
+      <template #action>
+        <VButton type="button" color="primary" raised @click="clickSave">
+          Submit
+        </VButton>
+      </template>
+    </VModal>
   </AdminSideblockLayout>
 </template>
 

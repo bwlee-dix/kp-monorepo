@@ -7,13 +7,8 @@ const router = useRouter()
 viewWrapper.setPageTitle('Notice detail')
 
 useHead({
-  title: 'Event - App name - KingdomPlanet',
+  title: 'Notice Detail - App name - KingdomPlanet',
 })
-
-const companySize = ref('')
-const businessType = ref('')
-const productToDemo = ref('')
-const date = ref(new Date())
 
 const { y } = useWindowScroll()
 
@@ -76,84 +71,6 @@ const onSubmit = () => {
               </div>
             </div>
           </div>
-          <!--Fieldset-->
-          <div class="form-fieldset">
-            <div class="fieldset-heading">
-              <h4>Content</h4>
-              <p>Tell us about notice</p>
-            </div>
-            <div class="columns is-multiline">
-              <div class="column is-12">
-                <VField>
-                  <VLabel>Preface</VLabel>
-                  <VInput type="text" placeholder="Hello" autocomplete="organization" />
-                </VField>
-              </div>
-              <div class="column is-12">
-                <VField>
-                  <VLabel>Intermediate content</VLabel>
-                  <VTextarea
-                    class="textarea"
-                    rows="4"
-                    placeholder="Tell us about any details you'd like us to know..."
-                    autocomplete="off"
-                    autocapitalize="off"
-                    spellcheck="true"
-                  />
-                </VField>
-              </div>
-              <div class="column is-12">
-                <VField>
-                  <VLabel>Conclusion</VLabel>
-                  <VInput
-                    type="text"
-                    placeholder="Thank you"
-                    autocomplete="organization"
-                  />
-                </VField>
-              </div>
-            </div>
-          </div>
-
-          <!--Fieldset-->
-          <div class="form-fieldset">
-            <div class="fieldset-heading">
-              <h4>Content</h4>
-              <p>Tell us about notice</p>
-            </div>
-            <div class="columns is-multiline">
-              <div class="column is-12">
-                <VField>
-                  <VLabel>Preface</VLabel>
-                  <VInput type="text" placeholder="Hello" autocomplete="organization" />
-                </VField>
-              </div>
-              <div class="column is-12">
-                <VField>
-                  <VLabel>Intermediate content</VLabel>
-                  <VTextarea
-                    class="textarea"
-                    rows="4"
-                    placeholder="Tell us about any details you'd like us to know..."
-                    autocomplete="off"
-                    autocapitalize="off"
-                    spellcheck="true"
-                  />
-                </VField>
-              </div>
-              <div class="column is-12">
-                <VField>
-                  <VLabel>Conclusion</VLabel>
-                  <VInput
-                    type="text"
-                    placeholder="Thank you"
-                    autocomplete="organization"
-                  />
-                </VField>
-              </div>
-            </div>
-          </div>
-
           <!--Fieldset-->
           <div class="form-fieldset">
             <div class="fieldset-heading">
