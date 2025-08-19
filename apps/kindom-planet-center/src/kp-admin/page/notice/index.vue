@@ -6,13 +6,14 @@ useHead({
   title: 'Notice - App name - KingdomPlanet',
 })
 
-type TabId = 'Enable' | 'Disable'
-const activeTab = ref<TabId>('Enable')
-const filters = ref('')
 const router = useRouter()
-
 const viewWrapper = useViewWrapper()
 viewWrapper.setPageTitle('Notice')
+
+type TabId = 'Enable' | 'Disable'
+const activeTab = ref<TabId>('Enable')
+const filters = ref<string>('')
+const isModalOpen = ref<boolean>(false)
 
 const filteredData = computed(() => {
   if (!filters.value) {
@@ -33,6 +34,10 @@ const filteredData = computed(() => {
 const clickNoticeDetail = (noticeId: string) => {
   router.push(`/notice/${noticeId}`)
 }
+
+const clickAddNotice = () => {
+  isModalOpen.value = true
+}
 </script>
 
 <template>
@@ -52,6 +57,10 @@ const clickNoticeDetail = (noticeId: string) => {
               <i aria-hidden="true" class="iconify" data-icon="feather:search" />
             </div>
           </VControl>
+          <VButton color="primary" icon="fas fa-plus" @click="clickAddNotice" elevated>
+            New Notice
+          </VButton>
+          <VModal v-if="isModalOpen" title="add notice"> Modal open </VModal>
 
           <div class="tabs-inner">
             <div class="tabs">
@@ -123,12 +132,6 @@ const clickNoticeDetail = (noticeId: string) => {
                     @keydown.enter="clickNoticeDetail(item.id)"
                   >
                     <div class="list-view-item-inner">
-                      <!-- <img
-                    class="avatar"
-                    :src="item.logo"
-                    alt=""
-                    @error.once="onceImageErrored(150)"
-                  /> -->
                       <div class="meta-left">
                         <h3>{{ item.title }}</h3>
                         <span>
@@ -138,13 +141,6 @@ const clickNoticeDetail = (noticeId: string) => {
                             data-icon="feather:map-pin"
                           />
                           <span>{{ item.location }}</span>
-                          <i aria-hidden="true" class="fas fa-circle icon-separator" />
-                          <i
-                            aria-hidden="true"
-                            class="iconify"
-                            data-icon="feather:clock"
-                          />
-                          <span>{{ item.duration }}</span>
                           <i aria-hidden="true" class="fas fa-circle icon-separator" />
                           <i
                             aria-hidden="true"
@@ -272,6 +268,7 @@ const clickNoticeDetail = (noticeId: string) => {
         .buttons {
           margin-bottom: 0;
           margin-inline-end: 10px;
+          gap: 10px;
         }
       }
     }
