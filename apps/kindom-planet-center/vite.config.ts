@@ -127,6 +127,10 @@ export default defineConfig({
         replacement: `/src/`,
       },
       {
+        find: '/@kp-developer/',
+        replacement: `./src/kp-developer/`,
+      },
+      {
         find: '/@dds/',
         replacement: `/src/dds/`,
       },

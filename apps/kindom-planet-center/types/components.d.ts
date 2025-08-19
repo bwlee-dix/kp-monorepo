@@ -116,7 +116,6 @@ declare module 'vue' {
     DatepickerRangeDocumentation: typeof import('./../documentation/plugins/datepicker/datepicker-range-documentation.md')['default']
     DatepickerTimeDocumentation: typeof import('./../documentation/plugins/datepicker/datepicker-time-documentation.md')['default']
     DatepickerTimeSingleDocumentation: typeof import('./../documentation/plugins/datepicker/datepicker-time-single-documentation.md')['default']
-    DeveloperSideblockLayout: typeof import('./../src/dds/layouts/DeveloperSideblockLayout.vue')['default']
     DocumentationColor: typeof import('./../src/dds/components/partials/documentation/DocumentationColor.vue')['default']
     DocumentationDemoCard: typeof import('./../src/dds/components/partials/documentation/DocumentationDemoCard.vue')['default']
     DocumentationDemoFormValidation: typeof import('./../src/dds/components/partials/documentation/DocumentationDemoFormValidation.vue')['default']

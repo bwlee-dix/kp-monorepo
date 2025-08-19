@@ -26,7 +26,8 @@
         "./node_modules/photoswipe/dist/types/lightbox/lightbox.d.ts"
       ],
       "/@src/*": ["./src/*"],
-      "/@dds/*": ["./src/dds/*"]
+      "/@dds/*": ["./src/dds/*"],
+      "/@kp-developer/*": ["./src/kp-developer/*"]
     }
   },
   "include": [

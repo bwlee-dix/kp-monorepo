@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import DeveloperSideblockLayout from '/@kp-developer/layout/DeveloperSideblockLayout.vue'
 import { useViewWrapper } from '/@dds/stores/viewWrapper'
 
 const viewWrapper = useViewWrapper()

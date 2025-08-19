@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import { useViewWrapper } from '/@dds/stores/viewWrapper'
 
 const viewWrapper = useViewWrapper()
@@ -34,6 +35,30 @@ const data = [
     severity: 'ERROR',
     timestamp: '2025-07-18T10:00:00.000Z',
   },
+  {
+    title: 'POST /api/v1/users - 200 (150ms)',
+    method: 'POST',
+    httpReguest: '{15}',
+    insertId: '1234567891',
+    jsonPayload: '{25}',
+    logName: 'projects/kp-developer/log/api/v1/users',
+    receiveTimestamp: '2025-07-18T10:01:00.000Z',
+    resource: '{3}',
+    severity: 'INFO',
+    timestamp: '2025-07-18T10:01:00.000Z',
+  },
+  {
+    title: 'GET /api/v1/exams - 200 (80ms)',
+    method: 'GET',
+    httpReguest: '{12}',
+    insertId: '1234567892',
+    jsonPayload: '{18}',
+    logName: 'projects/kp-developer/log/api/v1/exams',
+    receiveTimestamp: '2025-07-18T10:02:00.000Z',
+    resource: '{4}',
+    severity: 'WARNING',
+    timestamp: '2025-07-18T10:02:00.000Z',
+  },
 ]
 
 const subData = [
@@ -44,6 +69,22 @@ const subData = [
     url: 'https://api.example.com/users',
     status: '200',
     responseTime: '100ms',
+  },
+  {
+    title: 'httpRequest: ' + data[1].httpReguest,
+    id: '1234567891',
+    method: 'POST',
+    url: 'https://api.example.com/users',
+    status: '200',
+    responseTime: '150ms',
+  },
+  {
+    title: 'httpRequest: ' + data[2].httpReguest,
+    id: '1234567892',
+    method: 'GET',
+    url: 'https://api.example.com/exams',
+    status: '200',
+    responseTime: '80ms',
   },
 ]
 </script>
@@ -123,18 +164,16 @@ const subData = [
                   </div>
                 </div>
                 <div v-show="isLogExpanded(0)" class="log-details">
-                  <VCollapseApi :items="data" with-chevron>
+                  <VCollapseApi :items="[data[0]]" with-chevron>
                     <template #item-0-content="{ item }">
                       <div class="log-item-details">
                         <div class="log-item-details-li">
-                          <VCollapseApiSub :items="subData" with-chevron>
+                          <VCollapseApiSub :items="[subData[0]]" with-chevron>
                             <template #item-0-content="{ item }">
                               <div>id: {{ item.id }}</div>
                               <div>method: {{ item.method }}</div>
                               <div>url: {{ item.url }}</div>
                               <div>status: {{ item.status }}</div>
-                              <div>responseTime: {{ item.responseTime }}</div>
-                              <div>responseTime: {{ item.responseTime }}</div>
                               <div>responseTime: {{ item.responseTime }}</div>
                             </template>
                           </VCollapseApiSub>
@@ -185,18 +224,16 @@ const subData = [
                   </div>
                 </div>
                 <div v-show="isLogExpanded(1)" class="log-details">
-                  <VCollapseApi :items="data" with-chevron>
+                  <VCollapseApi :items="[data[1]]" with-chevron>
                     <template #item-0-content="{ item }">
                       <div class="log-item-details">
                         <div class="log-item-details-li">
-                          <VCollapseApiSub :items="subData" with-chevron>
+                          <VCollapseApiSub :items="[subData[1]]" with-chevron>
                             <template #item-0-content="{ item }">
                               <div>id: {{ item.id }}</div>
                               <div>method: {{ item.method }}</div>
                               <div>url: {{ item.url }}</div>
                               <div>status: {{ item.status }}</div>
-                              <div>responseTime: {{ item.responseTime }}</div>
-                              <div>responseTime: {{ item.responseTime }}</div>
                               <div>responseTime: {{ item.responseTime }}</div>
                             </template>
                           </VCollapseApiSub>
@@ -247,18 +284,16 @@ const subData = [
                   </div>
                 </div>
                 <div v-show="isLogExpanded(2)" class="log-details">
-                  <VCollapseApi :items="data" with-chevron>
+                  <VCollapseApi :items="[data[2]]" with-chevron>
                     <template #item-0-content="{ item }">
                       <div class="log-item-details">
                         <div class="log-item-details-li">
-                          <VCollapseApiSub :items="subData" with-chevron>
+                          <VCollapseApiSub :items="[subData[2]]" with-chevron>
                             <template #item-0-content="{ item }">
                               <div>id: {{ item.id }}</div>
                               <div>method: {{ item.method }}</div>
                               <div>url: {{ item.url }}</div>
                               <div>status: {{ item.status }}</div>
-                              <div>responseTime: {{ item.responseTime }}</div>
-                              <div>responseTime: {{ item.responseTime }}</div>
                               <div>responseTime: {{ item.responseTime }}</div>
                             </template>
                           </VCollapseApiSub>
