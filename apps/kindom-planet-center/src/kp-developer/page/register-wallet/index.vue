@@ -2,24 +2,16 @@
 import { useDarkmode } from '/@dds/stores/darkmode'
 import sleep from '/@dds/utils/sleep'
 
-const isLoading = ref<boolean>(false)
-const darkmode = useDarkmode()
-const router = useRouter()
+import VWallet from '/@kp-developer/component/VWallet.vue'
 import { useCreditcardMask } from '/@dds/composable/useCreditcardMask'
 import { useNotyf } from '/@dds/composable/useNotyf'
 
+const router = useRouter()
+const darkmode = useDarkmode()
 const notyf = useNotyf()
+const { creditcardLogo } = useCreditcardMask()
 
-const {
-  creditcardIcon,
-  creditcardLogo,
-  creditcardColor,
-  creditcardMaskCVC,
-  creditcardMaskDate,
-  creditcardMaskNumber,
-  creditcardMaskNumberOnAccept,
-} = useCreditcardMask()
-
+const isLoading = ref<boolean>(false)
 const isCardFlipped = ref(false)
 const creditcardInput = reactive({
   number: '',
@@ -27,6 +19,31 @@ const creditcardInput = reactive({
   cvc: '',
   expiry: '',
 })
+
+const generatePrivateKey = (): string => {
+  const chars = '0123456789abcdef'
+  let result = ''
+  for (let i = 0; i < 64; i++) {
+    result += chars.charAt(Math.floor(Math.random() * chars.length))
+  }
+  return result
+}
+
+const walletName = ref<string>('')
+const walletAddress = ref<string>('')
+const privateKey = ref<string>(generatePrivateKey())
+
+const formattedWalletAddress = computed(() => {
+  if (!walletAddress.value) return ''
+  const cleanAddress = walletAddress.value.replace(/\s/g, '')
+  if (cleanAddress.length <= 18) return cleanAddress
+  return cleanAddress.substring(0, 18) + '...'
+})
+
+const clickCopy = (): void => {
+  navigator.clipboard.writeText(privateKey.value)
+  notyf.success('Copied to clipboard')
+}
 
 const testCards = [
   '4000056655665556',
@@ -48,15 +65,12 @@ useHead({
   title: 'Register Developer - Kingdom Planet',
 })
 
-const companySize = ref<string>('')
-const businessType = ref<string>('')
-
 const onSubmit = async () => {
   if (!isLoading.value) {
     isLoading.value = true
     await sleep(500)
-    router.push('/register-wallet')
-    notyf.success('Register developer success!')
+    router.push('/app-list')
+    notyf.success('Register wallet success!')
 
     isLoading.value = false
   }
@@ -89,18 +103,26 @@ const onSubmit = async () => {
       <div class="single-form-wrap">
         <div class="inner-wrap">
           <div class="auth-head">
-            <h2>Hello Developer.</h2>
-            <p>Please sign in to your account</p>
-            <RouterLink to="/auth/signup-3"> I do not have an account yet </RouterLink>
+            <h2>Create your Wallet</h2>
+            <p>We will provide rewards for your activities in KP through this wallet!</p>
           </div>
-
+          <VWallet
+            :color="'cyan'"
+            :flipped="isCardFlipped"
+            :name="walletName"
+            :number="formattedWalletAddress"
+            :cvc="privateKey"
+            @flip="isCardFlipped = !isCardFlipped"
+          >
+            <div v-if="creditcardLogo" id="ccsingle" v-html="creditcardLogo" />
+          </VWallet>
           <div class="form-card">
             <form method="post" novalidate class="form-layout" @submit.prevent="onSubmit">
               <div class="form-outer">
                 <div class="form-header stuck-header">
                   <div class="form-header-inner">
                     <div class="left">
-                      <h3>Register developer</h3>
+                      <h3>Wallet Info</h3>
                     </div>
                     <div class="right">
                       <div class="buttons">
@@ -120,18 +142,22 @@ const onSubmit = async () => {
                   <div class="row">
                     <div class="fieldset">
                       <div class="fieldset-heading">
-                        <h4>Personal Info</h4>
-                        <p>This helps us to know you</p>
+                        <h4>Wallet Required Info</h4>
+                        <p>
+                          Please fill in the following information to register your
+                          wallet.
+                        </p>
                       </div>
 
                       <div class="columns is-multiline">
                         <div class="column is-6">
                           <VField>
-                            <VLabel>First Name</VLabel>
-                            <VControl icon="feather:user">
+                            <VLabel>Wallet Name</VLabel>
+                            <VControl icon="lucide:wallet-cards">
                               <VInput
                                 type="text"
                                 placeholder=""
+                                v-model="walletName"
                                 autocomplete="given-name"
                               />
                             </VControl>
@@ -139,22 +165,64 @@ const onSubmit = async () => {
                         </div>
                         <div class="column is-6">
                           <VField>
-                            <VLabel>Last Name</VLabel>
-                            <VControl icon="feather:user">
+                            <VLabel>Wallet Address</VLabel>
+                            <VControl icon="lucide:mailbox">
                               <VInput
                                 type="text"
                                 placeholder=""
+                                v-model="walletAddress"
                                 autocomplete="family-name"
+                                @input="
+                                  (e: Event) =>
+                                    (walletAddress = (
+                                      e.target as HTMLInputElement
+                                    ).value.replace(/\s/g, ''))
+                                "
                               />
                             </VControl>
                           </VField>
                         </div>
                         <div class="column is-12">
                           <VField>
-                            <VLabel>Email Address</VLabel>
-                            <VControl icon="feather:mail">
+                            <VLabel>Private Key</VLabel>
+                            <VControl icon="lucide:key-round">
+                              <div class="private-key-container">
+                                <VInput
+                                  v-model="privateKey"
+                                  type="text"
+                                  placeholder="Private key will be generated automatically"
+                                  inputmode="text"
+                                  readonly
+                                  disabled
+                                />
+                                <VButton
+                                  type="button"
+                                  color="info"
+                                  @click="clickCopy"
+                                  class="regenerate-btn"
+                                  icon="lucide:copy"
+                                >
+                                  Copy
+                                </VButton>
+                              </div>
+                            </VControl>
+                          </VField>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- <div class="fieldset">
+                      <div class="fieldset-heading">
+                        <h4>Optional Info</h4>
+                        <p>Tell us about your more information (Optional)</p>
+                      </div>
+
+                      <div class="columns is-multiline">
+                        <div class="column is-6">
+                          <VField>
+                            <VLabel>Email</VLabel>
+                            <VControl icon="lucide:mail">
                               <VInput
-                                type="email"
+                                type="text"
                                 placeholder=""
                                 autocomplete="email"
                                 inputmode="email"
@@ -162,74 +230,15 @@ const onSubmit = async () => {
                             </VControl>
                           </VField>
                         </div>
-                      </div>
-                    </div>
-                    <div class="fieldset">
-                      <div class="fieldset-heading">
-                        <h4>Company Info</h4>
-                        <p>Tell us about your company</p>
-                      </div>
-
-                      <div class="columns is-multiline">
                         <div class="column is-6">
                           <VField>
-                            <VLabel>Company Name</VLabel>
-                            <VControl icon="feather:briefcase">
+                            <VLabel>Email</VLabel>
+                            <VControl icon="lucide:mail">
                               <VInput
                                 type="text"
                                 placeholder=""
-                                autocomplete="organization"
-                              />
-                            </VControl>
-                          </VField>
-                        </div>
-                        <div class="column is-6">
-                          <VField>
-                            <VLabel>Company Phone</VLabel>
-                            <VControl icon="feather:phone">
-                              <VInput
-                                type="tel"
-                                placeholder=""
-                                autocomplete="tel"
-                                inputmode="tel"
-                              />
-                            </VControl>
-                          </VField>
-                        </div>
-                        <div class="column is-6">
-                          <VField v-slot="{ id }">
-                            <VLabel>Company Size</VLabel>
-                            <VControl>
-                              <Multiselect
-                                v-model="companySize"
-                                :attrs="{ id }"
-                                placeholder="Select a size"
-                                :options="[
-                                  '1-5 Employees',
-                                  '5-25 Employees',
-                                  '25-50 Employees',
-                                  '50-100 Employees',
-                                  '100+ Employees',
-                                ]"
-                              />
-                            </VControl>
-                          </VField>
-                        </div>
-                        <div class="column is-6">
-                          <VField v-slot="{ id }">
-                            <VLabel>Business Type</VLabel>
-                            <VControl>
-                              <Multiselect
-                                v-model="businessType"
-                                :attrs="{ id }"
-                                placeholder="Select a type"
-                                :options="[
-                                  'Government',
-                                  'Medical',
-                                  'Finance',
-                                  'Services',
-                                  'Technology',
-                                ]"
+                                autocomplete="email"
+                                inputmode="email"
                               />
                             </VControl>
                           </VField>
@@ -248,109 +257,7 @@ const onSubmit = async () => {
                           </VField>
                         </div>
                       </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="payment-container-title">
-                      <h3>Payment information</h3>
-                      <span
-                        tabindex="0"
-                        role="button"
-                        @keydown.space.prevent="randomCard"
-                        @click="randomCard"
-                      >
-                        Randomize
-                      </span>
-                    </div>
-
-                    <VCreditCard
-                      :color="creditcardColor"
-                      :flipped="isCardFlipped"
-                      :name="creditcardInput.name"
-                      :number="creditcardInput.number"
-                      :cvc="creditcardInput.cvc"
-                      :expiry="creditcardInput.expiry"
-                      @flip="isCardFlipped = !isCardFlipped"
-                    >
-                      <div v-if="creditcardLogo" id="ccsingle" v-html="creditcardLogo" />
-                    </VCreditCard>
-
-                    <div class="form-container">
-                      <div class="columns is-multiline">
-                        <div class="column is-12">
-                          <VField id="name" label="Name">
-                            <VControl>
-                              <VInput
-                                v-model="creditcardInput.name"
-                                autocomplete="cc-given-name"
-                                maxlength="20"
-                                type="text"
-                                placeholder="The name on the card"
-                                @focus="isCardFlipped = false"
-                              />
-                              <VField id="cardnumber" v-slot="{ id }" label="Card Number">
-                                <VControl>
-                                  <VIMaskInput
-                                    :id="id"
-                                    v-model="creditcardInput.number"
-                                    class="input"
-                                    autocomplete="cc-number"
-                                    :options="creditcardMaskNumber"
-                                    placeholder="Credit card number"
-                                    @focus="isCardFlipped = false"
-                                    @accept="creditcardMaskNumberOnAccept"
-                                  />
-                                  <div
-                                    id="creditcardIcon"
-                                    class="creditcardIcon"
-                                    v-html="creditcardIcon"
-                                  />
-                                </VControl>
-                              </VField>
-                            </VControl>
-                          </VField>
-                        </div>
-                        <div class="column is-12"></div>
-                        <div class="column is-6">
-                          <VField id="expirationdate" v-slot="{ id }" label="Expiration">
-                            <VControl>
-                              <VIMaskInput
-                                :id="id"
-                                v-model="creditcardInput.expiry"
-                                autocomplete="cc-exp"
-                                class="input"
-                                :options="creditcardMaskDate"
-                                placeholder="MM / YY"
-                                @focus="isCardFlipped = false"
-                              />
-                            </VControl>
-                          </VField>
-                        </div>
-                        <div class="column is-6">
-                          <VField id="securitycode" v-slot="{ id }" label="CVC">
-                            <VControl>
-                              <VIMaskInput
-                                :id="id"
-                                v-model="creditcardInput.cvc"
-                                autocomplete="cc-csc"
-                                class="input"
-                                :options="creditcardMaskCVC"
-                                placeholder="3 digits code"
-                                @focus="isCardFlipped = true"
-                              />
-                            </VControl>
-                          </VField>
-                        </div>
-                        <div class="column is-12">
-                          <div class="button-wrap">
-                            <VButton type="submit" color="primary" raised fullwidth>
-                              Save Payment Method
-                            </VButton>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="payment-form"></div>
+                    </div> -->
                   </div>
                 </div>
               </div>
@@ -376,14 +283,13 @@ const onSubmit = async () => {
   .row {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 48px;
 
     .fieldset {
       .fieldset-heading {
         display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-direction: row;
+        flex-direction: column;
+        gap: 4px;
         padding-bottom: 16px;
       }
     }
@@ -404,7 +310,7 @@ const onSubmit = async () => {
   }
 }
 .form-layout {
-  max-width: 1200px;
+  max-width: 800px;
   margin: 0 auto;
 }
 .register-wrapper-inner {
@@ -506,7 +412,7 @@ const onSubmit = async () => {
   }
 
   .forgot-link {
-    margin-top: 10px;
+    /* margin-top: 10px; */
 
     a {
       font-family: var(--font-alt);
@@ -622,15 +528,21 @@ const onSubmit = async () => {
     justify-content: center;
 
     .inner-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
       width: 100%;
       margin: 6rem auto 0;
 
       .auth-head {
-        max-width: 320px;
+        max-width: 480px;
         width: 100%;
         margin: 0 auto;
-        margin-bottom: 2rem;
+        /* margin-bottom: 2rem; */
         text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
 
         h2 {
           font-size: 2rem;
@@ -652,11 +564,16 @@ const onSubmit = async () => {
         }
       }
 
+      .card-container {
+        margin-bottom: 2rem;
+        /* margin-top: 2rem; */
+      }
+
       .form-card {
         margin-bottom: 6rem;
 
         .v-button {
-          margin-top: 10px;
+          /* margin-top: 10px; */
         }
       }
     }
@@ -752,6 +669,22 @@ const onSubmit = async () => {
   .signup-columns {
     max-width: 460px;
     margin: 0 auto;
+  }
+}
+
+// 개인키 컨테이너 스타일
+.private-key-container {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+
+  .v-input {
+    flex: 1;
+  }
+
+  .regenerate-btn {
+    padding: 0 12px 0 16px;
+    min-height: initial;
   }
 }
 </style>

@@ -6,11 +6,13 @@ export function useApiChart() {
   const apiOption = shallowRef({
     series: [
       {
-        name: '호출',
+        name: 'Calls',
         data: [
           600, 0, 800, 600, 400, 200, 0, 0, 0, 200, 150, 1000, 600, 0, 0, 0, 50, 0, 0, 0,
           0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
         ],
+        borderColor: themeColors.primary,
+        backgroundColor: themeColors.primary,
       },
     ],
     chart: {
@@ -101,11 +103,11 @@ export function useApiChart() {
         format: 'dd/MM/yy',
       },
       axisBorder: {
-        color: '#525252',
+        color: themeColors.lightText,
         height: 1,
       },
       axisTicks: {
-        color: '#525252',
+        color: themeColors.lightText,
         height: 6,
       },
     },
@@ -133,12 +135,6 @@ export function useApiChart() {
       y: {
         formatter: (value: number) => `${value} `,
       },
-    },
-    grid: {
-      borderColor: '#525252',
-    },
-    theme: {
-      mode: 'dark',
     },
   })
 
