@@ -162,13 +162,20 @@ watch(
           <h3>KP Admin</h3>
         </template>
         <template #menu>
-          <VDropdown title="GMMA" spaced>
+          <VDropdown title="Apps" spaced>
             <template #content>
               <a href="#" class="dropdown-item is-media">
                 <img class="item-img" src="/images/gmma_v2.png" alt="" />
                 <div class="meta">
-                  <span>GMMA</span>
-                  <span>New York, UserData</span>
+                  <span>GMMA - Onnuri</span>
+                  <span>New York, USA</span>
+                </div>
+              </a>
+              <a href="#" class="dropdown-item is-media">
+                <img class="item-img" src="/images/gmma_v2.png" alt="" />
+                <div class="meta">
+                  <span>GMMA - Somang</span>
+                  <span>New York, USA</span>
                 </div>
               </a>
               <a href="#" class="dropdown-item is-media is-active">
@@ -183,33 +190,6 @@ watch(
                 <img class="item-img" src="/images/logo_type_deepenqt.svg" alt="" />
                 <div class="meta">
                   <span>DeepenQT</span>
-                  <span>San Francisco, USA</span>
-                </div>
-              </a>
-            </template>
-          </VDropdown>
-          <div style="height: 12px" />
-          <VDropdown title="Organization" spaced>
-            <template #content>
-              <a href="#" class="dropdown-item is-media">
-                <img class="item-img" src="/demo/avatars/7.jpg" alt="" />
-                <div class="meta">
-                  <span>daeun lee</span>
-                  <span>Gangdong-gu, Seoul</span>
-                </div>
-              </a>
-              <a href="#" class="dropdown-item is-media is-active">
-                <img class="item-img" src="/demo/avatars/7.jpg" alt="" />
-                <div class="meta">
-                  <span>bwlee-dix</span>
-                  <span>Ilsandong-gu, Goyang</span>
-                </div>
-              </a>
-              <hr class="dropdown-divider" />
-              <a href="#" class="dropdown-item is-media">
-                <img class="item-img" src="/demo/avatars/7.jpg" alt="" />
-                <div class="meta">
-                  <span>jhkim-dix</span>
                   <span>San Francisco, USA</span>
                 </div>
               </a>
