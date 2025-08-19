@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import type { SideblockTheme } from '/@dds/components/navigation/desktop/Sideblock.vue'
-import { usePanels } from '/@dds/stores/panels'
+import { useKpPanels } from '../composable/panels'
+import WalletPanel from '../component/WalletPanel.vue'
+
 import { useViewWrapper } from '/@dds/stores/viewWrapper'
 
 const props = withDefaults(
@@ -18,7 +20,8 @@ const props = withDefaults(
 )
 
 const viewWrapper = useViewWrapper()
-const panels = usePanels()
+const panels = useKpPanels()
+// const panelsDds = usePanelsDds()
 const route = useRoute()
 
 const isMobileSideblockOpen = ref(false)
@@ -91,17 +94,17 @@ onMounted(() => {
       </template>
 
       <template #bottom-links>
-        <li>
+        <!-- <li>
           <a
             aria-label="Display search panel"
             tabindex="0"
             role="button"
-            @keydown.space.prevent="panels.setActive('search')"
-            @click="panels.setActive('search')"
+            @keydown.space.prevent="panelsDds.setActive('search')"
+            @click="panelsDds.setActive('search')"
           >
             <i aria-hidden="true" class="iconify" data-icon="feather:search" />
           </a>
-        </li>
+        </li> -->
         <li>
           <a aria-label="View settings" href="#">
             <i aria-hidden="true" class="iconify" data-icon="feather:settings" />
@@ -135,7 +138,7 @@ onMounted(() => {
           </RouterLink>
           <h3>Developer</h3>
         </template>
-        <template #menu>
+        <!-- <template #menu>
           <VDropdown title="GMMA" full-width spaced>
             <template #content>
               <a href="#" class="dropdown-item is-media">
@@ -152,7 +155,7 @@ onMounted(() => {
               </a>
             </template>
           </VDropdown>
-        </template>
+        </template> -->
 
         <template #links>
           <li>
@@ -204,10 +207,10 @@ onMounted(() => {
       </Sideblock>
     </Transition>
 
-    <LanguagesPanel />
-    <ActivityPanel />
-    <SearchPanel />
-    <TaskPanel />
+    <!-- <LanguagesPanel /> -->
+    <WalletPanel />
+    <!-- <SearchPanel /> -->
+    <!-- <TaskPanel /> -->
 
     <VViewWrapper full>
       <VPageContentWrapper>
@@ -245,14 +248,17 @@ onMounted(() => {
 
             <Toolbar class="desktop-toolbar">
               <ToolbarNotification />
-
+              <div class="wallet-container" @click="panels.setActive('wallet')">
+                <img src="/images/kp_logo_single.png" alt="KCP" />
+                <span class="wallet-balance">52.0 KCP</span>
+              </div>
               <a
                 class="toolbar-link right-panel-trigger"
                 aria-label="View activity panel"
                 tabindex="0"
                 role="button"
-                @keydown.space.prevent="panels.setActive('activity')"
-                @click="panels.setActive('activity')"
+                @keydown.space.prevent="panels.setActive('wallet')"
+                @click="panels.setActive('wallet')"
               >
                 <i aria-hidden="true" class="iconify" data-icon="feather:grid" />
               </a>
@@ -265,3 +271,22 @@ onMounted(() => {
     </VViewWrapper>
   </div>
 </template>
+
+<style lang="scss" scoped>
+.wallet-container {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  margin: 0 8px;
+  background-color: var(--placeload-nuance-from);
+  cursor: pointer;
+
+  .wallet-balance {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--dark-text);
+  }
+}
+</style>
