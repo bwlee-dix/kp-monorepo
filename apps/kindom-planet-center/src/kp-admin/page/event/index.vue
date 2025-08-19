@@ -13,8 +13,8 @@ useHead({
   title: 'Event - App name - KingdomPlanet',
 })
 
-type TabId = 'enable' | 'disable'
-const activeTab = ref<TabId>('enable')
+type TabId = 'Enable' | 'Disable'
+const activeTab = ref<TabId>('Enable')
 const filters = ref('')
 
 const filteredData = computed(() => {
@@ -59,22 +59,22 @@ const clickEvent = (id: string) => {
           <div class="tabs-inner">
             <div class="tabs">
               <ul>
-                <li :class="[activeTab === 'enable' && 'is-active']">
+                <li :class="[activeTab === 'Enable' && 'is-active']">
                   <a
                     tabindex="0"
                     role="button"
-                    @keydown.space.prevent="activeTab = 'enable'"
-                    @click="activeTab = 'enable'"
-                    ><span>enable</span></a
+                    @keydown.space.prevent="activeTab = 'Enable'"
+                    @click="activeTab = 'Enable'"
+                    ><span>Enable</span></a
                   >
                 </li>
-                <li :class="[activeTab === 'disable' && 'is-active']">
+                <li :class="[activeTab === 'Disable' && 'is-active']">
                   <a
                     tabindex="0"
                     role="button"
-                    @keydown.space.prevent="activeTab = 'disable'"
-                    @click="activeTab = 'disable'"
-                    ><span>disable</span></a
+                    @keydown.space.prevent="activeTab = 'Disable'"
+                    @click="activeTab = 'Disable'"
+                    ><span>Disable</span></a
                   >
                 </li>
                 <li class="tab-naver" />
@@ -113,7 +113,7 @@ const clickEvent = (id: string) => {
             <div
               id="active-items-tab"
               class="tab-content"
-              :class="[activeTab === 'enable' && 'is-active']"
+              :class="[activeTab === 'Enable' && 'is-active']"
             >
               <div class="list-view-inner">
                 <TransitionGroup name="list-complete" tag="div">
@@ -191,7 +191,7 @@ const clickEvent = (id: string) => {
             <div
               id="inactive-items-tab"
               class="tab-content"
-              :class="[activeTab === 'disable' && 'is-active']"
+              :class="[activeTab === 'Disable' && 'is-active']"
             >
               <div class="list-view-inner">
                 <!--Empty placeholder-->
