@@ -1,11 +1,12 @@
 <script setup lang="ts">
+import VTag from '/@src/dds/components/base/tags/VTag.vue'
+import VAvatarStack from '/@src/dds/components/base/avatar/VAvatarStack.vue'
+import FlexTableDropdown from '/@src/dds/components/partials/dropdowns/FlexTableDropdown.vue'
+
 import { useViewWrapper } from '/@dds/stores/viewWrapper'
-import VTag from '/@dds/mponents/base/tags/VTag.vue'
-import FlexTableDropdown from '/@dds/mponents/partials/dropdowns/FlexTableDropdown.vue'
-import VAvatarStack from '/@dds/mponents/base/avatar/VAvatarStack.vue'
-import { flexRowsAdvanced } from '/@dds/ta/documentation/table'
 import { onceImageErrored } from '/@dds/utils/via-placeholder'
 import { RouterLink } from 'vue-router/auto'
+import { flexRowsAdvanced } from '/@src/dds/data/documentation/table'
 
 const collator = new Intl.Collator('en')
 const numberFormat = new Intl.NumberFormat('en-US', {
@@ -337,7 +338,7 @@ const exampleColumns = {
 </template>
 
 <style lang="scss">
-@import '/@src/scss/abstracts/all';
+@import '/@dds/scss/abstracts/all';
 
 .all-projects {
   .section-heading {
