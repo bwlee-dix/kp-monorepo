@@ -156,7 +156,7 @@ watch(
     <Transition name="slide-x">
       <Sideblock v-if="isDesktopSideblockOpen" :theme="props.theme">
         <template #header>
-          <RouterLink to="/" class="sidebar-block-logo">
+          <RouterLink to="/app-list" class="sidebar-block-logo">
             <img src="/images/kp_logo.png" alt="" class="logo" />
           </RouterLink>
           <h3>KP Admin</h3>
