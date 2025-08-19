@@ -52,7 +52,9 @@ const onSubmit = () => {
                   >
                     Cancel
                   </VButton>
-                  <VButton type="submit" color="primary" raised> Submit </VButton>
+                  <VButton type="submit" to="/event" color="primary" raised>
+                    Submit
+                  </VButton>
                 </div>
               </div>
             </div>
