@@ -13,8 +13,8 @@ useHead({
   title: 'Event - App name - KingdomPlanet',
 })
 
-type TabId = 'all' | 'saved'
-const activeTab = ref<TabId>('all')
+type TabId = 'Enable' | 'Disable'
+const activeTab = ref<TabId>('Enable')
 const filters = ref('')
 
 const filteredData = computed(() => {
@@ -59,22 +59,22 @@ const clickEvent = (id: string) => {
           <div class="tabs-inner">
             <div class="tabs">
               <ul>
-                <li :class="[activeTab === 'all' && 'is-active']">
+                <li :class="[activeTab === 'Enable' && 'is-active']">
                   <a
                     tabindex="0"
                     role="button"
-                    @keydown.space.prevent="activeTab = 'all'"
-                    @click="activeTab = 'all'"
-                    ><span>All</span></a
+                    @keydown.space.prevent="activeTab = 'Enable'"
+                    @click="activeTab = 'Enable'"
+                    ><span>Enable</span></a
                   >
                 </li>
-                <li :class="[activeTab === 'saved' && 'is-active']">
+                <li :class="[activeTab === 'Disable' && 'is-active']">
                   <a
                     tabindex="0"
                     role="button"
-                    @keydown.space.prevent="activeTab = 'saved'"
-                    @click="activeTab = 'saved'"
-                    ><span>Saved</span></a
+                    @keydown.space.prevent="activeTab = 'Disable'"
+                    @click="activeTab = 'Disable'"
+                    ><span>Disable</span></a
                   >
                 </li>
                 <li class="tab-naver" />
@@ -113,7 +113,7 @@ const clickEvent = (id: string) => {
             <div
               id="active-items-tab"
               class="tab-content"
-              :class="[activeTab === 'all' && 'is-active']"
+              :class="[activeTab === 'Enable' && 'is-active']"
             >
               <div class="list-view-inner">
                 <TransitionGroup name="list-complete" tag="div">
@@ -128,12 +128,12 @@ const clickEvent = (id: string) => {
                     @keydown.enter="clickEvent(item.id)"
                   >
                     <div class="list-view-item-inner">
-                      <img
+                      <!-- <img
                         class="avatar"
                         :src="item.logo"
                         alt=""
                         @error.once="onceImageErrored(150)"
-                      />
+                      /> -->
                       <div class="meta-left">
                         <h3>
                           {{ item.title }}
@@ -191,14 +191,14 @@ const clickEvent = (id: string) => {
             <div
               id="inactive-items-tab"
               class="tab-content"
-              :class="[activeTab === 'saved' && 'is-active']"
+              :class="[activeTab === 'Disable' && 'is-active']"
             >
               <div class="list-view-inner">
                 <!--Empty placeholder-->
                 <VPlaceholderPage
-                  title="No saved jobs."
-                  subtitle="Looks like you don't have any saved jobs for the moment. It's
-                  also possible that some of your saved items expired."
+                  title="No disable jobs."
+                  subtitle="Looks like you don't have any disable jobs for the moment. It's
+                  also possible that some of your disable items expired."
                 >
                   <template #image>
                     <img

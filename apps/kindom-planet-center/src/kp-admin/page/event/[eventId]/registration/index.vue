@@ -1,19 +1,16 @@
 <script setup lang="ts">
 import { useViewWrapper } from '/@dds/stores/viewWrapper'
-
-import { userList } from '/@dds/ta/layouts/datatable-v1'
-
-import type { VAvatarProps } from '/@dds/mponents/base/avatar/VAvatar.vue'
+import { VAvatarProps } from '/@src/dds/components/base/avatar/VAvatar.vue'
+import { userList } from '/@src/dds/data/layouts/datatable-v1'
 
 const viewWrapper = useViewWrapper()
-
 const router = useRouter()
 
 const eventId = (router.currentRoute.value.params as any).eventId as string
 viewWrapper.setPageTitle('KOSTA 2025 참가자 목록')
 
 useHead({
-  title: 'Event - App name - KingdomPlanet',
+  title: 'Registration - App name - KingdomPlanet',
 })
 
 export interface UserData extends VAvatarProps {

@@ -52,6 +52,17 @@ declare module 'vue-router/auto/routes' {
     '/body/log/': RouteRecordInfo<'/body/log/', '/body/log', Record<never, never>, Record<never, never>>,
     '/body/user/': RouteRecordInfo<'/body/user/', '/body/user', Record<never, never>, Record<never, never>>,
     '/register/': RouteRecordInfo<'/register/', '/register', Record<never, never>, Record<never, never>>,
+    '/auth/': RouteRecordInfo<'/auth/', '/auth', Record<never, never>, Record<never, never>>,
+    '/dashboard/': RouteRecordInfo<'/dashboard/', '/dashboard', Record<never, never>, Record<never, never>>,
+    '/event/': RouteRecordInfo<'/event/', '/event', Record<never, never>, Record<never, never>>,
+    '/event/[eventId]/': RouteRecordInfo<'/event/[eventId]/', '/event/:eventId', { eventId: ParamValue<true> }, { eventId: ParamValue<false> }>,
+    '/event/[eventId]/registration/': RouteRecordInfo<'/event/[eventId]/registration/', '/event/:eventId/registration', { eventId: ParamValue<true> }, { eventId: ParamValue<false> }>,
+    '/event/[eventId]/registration/[registrationId]/': RouteRecordInfo<'/event/[eventId]/registration/[registrationId]/', '/event/:eventId/registration/:registrationId', { eventId: ParamValue<true>, registrationId: ParamValue<true> }, { eventId: ParamValue<false>, registrationId: ParamValue<false> }>,
+    '/group/': RouteRecordInfo<'/group/', '/group', Record<never, never>, Record<never, never>>,
+    '/group/[groupId]/': RouteRecordInfo<'/group/[groupId]/', '/group/:groupId', { groupId: ParamValue<true> }, { groupId: ParamValue<false> }>,
+    '/member/': RouteRecordInfo<'/member/', '/member', Record<never, never>, Record<never, never>>,
+    '/notice/': RouteRecordInfo<'/notice/', '/notice', Record<never, never>, Record<never, never>>,
+    '/notice/[noticeId]/': RouteRecordInfo<'/notice/[noticeId]/', '/notice/:noticeId', { noticeId: ParamValue<true> }, { noticeId: ParamValue<false> }>,
   }
 }
 
