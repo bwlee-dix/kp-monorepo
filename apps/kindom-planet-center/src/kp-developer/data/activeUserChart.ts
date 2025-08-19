@@ -90,11 +90,11 @@ export function useActiveUserChart() {
         rotate: 0,
       },
       axisBorder: {
-        color: '#525252',
+        color: themeColors.lightText,
         height: 1,
       },
       axisTicks: {
-        color: '#525252',
+        color: themeColors.lightText,
         height: 6,
       },
     },
@@ -116,13 +116,10 @@ export function useActiveUserChart() {
         format: 'EEE dd MMM',
       },
       y: {
-        formatter: (value: number) => `${value} 사용자`,
+        formatter: (value: number) => `${value} Users`,
       },
       shared: true,
       intersect: false,
-    },
-    theme: {
-      mode: 'dark',
     },
   })
 
