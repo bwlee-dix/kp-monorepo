@@ -138,7 +138,7 @@ onMounted(() => {
           </RouterLink>
           <h3>Developer</h3>
         </template>
-        <!-- <template #menu>
+        <template #menu>
           <VDropdown title="GMMA" full-width spaced>
             <template #content>
               <a href="#" class="dropdown-item is-media">
@@ -155,7 +155,7 @@ onMounted(() => {
               </a>
             </template>
           </VDropdown>
-        </template> -->
+        </template>
 
         <template #links>
           <li>
