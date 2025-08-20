@@ -69,7 +69,7 @@ function logout() {
         </div>
       </a>
 
-      <a href="/mypage" role="menuitem" class="dropdown-item is-media">
+      <a href="/mypage/reward" role="menuitem" class="dropdown-item is-media">
         <div class="icon">
           <i aria-hidden="true" class="lnil lnil-users-alt" />
         </div>
