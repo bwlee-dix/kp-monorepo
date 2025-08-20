@@ -143,6 +143,11 @@ const filteredData = computed(() => {
   }
 }
 
+.page-content-inner {
+  display: flex;
+  flex-direction: column;
+}
+
 .datatable-toolbar {
   display: flex;
   align-items: center;

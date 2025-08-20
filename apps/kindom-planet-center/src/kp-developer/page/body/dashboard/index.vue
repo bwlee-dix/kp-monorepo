@@ -65,6 +65,7 @@ useHead({
 }
 
 .analytics-dashboard {
+  width: 100%;
   .text-h-green {
     color: var(--green);
   }
