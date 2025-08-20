@@ -4,6 +4,8 @@ import { useKpPanels } from '../composable/panels'
 import WalletPanel from '../component/WalletPanel.vue'
 
 import { useViewWrapper } from '/@dds/stores/viewWrapper'
+import UserProfileDropdown from '../component/UserProfileDropdown.vue'
+import Toolbar from '../component/Toolbar.vue'
 
 const props = withDefaults(
   defineProps<{
@@ -21,7 +23,6 @@ const props = withDefaults(
 
 const viewWrapper = useViewWrapper()
 const panels = useKpPanels()
-// const panelsDds = usePanelsDds()
 const route = useRoute()
 
 const isMobileSideblockOpen = ref(false)
@@ -94,17 +95,6 @@ onMounted(() => {
       </template>
 
       <template #bottom-links>
-        <!-- <li>
-          <a
-            aria-label="Display search panel"
-            tabindex="0"
-            role="button"
-            @keydown.space.prevent="panelsDds.setActive('search')"
-            @click="panelsDds.setActive('search')"
-          >
-            <i aria-hidden="true" class="iconify" data-icon="feather:search" />
-          </a>
-        </li> -->
         <li>
           <a aria-label="View settings" href="#">
             <i aria-hidden="true" class="iconify" data-icon="feather:settings" />
@@ -207,10 +197,7 @@ onMounted(() => {
       </Sideblock>
     </Transition>
 
-    <!-- <LanguagesPanel /> -->
     <WalletPanel />
-    <!-- <SearchPanel /> -->
-    <!-- <TaskPanel /> -->
 
     <VViewWrapper full>
       <VPageContentWrapper>
@@ -247,24 +234,13 @@ onMounted(() => {
             </div>
 
             <Toolbar class="desktop-toolbar">
-              <ToolbarNotification />
               <div class="wallet-container" @click="panels.setActive('wallet')">
                 <img src="/images/kp_logo_single.png" alt="KCP" />
                 <span class="wallet-balance">52.0 KCP</span>
               </div>
-              <a
-                class="toolbar-link right-panel-trigger"
-                aria-label="View activity panel"
-                tabindex="0"
-                role="button"
-                @keydown.space.prevent="panels.setActive('wallet')"
-                @click="panels.setActive('wallet')"
-              >
-                <i aria-hidden="true" class="iconify" data-icon="feather:grid" />
-              </a>
+              <UserProfileDropdown />
             </Toolbar>
           </div>
-
           <slot />
         </VPageContent>
       </VPageContentWrapper>
@@ -273,6 +249,9 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
+.page-content {
+  padding: 40px;
+}
 .wallet-container {
   display: flex;
   align-items: center;
