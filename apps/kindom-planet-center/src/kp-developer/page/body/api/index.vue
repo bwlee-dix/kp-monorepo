@@ -4,6 +4,13 @@ import { useViewWrapper } from '/@dds/stores/viewWrapper'
 const viewWrapper = useViewWrapper()
 viewWrapper.setPageTitle('API')
 
+interface kpApiListItem {
+  id: string
+  method: string
+  url: string
+  title: string
+}
+
 const kpApiList = [
   {
     id: 'post-admin/auth/verify-token',
@@ -98,9 +105,28 @@ const kpApiList = [
 ]
 
 const isShowAPIList = ref(false)
-const apiList = ref<any[]>([])
-const selectedApiItems = ref<any[]>([]) // Temporary selection state
-const removedFromApiList = ref<any[]>([]) // Track items removed from apiList during modal session
+const apiList = ref<kpApiListItem[]>([
+  {
+    id: 'post-admin/auth/verify-token',
+    method: 'post',
+    url: '/admin/auth/verify-token',
+    title: 'Verify User Token',
+  },
+  {
+    id: 'post-admin/auth/members',
+    method: 'post',
+    url: '/admin/auth/members',
+    title: 'Add User',
+  },
+  {
+    id: 'get-admin/auth/members/{uid}',
+    method: 'get',
+    url: '/admin/auth/members/{uid}',
+    title: 'Get User Infomation',
+  },
+])
+const selectedApiItems = ref<any[]>([])
+const removedFromApiList = ref<any[]>([])
 
 // Get VTag color based on HTTP method
 const getTagColor = (method: string) => {
