@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { useViewWrapper } from '/@dds/stores/viewWrapper'
 import { useUserSession } from '../store/userSession'
+import Toolbar from '../component/Toolbar.vue'
+import UserProfileDropdown from '../component/UserProfileDropdown.vue'
 
 const userSession = useUserSession()
 
@@ -47,19 +49,10 @@ const isDesktopSideblockOpen = ref(false)
             </div>
 
             <Toolbar class="desktop-toolbar">
-              <ToolbarNotification />
               <div class="wallet-container">
                 <img src="/images/kp_logo_single.png" alt="KCP" />
                 <span class="wallet-balance">52.0 KCP</span>
               </div>
-              <a
-                class="toolbar-link right-panel-trigger"
-                aria-label="View activity panel"
-                tabindex="0"
-                role="button"
-              >
-                <i aria-hidden="true" class="iconify" data-icon="feather:grid" />
-              </a>
               <UserProfileDropdown />
             </Toolbar>
           </div>
@@ -80,6 +73,9 @@ const isDesktopSideblockOpen = ref(false)
                     size="large"
                     picture="/images/avatars/svg/vuero-1.svg"
                     badge="/images/icons/flags/united-states-of-america.svg"
+                    @contextmenu.prevent
+                    @dragstart.prevent
+                    @selectstart.prevent
                   />
                 </template>
                 <template #action>
