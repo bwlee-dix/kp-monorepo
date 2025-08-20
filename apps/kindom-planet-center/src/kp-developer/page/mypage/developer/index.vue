@@ -239,7 +239,7 @@ const businessTypeOptions = [
                     <h5>Payment information</h5>
                   </div>
                   <KpCreditCard
-                    :color="'grey'"
+                    :color="'purple'"
                     :flipped="false"
                     :name="paymentInfo.cardholderName"
                     :number="paymentInfo.cardNumber"
