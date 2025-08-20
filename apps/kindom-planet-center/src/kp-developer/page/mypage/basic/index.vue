@@ -44,9 +44,7 @@ const userBasicInfoBackup = ref<{
             </div>
 
             <div class="right">
-              <div class="buttons">
-                <VButton type="submit" icon="lucide:pen-line" raised> Edit </VButton>
-              </div>
+              <VButton type="submit" icon="lucide:pen-line" raised> Edit </VButton>
             </div>
           </div>
         </div>
