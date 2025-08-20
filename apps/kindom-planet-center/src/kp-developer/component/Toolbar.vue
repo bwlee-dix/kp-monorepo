@@ -1,9 +1,7 @@
 <script setup lang="ts">
 import { useDarkmode } from '/@dds/stores/darkmode'
-import { usePanels } from '/@dds/stores/panels'
 
 const darkmode = useDarkmode()
-const panels = usePanels()
 </script>
 
 <template>
@@ -21,6 +19,7 @@ const panels = usePanels()
           :checked="!darkmode.isDark"
           @change="darkmode.onChange"
         />
+        <span />
       </label>
     </div>
 

@@ -61,7 +61,7 @@ const isDesktopSideblockOpen = ref(false)
         </VPageContent>
 
         <div class="columns">
-          <div class="column is-4">
+          <div class="column is-3">
             <div class="account-box is-navigation">
               <VBlock
                 :title="userSession.user?.name ?? 'Tester'"
@@ -119,7 +119,7 @@ const isDesktopSideblockOpen = ref(false)
               </div>
             </div>
           </div>
-          <div class="column is-8">
+          <div class="column is-9">
             <RouterView v-slot="{ Component }">
               <Transition name="fade-fast" mode="out-in">
                 <component :is="Component" />
