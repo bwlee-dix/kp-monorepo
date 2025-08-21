@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import type { SideblockTheme } from '/@dds/components/navigation/desktop/Sideblock.vue'
-import { usePanels } from '/@dds/stores/panels'
+import { usePanel } from '/@src/kp-admin/store/panel'
 import { useViewWrapper } from '/@dds/stores/viewWrapper'
+import UserProfileDropdown from '/@src/kp-admin/component/UserProfileDropdown.vue'
+import WalletPanel from '/@src/kp-admin/component/WalletPanel.vue'
 
 const props = withDefaults(
   defineProps<{
@@ -18,7 +20,7 @@ const props = withDefaults(
 )
 
 const viewWrapper = useViewWrapper()
-const panels = usePanels()
+const panels = usePanel()
 const route = useRoute()
 const isMobileSideblockOpen = ref(false)
 const isDesktopSideblockOpen = ref(props.openOnMounted)
@@ -239,18 +241,11 @@ watch(
             </RouterLink>
           </li>
         </template>
-
-        <template #bottom-links>
-          <UserProfileDropdown up />
-          <LayoutSwitcher />
-        </template>
       </Sideblock>
     </Transition>
 
     <LanguagesPanel />
-    <ActivityPanel />
-    <SearchPanel />
-    <TaskPanel />
+    <WalletPanel />
 
     <VViewWrapper full>
       <VPageContentWrapper>
@@ -288,18 +283,11 @@ watch(
             </div>
 
             <Toolbar class="desktop-toolbar">
-              <ToolbarNotification />
-
-              <a
-                class="toolbar-link right-panel-trigger"
-                aria-label="View activity panel"
-                tabindex="0"
-                role="button"
-                @keydown.space.prevent="panels.setActive('activity')"
-                @click="panels.setActive('activity')"
-              >
-                <i aria-hidden="true" class="iconify" data-icon="feather:grid" />
-              </a>
+              <div class="wallet-container" @click="panels.setActive('wallet')">
+                <img src="/images/kp_logo_single.png" alt="KPC" />
+                <span class="wallet-balance">2.5 KPC</span>
+              </div>
+              <UserProfileDropdown />
             </Toolbar>
           </div>
 
@@ -309,3 +297,25 @@ watch(
     </VViewWrapper>
   </div>
 </template>
+
+<style lang="scss" scoped>
+.page-content {
+  padding: 40px;
+}
+.wallet-container {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  margin: 0 8px;
+  background-color: var(--placeload-nuance-from);
+  cursor: pointer;
+
+  .wallet-balance {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--dark-text);
+  }
+}
+</style>
