@@ -1,464 +1,677 @@
 <script setup lang="ts">
 import { useViewWrapper } from '/@dds/stores/viewWrapper'
+import KpSwitchBlock from '/@src/kp-developer/component/KpSwitchBlock.vue'
 
 const viewWrapper = useViewWrapper()
-viewWrapper.setPageTitle('API')
+const route = useRoute()
+const apiId = computed(() => (route.params as any).apiId || '')
 
-const kpApiList = [
+viewWrapper.setPageTitle(`${apiId.value}`)
+
+const isProd = ref<boolean>(false)
+const isLoading = ref<boolean>(false)
+const requestData = ref<Record<string, any>>({
+  env: 'test',
+  examId: '',
+  questionId: '',
+})
+
+const exampleResponse = ref<Record<string, any>>({
+  status: 200,
+  message: 'Success',
+  data: {
+    users: [
+      {
+        id: 1,
+        name: 'John Doe',
+        email: 'john@example.com',
+        role: 'user',
+        createdAt: '2024-01-15T10:30:00Z',
+      },
+      {
+        id: 2,
+        name: 'Jane Smith',
+        email: 'jane@example.com',
+        role: 'admin',
+        createdAt: '2024-01-16T14:20:00Z',
+      },
+    ],
+    pagination: {
+      page: 1,
+      limit: 10,
+      total: 2,
+      totalPages: 1,
+    },
+  },
+  timestamp: '2024-01-17T09:15:00Z',
+})
+const exampleResponseBody = ref<Record<string, any>>({
+  users: [
+    {
+      id: 1,
+      name: 'John Doe',
+      email: 'john@example.com',
+      role: 'user',
+      createdAt: '2024-01-15T10:30:00Z',
+    },
+    {
+      id: 2,
+      name: 'Jane Smith',
+      email: 'jane@example.com',
+      role: 'admin',
+      createdAt: '2024-01-16T14:20:00Z',
+    },
+  ],
+  pagination: {
+    page: 1,
+    limit: 10,
+    total: 2,
+    totalPages: 1,
+  },
+})
+const exampleResponseHeader = ref<Record<string, any>>({
+  'Content-Type': 'application/json',
+  'Cache-Control': 'no-cache',
+  'X-Request-ID': 'req_123456789',
+})
+
+const requestTabList = [
   {
-    id: 'post-admin/auth/verify-token',
-    method: 'post',
-    url: '/admin/auth/verify-token',
-    title: 'Verify User Token',
+    label: 'Authentication',
+    value: 'authentication',
   },
   {
-    id: 'post-admin/auth/members',
-    method: 'post',
-    url: '/admin/auth/members',
-    title: 'Add User',
-  },
-  {
-    id: 'get-admin/auth/members/{uid}',
-    method: 'get',
-    url: '/admin/auth/members/{uid}',
-    title: 'Get User Infomation',
-  },
-  {
-    id: 'get-admin/app-tokens',
-    method: 'get',
-    url: '/admin/app-tokens',
-    title: 'Get App Token',
-  },
-  {
-    id: 'get-admin/event',
-    method: 'get',
-    url: '/admin/event',
-    title: 'Get Event List',
-  },
-  {
-    id: 'get-admin/event/{eventId}',
-    method: 'get',
-    url: '/admin/event/{eventId}',
-    title: 'Get Event Information',
-  },
-  {
-    id: 'get-admin/event/{eventId}/registration',
-    method: 'get',
-    url: '/admin/event/{eventId}/registration',
-    title: 'Get Event Registration Information',
-  },
-  {
-    id: 'get-admin/event/registration',
-    method: 'get',
-    url: '/admin/event/registration',
-    title: 'Get Registration List',
-  },
-  {
-    id: 'post-admin/event/{eventId}/registration',
-    method: 'post',
-    url: '/admin/event/{eventId}/registration',
-    title: 'Add Registration',
-  },
-  {
-    id: 'post-admin/event/{eventId}/group-registration',
-    method: 'post',
-    url: '/admin/event/{eventId}/group-registration',
-    title: 'Add Group Registration',
-  },
-  {
-    id: 'delete-admin/event/{eventId}/registration',
-    method: 'delete',
-    url: '/admin/event/{eventId}/registration',
-    title: 'Delete Registration',
-  },
-  {
-    id: 'patch-admin/event/{eventId}/registration',
-    method: 'patch',
-    url: '/admin/event/{eventId}/registration',
-    title: 'Update Registration',
-  },
-  {
-    id: 'delete-admin/event/registration/{registrationId}/for-admin',
-    method: 'delete',
-    url: '/admin/event/registration/{registrationId}/for-admin',
-    title: 'Delete Registration for Admin',
-  },
-  {
-    id: 'get-admin/event/registration/{registrationId}/for-admin',
-    method: 'get',
-    url: '/admin/event/registration/{registrationId}/for-admin',
-    title: 'Get Registration Information for Admin',
-  },
-  {
-    id: 'get-admin/event/{eventId}/for-admin',
-    method: 'get',
-    url: '/admin/event/{eventId}/for-admin',
-    title: 'Get Event Information for Admin',
+    label: 'Data',
+    value: 'data',
   },
 ]
 
-const isShowAPIList = ref(false)
-const apiList = ref<any[]>([])
-const selectedApiItems = ref<any[]>([]) // Temporary selection state
-const removedFromApiList = ref<any[]>([]) // Track items removed from apiList during modal session
+const responseTabList = [
+  {
+    label: 'Example',
+    value: 'example',
+  },
+  {
+    label: 'Request',
+    value: 'request',
+  },
+  {
+    label: 'Response',
+    value: 'response',
+  },
+]
 
-// Get VTag color based on HTTP method
-const getTagColor = (method: string) => {
-  switch (method.toLowerCase()) {
-    case 'get':
-      return 'info' // Blue for GET
-    case 'post':
-      return 'success' // Green for POST
-    case 'put':
-    case 'patch':
-      return 'warning' // Orange for PUT/PATCH
-    case 'delete':
-      return 'danger' // Red for DELETE
-    default:
-      return 'primary' // Default primary
+const sendRequest = async () => {
+  if (!requestData.value.examId || !requestData.value.questionId) {
+    return
+  }
+
+  isLoading.value = true
+
+  try {
+    await new Promise((resolve) => setTimeout(resolve, 1000))
+
+    console.log('API 요청 성공:', requestData.value)
+  } catch (error) {
+    console.error('API 요청 실패:', error)
+  } finally {
+    isLoading.value = false
   }
 }
 
-// Check if an API item is in the selectedApiItems or apiList (but not in removedFromApiList)
-const isSelected = (itemId: string) => {
-  const isInSelected = selectedApiItems.value.some((item) => item.id === itemId)
-  const isInApiList = apiList.value.some((item) => item.id === itemId)
-  const isInRemoved = removedFromApiList.value.some((item) => item.id === itemId)
-
-  return isInSelected || (isInApiList && !isInRemoved)
-}
-
-// Toggle API item in selectedApiItems (temporary selection)
-const toggleApiItem = (item: any) => {
-  console.log('toggleApiItem called with:', item)
-  console.log('Current selectedApiItems:', selectedApiItems.value)
-  console.log('Current apiList:', apiList.value)
-  console.log('Current removedFromApiList:', removedFromApiList.value)
-
-  // Check if item is already in apiList
-  const apiListIndex = apiList.value.findIndex((apiItem) => apiItem.id === item.id)
-
-  if (apiListIndex !== -1) {
-    // Item is in apiList, mark it for removal
-    const removedIndex = removedFromApiList.value.findIndex(
-      (apiItem) => apiItem.id === item.id
-    )
-    if (removedIndex === -1) {
-      // Add to removedFromApiList
-      removedFromApiList.value.push(item)
-      console.log('Marked for removal, new removedFromApiList:', removedFromApiList.value)
-    } else {
-      // Remove from removedFromApiList (undo removal)
-      removedFromApiList.value.splice(removedIndex, 1)
-      console.log('Undid removal, new removedFromApiList:', removedFromApiList.value)
-    }
-  } else {
-    // Item is not in apiList, check selectedApiItems
-    const selectedIndex = selectedApiItems.value.findIndex(
-      (apiItem) => apiItem.id === item.id
-    )
-
-    if (selectedIndex !== -1) {
-      // Remove from selectedApiItems
-      selectedApiItems.value.splice(selectedIndex, 1)
-      console.log(
-        'Removed from selectedApiItems, new selectedApiItems:',
-        selectedApiItems.value
-      )
-    } else {
-      // Add to selectedApiItems
-      selectedApiItems.value.push(item)
-      console.log(
-        'Added to selectedApiItems, new selectedApiItems:',
-        selectedApiItems.value
-      )
-    }
+const formatJson = (obj: any): string => {
+  try {
+    return JSON.stringify(obj, null, 2)
+  } catch {
+    return '{}'
   }
 }
 
-// Confirm selection and add to apiList
-const confirmSelection = () => {
-  // Remove items marked for removal from apiList
-  removedFromApiList.value.forEach((removedItem) => {
-    const index = apiList.value.findIndex((item) => item.id === removedItem.id)
-    if (index !== -1) {
-      apiList.value.splice(index, 1)
-    }
-  })
-
-  // Add all selected items to apiList
-  apiList.value.push(...selectedApiItems.value)
-
-  // Clear temporary states
-  selectedApiItems.value = []
-  removedFromApiList.value = []
-
-  // Close modal
-  isShowAPIList.value = false
+const getStatusColor = (status: number): string => {
+  if (status >= 200 && status < 300) return 'success'
+  if (status >= 400 && status < 500) return 'warning'
+  if (status >= 500) return 'danger'
+  return 'info'
 }
 
-// Cancel selection
-const cancelSelection = () => {
-  // Clear temporary states without applying changes
-  selectedApiItems.value = []
-  removedFromApiList.value = []
-
-  // Close modal
-  isShowAPIList.value = false
+const getMethodColor = (method: string): string => {
+  const methodColors: Record<string, string> = {
+    GET: 'info',
+    POST: 'success',
+    PUT: 'warning',
+    DELETE: 'danger',
+    PATCH: 'primary',
+  }
+  return methodColors[method] || 'info'
 }
 </script>
 
 <template>
-  <DeveloperSideblockLayout theme="curved" open-on-mounted>
-    <!-- Content Wrapper -->
-    <div class="list-view-toolbar">
-      <div class="buttons">
-        <VButton color="primary" elevated @click="isShowAPIList = true">
-          KP API List
-        </VButton>
-      </div>
-    </div>
-
-    <div class="page-content-inner">
-      <!--List-->
-      <div class="list-view list-view-v1">
-        <!--List Empty Search Placeholder -->
-        <VPlaceholderPage
-          :class="[apiList.length !== 0 && 'is-hidden']"
-          title="선택된 API가 없습니다."
-          subtitle="KP API List에서 사용할 API들을 선택해주세요.
-          위의 'KP API List' 버튼을 클릭하여 원하는 API 엔드포인트들을 추가할 수 있습니다."
-          larger
-        >
-          <template #image>
-            <img
-              class="light-image"
-              src="/@dds/sets/illustrations/placeholders/search-1.svg"
-              alt=""
-            />
-            <img
-              class="dark-image"
-              src="/@dds/sets/illustrations/placeholders/search-1-dark.svg"
-              alt=""
-            />
-          </template>
-        </VPlaceholderPage>
-
-        <div class="list-view-inner">
-          <!--Item-->
-          <TransitionGroup name="list-complete" tag="div">
-            <div v-for="(item, key) in apiList" :key="key" class="list-view-item">
-              <RouterLink :to="`/api/${item.id}`">
-                <div class="list-view-item-inner">
-                  <div class="tags">
-                    <VTag
-                      :label="item.method"
-                      :color="getTagColor(item.method)"
-                      rounded
-                      elevated
-                    />
-                  </div>
-                  <div class="meta-left">
-                    <h3>{{ item.title }}</h3>
-                    <span>
-                      <i aria-hidden="true" class="iconify" data-icon="feather:map-pin" />
-                      <span>{{ item.url }}</span>
-                    </span>
-                  </div>
-                  <div class="meta-right">
-                    <div class="stats">
-                      <div class="stat">
-                        <span>123</span>
-                        <span>Projects</span>
-                      </div>
-                      <div class="separator" />
-                      <div class="stat">
-                        <span>234</span>
-                        <span>Replies</span>
-                      </div>
-                      <div class="separator" />
-                      <div class="stat">
-                        <span>345</span>
-                        <span>Posts</span>
-                      </div>
-                    </div>
-
-                    <!--Dropdown-->
-                    <ListViewV1Dropdown />
-                  </div>
-                </div>
-              </RouterLink>
+  <div class="page-content-inner">
+    <form method="post" novalidate class="form-layout">
+      <div class="form-outer">
+        <div class="form-header stuck-header">
+          <div class="form-header-inner">
+            <div class="left">
+              <h3>API Request</h3>
+              <h2>Run API with your Request</h2>
             </div>
-          </TransitionGroup>
-        </div>
-      </div>
-    </div>
-    <VModal
-      :open="isShowAPIList"
-      title="Kingdom Planet API List"
-      size="big"
-      actions="center"
-      rounded
-      noscroll
-      class="api-list-modal"
-      @close="cancelSelection()"
-    >
-      <template #content>
-        <div class="list-view list-view-v1">
-          <div v-for="item in kpApiList" :key="item.id" class="list-view-item">
-            <div class="list-view-item-inner">
-              <div class="tags">
-                <VTag
-                  :label="item.method"
-                  :color="getTagColor(item.method)"
-                  rounded
-                  elevated
-                />
-              </div>
-              <div class="meta-left">
-                <h3>{{ item.title }}</h3>
-                <span>
-                  <span>{{ item.url }}</span>
-                </span>
-              </div>
-              <div class="meta-right">
-                <button
-                  :class="[
-                    'button',
-                    'is-rounded',
-                    isSelected(item.id) ? 'is-danger' : 'is-primary',
-                  ]"
-                  @click="toggleApiItem(item)"
-                >
-                  {{ isSelected(item.id) ? 'Remove' : 'Add' }}
-                </button>
-              </div>
+            <div class="right">
+              <VField>
+                <VControl>
+                  <KpSwitchBlock
+                    v-model="isProd"
+                    color="success"
+                    label-active="Prod"
+                    label-inactive="Test"
+                  />
+                </VControl>
+              </VField>
+              <VButton color="info" elevated>Send</VButton>
             </div>
           </div>
         </div>
-      </template>
-      <template #action>
-        <VButton color="primary" rounded raised @click="confirmSelection()">
-          Confirm
-        </VButton>
-      </template>
-    </VModal>
-  </DeveloperSideblockLayout>
+        <div class="form-body is-flex flex-column gap-16">
+          <div class="endpoint-container">
+            <div class="endpoint-label">Endpoint</div>
+            <div class="endpoint-value">
+              {{ '/v1/test/api' }}
+            </div>
+          </div>
+          <VTabs selected="data" :tabs="requestTabList">
+            <template #tab="{ activeValue }">
+              <div v-if="activeValue === 'authentication'">
+                <VField label="Authorization" horizontal>
+                  <VControl fullwidth icon="lucide:user">
+                    <VInput type="text" placeholder="Authorization" />
+                  </VControl>
+                </VField>
+              </div>
+              <div v-else-if="activeValue === 'data'">
+                <VField label="Env *" horizontal>
+                  <VControl fullwidth disabled>
+                    <VInput type="text" placeholder="Test" disabled />
+                  </VControl>
+                </VField>
+                <VField label="Exam ID *" horizontal>
+                  <VControl fullwidth>
+                    <VInput type="text" placeholder="Exam ID" />
+                  </VControl>
+                </VField>
+                <VField label="Question ID *" horizontal>
+                  <VControl fullwidth>
+                    <VInput type="text" placeholder="Question ID" />
+                  </VControl>
+                </VField>
+              </div>
+            </template>
+          </VTabs>
+        </div>
+      </div>
+      <div class="form-outer">
+        <div class="form-header stuck-header">
+          <div class="form-header-inner">
+            <div class="left">
+              <h3>API Reference</h3>
+              <h2>Check your Request & Response</h2>
+            </div>
+          </div>
+        </div>
+        <div class="form-body is-flex flex-column">
+          <VTabs selected="example" :tabs="responseTabList">
+            <template #tab="{ activeValue }">
+              <div v-if="activeValue === 'example'" class="api-example">
+                <div class="example-section">
+                  <h4 class="section-title">Request Example</h4>
+                  <div class="http-info">
+                    <div class="method-badge" :class="`is-${getMethodColor('GET')}`">
+                      GET
+                    </div>
+                    <div class="url">https://kpdev.com/api/v1/users</div>
+                  </div>
+                  <div class="request-details">
+                    <div class="detail-item">
+                      <span class="label">Content-Type:</span>
+                      <span class="value">application/json</span>
+                    </div>
+                    <div class="detail-item">
+                      <span class="label">Authorization:</span>
+                      <span class="value">Bearer {token}</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="example-section">
+                  <h4 class="section-title">Response Example</h4>
+                  <div class="response-info">
+                    <div class="status-badge" :class="`is-${getStatusColor(200)}`">
+                      200 OK
+                    </div>
+                    <div class="response-time">Response Time: 100ms</div>
+                  </div>
+                  <div class="json-preview">
+                    <pre class="json-content">{{ formatJson(exampleResponse) }}</pre>
+                  </div>
+                </div>
+              </div>
+
+              <div v-else-if="activeValue === 'request'" class="api-request">
+                <div class="request-form">
+                  <VField label="Environment" horizontal>
+                    <VControl fullwidth>
+                      <VInput
+                        v-model="requestData.env"
+                        type="text"
+                        icon="lucide:globe"
+                        :disabled="true"
+                      />
+                    </VControl>
+                  </VField>
+
+                  <VField label="Exam ID *" horizontal>
+                    <VControl fullwidth>
+                      <VInput
+                        v-model="requestData.examId"
+                        type="text"
+                        icon="lucide:file-text"
+                        placeholder="Enter Exam ID"
+                      />
+                    </VControl>
+                  </VField>
+
+                  <VField label="Question ID *" horizontal>
+                    <VControl fullwidth>
+                      <VInput
+                        v-model="requestData.questionId"
+                        type="text"
+                        icon="lucide:help-circle"
+                        placeholder="Enter Question ID"
+                      />
+                    </VControl>
+                  </VField>
+                </div>
+              </div>
+
+              <div v-else-if="activeValue === 'response'" class="api-response">
+                <div class="response-header">
+                  <div class="response-status">
+                    <div class="status-badge" :class="`is-${getStatusColor(200)}`">
+                      200 OK
+                    </div>
+                    <span class="response-time">100ms</span>
+                  </div>
+                  <div class="response-meta">
+                    <span class="meta-item">
+                      <VIcon icon="lucide:clock" />
+                      Timestamp: {{ new Date().toISOString() }}
+                    </span>
+                    <span class="meta-item">
+                      <VIcon icon="lucide:database" />
+                      Size: 2.1 KB
+                    </span>
+                  </div>
+                </div>
+
+                <div class="response-body">
+                  <div class="response-content">
+                    <div class="response-title">Response Header</div>
+                    <pre class="json-content">{{
+                      formatJson(exampleResponseHeader)
+                    }}</pre>
+                  </div>
+                  <div class="response-content">
+                    <div class="response-title">Response Body</div>
+                    <pre class="json-content">{{ formatJson(exampleResponseBody) }}</pre>
+                  </div>
+                </div>
+              </div>
+            </template>
+          </VTabs>
+        </div>
+      </div>
+    </form>
+  </div>
 </template>
 
 <style lang="scss">
 @import '/@dds/scss/abstracts/all';
+@import '/@dds/scss/components/forms-outer';
 
-.list-view-v1 {
-  .list-view-item {
-    cursor: pointer;
-    @include vuero-r-card;
+.form-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 100%;
+  margin: 0 auto;
 
-    margin-bottom: 16px;
-    padding: 16px;
+  .app-title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .buttons {
+    gap: 1rem;
+  }
 
-    .list-view-item-inner {
+  .form-outer {
+    .form-header {
+      .form-header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .left {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+        }
+
+        .right {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          gap: 16px;
+
+          .field:not(:last-child) {
+            margin-bottom: initial;
+          }
+        }
+      }
+
+      .form-body {
+        padding: 0;
+      }
+    }
+    .form-body {
+      .endpoint-container {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+
+        .endpoint-label {
+          font-size: 12px;
+          font-weight: 400;
+          color: var(--light-text);
+        }
+
+        .endpoint-value {
+          padding: 8px 12px;
+          border-radius: 4px;
+          background-color: var(--placeload-nuance-from);
+          font-size: 14px;
+          font-weight: 400;
+        }
+      }
+
+      padding: 24px;
+
+      .tabs-wrapper {
+        .tab-content {
+          .field {
+            .field-label {
+              text-align: left;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.api-example {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  .example-section {
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--dark);
+      border-bottom: 2px solid var(--light-grey);
+      padding-bottom: 0.5rem;
+    }
+
+    .http-info {
       display: flex;
       align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
 
-      .meta-left {
-        margin-inline-start: 16px;
+      .method-badge {
+        padding: 0.25rem 0.75rem;
+        border-radius: 4px;
+        font-weight: 600;
+        font-size: 0.875rem;
+        text-transform: uppercase;
+        min-width: 60px;
+        text-align: center;
 
-        h3 {
-          font-family: var(--font-alt);
-          color: var(--dark-text);
-          font-weight: 600;
-          font-size: 1rem;
-          line-height: 1;
+        &.is-info {
+          background: var(--info);
+          color: white;
         }
-
-        > span:not(.tag) {
-          font-size: 0.9rem;
-          color: var(--light-text);
-
-          svg {
-            height: 12px;
-            width: 12px;
-          }
+        &.is-success {
+          background: var(--success);
+          color: white;
+        }
+        &.is-warning {
+          background: var(--warning);
+          color: white;
+        }
+        &.is-danger {
+          background: var(--danger);
+          color: white;
+        }
+        &.is-primary {
+          background: var(--primary);
+          color: white;
         }
       }
 
-      .tags {
-        margin-bottom: 0;
-
-        .tag {
-          margin-bottom: 0;
-        }
+      .url {
+        font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+        font-size: 0.9rem;
+        color: var(--dark);
+        background: var(--light-grey);
+        padding: 0.5rem 0.75rem;
+        border-radius: 4px;
+        flex: 1;
       }
-      .meta-right {
-        margin-inline-start: auto;
+    }
+
+    .request-details {
+      .detail-item {
         display: flex;
-        justify-content: flex-end;
+        margin-bottom: 0.5rem;
+
+        .label {
+          font-weight: 600;
+          min-width: 120px;
+          color: var(--dark);
+        }
+
+        .value {
+          font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+          color: var(--primary);
+        }
+      }
+    }
+
+    .response-info {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+
+      .status-badge {
+        padding: 0.25rem 0.75rem;
+        border-radius: 4px;
+        font-weight: 600;
+        font-size: 0.875rem;
+
+        &.is-success {
+          background: var(--success);
+          color: white;
+        }
+        &.is-warning {
+          background: var(--warning);
+          color: white;
+        }
+        &.is-danger {
+          background: var(--danger);
+          color: white;
+        }
+        &.is-info {
+          background: var(--info);
+          color: white;
+        }
+      }
+
+      .response-time {
+        color: var(--light-text);
+        font-size: 0.875rem;
+      }
+    }
+
+    .json-preview {
+      overflow-x: auto;
+
+      .json-content {
+        color: var(--dark-text);
+        background: var(--light-grey);
+        font-size: 0.875rem;
+        line-height: 1.5;
+        white-space: pre-wrap;
+        word-break: break-word;
+      }
+    }
+  }
+}
+
+.api-request {
+  .request-form {
+    max-width: 600px;
+
+    .request-actions {
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--light-grey);
+    }
+  }
+}
+
+.api-response {
+  .response-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: var(--light-grey);
+    border-radius: 8px;
+
+    .response-status {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      .status-badge {
+        padding: 0.25rem 0.75rem;
+        border-radius: 4px;
+        font-weight: 600;
+        font-size: 0.875rem;
+
+        &.is-success {
+          background: var(--success);
+          color: white;
+        }
+        &.is-warning {
+          background: var(--warning);
+          color: white;
+        }
+        &.is-danger {
+          background: var(--danger);
+          color: white;
+        }
+        &.is-info {
+          background: var(--info);
+          color: white;
+        }
+      }
+
+      .response-time {
+        color: var(--light-text);
+        font-size: 0.875rem;
+      }
+    }
+
+    .response-meta {
+      display: flex;
+      gap: 1rem;
+
+      .meta-item {
+        display: flex;
         align-items: center;
+        gap: 0.5rem;
+        font-size: 0.875rem;
+        color: var(--light-text);
 
-        .stats {
-          display: flex;
-          align-items: center;
-          margin-inline-end: 30px;
+        .icon {
+          width: 16px;
+          height: 16px;
+        }
+      }
+    }
+  }
 
-          .stat {
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-            text-align: center;
-            color: var(--light-text);
+  .response-body {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
 
-            > span {
-              font-family: var(--font);
+    .response-content {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
 
-              &:first-child {
-                font-size: 1.2rem;
-                font-weight: 600;
-                color: var(--dark-text);
-                line-height: 1.4;
-              }
+      .response-title {
+        font-size: 1rem;
+        font-weight: 500;
+        color: var(--light-text);
+      }
 
-              &:nth-child(2) {
-                text-transform: uppercase;
-                font-family: var(--font-alt);
-                font-size: 0.75rem;
-              }
-            }
+      .json-content {
+        color: var(--dark-text);
+        background: var(--light-grey);
+        font-size: 0.875rem;
+        line-height: 1.5;
+        white-space: pre-wrap;
+        word-break: break-word;
+      }
+    }
 
-            svg {
-              height: 16px;
-              width: 16px;
-            }
+    .headers-response {
+      .header-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.75rem;
+        border-bottom: 1px solid var(--light-grey);
 
-            i {
-              font-size: 1.4rem;
-            }
-          }
-
-          .separator {
-            height: 25px;
-            width: 2px;
-            border-inline-end: 1px solid var(--fade-grey-dark-3);
-            margin: 0 16px;
-          }
+        &:last-child {
+          border-bottom: none;
         }
 
-        .network {
-          display: flex;
-          justify-content: flex-end;
-          align-items: center;
-          min-width: 145px;
-
-          > span {
-            font-family: var(--font);
-            font-size: 0.9rem;
-            color: var(--light-text);
-            margin-inline-start: 6px;
-          }
+        .header-name {
+          font-weight: 600;
+          color: var(--dark);
+          font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
         }
 
-        .dropdown {
-          margin-inline-start: 30px;
+        .header-value {
+          color: var(--primary);
+          font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
         }
       }
     }
@@ -466,146 +679,45 @@ const cancelSelection = () => {
 }
 
 .is-dark {
-  .list-view-v1 {
-    .list-view-item {
-      @include vuero-card--dark;
-
-      .list-view-item-inner {
-        .meta-left {
-          h3 {
-            color: var(--dark-dark-text) !important;
+  .api-example {
+    .example-section {
+      .section-title {
+        color: var(--dark-dark-text);
+        border-bottom: 2px solid var(--dark-sidebar-light-12);
+      }
+      .http-info {
+        .url {
+          background: var(--dark-sidebar-light-12);
+          color: var(--dark-dark-text);
+        }
+      }
+      .request-details {
+        .detail-item {
+          .label {
+            color: var(--dark-dark-text);
           }
         }
-
-        .meta-right {
-          .stats {
-            .stat {
-              span {
-                &:first-child {
-                  color: var(--dark-dark-text);
-                }
-              }
-            }
-
-            .separator {
-              border-color: var(--dark-sidebar-light-16) !important;
-            }
-          }
+      }
+      .json-preview {
+        .json-content {
+          color: var(--dark-dark-text);
+          background: var(--dark-sidebar-light-12);
         }
       }
     }
   }
-}
 
-@media only screen and (width <= 767px) {
-  .list-view-v1 {
-    .list-view-item {
-      .list-view-item-inner {
-        position: relative;
-        flex-direction: column;
-
-        .v-avatar {
-          margin-bottom: 10px;
-        }
-
-        .meta-left {
-          margin-inline-start: 0;
-        }
-
-        .meta-right {
-          flex-direction: column;
-          margin-inline-start: 0;
-
-          .tags {
-            margin: 10px 0;
-          }
-
-          .stats {
-            margin: 10px 0;
-          }
-
-          .network {
-            margin: 10px 0 0;
-            justify-content: center;
-
-            > span {
-              display: none;
-            }
-          }
-
-          .dropdown {
-            position: absolute;
-            top: 0;
-            inset-inline-end: 0;
-            margin-inline-start: 0;
-          }
-        }
-      }
+  .api-response {
+    .response-header {
+      background: var(--dark-sidebar-light-12);
     }
-  }
-}
-
-@media only screen and (width >= 768px) and (width <= 1024px) and (orientation: portrait) {
-  .list-view-v1 {
-    display: flex;
-    flex-wrap: wrap;
-
-    .list-view-item {
-      margin: 10px;
-      width: calc(50% - 20px);
-
-      .list-view-item-inner {
-        position: relative;
-        flex-direction: column;
-
-        .v-avatar {
-          margin-bottom: 10px;
+    .response-body {
+      .response-content {
+        .response-title {
         }
-
-        .meta-left {
-          margin-inline-start: 0;
-        }
-
-        .meta-right {
-          flex-direction: column;
-          margin-inline-start: 0;
-
-          .tags {
-            margin: 10px 0;
-          }
-
-          .stats {
-            margin: 10px 0;
-          }
-
-          .network {
-            margin: 10px 0 0;
-            justify-content: center;
-
-            > span {
-              display: none;
-            }
-          }
-
-          .dropdown {
-            position: absolute;
-            top: 0;
-            inset-inline-end: 0;
-            margin-inline-start: 0;
-          }
-        }
-      }
-    }
-  }
-}
-
-.modal-content {
-  .list-view-item {
-    .list-view-item-inner {
-      .tags {
-        margin: 0rem;
-        .tag {
-          margin: 1rem;
+        .json-content {
+          color: var(--dark-dark-text);
+          background: var(--dark-sidebar-light-12);
         }
       }
     }

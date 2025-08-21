@@ -6,6 +6,7 @@ import WalletPanel from '../component/WalletPanel.vue'
 import { useViewWrapper } from '/@dds/stores/viewWrapper'
 import UserProfileDropdown from '../component/UserProfileDropdown.vue'
 import Toolbar from '../component/Toolbar.vue'
+import { useDarkmode } from '/@dds/stores/darkmode'
 
 const props = withDefaults(
   defineProps<{
@@ -24,6 +25,7 @@ const props = withDefaults(
 const viewWrapper = useViewWrapper()
 const panels = useKpPanels()
 const route = useRoute()
+const darkmode = useDarkmode()
 
 const isMobileSideblockOpen = ref(false)
 const isDesktopSideblockOpen = ref(props.openOnMounted)
@@ -124,7 +126,13 @@ onMounted(() => {
       <Sideblock v-if="isDesktopSideblockOpen" :theme="props.theme">
         <template #header>
           <RouterLink to="/" class="sidebar-block-logo">
-            <img src="/images/kp_logo.png" alt="" class="logo" />
+            <img
+              :src="`/images/${
+                darkmode.isDark ? 'kp_logo_dark.png' : 'kp_logo_light.png'
+              }`"
+              alt="kp-logo"
+              class="logo"
+            />
           </RouterLink>
           <h3>Developer</h3>
         </template>
@@ -235,8 +243,8 @@ onMounted(() => {
 
             <Toolbar class="desktop-toolbar">
               <div class="wallet-container" @click="panels.setActive('wallet')">
-                <img src="/images/kp_logo_single.png" alt="KCP" />
-                <span class="wallet-balance">52.0 KCP</span>
+                <img src="/images/kp_logo_single.png" alt="KPC" />
+                <span class="wallet-balance">52.0 KPC</span>
               </div>
               <UserProfileDropdown />
             </Toolbar>
@@ -252,6 +260,7 @@ onMounted(() => {
 .page-content {
   padding: 40px;
 }
+
 .wallet-container {
   display: flex;
   align-items: center;
@@ -267,5 +276,9 @@ onMounted(() => {
     font-weight: 500;
     color: var(--dark-text);
   }
+}
+
+.logo {
+  border-radius: 4px;
 }
 </style>

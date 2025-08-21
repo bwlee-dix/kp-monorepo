@@ -4,6 +4,13 @@ import { useViewWrapper } from '/@dds/stores/viewWrapper'
 const viewWrapper = useViewWrapper()
 viewWrapper.setPageTitle('API')
 
+interface kpApiListItem {
+  id: string
+  method: string
+  url: string
+  title: string
+}
+
 const kpApiList = [
   {
     id: 'post-admin/auth/verify-token',
@@ -98,28 +105,51 @@ const kpApiList = [
 ]
 
 const isShowAPIList = ref(false)
-const apiList = ref<any[]>([])
-const selectedApiItems = ref<any[]>([]) // Temporary selection state
-const removedFromApiList = ref<any[]>([]) // Track items removed from apiList during modal session
+const apiList = ref<kpApiListItem[]>([
+  {
+    id: 'post-admin/auth/verify-token',
+    method: 'post',
+    url: '/admin/auth/verify-token',
+    title: 'Verify User Token',
+  },
+  {
+    id: 'post-admin/auth/members',
+    method: 'post',
+    url: '/admin/auth/members',
+    title: 'Add User',
+  },
+  {
+    id: 'get-admin/auth/members/{uid}',
+    method: 'get',
+    url: '/admin/auth/members/{uid}',
+    title: 'Get User Infomation',
+  },
+  {
+    id: 'get-admin/app-tokens',
+    method: 'get',
+    url: '/admin/app-tokens',
+    title: 'Get App Token',
+  },
+])
+const selectedApiItems = ref<any[]>([])
+const removedFromApiList = ref<any[]>([])
 
-// Get VTag color based on HTTP method
 const getTagColor = (method: string) => {
   switch (method.toLowerCase()) {
     case 'get':
-      return 'info' // Blue for GET
+      return 'info'
     case 'post':
-      return 'success' // Green for POST
+      return 'success'
     case 'put':
     case 'patch':
-      return 'warning' // Orange for PUT/PATCH
+      return 'warning'
     case 'delete':
-      return 'danger' // Red for DELETE
+      return 'danger'
     default:
-      return 'primary' // Default primary
+      return 'primary'
   }
 }
 
-// Check if an API item is in the selectedApiItems or apiList (but not in removedFromApiList)
 const isSelected = (itemId: string) => {
   const isInSelected = selectedApiItems.value.some((item) => item.id === itemId)
   const isInApiList = apiList.value.some((item) => item.id === itemId)
@@ -128,45 +158,37 @@ const isSelected = (itemId: string) => {
   return isInSelected || (isInApiList && !isInRemoved)
 }
 
-// Toggle API item in selectedApiItems (temporary selection)
 const toggleApiItem = (item: any) => {
   console.log('toggleApiItem called with:', item)
   console.log('Current selectedApiItems:', selectedApiItems.value)
   console.log('Current apiList:', apiList.value)
   console.log('Current removedFromApiList:', removedFromApiList.value)
 
-  // Check if item is already in apiList
   const apiListIndex = apiList.value.findIndex((apiItem) => apiItem.id === item.id)
 
   if (apiListIndex !== -1) {
-    // Item is in apiList, mark it for removal
     const removedIndex = removedFromApiList.value.findIndex(
       (apiItem) => apiItem.id === item.id
     )
     if (removedIndex === -1) {
-      // Add to removedFromApiList
       removedFromApiList.value.push(item)
       console.log('Marked for removal, new removedFromApiList:', removedFromApiList.value)
     } else {
-      // Remove from removedFromApiList (undo removal)
       removedFromApiList.value.splice(removedIndex, 1)
       console.log('Undid removal, new removedFromApiList:', removedFromApiList.value)
     }
   } else {
-    // Item is not in apiList, check selectedApiItems
     const selectedIndex = selectedApiItems.value.findIndex(
       (apiItem) => apiItem.id === item.id
     )
 
     if (selectedIndex !== -1) {
-      // Remove from selectedApiItems
       selectedApiItems.value.splice(selectedIndex, 1)
       console.log(
         'Removed from selectedApiItems, new selectedApiItems:',
         selectedApiItems.value
       )
     } else {
-      // Add to selectedApiItems
       selectedApiItems.value.push(item)
       console.log(
         'Added to selectedApiItems, new selectedApiItems:',
@@ -176,9 +198,7 @@ const toggleApiItem = (item: any) => {
   }
 }
 
-// Confirm selection and add to apiList
 const confirmSelection = () => {
-  // Remove items marked for removal from apiList
   removedFromApiList.value.forEach((removedItem) => {
     const index = apiList.value.findIndex((item) => item.id === removedItem.id)
     if (index !== -1) {
@@ -186,30 +206,23 @@ const confirmSelection = () => {
     }
   })
 
-  // Add all selected items to apiList
   apiList.value.push(...selectedApiItems.value)
 
-  // Clear temporary states
   selectedApiItems.value = []
   removedFromApiList.value = []
 
-  // Close modal
   isShowAPIList.value = false
 }
 
-// Cancel selection
 const cancelSelection = () => {
-  // Clear temporary states without applying changes
   selectedApiItems.value = []
   removedFromApiList.value = []
 
-  // Close modal
   isShowAPIList.value = false
 }
 </script>
 
 <template>
-  <!-- Content Wrapper -->
   <div class="list-view-toolbar">
     <div class="buttons">
       <VButton color="primary" elevated @click="isShowAPIList = true">
@@ -219,9 +232,7 @@ const cancelSelection = () => {
   </div>
 
   <div class="page-content-inner">
-    <!--List-->
     <div class="list-view list-view-v1">
-      <!--List Empty Search Placeholder -->
       <VPlaceholderPage
         :class="[apiList.length !== 0 && 'is-hidden']"
         title="선택된 API가 없습니다."
@@ -244,10 +255,9 @@ const cancelSelection = () => {
       </VPlaceholderPage>
 
       <div class="list-view-inner">
-        <!--Item-->
         <TransitionGroup name="list-complete" tag="div">
           <div v-for="(item, key) in apiList" :key="key" class="list-view-item">
-            <RouterLink :to="`/api/${item.id}`">
+            <RouterLink :to="`/body/api/${item.title}`">
               <div class="list-view-item-inner">
                 <div class="tags">
                   <VTag

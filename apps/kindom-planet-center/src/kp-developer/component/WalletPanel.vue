@@ -54,7 +54,7 @@ const panels = useKpPanels()
         />
         <div class="wallet-info-container">
           <div class="wallet-balance-container">
-            <div class="wallet-balance">52.0 KCP</div>
+            <div class="wallet-balance">52.0 KPC</div>
             <div class="wallet-cash">$48.00</div>
           </div>
           <div class="wallet-button-container">
