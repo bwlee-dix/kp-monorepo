@@ -55,7 +55,7 @@ const onSubmit = async () => {
   if (!isLoading.value) {
     isLoading.value = true
     await sleep(500)
-    router.push('/register-wallet')
+    router.push('/create-wallet')
     notyf.success('Register developer success!')
 
     isLoading.value = false

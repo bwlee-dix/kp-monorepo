@@ -51,12 +51,12 @@ declare module 'vue-router/auto/routes' {
     '/body/dashboard/': RouteRecordInfo<'/body/dashboard/', '/body/dashboard', Record<never, never>, Record<never, never>>,
     '/body/log/': RouteRecordInfo<'/body/log/', '/body/log', Record<never, never>, Record<never, never>>,
     '/body/user/': RouteRecordInfo<'/body/user/', '/body/user', Record<never, never>, Record<never, never>>,
+    '/create-wallet/': RouteRecordInfo<'/create-wallet/', '/create-wallet', Record<never, never>, Record<never, never>>,
     '/mypage': RouteRecordInfo<'/mypage', '/mypage', Record<never, never>, Record<never, never>>,
     '/mypage/basic/': RouteRecordInfo<'/mypage/basic/', '/mypage/basic', Record<never, never>, Record<never, never>>,
     '/mypage/developer/': RouteRecordInfo<'/mypage/developer/', '/mypage/developer', Record<never, never>, Record<never, never>>,
     '/mypage/reward/': RouteRecordInfo<'/mypage/reward/', '/mypage/reward', Record<never, never>, Record<never, never>>,
     '/register/': RouteRecordInfo<'/register/', '/register', Record<never, never>, Record<never, never>>,
-    '/register-wallet/': RouteRecordInfo<'/register-wallet/', '/register-wallet', Record<never, never>, Record<never, never>>,
     '/sign-up/': RouteRecordInfo<'/sign-up/', '/sign-up', Record<never, never>, Record<never, never>>,
   }
 }
