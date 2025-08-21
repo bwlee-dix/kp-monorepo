@@ -52,6 +52,8 @@ declare module 'vue-router/auto/routes' {
     '/body/log/': RouteRecordInfo<'/body/log/', '/body/log', Record<never, never>, Record<never, never>>,
     '/body/user/': RouteRecordInfo<'/body/user/', '/body/user', Record<never, never>, Record<never, never>>,
     '/create-wallet/': RouteRecordInfo<'/create-wallet/', '/create-wallet', Record<never, never>, Record<never, never>>,
+    '/builder/': RouteRecordInfo<'/builder/', '/builder', Record<never, never>, Record<never, never>>,
+    '/builder/preview': RouteRecordInfo<'/builder/preview', '/builder/preview', Record<never, never>, Record<never, never>>,
     '/dashboard/': RouteRecordInfo<'/dashboard/', '/dashboard', Record<never, never>, Record<never, never>>,
     '/event/': RouteRecordInfo<'/event/', '/event', Record<never, never>, Record<never, never>>,
     '/event/[eventId]/': RouteRecordInfo<'/event/[eventId]/', '/event/:eventId', { eventId: ParamValue<true> }, { eventId: ParamValue<false> }>,

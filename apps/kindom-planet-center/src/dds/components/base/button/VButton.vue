@@ -232,26 +232,12 @@ export default defineComponent({
       return childrens
     }
 
-    const onClick = (e: MouseEvent) => {
-      e.stopPropagation()
-      if (attrs.onClick && typeof attrs.onClick === 'function') {
-        attrs.onClick(e)
-      }
-    }
-
     return () => {
-      const commonAttrs = {
-        ...attrs,
-        onClick,
-        'aria-hidden': !!props.placeload && true,
-        class: ['button', ...classes.value],
-      }
-
       if (props.to) {
         return h(
           RouterLink,
           {
-            ...commonAttrs,
+            ...attrs,
             'aria-hidden': !!props.placeload && true,
             to: props.to,
             class: ['button', ...classes.value],
@@ -264,7 +250,7 @@ export default defineComponent({
         return h(
           'a',
           {
-            ...commonAttrs,
+            ...attrs,
             'aria-hidden': !!props.placeload && true,
             href: props.href,
             class: classes.value,
@@ -279,7 +265,7 @@ export default defineComponent({
         'button',
         {
           type: 'button',
-          ...commonAttrs,
+          ...attrs,
           'aria-hidden': !!props.placeload && true,
           disabled: props.disabled,
           class: ['button', ...classes.value],
