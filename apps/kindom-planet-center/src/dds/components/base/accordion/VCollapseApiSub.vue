@@ -105,7 +105,7 @@ const toggle = (key: number) => {
       font-family: var(--font-alt);
       font-size: 0.9rem;
       font-weight: 600;
-      color: var(--dark-text);
+      color: var(--light-text);
     }
 
     .collapse-head-info {
@@ -179,6 +179,13 @@ const toggle = (key: number) => {
       .collapse-icon {
         background: var(--dark-sidebar-light-6);
         border-color: var(--dark-sidebar-light-6);
+      }
+    }
+    .collapse-content {
+      .collapse-content-custom {
+        div {
+          color: var(--dark-dark-text) !important;
+        }
       }
     }
   }
