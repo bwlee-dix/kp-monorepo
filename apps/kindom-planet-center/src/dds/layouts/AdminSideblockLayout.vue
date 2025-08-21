@@ -2,7 +2,7 @@
 import type { SideblockTheme } from '/@dds/components/navigation/desktop/Sideblock.vue'
 import { usePanel } from '/@src/kp-admin/store/panel'
 import { useViewWrapper } from '/@dds/stores/viewWrapper'
-import UserProfileDropdown from '/@src/kp-admin/component/UserProfileDropdown.vue'
+import AdminProfileDropdown from '../../kp-admin/component/AdminProfileDropdown.vue'
 import WalletPanel from '/@src/kp-admin/component/WalletPanel.vue'
 
 const props = withDefaults(
@@ -20,7 +20,7 @@ const props = withDefaults(
 )
 
 const viewWrapper = useViewWrapper()
-const panels = usePanel()
+const panel = usePanel()
 const route = useRoute()
 const isMobileSideblockOpen = ref(false)
 const isDesktopSideblockOpen = ref(props.openOnMounted)
@@ -122,8 +122,8 @@ watch(
             aria-label="Display search panel"
             tabindex="0"
             role="button"
-            @keydown.space.prevent="panels.setActive('search')"
-            @click="panels.setActive('search')"
+            @keydown.space.prevent="panel.setActive('search')"
+            @click="panel.setActive('search')"
           >
             <i aria-hidden="true" class="iconify" data-icon="feather:search" />
           </a>
@@ -283,11 +283,11 @@ watch(
             </div>
 
             <Toolbar class="desktop-toolbar">
-              <div class="wallet-container" @click="panels.setActive('wallet')">
+              <div class="wallet-container" @click="panel.setActive('wallet')">
                 <img src="/images/kp_logo_single.png" alt="KPC" />
                 <span class="wallet-balance">2.5 KPC</span>
               </div>
-              <UserProfileDropdown />
+              <AdminProfileDropdown />
             </Toolbar>
           </div>
 

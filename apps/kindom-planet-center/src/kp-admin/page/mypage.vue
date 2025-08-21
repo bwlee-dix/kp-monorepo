@@ -1,7 +1,10 @@
 <script setup lang="ts">
+import AdminProfileDropdown from '../component/AdminProfileDropdown.vue'
+import WalletPanel from '../component/WalletPanel.vue'
+import { usePanel } from '../store/panel'
 import { useViewWrapper } from '/@dds/stores/viewWrapper'
-import UserProfileDropdown from '../component/UserProfileDropdown.vue'
 
+const panel = usePanel()
 const viewWrapper = useViewWrapper()
 viewWrapper.setPageTitle('My Page')
 
@@ -45,16 +48,18 @@ const isDesktopSideblockOpen = ref(false)
             </div>
 
             <Toolbar class="desktop-toolbar">
-              <div class="wallet-container">
-                <img src="/images/kp_logo_single.png" alt="KCP" />
+              <div class="wallet-container" @click="panel.setActive('wallet')">
+                <img src="/images/kp_logo_single.png" alt="KPC" />
                 <span class="wallet-balance">2.5 KPC</span>
               </div>
-              <UserProfileDropdown />
+              <AdminProfileDropdown />
             </Toolbar>
           </div>
 
           <slot />
         </VPageContent>
+
+        <WalletPanel />
 
         <div class="columns">
           <div class="column is-3">
