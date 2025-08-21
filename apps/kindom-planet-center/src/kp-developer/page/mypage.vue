@@ -50,8 +50,8 @@ const isDesktopSideblockOpen = ref(false)
 
             <Toolbar class="desktop-toolbar">
               <div class="wallet-container">
-                <img src="/images/kp_logo_single.png" alt="KCP" />
-                <span class="wallet-balance">52.0 KCP</span>
+                <img src="/images/kp_logo_single.png" alt="KPC" />
+                <span class="wallet-balance">52.0 KPC</span>
               </div>
               <UserProfileDropdown />
             </Toolbar>
