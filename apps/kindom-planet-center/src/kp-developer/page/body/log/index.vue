@@ -290,11 +290,17 @@ const subData = [
                         <div class="log-item-details-li">
                           <VCollapseApiSub :items="[subData[2]]" with-chevron>
                             <template #item-0-content="{ item }">
-                              <div>id: {{ item.id }}</div>
-                              <div>method: {{ item.method }}</div>
-                              <div>url: {{ item.url }}</div>
-                              <div>status: {{ item.status }}</div>
-                              <div>responseTime: {{ item.responseTime }}</div>
+                              <div class="log-item-sub-item">id: {{ item.id }}</div>
+                              <div class="log-item-sub-item">
+                                method: {{ item.method }}
+                              </div>
+                              <div class="log-item-sub-item">url: {{ item.url }}</div>
+                              <div class="log-item-sub-item">
+                                status: {{ item.status }}
+                              </div>
+                              <div class="log-item-sub-item">
+                                responseTime: {{ item.responseTime }}
+                              </div>
                             </template>
                           </VCollapseApiSub>
                           <div class="log-item-details-item">
@@ -362,7 +368,7 @@ const subData = [
     grid-template-columns: 1fr 1fr 3fr;
     align-items: center;
     padding: 24px;
-    border-bottom: 1px solid var(--dark-sidebar-light-12);
+    border-bottom: 1px solid var(--light-grey);
 
     span {
       font-weight: 600;
@@ -372,9 +378,8 @@ const subData = [
 
   .log-entries {
     padding: 24px;
-    border-bottom: 1px solid var(--dark-sidebar-light-12);
     &[open] {
-      background-color: var(--dark-sidebar-light-4);
+      background-color: var(--light-grey);
     }
     .log-entry {
       border-radius: 8px;
@@ -406,8 +411,8 @@ const subData = [
 
           &[open] {
             transform: rotate(calc(var(--transform-direction) * 180deg));
-            background: var(--dark-sidebar-light-2);
-            border-color: var(--dark-sidebar-light-4);
+            background: var(--white);
+            border-color: var(--light-grey);
           }
         }
 
@@ -491,16 +496,28 @@ const subData = [
 
 .is-dark {
   .log-entries-container {
+    .log-entries-header {
+      border-bottom: 1px solid var(--dark-sidebar-light-12);
+    }
     .log-entries {
+      &[open] {
+        background-color: var(--dark-sidebar-light-4);
+      }
       .log-entry {
         .log-header {
           .collapse-icon {
-            background: var(--black);
+            background: var(--dark-sidebar-light-6);
+            background: var(--dark-sidebar-light-6);
 
             &[open] {
               background: var(--dark-sidebar-light-2);
               border-color: var(--dark-sidebar-light-4);
             }
+          }
+        }
+        .log-item-details {
+          .log-item-details-item {
+            color: var(--dark-dark-text);
           }
         }
       }

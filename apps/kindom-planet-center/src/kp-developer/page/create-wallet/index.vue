@@ -1,23 +1,18 @@
 <script setup lang="ts">
 import { useDarkmode } from '/@dds/stores/darkmode'
-import sleep from '/@dds/utils/sleep'
-
-import VWallet from '/@kp-developer/component/VWallet.vue'
-import { useCreditcardMask } from '/@dds/composable/useCreditcardMask'
 import { useNotyf } from '/@dds/composable/useNotyf'
+import KpWallet from '../../component/KpWallet.vue'
+import sleep from '/@dds/utils/sleep'
 
 const router = useRouter()
 const darkmode = useDarkmode()
 const notyf = useNotyf()
-const { creditcardLogo } = useCreditcardMask()
 
 const isLoading = ref<boolean>(false)
-const isCardFlipped = ref(false)
-const creditcardInput = reactive({
-  number: '',
-  name: '',
-  cvc: '',
-  expiry: '',
+const isCardFlipped = ref<boolean>(false)
+
+useHead({
+  title: 'Create Wallet - Kingdom Planet',
 })
 
 const generatePrivateKey = (): string => {
@@ -33,37 +28,10 @@ const walletName = ref<string>('')
 const walletAddress = ref<string>('')
 const privateKey = ref<string>(generatePrivateKey())
 
-const formattedWalletAddress = computed(() => {
-  if (!walletAddress.value) return ''
-  const cleanAddress = walletAddress.value.replace(/\s/g, '')
-  if (cleanAddress.length <= 18) return cleanAddress
-  return cleanAddress.substring(0, 18) + '...'
-})
-
 const clickCopy = (): void => {
   navigator.clipboard.writeText(privateKey.value)
   notyf.success('Copied to clipboard')
 }
-
-const testCards = [
-  '4000056655665556',
-  '5200828282828210',
-  '371449635398431',
-  '6011000990139424',
-  '30569309025904',
-  '3566002020360505',
-  '6200000000000005',
-  '6759649826438453',
-]
-const randomCard = () => {
-  const randomNumber = Math.floor(Math.random() * testCards.length)
-  if (creditcardInput.number.replace(/\s/g, '') !== testCards[randomNumber]) {
-    creditcardInput.number = testCards[randomNumber]
-  }
-}
-useHead({
-  title: 'Register Developer - Kingdom Planet',
-})
 
 const onSubmit = async () => {
   if (!isLoading.value) {
@@ -106,16 +74,16 @@ const onSubmit = async () => {
             <h2>Create your Wallet</h2>
             <p>We will provide rewards for your activities in KP through this wallet!</p>
           </div>
-          <VWallet
-            :color="'cyan'"
-            :flipped="isCardFlipped"
-            :name="walletName"
-            :number="formattedWalletAddress"
-            :cvc="privateKey"
-            @flip="isCardFlipped = !isCardFlipped"
-          >
-            <div v-if="creditcardLogo" id="ccsingle" v-html="creditcardLogo" />
-          </VWallet>
+          <div class="wallet-container">
+            <KpWallet
+              :color="'cyan'"
+              :flipped="isCardFlipped"
+              :name="walletName"
+              :address="walletAddress"
+              :privateKey="privateKey"
+              @flip="isCardFlipped = !isCardFlipped"
+            />
+          </div>
           <div class="form-card">
             <form method="post" novalidate class="form-layout" @submit.prevent="onSubmit">
               <div class="form-outer">
@@ -564,17 +532,18 @@ const onSubmit = async () => {
         }
       }
 
-      .card-container {
-        margin-bottom: 2rem;
-        /* margin-top: 2rem; */
+      .wallet-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .wallet-graphic-container {
+          width: 100%;
+          max-width: 260px;
+        }
       }
 
       .form-card {
         margin-bottom: 6rem;
-
-        .v-button {
-          /* margin-top: 10px; */
-        }
       }
     }
   }

@@ -125,7 +125,7 @@ const toggle = (key: number) => {
       background: var(--white);
       border-radius: var(--radius-rounded);
       border: 1px solid transparent;
-      transition: all 0.3s; // transition-all test
+      transition: all 0.3s;
 
       > span {
         display: block;
@@ -154,7 +154,6 @@ const toggle = (key: number) => {
       display: flex;
       flex-direction: column;
       gap: 8px;
-      /* padding: 16px 0; */
       padding-left: 24px;
     }
   }

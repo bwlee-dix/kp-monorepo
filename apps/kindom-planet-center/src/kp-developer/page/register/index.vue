@@ -55,7 +55,7 @@ const onSubmit = async () => {
   if (!isLoading.value) {
     isLoading.value = true
     await sleep(500)
-    router.push('/register-wallet')
+    router.push('/create-wallet')
     notyf.success('Register developer success!')
 
     isLoading.value = false
@@ -90,8 +90,7 @@ const onSubmit = async () => {
         <div class="inner-wrap">
           <div class="auth-head">
             <h2>Hello Developer.</h2>
-            <p>Please sign in to your account</p>
-            <RouterLink to="/auth/signup-3"> I do not have an account yet </RouterLink>
+            <p>Please register your developer account</p>
           </div>
 
           <div class="form-card">
@@ -253,18 +252,10 @@ const onSubmit = async () => {
                   <div class="row">
                     <div class="payment-container-title">
                       <h3>Payment information</h3>
-                      <span
-                        tabindex="0"
-                        role="button"
-                        @keydown.space.prevent="randomCard"
-                        @click="randomCard"
-                      >
-                        Randomize
-                      </span>
                     </div>
 
                     <VCreditCard
-                      :color="creditcardColor"
+                      :color="'orange'"
                       :flipped="isCardFlipped"
                       :name="creditcardInput.name"
                       :number="creditcardInput.number"
@@ -340,13 +331,6 @@ const onSubmit = async () => {
                               />
                             </VControl>
                           </VField>
-                        </div>
-                        <div class="column is-12">
-                          <div class="button-wrap">
-                            <VButton type="submit" color="primary" raised fullwidth>
-                              Save Payment Method
-                            </VButton>
-                          </div>
                         </div>
                       </div>
                     </div>
