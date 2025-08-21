@@ -57,6 +57,7 @@ declare module 'vue-router/auto/routes' {
     '/mypage/reward/': RouteRecordInfo<'/mypage/reward/', '/mypage/reward', Record<never, never>, Record<never, never>>,
     '/register/': RouteRecordInfo<'/register/', '/register', Record<never, never>, Record<never, never>>,
     '/register-wallet/': RouteRecordInfo<'/register-wallet/', '/register-wallet', Record<never, never>, Record<never, never>>,
+    '/sign-up/': RouteRecordInfo<'/sign-up/', '/sign-up', Record<never, never>, Record<never, never>>,
   }
 }
 

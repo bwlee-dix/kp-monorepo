@@ -11,10 +11,10 @@ const notyf = useNotyf()
 const userSession = useUserSession()
 
 useHead({
-  title: 'Sign in - KingdomPlanet',
+  title: 'Sign up - KingdomPlanet',
 })
 
-const handleLogin = async () => {
+const handleSignup = async () => {
   if (!isLoading.value) {
     isLoading.value = true
 
@@ -22,7 +22,7 @@ const handleLogin = async () => {
     userSession.setToken('logged-in')
 
     notyf.dismissAll()
-    notyf.success('Welcome back, Erik Kovalsky')
+    notyf.success('Welcome, KP KIM!')
 
     router.replace('/register')
 
@@ -36,11 +36,6 @@ const handleLogin = async () => {
     <div class="auth-wrapper-inner is-single">
       <div class="auth-nav">
         <div class="left" />
-        <div class="center">
-          <RouterLink to="/" class="header-item">
-            <AnimatedLogo width="38px" height="38px" />
-          </RouterLink>
-        </div>
         <div class="right">
           <label
             class="ml-auto dark-mode"
@@ -64,21 +59,30 @@ const handleLogin = async () => {
       <div class="single-form-wrap">
         <div class="inner-wrap">
           <div class="auth-head">
-            <h2>Welcome Back.</h2>
-            <p>Please sign in to your account</p>
-            <RouterLink to="/sign-up"> I do not have an account yet </RouterLink>
+            <h2>Sign Up</h2>
+            <p>Welcome to KingdomPlanet</p>
+            <RouterLink to="/auth"> I already have an account </RouterLink>
           </div>
 
           <div class="form-card">
-            <form method="post" novalidate @submit.prevent="handleLogin">
+            <form method="post" novalidate @submit.prevent="handleSignup">
               <div class="login-form">
                 <VField>
-                  <VControl icon="feather:user">
+                  <VControl icon="lucide:user">
                     <VInput type="text" placeholder="Username" autocomplete="username" />
                   </VControl>
                 </VField>
                 <VField>
-                  <VControl icon="feather:lock">
+                  <VControl icon="lucide:mail">
+                    <VInput
+                      type="text"
+                      placeholder="Email Address"
+                      autocomplete="email"
+                    />
+                  </VControl>
+                </VField>
+                <VField>
+                  <VControl icon="lucide:lock">
                     <VInput
                       type="password"
                       placeholder="Password"
@@ -86,10 +90,13 @@ const handleLogin = async () => {
                     />
                   </VControl>
                 </VField>
-
                 <VField>
-                  <VControl class="setting-item">
-                    <VCheckbox label="Remember me" color="primary" paddingless />
+                  <VControl icon="lucide:lock">
+                    <VInput
+                      type="password"
+                      placeholder="Confirm Password"
+                      autocomplete="current-password"
+                    />
                   </VControl>
                 </VField>
 
@@ -102,15 +109,11 @@ const handleLogin = async () => {
                     fullwidth
                     raised
                   >
-                    Sign In
+                    Sign Up
                   </VButton>
                 </div>
               </div>
             </form>
-          </div>
-
-          <div class="forgot-link has-text-centered">
-            <a>Forgot Password?</a>
           </div>
         </div>
       </div>
