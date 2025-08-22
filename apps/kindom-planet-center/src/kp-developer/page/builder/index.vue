@@ -1,11 +1,9 @@
 <script setup lang="ts">
-import type { VAvatarProps, VAvatarColor } from '/@src/components/base/avatar/VAvatar.vue'
-import { projects } from '/@src/data/layouts/card-grid-v3'
-import { useDarkmode } from '/@src/stores/darkmode'
+import { useDarkmode } from '/@dds/stores/darkmode'
 
 import VueScrollTo from 'vue-scrollto'
-import { useNotyf } from '/@src/composable/useNotyf'
-import sleep from '/@src/utils/sleep'
+import { useNotyf } from '/@dds/composable/useNotyf'
+import sleep from '/@dds/utils/sleep'
 import { ref, watch, nextTick, computed } from 'vue'
 import { useRouter } from 'vue-router'
 
@@ -25,7 +23,7 @@ const { scrollTo } = VueScrollTo
 
 const currentStep = ref(0)
 const currentHelp = ref(-1)
-const isB2C = ref(true);
+const isB2C = ref(true)
 const type = ref('')
 const options = ref<string[]>([])
 
@@ -39,7 +37,9 @@ const fieldDescription = ref('')
 const fieldRequired = ref(false)
 
 // Page management
-const pages = ref<Array<{ id: string; name: string; description: string; fields: Field[] }>>([])
+const pages = ref<
+  Array<{ id: string; name: string; description: string; fields: Field[] }>
+>([])
 const currentPageId = ref<string>('')
 const newPageName = ref('')
 const newPageDescription = ref('')
@@ -73,31 +73,35 @@ const validateStep = async () => {
       notyf.error('Please add at least one page before proceeding')
       return
     }
-    
+
     if (isLoading.value) {
       return
     }
   }
-  
+
   if (currentStep.value === 2) {
     // Validate that all fields have valid options
     const currentPage = getCurrentPage()
     if (currentPage && currentPage.fields.length > 0) {
       for (const field of currentPage.fields) {
         if (field.type === 'Radio' || field.type === 'Multi-Select') {
-          if (!field.options || field.options.length === 0 || field.options.every(option => !option.trim())) {
+          if (
+            !field.options ||
+            field.options.length === 0 ||
+            field.options.every((option) => !option.trim())
+          ) {
             notyf.error(`Field "${field.name}" must have at least one valid option`)
             return
           }
         }
       }
     }
-    
+
     if (isLoading.value) {
       return
     }
   }
-  
+
   if (currentStep.value === 3) {
     if (isLoading.value) {
       return
@@ -105,18 +109,18 @@ const validateStep = async () => {
 
     isLoading.value = true
     notyf.success('Web builder configuration completed successfully!')
-    
+
     // Save builder configuration to localStorage for preview
     const builderConfig = {
       pages: pages.value,
-      timestamp: new Date().toISOString()
+      timestamp: new Date().toISOString(),
     }
     localStorage.setItem('builderConfig', JSON.stringify(builderConfig))
-    
+
     // Wait longer to ensure localStorage is saved and navigation is ready
     await sleep(2000)
 
-    await router.push('/builder/preview')    
+    await router.push('/body/dashboard')
     return
   }
   // if (currentStep.value === 4) {
@@ -152,35 +156,38 @@ const addOption = () => {
 const removeOption = (index: number) => {
   options.value.splice(index, 1)
   // Ensure at least one option remains for Radio/Multi-Select
-  if (options.value.length === 0 && (type.value === 'Radio' || type.value === 'Multi-Select')) {
+  if (
+    options.value.length === 0 &&
+    (type.value === 'Radio' || type.value === 'Multi-Select')
+  ) {
     options.value = ['']
   }
 }
 
 const validateFieldForm = () => {
   const errors: string[] = []
-  
+
   if (!fieldName.value.trim()) {
     errors.push('Field name is required')
   }
-  
+
   if (!type.value) {
     errors.push('Field type is required')
   }
-  
+
   // Check options for Radio and Multi-Select
   if (type.value === 'Radio' || type.value === 'Multi-Select') {
     if (!options.value.length) {
       errors.push('At least one option is required for Radio/Multi-Select fields')
     } else {
       // Check if any option is empty or only whitespace
-      const hasEmptyOption = options.value.some(option => !option.trim())
+      const hasEmptyOption = options.value.some((option) => !option.trim())
       if (hasEmptyOption) {
         errors.push('All options must have valid text. Empty options are not allowed.')
       }
     }
   }
-  
+
   return errors
 }
 
@@ -200,7 +207,7 @@ const resetForm = () => {
 // Page management functions
 const addNewPage = () => {
   console.log('addNewPage executed', new Date().getTime())
-  
+
   if (!newPageName.value.trim()) {
     notyf.error('Page name is required')
     return
@@ -210,25 +217,25 @@ const addNewPage = () => {
     id: Date.now().toString(),
     name: newPageName.value.trim(),
     description: newPageDescription.value.trim(),
-    fields: []
+    fields: [],
   }
 
   pages.value.push(newPage)
-  
+
   // Set as current page if it's the first page
   if (pages.value.length === 1) {
     currentPageId.value = newPage.id
     console.log('Set currentPageId to:', currentPageId.value)
   }
-  
+
   // Reset form
   newPageName.value = ''
   newPageDescription.value = ''
-  
+
   console.log('Pages after adding:', pages.value)
   console.log('Current page ID:', currentPageId.value)
   console.log('Current page fields:', getCurrentPageFields())
-  
+
   notyf.success('Page added successfully!')
 }
 
@@ -239,7 +246,7 @@ const switchPage = (pageId: string) => {
 }
 
 const getCurrentPage = () => {
-  return pages.value.find(page => page.id === currentPageId.value)
+  return pages.value.find((page) => page.id === currentPageId.value)
 }
 
 const getCurrentPageFields = () => {
@@ -260,19 +267,19 @@ const updatePage = () => {
     return
   }
 
-  const index = pages.value.findIndex(page => page.id === editingPageId.value)
+  const index = pages.value.findIndex((page) => page.id === editingPageId.value)
   if (index > -1) {
     pages.value[index] = {
       ...pages.value[index],
       name: newPageName.value.trim(),
-      description: newPageDescription.value.trim()
+      description: newPageDescription.value.trim(),
     }
-    
+
     // Reset form
     newPageName.value = ''
     newPageDescription.value = ''
     editingPageId.value = null
-    
+
     notyf.success('Page updated successfully!')
   }
 }
@@ -284,7 +291,7 @@ const cancelPageEdit = () => {
 }
 
 const removePage = (pageId: string) => {
-  const index = pages.value.findIndex(page => page.id === pageId)
+  const index = pages.value.findIndex((page) => page.id === pageId)
   if (index > -1) {
     pages.value.splice(index, 1)
     if (currentPageId.value === pageId) {
@@ -308,14 +315,14 @@ const addField = async () => {
   if (isLoading.value || isValidationInProgress.value) {
     return
   }
-  
+
   isValidationInProgress.value = true
   isLoading.value = true
-  
+
   try {
     // Validate form
     const errors = validateFieldForm()
-    
+
     // If there are validation errors, show them all at once
     if (errors.length > 0) {
       notyf.error(errors.join('. '))
@@ -328,7 +335,10 @@ const addField = async () => {
       description: fieldDescription.value.trim(),
       type: type.value,
       required: fieldRequired.value,
-      options: type.value === 'Radio' || type.value === 'Multi-Select' ? [...options.value] : undefined
+      options:
+        type.value === 'Radio' || type.value === 'Multi-Select'
+          ? [...options.value]
+          : undefined,
     }
 
     // Add field to current page
@@ -336,7 +346,7 @@ const addField = async () => {
     if (currentPage) {
       currentPage.fields.push(newField)
     }
-    
+
     // Reset form
     resetForm()
     notyf.success('Field added successfully!')
@@ -351,14 +361,14 @@ const updateField = async () => {
   if (isLoading.value || isValidationInProgress.value) {
     return
   }
-  
+
   isValidationInProgress.value = true
   isLoading.value = true
-  
+
   try {
     // Validate form
     const errors = validateFieldForm()
-    
+
     // If there are validation errors, show them all at once
     if (errors.length > 0) {
       notyf.error(errors.join('. '))
@@ -367,7 +377,9 @@ const updateField = async () => {
 
     const currentPage = getCurrentPage()
     if (currentPage) {
-      const index = currentPage.fields.findIndex(field => field.id === editingFieldId.value)
+      const index = currentPage.fields.findIndex(
+        (field) => field.id === editingFieldId.value
+      )
       if (index > -1) {
         currentPage.fields[index] = {
           ...currentPage.fields[index],
@@ -375,9 +387,12 @@ const updateField = async () => {
           description: fieldDescription.value.trim(),
           type: type.value,
           required: fieldRequired.value,
-          options: type.value === 'Radio' || type.value === 'Multi-Select' ? [...options.value] : undefined
+          options:
+            type.value === 'Radio' || type.value === 'Multi-Select'
+              ? [...options.value]
+              : undefined,
         }
-        
+
         resetForm()
         notyf.success('Field updated successfully!')
       }
@@ -416,17 +431,17 @@ const getTypeColor = (type: string) => {
 const handleAddField = () => {
   console.log('handleAddField called', new Date().getTime())
   console.log('isExecuting:', isExecuting.value)
-  
+
   // Immediately set executing flag to prevent duplicate calls
   if (isExecuting.value) {
     console.log('Already executing, skipping...')
     return
   }
-  
+
   // Set flag immediately and synchronously
   isExecuting.value = true
   console.log('Setting isExecuting to true')
-  
+
   // Use nextTick to ensure the flag is set before any other processing
   nextTick(() => {
     try {
@@ -444,17 +459,17 @@ const handleAddField = () => {
 const handleUpdateField = () => {
   console.log('handleUpdateField called', new Date().getTime())
   console.log('isExecuting:', isExecuting.value)
-  
+
   // Immediately set executing flag to prevent duplicate calls
   if (isExecuting.value) {
     console.log('Already executing, skipping...')
     return
   }
-  
+
   // Set flag immediately and synchronously
   isExecuting.value = true
   console.log('Setting isExecuting to true')
-  
+
   // Use nextTick to ensure the flag is set before any other processing
   nextTick(() => {
     try {
@@ -472,7 +487,7 @@ const handleUpdateField = () => {
 const removeField = (fieldId: string) => {
   const currentPage = getCurrentPage()
   if (currentPage) {
-    const index = currentPage.fields.findIndex(field => field.id === fieldId)
+    const index = currentPage.fields.findIndex((field) => field.id === fieldId)
     if (index > -1) {
       currentPage.fields.splice(index, 1)
       notyf.success('Field removed successfully!')
@@ -488,13 +503,12 @@ const editField = (field: any) => {
   type.value = field.type
   fieldRequired.value = field.required
   options.value = field.options ? [...field.options] : []
-  
+
   // Scroll to form (Form Items step)
   nextTick(() => {
     scrollTo('#form-step-2', 400, { offset: 150 })
   })
 }
-
 
 const isLoading = ref(false)
 const darkmode = useDarkmode()
@@ -506,16 +520,16 @@ useHead({
 const handleAddPage = () => {
   console.log('handleAddPage called', new Date().getTime())
   console.log('isExecuting:', isExecuting.value)
-  
+
   // Immediately set executing flag to prevent duplicate calls
   if (isExecuting.value) {
     console.log('Already executing, skipping...')
     return
   }
-  
+
   isExecuting.value = true
   console.log('Setting isExecuting to true')
-  
+
   try {
     addNewPage()
   } finally {
@@ -532,9 +546,9 @@ const handleUpdatePage = () => {
   if (isExecuting.value) {
     return
   }
-  
+
   isExecuting.value = true
-  
+
   try {
     updatePage()
   } finally {
@@ -550,21 +564,21 @@ const openPreviewModal = () => {
   console.log('openPreviewModal called')
   console.log('pages.value:', pages.value)
   console.log('pages.value.length:', pages.value.length)
-  
+
   if (pages.value.length === 0) {
     console.log('No pages found, showing error')
     notyf.error('Please add at least one page before previewing')
     return
   }
-  
+
   // Set first page as current preview page
   currentPreviewPageId.value = pages.value[0].id
   console.log('Set currentPreviewPageId to:', currentPreviewPageId.value)
-  
+
   // Initialize form data for all fields
   previewFormData.value = {}
-  pages.value.forEach(page => {
-    page.fields.forEach(field => {
+  pages.value.forEach((page) => {
+    page.fields.forEach((field) => {
       if (field.type === 'Multi-Select') {
         previewFormData.value[field.id] = []
       } else {
@@ -572,15 +586,13 @@ const openPreviewModal = () => {
       }
     })
   })
-  
+
   console.log('Initialized previewFormData:', previewFormData.value)
   console.log('Setting showPreviewModal to true')
   showPreviewModal.value = true
   console.log('showPreviewModal.value is now:', showPreviewModal.value)
   console.log('currentPreviewPage computed:', currentPreviewPage.value)
 }
-
-
 
 const switchPreviewPage = (pageId: string) => {
   currentPreviewPageId.value = pageId
@@ -589,7 +601,7 @@ const switchPreviewPage = (pageId: string) => {
 }
 
 const currentPreviewPage = computed(() => {
-  return pages.value.find(page => page.id === currentPreviewPageId.value)
+  return pages.value.find((page) => page.id === currentPreviewPageId.value)
 })
 
 const submitPreviewForm = () => {
@@ -598,15 +610,21 @@ const submitPreviewForm = () => {
   if (!currentPage) return
 
   const errors: string[] = []
-  
-  currentPage.fields.forEach(field => {
+
+  currentPage.fields.forEach((field) => {
     if (field.required) {
       if (field.type === 'Multi-Select') {
-        if (!previewFormData.value[field.id] || previewFormData.value[field.id].length === 0) {
+        if (
+          !previewFormData.value[field.id] ||
+          previewFormData.value[field.id].length === 0
+        ) {
           errors.push(`${field.name} is required`)
         }
       } else {
-        if (!previewFormData.value[field.id] || previewFormData.value[field.id].toString().trim() === '') {
+        if (
+          !previewFormData.value[field.id] ||
+          previewFormData.value[field.id].toString().trim() === ''
+        ) {
           errors.push(`${field.name} is required`)
         }
       }
@@ -621,18 +639,16 @@ const submitPreviewForm = () => {
   // Show success message
   notyf.success('Form submitted successfully!')
   console.log('Preview form data:', previewFormData.value)
-  
+
   // Reset form
   previewFormData.value = {}
 }
-
 
 const closeModal = () => {
   console.log('closeModal called')
   showPreviewModal.value = false
   console.log('showPreviewModal set to false')
 }
-
 </script>
 
 <template>
@@ -642,14 +658,8 @@ const closeModal = () => {
       <div class="auth-nav">
         <div class="left" />
         <div class="center">
-          <RouterLink
-            to="/"
-            class="header-item"
-          >
-            <AnimatedLogo
-              width="38px"
-              height="38px"
-            />
+          <RouterLink to="/" class="header-item">
+            <AnimatedLogo width="38px" height="38px" />
           </RouterLink>
         </div>
         <div class="right">
@@ -664,7 +674,7 @@ const closeModal = () => {
               type="checkbox"
               :checked="!darkmode.isDark"
               @change="darkmode.onChange"
-            >
+            />
             <span />
           </label>
         </div>
@@ -672,17 +682,10 @@ const closeModal = () => {
 
       <!--Single Centered Form-->
       <div class="page-content-inner">
-        <form
-          method="post"
-          novalidate
-          @submit.prevent="validateStep"
-        >
+        <form method="post" novalidate @submit.prevent="validateStep">
           <div class="mobile-steps is-active">
             <ul class="steps has-content-centered is-thin is-horizontal is-short">
-              <li
-                :class="[currentStep === 0 && 'is-active']"
-                class="steps-segment"
-              >
+              <li :class="[currentStep === 0 && 'is-active']" class="steps-segment">
                 <span class="steps-marker" />
                 <a
                   href="#"
@@ -695,10 +698,7 @@ const closeModal = () => {
                 </a>
               </li>
 
-              <li
-                :class="[currentStep === 1 && 'is-active']"
-                class="steps-segment"
-              >
+              <li :class="[currentStep === 1 && 'is-active']" class="steps-segment">
                 <span class="steps-marker" />
                 <a
                   href="#"
@@ -711,10 +711,7 @@ const closeModal = () => {
                 </a>
               </li>
 
-              <li
-                :class="[currentStep === 2 && 'is-active']"
-                class="steps-segment"
-              >
+              <li :class="[currentStep === 2 && 'is-active']" class="steps-segment">
                 <span class="steps-marker" />
                 <a
                   href="#"
@@ -768,9 +765,7 @@ const closeModal = () => {
                       </VField>
                     </div>
                     <div class="column is-12">
-                      <VField
-                        label="Description"
-                      >
+                      <VField label="Description">
                         <VControl fullwidth>
                           <VTextarea
                             v-model="appDescription"
@@ -850,7 +845,7 @@ const closeModal = () => {
                           </VControl>
                         </VField>
                       </div>
-                      
+
                       <div class="column is-12">
                         <VField label="Page Description">
                           <VControl fullwidth>
@@ -877,10 +872,7 @@ const closeModal = () => {
                           Add Page
                         </VButton>
 
-                        <div
-                          v-else
-                          class="edit-actions"
-                        >
+                        <div v-else class="edit-actions">
                           <div class="columns is-multiline">
                             <div class="column is-6">
                               <VButton
@@ -894,7 +886,7 @@ const closeModal = () => {
                                 Update Page
                               </VButton>
                             </div>
-                            
+
                             <div class="column is-6">
                               <VButton
                                 type="button"
@@ -914,11 +906,7 @@ const closeModal = () => {
 
                   <!-- Page List -->
                   <div class="form-section-output">
-                    <div
-                      v-for="page in pages"
-                      :key="page.id"
-                      class="output"
-                    >
+                    <div v-for="page in pages" :key="page.id" class="output">
                       <i
                         aria-hidden="true"
                         class="iconify"
@@ -935,33 +923,25 @@ const closeModal = () => {
                             Current
                           </VTag> -->
                         </div>
-                        <span
-                          v-if="page.description"
-                          class="field-description"
-                        >{{ page.description }}</span>
+                        <span v-if="page.description" class="field-description">{{
+                          page.description
+                        }}</span>
                       </div>
                       <div class="actions">
-                        <VIconButton 
+                        <VIconButton
                           icon="feather:edit-2"
                           color="info"
                           @click="editPage(page)"
                         />
-                        <VIconButton 
+                        <VIconButton
                           icon="feather:trash-2"
                           color="danger"
                           @click="removePage(page.id)"
                         />
                       </div>
                     </div>
-                    <div
-                      v-if="pages.length === 0"
-                      class="no-fields"
-                    >
-                      <i
-                        aria-hidden="true"
-                        class="iconify"
-                        data-icon="feather:info"
-                      />
+                    <div v-if="pages.length === 0" class="no-fields">
+                      <i aria-hidden="true" class="iconify" data-icon="feather:info" />
                       <span>No pages added yet. Add your first page above.</span>
                     </div>
                   </div>
@@ -993,49 +973,40 @@ const closeModal = () => {
                   </h3>
 
                   <!-- Page Selection UI - Only show when pages exist -->
-                  <div
-                    v-if="pages.length > 0"
-                    class="page-selection"
-                  >
+                  <div v-if="pages.length > 0" class="page-selection">
                     <div class="page-selector">
                       <VField label="Current Page">
                         <VControl>
                           <Multiselect
                             v-model="currentPageId"
-                            :options="pages.map(page => ({ value: page.id, label: page.name }))"
+                            :options="
+                              pages.map((page) => ({ value: page.id, label: page.name }))
+                            "
                             placeholder="Select a page"
                             @update:model-value="switchPage"
                           />
                         </VControl>
                       </VField>
                     </div>
-                    
+
                     <div class="page-info">
-                      <span class="page-count">{{ getCurrentPageFields().length }} fields</span>
+                      <span class="page-count"
+                        >{{ getCurrentPageFields().length }} fields</span
+                      >
                     </div>
                   </div>
 
                   <div class="form-section-inner">
                     <div class="fieldset">
                       <div class="column is-12">
-                        <VField
-                          label="Name"
-                        >
-                          <VControl
-                            fullwidth
-                          >
-                            <VInput
-                              v-model="fieldName"
-                              type="text"
-                              placeholder="Name"
-                            />
+                        <VField label="Name">
+                          <VControl fullwidth>
+                            <VInput v-model="fieldName" type="text" placeholder="Name" />
                           </VControl>
                         </VField>
                       </div>
                       <div class="column is-12">
-                        <VField
-                          label="Description"
-                        >
+                        <VField label="Description">
                           <VControl fullwidth>
                             <VTextarea
                               v-model="fieldDescription"
@@ -1064,22 +1035,25 @@ const closeModal = () => {
                       </div>
 
                       <div class="column is-12">
-                        <VField
-                          v-slot="{ id }"
-                          label="Type"
-                        >
+                        <VField v-slot="{ id }" label="Type">
                           <VControl fullwidth>
                             <Multiselect
                               v-model="type"
                               :attrs="{ id }"
                               placeholder="Pick a field type"
-                              :options="['Text', 'Textarea', 'Number', 'Date', 'Radio', 'Multi-Select']"
+                              :options="[
+                                'Text',
+                                'Textarea',
+                                'Number',
+                                'Date',
+                                'Radio',
+                                'Multi-Select',
+                              ]"
                             />
                           </VControl>
                         </VField>
                       </div>
-                      
-                      
+
                       <!-- Options input fields for Radio and Multi-Select -->
                       <div
                         v-if="type === 'Radio' || type === 'Multi-Select'"
@@ -1104,7 +1078,7 @@ const closeModal = () => {
                                 @click="removeOption(index)"
                               />
                             </div>
-                            
+
                             <!-- Add Option Button moved below the options -->
                             <div class="add-option-section">
                               <VButton
@@ -1138,12 +1112,14 @@ const closeModal = () => {
                             :disabled="isLoading || isValidationInProgress || isExecuting"
                             @click="handleAddField"
                           >
-                            {{ isLoading || isValidationInProgress || isExecuting ? 'Adding...' : 'Add Field' }}
+                            {{
+                              isLoading || isValidationInProgress || isExecuting
+                                ? 'Adding...'
+                                : 'Add Field'
+                            }}
                           </VButton>
 
-                          <div
-                            v-else
-                          >
+                          <div v-else>
                             <div class="columns is-multiline">
                               <div class="column is-6">
                                 <VButton
@@ -1152,13 +1128,19 @@ const closeModal = () => {
                                   bold
                                   fullwidth
                                   icon="feather:check"
-                                  :disabled="isLoading || isValidationInProgress || isExecuting"
+                                  :disabled="
+                                    isLoading || isValidationInProgress || isExecuting
+                                  "
                                   @click="handleUpdateField"
                                 >
-                                  {{ isLoading || isValidationInProgress || isExecuting ? 'Updating...' : 'Update Field' }}
+                                  {{
+                                    isLoading || isValidationInProgress || isExecuting
+                                      ? 'Updating...'
+                                      : 'Update Field'
+                                  }}
                                 </VButton>
                               </div>
-                            
+
                               <div class="column is-6">
                                 <VButton
                                   type="button"
@@ -1246,44 +1228,30 @@ const closeModal = () => {
                       <div class="field-info">
                         <div class="field-main">
                           <span class="field-name">{{ field.name }}</span>
-                          <VTag
-                            :color="getTypeColor(field.type)"
-                          >
+                          <VTag :color="getTypeColor(field.type)">
                             {{ field.type }}
                           </VTag>
-                          <VTag
-                            v-if="field.required"
-                            color="danger"
-                          >
-                            Required
-                          </VTag>
+                          <VTag v-if="field.required" color="danger"> Required </VTag>
                         </div>
                       </div>
                       <div class="actions">
-                        <VIconButton 
+                        <VIconButton
                           icon="feather:edit-2"
                           color="info"
                           @click="editField(field)"
                         />
-                        <VIconButton 
+                        <VIconButton
                           icon="feather:trash-2"
                           color="danger"
                           @click="removeField(field.id)"
                         />
                       </div>
                     </div>
-                    <div
-                      v-if="getCurrentPageFields().length === 0"
-                      class="no-fields"
-                    >
-                      <i
-                        aria-hidden="true"
-                        class="iconify"
-                        data-icon="feather:info"
-                      />
+                    <div v-if="getCurrentPageFields().length === 0" class="no-fields">
+                      <i aria-hidden="true" class="iconify" data-icon="feather:info" />
                       <span>No fields added yet. Add your first field above.</span>
                     </div>
-                    
+
                     <!-- Preview Button -->
                     <div
                       v-if="pages.length > 0 && getCurrentPageFields().length > 0"
@@ -1331,17 +1299,12 @@ const closeModal = () => {
                   <div class="form-section-inner">
                     <VField>
                       <VControl>
-                        <VInput
-                          type="text"
-                          placeholder="Your Domain Name"
-                        />
+                        <VInput type="text" placeholder="Your Domain Name" />
                       </VControl>
                     </VField>
                   </div>
                 </div>
               </Transition>
-
-              
 
               <div class="navigation-buttons">
                 <div class="buttons is-right">
@@ -1359,10 +1322,7 @@ const closeModal = () => {
             </div>
 
             <div class="form-stepper">
-              <ul
-                v-if="currentHelp === -1"
-                class="steps is-vertical is-thin is-short"
-              >
+              <ul v-if="currentHelp === -1" class="steps is-vertical is-thin is-short">
                 <li
                   id="step-segment-0"
                   role="button"
@@ -1376,17 +1336,10 @@ const closeModal = () => {
                     currentStep >= 0 && scrollTo('#form-step-0', 800, { offset: -20 })
                   "
                 >
-                  <a
-                    href="#"
-                    class="steps-marker"
-                  />
+                  <a href="#" class="steps-marker" />
                   <div class="steps-content">
-                    <p class="step-number">
-                      STEP 1
-                    </p>
-                    <p class="step-info">
-                      App Information
-                    </p>
+                    <p class="step-number">STEP 1</p>
+                    <p class="step-info">App Information</p>
                   </div>
                 </li>
                 <li
@@ -1402,17 +1355,10 @@ const closeModal = () => {
                     currentStep >= 1 && scrollTo('#form-step-1', 800, { offset: -20 })
                   "
                 >
-                  <a
-                    href="#"
-                    class="steps-marker"
-                  />
+                  <a href="#" class="steps-marker" />
                   <div class="steps-content">
-                    <p class="step-number">
-                      STEP 2
-                    </p>
-                    <p class="step-info">
-                      Page Configuration
-                    </p>
+                    <p class="step-number">STEP 2</p>
+                    <p class="step-info">Page Configuration</p>
                   </div>
                 </li>
                 <li
@@ -1428,17 +1374,10 @@ const closeModal = () => {
                     currentStep >= 2 && scrollTo('#form-step-2', 800, { offset: -20 })
                   "
                 >
-                  <a
-                    href="#"
-                    class="steps-marker"
-                  />
+                  <a href="#" class="steps-marker" />
                   <div class="steps-content">
-                    <p class="step-number">
-                      STEP 3
-                    </p>
-                    <p class="step-info">
-                      Form Items
-                    </p>
+                    <p class="step-number">STEP 3</p>
+                    <p class="step-info">Form Items</p>
                   </div>
                 </li>
                 <li
@@ -1454,17 +1393,10 @@ const closeModal = () => {
                     currentStep >= 3 && scrollTo('#form-step-3', 800, { offset: -20 })
                   "
                 >
-                  <a
-                    href="#"
-                    class="steps-marker"
-                  />
+                  <a href="#" class="steps-marker" />
                   <div class="steps-content">
-                    <p class="step-number">
-                      STEP 4
-                    </p>
-                    <p class="step-info">
-                      Domain Name
-                    </p>
+                    <p class="step-number">STEP 4</p>
+                    <p class="step-info">Domain Name</p>
                   </div>
                 </li>
                 <!--<li
@@ -1494,12 +1426,9 @@ const closeModal = () => {
                   </div>
                 </li> -->
               </ul>
-              
+
               <!-- iPhone Preview -->
-              <div
-                v-if="currentStep >= 2 && pages.length > 0"
-                class="iphone-preview"
-              >
+              <div v-if="currentStep >= 2 && pages.length > 0" class="iphone-preview">
                 <div class="iphone-frame">
                   <div class="iphone-notch" />
                   <div class="iphone-screen">
@@ -1507,7 +1436,7 @@ const closeModal = () => {
                       <h3>{{ getCurrentPage()?.name || 'Page Name' }}</h3>
                       <p>{{ getCurrentPage()?.description || 'Page Description' }}</p>
                     </div>
-                    
+
                     <div class="preview-content">
                       <div
                         v-for="field in getCurrentPageFields()"
@@ -1516,12 +1445,9 @@ const closeModal = () => {
                       >
                         <div class="field-label">
                           {{ field.name }}
-                          <span
-                            v-if="field.required"
-                            class="required"
-                          >*</span>
+                          <span v-if="field.required" class="required">*</span>
                         </div>
-                        
+
                         <div class="field-value">
                           <!-- Text/Textarea -->
                           <div
@@ -1530,41 +1456,32 @@ const closeModal = () => {
                           >
                             {{ field.description || 'Sample text content' }}
                           </div>
-                          
+
                           <!-- Number -->
-                          <div
-                            v-else-if="field.type === 'Number'"
-                            class="number-preview"
-                          >
+                          <div v-else-if="field.type === 'Number'" class="number-preview">
                             123
                           </div>
-                          
+
                           <!-- Date -->
-                          <div
-                            v-else-if="field.type === 'Date'"
-                            class="date-preview"
-                          >
+                          <div v-else-if="field.type === 'Date'" class="date-preview">
                             {{ new Date().toISOString().split('T')[0] }}
                           </div>
-                          
+
                           <!-- Radio -->
-                          <div
-                            v-else-if="field.type === 'Radio'"
-                            class="radio-preview"
-                          >
+                          <div v-else-if="field.type === 'Radio'" class="radio-preview">
                             <div
                               v-for="(option, index) in field.options"
                               :key="index"
                               class="radio-option"
                             >
-                              <div 
+                              <div
                                 class="radio-dot"
                                 :class="{ 'is-selected': index === 0 }"
                               />
                               <span>{{ option }}</span>
                             </div>
                           </div>
-                          
+
                           <!-- Multi-Select -->
                           <div
                             v-else-if="field.type === 'Multi-Select'"
@@ -1575,7 +1492,7 @@ const closeModal = () => {
                               :key="index"
                               class="checkbox-option"
                             >
-                              <div 
+                              <div
                                 class="checkbox-square"
                                 :class="{ 'is-selected': index === 0 }"
                               />
@@ -1584,26 +1501,20 @@ const closeModal = () => {
                           </div>
                         </div>
                       </div>
-                      
+
                       <div
                         v-if="getCurrentPageFields().length === 0"
                         class="no-fields-preview"
                       >
-                        <i
-                          class="iconify"
-                          data-icon="feather:plus-circle"
-                        />
+                        <i class="iconify" data-icon="feather:plus-circle" />
                         <span>Add fields to see preview</span>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-              
-              <div
-                v-else-if="currentStep >= 2"
-                class="form-help"
-              >
+
+              <div v-else-if="currentStep >= 2" class="form-help">
                 <div
                   v-if="currentHelp === 0"
                   id="help-section-0"
@@ -1615,42 +1526,27 @@ const closeModal = () => {
                     @keydown.space.prevent="currentHelp = -1"
                     @click="currentHelp = -1"
                   >
-                    <i
-                      aria-hidden="true"
-                      class="iconify"
-                      data-icon="feather:x"
-                    />
+                    <i aria-hidden="true" class="iconify" data-icon="feather:x" />
                   </button>
                   <h3>App Information</h3>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quod proximum
-                    fuit non vidit. Quantum Aristoxeni ingenium consumptum videmus in musicis?
-                    An eiusdem modi? Quae similitudo in genere etiam humano apparet.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quod
+                    proximum fuit non vidit. Quantum Aristoxeni ingenium consumptum
+                    videmus in musicis? An eiusdem modi? Quae similitudo in genere etiam
+                    humano apparet.
                   </p>
                   <div class="list-wrap">
                     <ul>
                       <li>
-                        <i
-                          aria-hidden="true"
-                          class="iconify"
-                          data-icon="feather:check"
-                        />
+                        <i aria-hidden="true" class="iconify" data-icon="feather:check" />
                         <span>Some nice list item</span>
                       </li>
                       <li>
-                        <i
-                          aria-hidden="true"
-                          class="iconify"
-                          data-icon="feather:check"
-                        />
+                        <i aria-hidden="true" class="iconify" data-icon="feather:check" />
                         <span>Some nice list item</span>
                       </li>
                       <li>
-                        <i
-                          aria-hidden="true"
-                          class="iconify"
-                          data-icon="feather:check"
-                        />
+                        <i aria-hidden="true" class="iconify" data-icon="feather:check" />
                         <span>Some nice list item</span>
                       </li>
                     </ul>
@@ -1667,34 +1563,22 @@ const closeModal = () => {
                     @keydown.space.prevent="currentHelp = -1"
                     @click="currentHelp = -1"
                   >
-                    <i
-                      aria-hidden="true"
-                      class="iconify"
-                      data-icon="feather:x"
-                    />
+                    <i aria-hidden="true" class="iconify" data-icon="feather:x" />
                   </button>
                   <h3>Shipment Owner</h3>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quod proximum
-                    fuit non vidit. Quantum Aristoxeni ingenium consumptum videmus in musicis?
-                    An eiusdem modi? Quae similitudo in genere.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quod
+                    proximum fuit non vidit. Quantum Aristoxeni ingenium consumptum
+                    videmus in musicis? An eiusdem modi? Quae similitudo in genere.
                   </p>
                   <div class="list-wrap">
                     <ul>
                       <li>
-                        <i
-                          aria-hidden="true"
-                          class="iconify"
-                          data-icon="feather:check"
-                        />
+                        <i aria-hidden="true" class="iconify" data-icon="feather:check" />
                         <span>Some nice list item</span>
                       </li>
                       <li>
-                        <i
-                          aria-hidden="true"
-                          class="iconify"
-                          data-icon="feather:check"
-                        />
+                        <i aria-hidden="true" class="iconify" data-icon="feather:check" />
                         <span>Some nice list item</span>
                       </li>
                     </ul>
@@ -1711,42 +1595,27 @@ const closeModal = () => {
                     @keydown.space.prevent="currentHelp = -1"
                     @click="currentHelp = -1"
                   >
-                    <i
-                      aria-hidden="true"
-                      class="iconify"
-                      data-icon="feather:x"
-                    />
+                    <i aria-hidden="true" class="iconify" data-icon="feather:x" />
                   </button>
                   <h3>Domain Name</h3>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quod proximum
-                    fuit non vidit. Quantum Aristoxeni ingenium consumptum videmus in musicis?
-                    An eiusdem modi? Quae similitudo in genere etiam humano apparet.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quod
+                    proximum fuit non vidit. Quantum Aristoxeni ingenium consumptum
+                    videmus in musicis? An eiusdem modi? Quae similitudo in genere etiam
+                    humano apparet.
                   </p>
                   <div class="list-wrap">
                     <ul>
                       <li>
-                        <i
-                          aria-hidden="true"
-                          class="iconify"
-                          data-icon="feather:check"
-                        />
+                        <i aria-hidden="true" class="iconify" data-icon="feather:check" />
                         <span>Some nice list item</span>
                       </li>
                       <li>
-                        <i
-                          aria-hidden="true"
-                          class="iconify"
-                          data-icon="feather:check"
-                        />
+                        <i aria-hidden="true" class="iconify" data-icon="feather:check" />
                         <span>Some nice list item</span>
                       </li>
                       <li>
-                        <i
-                          aria-hidden="true"
-                          class="iconify"
-                          data-icon="feather:check"
-                        />
+                        <i aria-hidden="true" class="iconify" data-icon="feather:check" />
                         <span>Some nice list item</span>
                       </li>
                     </ul>
@@ -1763,34 +1632,22 @@ const closeModal = () => {
                     @keydown.space.prevent="currentHelp = -1"
                     @click="currentHelp = -1"
                   >
-                    <i
-                      aria-hidden="true"
-                      class="iconify"
-                      data-icon="feather:x"
-                    />
+                    <i aria-hidden="true" class="iconify" data-icon="feather:x" />
                   </button>
                   <h3>Options</h3>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quod proximum
-                    fuit non vidit. Quantum Aristoxeni ingenium consumptum videmus in musicis?
-                    An eiusdem modi? Quae similitudo in genere.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quod
+                    proximum fuit non vidit. Quantum Aristoxeni ingenium consumptum
+                    videmus in musicis? An eiusdem modi? Quae similitudo in genere.
                   </p>
                   <div class="list-wrap">
                     <ul>
                       <li>
-                        <i
-                          aria-hidden="true"
-                          class="iconify"
-                          data-icon="feather:check"
-                        />
+                        <i aria-hidden="true" class="iconify" data-icon="feather:check" />
                         <span>Some nice list item</span>
                       </li>
                       <li>
-                        <i
-                          aria-hidden="true"
-                          class="iconify"
-                          data-icon="feather:check"
-                        />
+                        <i aria-hidden="true" class="iconify" data-icon="feather:check" />
                         <span>Some nice list item</span>
                       </li>
                     </ul>
@@ -1807,34 +1664,22 @@ const closeModal = () => {
                     @keydown.space.prevent="currentHelp = -1"
                     @click="currentHelp = -1"
                   >
-                    <i
-                      aria-hidden="true"
-                      class="iconify"
-                      data-icon="feather:x"
-                    />
+                    <i aria-hidden="true" class="iconify" data-icon="feather:x" />
                   </button>
                   <h3>Validation</h3>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quod proximum
-                    fuit non vidit. Quantum Aristoxeni ingenium consumptum videmus in musicis?
-                    An eiusdem modi? Quae similitudo in genere.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quod
+                    proximum fuit non vidit. Quantum Aristoxeni ingenium consumptum
+                    videmus in musicis? An eiusdem modi? Quae similitudo in genere.
                   </p>
                   <div class="list-wrap">
                     <ul>
                       <li>
-                        <i
-                          aria-hidden="true"
-                          class="iconify"
-                          data-icon="feather:check"
-                        />
+                        <i aria-hidden="true" class="iconify" data-icon="feather:check" />
                         <span>Some nice list item</span>
                       </li>
                       <li>
-                        <i
-                          aria-hidden="true"
-                          class="iconify"
-                          data-icon="feather:check"
-                        />
+                        <i aria-hidden="true" class="iconify" data-icon="feather:check" />
                         <span>Some nice list item</span>
                       </li>
                     </ul>
@@ -1847,7 +1692,6 @@ const closeModal = () => {
       </div>
     </div>
 
-
     <!-- Preview Modal -->
     <div
       v-if="showPreviewModal"
@@ -1858,10 +1702,7 @@ const closeModal = () => {
       @click="closeModal"
       @keydown.esc="closeModal"
     >
-      <div
-        class="native-modal preview-modal"
-        @click.stop
-      >
+      <div class="native-modal preview-modal" @click.stop>
         <div class="native-modal-header">
           <h3>Web Application Preview</h3>
           <button
@@ -1873,13 +1714,10 @@ const closeModal = () => {
             ×
           </button>
         </div>
-        
+
         <div class="preview-modal-content">
           <!-- Page Navigation Tabs -->
-          <div
-            v-if="pages.length > 1"
-            class="preview-tabs"
-          >
+          <div v-if="pages.length > 1" class="preview-tabs">
             <div class="tabs is-boxed">
               <ul>
                 <li
@@ -1900,18 +1738,12 @@ const closeModal = () => {
           </div>
 
           <!-- Page Content -->
-          <div
-            v-if="currentPreviewPage"
-            class="preview-content"
-          >
+          <div v-if="currentPreviewPage" class="preview-content">
             <div class="page-header">
               <h2 class="page-title">
                 {{ currentPreviewPage.name }}
               </h2>
-              <p
-                v-if="currentPreviewPage.description"
-                class="page-description"
-              >
+              <p v-if="currentPreviewPage.description" class="page-description">
                 {{ currentPreviewPage.description }}
               </p>
             </div>
@@ -1927,24 +1759,21 @@ const closeModal = () => {
                 :key="field.id"
                 class="form-field"
               >
-                <VField
-                  :label="field.name + (field.required ? ' *' : '')"
-                >
+                <VField :label="field.name + (field.required ? ' *' : '')">
                   <!-- Field Description -->
-                  <p
-                    v-if="field.description"
-                    class="field-description"
-                  >
+                  <p v-if="field.description" class="field-description">
                     {{ field.description }}
                   </p>
-                  
+
                   <VControl fullwidth>
                     <!-- Text Input -->
                     <VInput
                       v-if="field.type === 'Text'"
                       v-model="previewFormData[field.id]"
                       type="text"
-                      :placeholder="field.description || `Enter ${field.name.toLowerCase()}`"
+                      :placeholder="
+                        field.description || `Enter ${field.name.toLowerCase()}`
+                      "
                       :required="field.required"
                     />
 
@@ -1953,7 +1782,9 @@ const closeModal = () => {
                       v-else-if="field.type === 'Textarea'"
                       v-model="previewFormData[field.id]"
                       type="text"
-                      :placeholder="field.description || `Enter ${field.name.toLowerCase()}`"
+                      :placeholder="
+                        field.description || `Enter ${field.name.toLowerCase()}`
+                      "
                       :required="field.required"
                       rows="4"
                     />
@@ -1963,7 +1794,9 @@ const closeModal = () => {
                       v-else-if="field.type === 'Number'"
                       v-model="previewFormData[field.id]"
                       type="number"
-                      :placeholder="field.description || `Enter ${field.name.toLowerCase()}`"
+                      :placeholder="
+                        field.description || `Enter ${field.name.toLowerCase()}`
+                      "
                       :required="field.required"
                     />
 
@@ -1976,10 +1809,7 @@ const closeModal = () => {
                     />
 
                     <!-- Radio Buttons -->
-                    <div
-                      v-else-if="field.type === 'Radio'"
-                      class="radio-group"
-                    >
+                    <div v-else-if="field.type === 'Radio'" class="radio-group">
                       <VRadio
                         v-for="(option, index) in field.options"
                         :key="index"
@@ -2012,41 +1842,20 @@ const closeModal = () => {
               </div>
 
               <div class="form-actions">
-                <VButton
-                  type="submit"
-                  color="primary"
-                  bold
-                  fullwidth
-                >
-                  Submit
-                </VButton>
+                <VButton type="submit" color="primary" bold fullwidth> Submit </VButton>
               </div>
             </form>
 
             <!-- No Fields Message -->
-            <div
-              v-else
-              class="no-fields"
-            >
-              <i
-                aria-hidden="true"
-                class="iconify"
-                data-icon="feather:info"
-              />
+            <div v-else class="no-fields">
+              <i aria-hidden="true" class="iconify" data-icon="feather:info" />
               <span>No fields configured for this page.</span>
             </div>
           </div>
 
           <!-- No Pages Message -->
-          <div
-            v-else-if="pages.length === 0"
-            class="no-pages"
-          >
-            <i
-              aria-hidden="true"
-              class="iconify"
-              data-icon="feather:info"
-            />
+          <div v-else-if="pages.length === 0" class="no-pages">
+            <i aria-hidden="true" class="iconify" data-icon="feather:info" />
             <span>No pages found. Please complete the builder configuration first.</span>
           </div>
         </div>
@@ -2056,8 +1865,8 @@ const closeModal = () => {
 </template>
 
 <style lang="scss" scoped>
-@import '/@src/scss/abstracts/all';
-@import '/@src/scss/components/forms-outer';
+@import '/@dds/scss/abstracts/all';
+@import '/@dds/scss/components/forms-outer';
 
 .form-layout {
   max-width: 740px;
@@ -2417,13 +2226,11 @@ const closeModal = () => {
   }
 }
 
-
 .card-grid {
   .columns {
     margin-inline-start: -0.5rem !important;
     margin-inline-end: -0.5rem !important;
     margin-top: -0.5rem !important;
-
   }
 
   .column {
@@ -2554,7 +2361,6 @@ const closeModal = () => {
       color: var(--light-text);
     }
   }
-
 
   .form-sections {
     flex-grow: 2;
@@ -3002,12 +2808,12 @@ const closeModal = () => {
         }
       }
     }
-    
+
     .iphone-preview {
       margin-top: 2rem;
       background: var(--white);
       border-radius: 1rem;
-      
+
       .iphone-frame {
         // width: 200px;
         height: 500px;
@@ -3016,11 +2822,11 @@ const closeModal = () => {
         padding: 4px;
         margin: 0 auto;
         position: relative;
-        box-shadow: 
+        box-shadow:
           0 0 0 2px #000,
           0 8px 32px rgba(0, 0, 0, 0.3),
           inset 0 1px 0 rgba(255, 255, 255, 0.1);
-        
+
         &::before {
           content: '';
           position: absolute;
@@ -3031,11 +2837,11 @@ const closeModal = () => {
           height: 60px;
           background: linear-gradient(to bottom, #1a1a1a, #2d2d2d);
           border-radius: 2px;
-          box-shadow: 
+          box-shadow:
             0 0 0 1px #000,
             inset 0 1px 0 rgba(255, 255, 255, 0.1);
         }
-        
+
         &::after {
           content: '';
           position: absolute;
@@ -3046,11 +2852,11 @@ const closeModal = () => {
           height: 60px;
           background: linear-gradient(to bottom, #1a1a1a, #2d2d2d);
           border-radius: 2px;
-          box-shadow: 
+          box-shadow:
             0 0 0 1px #000,
             inset 0 1px 0 rgba(255, 255, 255, 0.1);
         }
-        
+
         .iphone-notch {
           position: absolute;
           top: 0;
@@ -3061,11 +2867,11 @@ const closeModal = () => {
           background: linear-gradient(145deg, #1a1a1a, #2d2d2d);
           border-radius: 0 0 10px 10px;
           z-index: 2;
-          box-shadow: 
+          box-shadow:
             0 0 0 2px #000,
             inset 0 1px 0 rgba(255, 255, 255, 0.1);
         }
-        
+
         .iphone-screen {
           width: 100%;
           height: 100%;
@@ -3077,7 +2883,7 @@ const closeModal = () => {
           position: relative;
           display: flex;
           flex-direction: column;
-          
+
           &::after {
             content: '';
             position: absolute;
@@ -3090,72 +2896,72 @@ const closeModal = () => {
             border-radius: 2px;
             opacity: 0.3;
           }
-          
+
           .preview-header {
             text-align: left;
             margin-bottom: 1.5rem;
             flex-shrink: 0;
             margin-left: 4px;
             margin-right: 4px;
-            
+
             h3 {
               font-size: 1.2rem;
               font-weight: 600;
               color: var(--dark-text);
               margin: 0 0 0.5rem 0;
             }
-            
+
             p {
               font-size: 0.9rem;
               color: var(--light-text);
               margin: 0;
             }
           }
-          
+
           .preview-content {
             flex: 1;
             width: 100%;
             overflow-y: auto;
             padding-right: 4px;
             padding-left: 4px;
-            
+
             /* Webkit 스크롤바 스타일링 */
             &::-webkit-scrollbar {
               width: 4px;
             }
-            
+
             &::-webkit-scrollbar-track {
               background: transparent;
             }
-            
+
             &::-webkit-scrollbar-thumb {
               background: rgba(0, 0, 0, 0.2);
               border-radius: 2px;
             }
-            
+
             &::-webkit-scrollbar-thumb:hover {
               background: rgba(0, 0, 0, 0.3);
             }
-            
+
             .preview-field {
               margin-bottom: 1rem;
               padding: 0.75rem;
               background: var(--widget-grey);
               border-radius: 0.5rem;
-              
+
               .field-label {
                 font-size: 0.9rem;
                 font-weight: 500;
                 color: var(--dark-text);
                 margin-bottom: 0.5rem;
                 text-align: left;
-                
+
                 .required {
                   color: var(--danger);
                   margin-left: 0.25rem;
                 }
               }
-              
+
               .field-value {
                 .text-preview,
                 .number-preview,
@@ -3165,7 +2971,7 @@ const closeModal = () => {
                   font-style: italic;
                   padding: 0.25rem 0;
                 }
-                
+
                 .radio-preview,
                 .multiselect-preview {
                   .radio-option,
@@ -3173,7 +2979,7 @@ const closeModal = () => {
                     display: flex;
                     align-items: center;
                     margin-bottom: 0.5rem;
-                    
+
                     .radio-dot,
                     .checkbox-square {
                       position: relative;
@@ -3191,16 +2997,16 @@ const closeModal = () => {
                       backface-visibility: hidden;
                       transition: all 0.3s;
                       flex-shrink: 0;
-                      
+
                       &.is-selected {
                         border-color: var(--primary);
                         background: var(--primary);
                       }
                     }
-                    
+
                     .radio-dot {
                       border-radius: 100%;
-                      
+
                       &.is-selected::after {
                         background-size: contain;
                         position: absolute;
@@ -3214,10 +3020,10 @@ const closeModal = () => {
                         color: var(--white);
                       }
                     }
-                    
+
                     .checkbox-square {
                       border-radius: var(--radius-small);
-                      
+
                       &.is-selected::after {
                         background-size: contain;
                         position: absolute;
@@ -3231,7 +3037,7 @@ const closeModal = () => {
                         color: var(--white);
                       }
                     }
-                    
+
                     span {
                       font-size: 0.9rem;
                       color: var(--dark-text);
@@ -3240,7 +3046,7 @@ const closeModal = () => {
                 }
               }
             }
-            
+
             .no-fields-preview {
               display: flex;
               flex-direction: column;
@@ -3248,13 +3054,13 @@ const closeModal = () => {
               align-items: center;
               padding: 2rem 1rem;
               color: var(--light-text);
-              
+
               .iconify {
                 font-size: 2rem;
                 margin-bottom: 0.5rem;
                 opacity: 0.5;
               }
-              
+
               span {
                 font-size: 0.8rem;
               }
@@ -3308,7 +3114,6 @@ const closeModal = () => {
   .stepper-form {
     .form-sections {
       .form-section {
-
         .page-selection {
           background: var(--dark-sidebar-dark-2);
           border-color: var(--dark-sidebar-light-12);
@@ -3629,7 +3434,7 @@ const closeModal = () => {
   display: flex;
   justify-content: flex-end;
   margin-top: 1rem;
-  
+
   .v-button {
     min-height: 40px;
     font-size: 0.9rem;
@@ -3655,12 +3460,12 @@ const closeModal = () => {
 .test-modal-content {
   padding: 2rem;
   text-align: center;
-  
+
   h3 {
     color: var(--primary);
     margin-bottom: 1rem;
   }
-  
+
   p {
     margin-bottom: 0.5rem;
     color: var(--dark-text);
@@ -3696,14 +3501,14 @@ const closeModal = () => {
   align-items: center;
   padding: 1.5rem 1.5rem 1rem;
   border-bottom: 1px solid var(--border);
-  
+
   h3 {
     margin: 0;
     color: var(--dark-text);
     font-size: 1rem;
     font-weight: 600;
   }
-  
+
   .close-button {
     background: none;
     border: none;
@@ -3712,7 +3517,7 @@ const closeModal = () => {
     padding: 0.25rem 0.5rem;
     border-radius: 0.25rem;
     color: var(--light-text);
-    
+
     &:hover {
       background: var(--widget-grey-dark-1);
       color: var(--dark-text);
@@ -3722,7 +3527,7 @@ const closeModal = () => {
 
 .native-modal-content {
   padding: 1.5rem;
-  
+
   p {
     margin-bottom: 0.75rem;
     color: var(--dark-text);
@@ -3747,12 +3552,12 @@ const closeModal = () => {
   margin-top: 2rem;
   margin-bottom: 2rem;
   padding: 0 1.5rem;
-  
+
   .tabs {
     &.is-boxed {
       ul {
         border-bottom-color: var(--border);
-        
+
         li {
           &.is-active {
             .tab-button {
@@ -3761,11 +3566,11 @@ const closeModal = () => {
               color: var(--white);
             }
           }
-          
+
           .tab-button {
             border-color: var(--border);
             color: var(--dark-text);
-            
+
             &:hover {
               background-color: var(--widget-grey-dark-1);
             }
@@ -3774,7 +3579,7 @@ const closeModal = () => {
       }
     }
   }
-  
+
   .tab-button {
     background: none;
     border: none;
@@ -3783,7 +3588,7 @@ const closeModal = () => {
     border-radius: 0.25rem 0.25rem 0 0;
     transition: all 0.3s;
     border: 1px solid transparent;
-    
+
     &:hover {
       background-color: var(--widget-grey-dark-1);
     }
@@ -3792,11 +3597,11 @@ const closeModal = () => {
 
 .preview-content {
   padding: 0 1.5rem 1.5rem;
-  
+
   .page-header {
     margin-bottom: 2rem;
     text-align: left !important;
-    
+
     .page-title {
       font-size: 1.75rem;
       font-weight: 600;
@@ -3804,7 +3609,7 @@ const closeModal = () => {
       margin: 0 0 0.5rem 0;
       text-align: left !important;
     }
-    
+
     .page-description {
       font-size: 1rem;
       color: var(--light-text);
@@ -3819,17 +3624,17 @@ const closeModal = () => {
   border-radius: 0.5rem;
   padding: 2rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  
+
   .form-field {
     margin-bottom: 1.5rem;
-    
+
     .field-help {
       font-size: 0.9rem;
       color: var(--light-text);
       margin: 0.5rem 0 0 0;
     }
   }
-  
+
   .form-actions {
     margin-top: 2rem;
     padding-top: 1.5rem;
@@ -3849,13 +3654,13 @@ const closeModal = () => {
   text-align: center;
   padding: 2rem;
   color: var(--light-text);
-  
+
   .iconify {
     font-size: 2rem;
     margin-bottom: 1rem;
     opacity: 0.5;
   }
-  
+
   span {
     font-size: 0.9rem;
   }
@@ -3867,12 +3672,12 @@ const closeModal = () => {
     .tabs.is-boxed {
       ul {
         border-bottom-color: var(--dark-sidebar-light-12);
-        
+
         li {
           .tab-button {
             border-color: var(--dark-sidebar-light-12);
             color: var(--dark-dark-text);
-            
+
             &:hover {
               background-color: var(--dark-sidebar-light-5);
             }
@@ -3881,7 +3686,7 @@ const closeModal = () => {
       }
     }
   }
-  
+
   .preview-content {
     .page-header {
       .page-title {
@@ -3896,10 +3701,10 @@ const closeModal = () => {
   .native-modal {
     background: var(--dark-sidebar-light-3);
   }
-  
+
   .native-modal-header {
     border-color: var(--dark-sidebar-light-12);
-    
+
     h3 {
       color: var(--dark-dark-text);
     }
@@ -3914,12 +3719,12 @@ const closeModal = () => {
 
 .preview-tabs {
   margin-bottom: 2rem;
-  
+
   .tabs {
     &.is-boxed {
       ul {
         border-bottom-color: var(--border);
-        
+
         li {
           &.is-active {
             a {
@@ -3928,11 +3733,11 @@ const closeModal = () => {
               color: var(--white);
             }
           }
-          
+
           a {
             border-color: var(--border);
             color: var(--dark-text);
-            
+
             &:hover {
               background-color: var(--widget-grey-dark-1);
             }
@@ -3941,7 +3746,7 @@ const closeModal = () => {
       }
     }
   }
-  
+
   .tab-button {
     background: none;
     border: none;
@@ -3949,7 +3754,7 @@ const closeModal = () => {
     cursor: pointer;
     border-radius: 0.25rem 0.25rem 0 0;
     transition: all 0.3s;
-    
+
     &:hover {
       background-color: var(--widget-grey-dark-1);
     }
@@ -3959,11 +3764,11 @@ const closeModal = () => {
 .preview-content {
   max-width: 800px;
   margin: 0 auto;
-  
+
   .page-header {
     margin-bottom: 2rem;
     text-align: left !important;
-    
+
     .page-title {
       font-size: 2rem;
       font-weight: 600;
@@ -3971,7 +3776,7 @@ const closeModal = () => {
       margin: 0 0 0.5rem 0;
       text-align: left !important;
     }
-    
+
     .page-description {
       font-size: 1.1rem;
       color: var(--light-text);
@@ -3986,17 +3791,17 @@ const closeModal = () => {
   border-radius: 0.5rem;
   padding: 2rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  
+
   .form-field {
     margin-bottom: 1.5rem;
-    
+
     .field-help {
       font-size: 0.9rem;
       color: var(--light-text);
       margin: 0.5rem 0 0 0;
     }
   }
-  
+
   .form-actions {
     margin-top: 2rem;
     padding-top: 1.5rem;
@@ -4017,12 +3822,12 @@ const closeModal = () => {
     .tabs.is-boxed {
       ul {
         border-bottom-color: var(--dark-sidebar-light-12);
-        
+
         li {
           a {
             border-color: var(--dark-sidebar-light-12);
             color: var(--dark-dark-text);
-            
+
             &:hover {
               background-color: var(--dark-sidebar-light-5);
             }
@@ -4031,12 +3836,12 @@ const closeModal = () => {
       }
     }
   }
-  
+
   .preview-form {
     background: var(--dark-sidebar-light-3);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   }
-  
+
   .preview-content {
     .page-header {
       .page-title {
@@ -4046,4 +3851,3 @@ const closeModal = () => {
   }
 }
 </style>
-
