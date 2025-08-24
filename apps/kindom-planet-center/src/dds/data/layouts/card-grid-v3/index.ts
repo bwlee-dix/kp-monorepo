@@ -1,9 +1,9 @@
 export const projects = [
   {
     id: '1',
-    name: 'Delivery App Project',
+    name: 'GMMA Main App Project ',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quo tandem modo? At certe gravius.',
+      'Our focus is to awaken and mobilize Christ-passionate healthcare workers to join in God’s Kingdom work.',
     remaining: '3 months',
     image: '/images/gmma_v2.png',
     badge: '/images/icons/stacks/illustrator.svg',
@@ -42,9 +42,8 @@ export const projects = [
   },
   {
     id: '2',
-    name: 'Health and Fitness Dashboard',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quo tandem modo? At certe gravius.',
+    name: 'KOSTA 2025 Event App',
+    description: '2025년 개최되는 KOSTA 행사의 등록과 운영, 홍보를 담당하는 App 개발',
     remaining: '2 months',
     image: '/images/kosta-v2.png',
     badge: '/images/icons/stacks/reactjs.svg',
@@ -67,7 +66,7 @@ export const projects = [
       },
       {
         id: 39,
-        picture: '/demo/avatars/39.jpg',
+        picture: undefined,
         name: 'Alejandro B.',
         initials: 'AB',
         color: 'danger',

@@ -72,12 +72,12 @@ const optionsSingle = [
         <template #image>
           <img
             class="light-image"
-            src="/@dds/sets/illustrations/placeholders/search-5.svg"
+            src="/@dds/assets/illustrations/placeholders/search-5.svg"
             alt=""
           />
           <img
             class="dark-image"
-            src="/@dds/sets/illustrations/placeholders/search-5-dark.svg"
+            src="/@dds/assets/illustrations/placeholders/search-5-dark.svg"
             alt=""
           />
         </template>

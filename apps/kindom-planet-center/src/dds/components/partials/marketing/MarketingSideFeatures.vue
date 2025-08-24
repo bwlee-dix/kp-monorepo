@@ -17,7 +17,7 @@
           />
           <img
             class="dark-image-l featured-image"
-            src="/@dds/sets/illustrations/landing/feature-1-dark.webp"
+            src="/@dds/assets/illustrations/landing/feature-1-dark.webp"
             alt=""
           />
         </div>
@@ -37,12 +37,12 @@
         >
           <img
             class="light-image-l featured-image"
-            src="/@dds/sets/illustrations/landing/feature-2.svg"
+            src="/@dds/assets/illustrations/landing/feature-2.svg"
             alt=""
           />
           <img
             class="dark-image-l featured-image"
-            src="/@dds/sets/illustrations/landing/feature-2-dark.svg"
+            src="/@dds/assets/illustrations/landing/feature-2-dark.svg"
             alt=""
           />
         </div>
@@ -56,12 +56,12 @@
         <div class="column is-6 has-text-centered h-hidden-mobile">
           <img
             class="light-image-l featured-image"
-            src="/@dds/sets/illustrations/landing/feature-2.svg"
+            src="/@dds/assets/illustrations/landing/feature-2.svg"
             alt=""
           />
           <img
             class="dark-image-l featured-image"
-            src="/@dds/sets/illustrations/landing/feature-2-dark.svg"
+            src="/@dds/assets/illustrations/landing/feature-2-dark.svg"
             alt=""
           />
         </div>
@@ -71,12 +71,12 @@
         <div class="column is-6 has-text-centered">
           <img
             class="light-image-l featured-image"
-            src="/@dds/sets/illustrations/landing/feature-3.svg"
+            src="/@dds/assets/illustrations/landing/feature-3.svg"
             alt=""
           />
           <img
             class="dark-image-l featured-image"
-            src="/@dds/sets/illustrations/landing/feature-3-dark.svg"
+            src="/@dds/assets/illustrations/landing/feature-3-dark.svg"
             alt=""
           />
         </div>

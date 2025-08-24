@@ -61,12 +61,12 @@ const optionsSingle = ['All Posts', 'Recent Posts', 'Older Posts', 'Popular Post
         <template #image>
           <img
             class="light-image"
-            src="/@dds/sets/illustrations/placeholders/search-6.svg"
+            src="/@dds/assets/illustrations/placeholders/search-6.svg"
             alt=""
           />
           <img
             class="dark-image"
-            src="/@dds/sets/illustrations/placeholders/search-6-dark.svg"
+            src="/@dds/assets/illustrations/placeholders/search-6-dark.svg"
             alt=""
           />
         </template>

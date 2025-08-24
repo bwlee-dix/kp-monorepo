@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { flexRowsContacts } from '/@dds/data/documentation/table'
-import { useViewWrapper } from '/@dds/ores/viewWrapper'
+import { useViewWrapper } from '/@dds/stores/viewWrapper'
 
 const viewWrapper = useViewWrapper()
 viewWrapper.setPageTitle('Slots usage')

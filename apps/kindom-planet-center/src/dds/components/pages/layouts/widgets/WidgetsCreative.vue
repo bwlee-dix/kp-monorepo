@@ -7,13 +7,13 @@ import {
 import { followersStats } from '/@dds/data/widgets/ui/followers'
 import { products } from '/@dds/data/widgets/ui/productList'
 
-import Widget1 from '/@dds/sets/illustrations/widgets/1.svg'
-import Widget2 from '/@dds/sets/illustrations/widgets/2.svg'
-import Widget3 from '/@dds/sets/illustrations/widgets/3.svg'
-import Widget4 from '/@dds/sets/illustrations/widgets/4.svg'
-import Widget5 from '/@dds/sets/illustrations/widgets/5.svg'
-import Widget7 from '/@dds/sets/illustrations/widgets/7.svg'
-import Widget8 from '/@dds/sets/illustrations/widgets/8.svg'
+import Widget1 from '/@dds/assets/illustrations/widgets/1.svg'
+import Widget2 from '/@dds/assets/illustrations/widgets/2.svg'
+import Widget3 from '/@dds/assets/illustrations/widgets/3.svg'
+import Widget4 from '/@dds/assets/illustrations/widgets/4.svg'
+import Widget5 from '/@dds/assets/illustrations/widgets/5.svg'
+import Widget7 from '/@dds/assets/illustrations/widgets/7.svg'
+import Widget8 from '/@dds/assets/illustrations/widgets/8.svg'
 </script>
 
 <template>
@@ -150,7 +150,7 @@ import Widget8 from '/@dds/sets/illustrations/widgets/8.svg'
 
       <!--Widget-->
       <CallWidget
-        picture="/@dds/sets/illustrations/widgets/6.svg"
+        picture="/@dds/assets/illustrations/widgets/6.svg"
         badge="/demo/avatars/7.jpg"
         username="Alice"
       />

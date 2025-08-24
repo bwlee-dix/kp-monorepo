@@ -2,7 +2,7 @@
 import VueScrollTo from 'vue-scrollto'
 
 import { isLargeScreen } from '/@dds/utils/responsive'
-import { useDarkmode } from '/@dds/ores/darkmode'
+import { useDarkmode } from '/@dds/stores/darkmode'
 
 const darkmode = useDarkmode()
 const isMobileNavOpen = ref(false)

@@ -116,12 +116,12 @@ const filteredData = computed(() => {
         <template #image>
           <img
             class="light-image"
-            src="/@dds/sets/illustrations/placeholders/search-4.svg"
+            src="/@dds/assets/illustrations/placeholders/search-4.svg"
             alt=""
           />
           <img
             class="dark-image"
-            src="/@dds/sets/illustrations/placeholders/search-4-dark.svg"
+            src="/@dds/assets/illustrations/placeholders/search-4-dark.svg"
             alt=""
           />
         </template>
@@ -202,12 +202,12 @@ const filteredData = computed(() => {
           <template #image>
             <img
               class="light-image is-larger"
-              src="/@dds/sets/illustrations/placeholders/projects.svg"
+              src="/@dds/assets/illustrations/placeholders/projects.svg"
               alt=""
             />
             <img
               class="dark-image is-larger"
-              src="/@dds/sets/illustrations/placeholders/projects-dark.svg"
+              src="/@dds/assets/illustrations/placeholders/projects-dark.svg"
               alt=""
             />
           </template>

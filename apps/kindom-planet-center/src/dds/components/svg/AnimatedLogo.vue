@@ -17,7 +17,7 @@ router.afterEach(() => {
 </script>
 
 <template>
-  <img src="/@dds/images/kp_logo.png" alt="" class="logo" />
+  <img src="/images/kp_logo.png" alt="" class="logo" />
 </template>
 
 <style lang="scss" scoped>

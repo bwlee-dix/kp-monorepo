@@ -257,7 +257,7 @@ const participants = [
                 <template #icon>
                   <VAvatar
                     size="small"
-                    picture="/@dds/sets/illustrations/dashboards/flights/company1.svg"
+                    picture="/@dds/assets/illustrations/dashboards/flights/company1.svg"
                   />
                 </template>
               </VBlock>

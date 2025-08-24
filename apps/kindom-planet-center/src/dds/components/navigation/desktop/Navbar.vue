@@ -82,8 +82,8 @@ const isScrolling = computed(() => {
 
 <style lang="scss">
 @import '/@dds/scss/abstracts/all';
-@import '/@dds/ss/layout/navbar';
-@import '/@dds/ss/layout/responsive';
+@import '/@dds/scss/layout/navbar';
+@import '/@dds/scss/layout/responsive';
 
 .navbar-navbar {
   position: fixed;

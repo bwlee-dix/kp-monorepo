@@ -2,7 +2,7 @@
 import { isLargeScreen } from '/@dds/utils/responsive'
 import VueScrollTo from 'vue-scrollto'
 
-import { useDarkmode } from '/@dds/ores/darkmode'
+import { useDarkmode } from '/@dds/stores/darkmode'
 
 const isMobileNavOpen = ref(false)
 const darkmode = useDarkmode()
@@ -53,9 +53,7 @@ watchEffect(() => {
     <div class="navbar-menu" :class="[isMobileNavOpen && 'is-active']">
       <div class="navbar-start">
         <div class="navbar-item">
-          <a href="http://go.cssninja.io/buy-vuero" class="nav-link is-active">
-            Buy Now
-          </a>
+          <a href="/" class="nav-link is-active"> Landing </a>
         </div>
 
         <div class="navbar-item">
@@ -116,12 +114,12 @@ watchEffect(() => {
             </span>
           </label>
         </div>
-        <div class="navbar-item">
+        <!-- <div class="navbar-item">
           <RouterLink to="/auth/login" class="nav-link"> Login </RouterLink>
-        </div>
+        </div> -->
         <div class="navbar-item">
-          <VButton href="https://go.cssninja.io/buy-vuero" color="primary" rounded raised>
-            <strong>Buy Vuero</strong>
+          <VButton to="/auth" color="primary" rounded raised>
+            <strong>Login</strong>
           </VButton>
         </div>
       </div>

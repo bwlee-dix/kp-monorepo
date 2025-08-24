@@ -12,7 +12,7 @@ const filterProjects = ref(0)
       />
       <img
         class="dark-image"
-        src="/@dds/sets/illustrations/projects/header-dark.svg"
+        src="/@dds/assets/illustrations/projects/header-dark.svg"
         alt=""
       />
       <div class="header-stats">

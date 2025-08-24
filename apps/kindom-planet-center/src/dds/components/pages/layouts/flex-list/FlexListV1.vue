@@ -85,12 +85,12 @@ const filteredData = computed(() => {
           <template #image>
             <img
               class="light-image"
-              src="/@dds/sets/illustrations/placeholders/search-4.svg"
+              src="/@dds/assets/illustrations/placeholders/search-4.svg"
               alt=""
             />
             <img
               class="dark-image"
-              src="/@dds/sets/illustrations/placeholders/search-4-dark.svg"
+              src="/@dds/assets/illustrations/placeholders/search-4-dark.svg"
               alt=""
             />
           </template>

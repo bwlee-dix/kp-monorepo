@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { flexRowsBasic, flexRowsContacts } from '/@dds/data/documentation/table'
 import { useMarkdownToc } from '/@dds/commposable/useMarkdownToc'
-import { useViewWrapper } from '/@dds/ores/viewWrapper'
+import { useViewWrapper } from '/@dds/stores/viewWrapper'
 
 const markdownContainer = ref<HTMLElement>()
 const toc = useMarkdownToc(markdownContainer)

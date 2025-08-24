@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { flexRowsAdvanced } from '/@dds/data/documentation/table'
-import { useViewWrapper } from '/@dds/ores/viewWrapper'
+import { useViewWrapper } from '/@dds/stores/viewWrapper'
 import VTag from '/@dds/mponents/base/tags/VTag.vue'
 import FlexTableDropdown from '/@dds/mponents/partials/dropdowns/FlexTableDropdown.vue'
 import VFlexTableSortColumn from '/@dds/mponents/base/table/VFlexTableSortColumn.vue'

@@ -84,5 +84,5 @@ const sidebar = useSidebar()
 </template>
 
 <style lang="scss">
-@import '/@dds/ss/layout/sidebar-panel';
+@import '/@dds/scss/layout/sidebar-panel';
 </style>

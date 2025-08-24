@@ -36,7 +36,7 @@ const props = withDefaults(defineProps<VModalProps>(), {
 
 const { t } = useI18n()
 const wasOpen = ref(false)
-const cancelLabel = computed(() => props.cancelLabel || t('cancel-label'))
+const cancelLabel = computed(() => props.cancelLabel || t('common.cancel-label'))
 
 const checkScroll = () => {
   if (props.noscroll && props.open) {

@@ -77,7 +77,7 @@ watch([() => route.fullPath, dropdownElement], () => {
           />
           <img
             class="placeholder-image dark-image"
-            src="/@dds/sets/illustrations/components/icons-dark.svg"
+            src="/@dds/assets/illustrations/components/icons-dark.svg"
             alt=""
           />
         </div>

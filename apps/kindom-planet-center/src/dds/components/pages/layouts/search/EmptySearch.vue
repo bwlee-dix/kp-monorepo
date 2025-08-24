@@ -68,7 +68,7 @@ const activeTab = ref<TabId>('all')
           />
           <img
             class="dark-image"
-            src="/@dds/sets/illustrations/placeholders/search-7-dark.svg"
+            src="/@dds/assets/illustrations/placeholders/search-7-dark.svg"
             alt=""
           />
         </template>

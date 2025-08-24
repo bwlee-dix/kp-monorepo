@@ -52,7 +52,7 @@ useHead({
                 <div class="column">
                   <img
                     class="hero-image"
-                    src="/@dds/sets/illustrations/login/station.svg"
+                    src="/@dds/assets/illustrations/login/station.svg"
                     alt=""
                   />
                 </div>

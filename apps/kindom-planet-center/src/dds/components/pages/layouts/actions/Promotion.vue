@@ -11,7 +11,7 @@
             />
             <img
               class="dark-image is-larger"
-              src="/@dds/sets/illustrations/placeholders/promotion-dark.svg"
+              src="/@dds/assets/illustrations/placeholders/promotion-dark.svg"
               alt=""
             />
             <h3 class="dark-inverted">

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useLayoutSwitcher } from '/@dds/stores/layoutSwitcher'
-import { useViewWrapper } from '/@dds/ores/viewWrapper'
+import { useViewWrapper } from '/@dds/stores/viewWrapper'
 
 const layoutSwitcher = useLayoutSwitcher()
 const viewWrapper = useViewWrapper()

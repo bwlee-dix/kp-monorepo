@@ -19,7 +19,7 @@ const { progressChartOptions } = useProgressChart()
   <div class="lifestyle-dashboard lifestyle-dashboard-v3">
     <div class="illustration-header">
       <div class="header-image">
-        <img src="/@dds/sets/illustrations/dashboards/lifestyle/doctor.svg" alt="" />
+        <img src="/@dds/assets/illustrations/dashboards/lifestyle/doctor.svg" alt="" />
       </div>
       <div class="header-meta">
         <h3>Today's Summary</h3>

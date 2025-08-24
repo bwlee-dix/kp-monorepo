@@ -70,9 +70,12 @@ const themeClasses = computed(() => {
   .sidebar-block-header {
     display: flex;
     align-items: center;
-    height: 120px;
+    justify-content: center;
+    flex-direction: column;
+    height: 160px;
     width: 100%;
     padding: 0 2.5rem;
+    gap: 0.4rem;
 
     .sidebar-block-logo {
       display: flex;

@@ -39,12 +39,12 @@ useHead({
                 <template #icon>
                   <img
                     class="light-image"
-                    src="/@dds/sets/illustrations/components/lists.svg"
+                    src="/@dds/assets/illustrations/components/lists.svg"
                     alt=""
                   />
                   <img
                     class="dark-image"
-                    src="/@dds/sets/illustrations/components/lists-dark.svg"
+                    src="/@dds/assets/illustrations/components/lists-dark.svg"
                     alt=""
                   />
                 </template>
@@ -60,12 +60,12 @@ useHead({
                 <template #icon>
                   <img
                     class="light-image"
-                    src="/@dds/sets/illustrations/components/tags.svg"
+                    src="/@dds/assets/illustrations/components/tags.svg"
                     alt=""
                   />
                   <img
                     class="dark-image"
-                    src="/@dds/sets/illustrations/components/tags-dark.svg"
+                    src="/@dds/assets/illustrations/components/tags-dark.svg"
                     alt=""
                   />
                 </template>
@@ -81,12 +81,12 @@ useHead({
                 <template #icon>
                   <img
                     class="light-image"
-                    src="/@dds/sets/illustrations/components/tabs.svg"
+                    src="/@dds/assets/illustrations/components/tabs.svg"
                     alt=""
                   />
                   <img
                     class="dark-image"
-                    src="/@dds/sets/illustrations/components/tabs-dark.svg"
+                    src="/@dds/assets/illustrations/components/tabs-dark.svg"
                     alt=""
                   />
                 </template>
@@ -102,12 +102,12 @@ useHead({
                 <template #icon>
                   <img
                     class="light-image"
-                    src="/@dds/sets/illustrations/components/cards.svg"
+                    src="/@dds/assets/illustrations/components/cards.svg"
                     alt=""
                   />
                   <img
                     class="dark-image"
-                    src="/@dds/sets/illustrations/components/cards-dark.svg"
+                    src="/@dds/assets/illustrations/components/cards-dark.svg"
                     alt=""
                   />
                 </template>
@@ -122,12 +122,12 @@ useHead({
                 <template #icon>
                   <img
                     class="light-image"
-                    src="/@dds/sets/illustrations/components/avatar.svg"
+                    src="/@dds/assets/illustrations/components/avatar.svg"
                     alt=""
                   />
                   <img
                     class="dark-image"
-                    src="/@dds/sets/illustrations/components/avatar-dark.svg"
+                    src="/@dds/assets/illustrations/components/avatar-dark.svg"
                     alt=""
                   />
                 </template>
@@ -143,12 +143,12 @@ useHead({
                 <template #icon>
                   <img
                     class="light-image"
-                    src="/@dds/sets/illustrations/components/accordion.svg"
+                    src="/@dds/assets/illustrations/components/accordion.svg"
                     alt=""
                   />
                   <img
                     class="dark-image"
-                    src="/@dds/sets/illustrations/components/accordion-dark.svg"
+                    src="/@dds/assets/illustrations/components/accordion-dark.svg"
                     alt=""
                   />
                 </template>
@@ -164,12 +164,12 @@ useHead({
                 <template #icon>
                   <img
                     class="light-image"
-                    src="/@dds/sets/illustrations/components/breadcrumb.svg"
+                    src="/@dds/assets/illustrations/components/breadcrumb.svg"
                     alt=""
                   />
                   <img
                     class="dark-image"
-                    src="/@dds/sets/illustrations/components/breadcrumb-dark.svg"
+                    src="/@dds/assets/illustrations/components/breadcrumb-dark.svg"
                     alt=""
                   />
                 </template>
@@ -185,12 +185,12 @@ useHead({
                 <template #icon>
                   <img
                     class="light-image"
-                    src="/@dds/sets/illustrations/components/icon-box.svg"
+                    src="/@dds/assets/illustrations/components/icon-box.svg"
                     alt=""
                   />
                   <img
                     class="dark-image"
-                    src="/@dds/sets/illustrations/components/icon-box-dark.svg"
+                    src="/@dds/assets/illustrations/components/icon-box-dark.svg"
                     alt=""
                   />
                 </template>
@@ -206,12 +206,12 @@ useHead({
                 <template #icon>
                   <img
                     class="light-image"
-                    src="/@dds/sets/illustrations/components/table.svg"
+                    src="/@dds/assets/illustrations/components/table.svg"
                     alt=""
                   />
                   <img
                     class="dark-image"
-                    src="/@dds/sets/illustrations/components/table-dark.svg"
+                    src="/@dds/assets/illustrations/components/table-dark.svg"
                     alt=""
                   />
                 </template>
@@ -227,12 +227,12 @@ useHead({
                 <template #icon>
                   <img
                     class="light-image"
-                    src="/@dds/sets/illustrations/components/snacks.svg"
+                    src="/@dds/assets/illustrations/components/snacks.svg"
                     alt=""
                   />
                   <img
                     class="dark-image"
-                    src="/@dds/sets/illustrations/components/snacks-dark.svg"
+                    src="/@dds/assets/illustrations/components/snacks-dark.svg"
                     alt=""
                   />
                 </template>

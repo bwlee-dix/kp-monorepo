@@ -288,12 +288,12 @@ const democheck = ref<{ id: string | number }[]>([{ id: 'value_2' }])
             <template #image>
               <img
                 class="light-image"
-                src="/@dds/sets/illustrations/placeholders/chart-guy.svg"
+                src="/@dds/assets/illustrations/placeholders/chart-guy.svg"
                 alt=""
               />
               <img
                 class="dark-image"
-                src="/@dds/sets/illustrations/placeholders/chart-guy-dark.svg"
+                src="/@dds/assets/illustrations/placeholders/chart-guy-dark.svg"
                 alt=""
               />
             </template>

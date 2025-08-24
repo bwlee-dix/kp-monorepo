@@ -51,6 +51,9 @@ const clickNewAppSubmit = async () => {
 const clickApp = (id: string) => {
   router.push('/body/dashboard')
 }
+const clickWebBuilder = () => {
+  router.push('/builder-landing')
+}
 </script>
 
 <template>
@@ -65,6 +68,12 @@ const clickApp = (id: string) => {
       </VControl>
 
       <div class="buttons">
+        <VButton color="dark" raised @click="clickWebBuilder">
+          <span class="icon">
+            <i aria-hidden="true" class="fas fa-plus" />
+          </span>
+          <span>New App By KP Builder</span>
+        </VButton>
         <VButton color="primary" raised @click="isBigFormOpen = true">
           <span class="icon">
             <i aria-hidden="true" class="fas fa-plus" />
@@ -86,12 +95,12 @@ const clickApp = (id: string) => {
         <template #image>
           <img
             class="light-image"
-            src="/@dds/sets/illustrations/placeholders/search-3.svg"
+            src="/@dds/assets/illustrations/placeholders/search-3.svg"
             alt=""
           />
           <img
             class="dark-image"
-            src="/@dds/sets/illustrations/placeholders/search-3-dark.svg"
+            src="/@dds/assets/illustrations/placeholders/search-3-dark.svg"
             alt=""
           />
         </template>

@@ -16,7 +16,7 @@
           />
           <img
             class="dark-image"
-            src="/@dds/sets/illustrations/onboarding/set4-1-dark.svg"
+            src="/@dds/assets/illustrations/onboarding/set4-1-dark.svg"
             alt=""
           />
           <h3>Explore Workboard</h3>
@@ -32,12 +32,12 @@
         <div class="onboarding-card">
           <img
             class="light-image"
-            src="/@dds/sets/illustrations/onboarding/set4-2.svg"
+            src="/@dds/assets/illustrations/onboarding/set4-2.svg"
             alt=""
           />
           <img
             class="dark-image"
-            src="/@dds/sets/illustrations/onboarding/set4-2-dark.svg"
+            src="/@dds/assets/illustrations/onboarding/set4-2-dark.svg"
             alt=""
           />
           <h3>Add some Tasks</h3>
@@ -53,12 +53,12 @@
         <div class="onboarding-card">
           <img
             class="light-image"
-            src="/@dds/sets/illustrations/onboarding/set4-3.svg"
+            src="/@dds/assets/illustrations/onboarding/set4-3.svg"
             alt=""
           />
           <img
             class="dark-image"
-            src="/@dds/sets/illustrations/onboarding/set4-3-dark.svg"
+            src="/@dds/assets/illustrations/onboarding/set4-3-dark.svg"
             alt=""
           />
           <h3>Browse Wiki</h3>

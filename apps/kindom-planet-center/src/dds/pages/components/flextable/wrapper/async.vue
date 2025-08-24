@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useFetch } from '/@dds/composable/useFetch'
-import { useViewWrapper } from '/@dds/ores/viewWrapper'
+import { useViewWrapper } from '/@dds/stores/viewWrapper'
 import type { VFlexTableWrapperDataResolver } from '/@dds/mponents/base/table/VFlexTableWrapper.vue'
 import sleep from '/@dds/utils/sleep'
 const isMobileScreen = useMediaQuery('(max-width: 767px)')
@@ -397,12 +397,12 @@ function onCallClick(row: any) {
                     <template #image>
                       <img
                         class="light-image"
-                        src="/@dds/sets/illustrations/placeholders/search-4.svg"
+                        src="/@dds/assets/illustrations/placeholders/search-4.svg"
                         alt=""
                       />
                       <img
                         class="dark-image"
-                        src="/@dds/sets/illustrations/placeholders/search-4-dark.svg"
+                        src="/@dds/assets/illustrations/placeholders/search-4-dark.svg"
                         alt=""
                       />
                     </template>

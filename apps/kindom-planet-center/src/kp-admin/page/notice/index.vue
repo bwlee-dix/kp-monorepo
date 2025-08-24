@@ -110,12 +110,12 @@ const clickNewNoticeSubmit = () => {
               <template #image>
                 <img
                   class="light-image"
-                  src="/@dds/sets/illustrations/placeholders/search-3.svg"
+                  src="/@dds/assets/illustrations/placeholders/search-3.svg"
                   alt=""
                 />
                 <img
                   class="dark-image"
-                  src="/@dds/sets/illustrations/placeholders/search-3-dark.svg"
+                  src="/@dds/assets/illustrations/placeholders/search-3-dark.svg"
                   alt=""
                 />
               </template>
@@ -189,12 +189,12 @@ const clickNewNoticeSubmit = () => {
                   <template #image>
                     <img
                       class="light-image"
-                      src="/@dds/sets/illustrations/placeholders/thinking-canvas.svg"
+                      src="/@dds/assets/illustrations/placeholders/thinking-canvas.svg"
                       alt=""
                     />
                     <img
                       class="dark-image"
-                      src="/@dds/sets/illustrations/placeholders/thinking-canvas-dark.svg"
+                      src="/@dds/assets/illustrations/placeholders/thinking-canvas-dark.svg"
                       alt=""
                     />
                   </template>

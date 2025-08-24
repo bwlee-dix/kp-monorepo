@@ -14,7 +14,7 @@
         />
         <img
           class="dark-image"
-          src="/@dds/sets/illustrations/placeholders/having-coffee-dark.svg"
+          src="/@dds/assets/illustrations/placeholders/having-coffee-dark.svg"
           alt=""
         />
       </template>

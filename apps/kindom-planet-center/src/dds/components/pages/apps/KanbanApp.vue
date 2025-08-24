@@ -158,12 +158,12 @@ onMounted(() => {
               <div v-if="newTasks.length === 0" class="kanban-empty">
                 <img
                   class="empty-state theme-image light-image"
-                  src="/@dds/sets/illustrations/projects/board/new.svg"
+                  src="/@dds/assets/illustrations/projects/board/new.svg"
                   alt=""
                 />
                 <img
                   class="empty-state theme-image dark-image"
-                  src="/@dds/sets/illustrations/projects/board/new-dark.svg"
+                  src="/@dds/assets/illustrations/projects/board/new-dark.svg"
                   alt=""
                 />
                 <p class="empty-text">There are no new tasks to approve for now.</p>
@@ -259,12 +259,12 @@ onMounted(() => {
               <div v-if="progressTasks.length === 0" class="kanban-empty">
                 <img
                   class="empty-state theme-image light-image-block"
-                  src="/@dds/sets/illustrations/projects/board/progress.svg"
+                  src="/@dds/assets/illustrations/projects/board/progress.svg"
                   alt=""
                 />
                 <img
                   class="empty-state theme-image dark-image-block"
-                  src="/@dds/sets/illustrations/projects/board/progress-dark.svg"
+                  src="/@dds/assets/illustrations/projects/board/progress-dark.svg"
                   alt=""
                 />
                 <p class="empty-text">There are no tasks in progress at the moment.</p>
@@ -341,12 +341,12 @@ onMounted(() => {
                 <!-- Empty state image / text -->
                 <img
                   class="empty-state theme-image light-image-block"
-                  src="/@dds/sets/illustrations/projects/board/ready.svg"
+                  src="/@dds/assets/illustrations/projects/board/ready.svg"
                   alt=""
                 />
                 <img
                   class="empty-state theme-image dark-image-block"
-                  src="/@dds/sets/illustrations/projects/board/ready-dark.svg"
+                  src="/@dds/assets/illustrations/projects/board/ready-dark.svg"
                   alt=""
                 />
                 <p class="empty-text">
@@ -428,12 +428,12 @@ onMounted(() => {
                 <!-- Empty state image / text -->
                 <img
                   class="empty-state theme-image light-image-block"
-                  src="/@dds/sets/illustrations/projects/board/test.svg"
+                  src="/@dds/assets/illustrations/projects/board/test.svg"
                   alt=""
                 />
                 <img
                   class="empty-state theme-image dark-image-block"
-                  src="/@dds/sets/illustrations/projects/board/test-dark.svg"
+                  src="/@dds/assets/illustrations/projects/board/test-dark.svg"
                   alt=""
                 />
                 <p class="empty-text">No tasks are being reviewed at the moment.</p>
@@ -510,12 +510,12 @@ onMounted(() => {
               <div v-if="completedTasks.length === 0" class="kanban-empty">
                 <img
                   class="empty-state theme-image light-image-block"
-                  src="/@dds/sets/illustrations/projects/board/complete.svg"
+                  src="/@dds/assets/illustrations/projects/board/complete.svg"
                   alt=""
                 />
                 <img
                   class="empty-state theme-image dark-image-block"
-                  src="/@dds/sets/illustrations/projects/board/complete-dark.svg"
+                  src="/@dds/assets/illustrations/projects/board/complete-dark.svg"
                   alt=""
                 />
                 <p class="empty-text">You have no completed bounties.</p>

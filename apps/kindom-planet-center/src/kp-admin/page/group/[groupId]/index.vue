@@ -309,7 +309,7 @@ const exampleColumns = {
             <a class="project-grid-item">
               <img
                 class="project-avatar"
-                src="/@dds/sets/illustrations/dashboards/flights/company1.svg"
+                src="/@dds/assets/illustrations/dashboards/flights/company1.svg"
                 alt=""
                 @error.once="onceImageErrored(150)"
               />

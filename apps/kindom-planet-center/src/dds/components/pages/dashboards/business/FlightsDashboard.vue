@@ -20,7 +20,7 @@ const options = ref(['All Flights', 'All Options'])
           />
           <img
             class="travel-illustration dark-image"
-            src="/@dds/sets/illustrations/dashboards/flights/travel-dark.svg"
+            src="/@dds/assets/illustrations/dashboards/flights/travel-dark.svg"
             alt=""
           />
           <div class="booking-bar-info">
@@ -104,7 +104,10 @@ const options = ref(['All Flights', 'All Options'])
         <div class="flights">
           <!--Flight-->
           <a class="flight-card">
-            <img src="/@dds/sets/illustrations/dashboards/flights/company1.svg" alt="" />
+            <img
+              src="/@dds/assets/illustrations/dashboards/flights/company1.svg"
+              alt=""
+            />
             <div class="start">
               <span>11:30 am</span>
               <span>Paris ORLY</span>
@@ -127,7 +130,10 @@ const options = ref(['All Flights', 'All Options'])
 
           <!--Flight-->
           <a class="flight-card">
-            <img src="/@dds/sets/illustrations/dashboards/flights/company2.svg" alt="" />
+            <img
+              src="/@dds/assets/illustrations/dashboards/flights/company2.svg"
+              alt=""
+            />
             <div class="start">
               <span>09:30 am</span>
               <span>Paris ORLY</span>
@@ -150,7 +156,10 @@ const options = ref(['All Flights', 'All Options'])
 
           <!--Flight-->
           <a class="flight-card">
-            <img src="/@dds/sets/illustrations/dashboards/flights/company1.svg" alt="" />
+            <img
+              src="/@dds/assets/illustrations/dashboards/flights/company1.svg"
+              alt=""
+            />
             <div class="start">
               <span>06:42 am</span>
               <span>Paris ORLY</span>
@@ -173,7 +182,10 @@ const options = ref(['All Flights', 'All Options'])
 
           <!--Flight-->
           <a class="flight-card">
-            <img src="/@dds/sets/illustrations/dashboards/flights/company3.svg" alt="" />
+            <img
+              src="/@dds/assets/illustrations/dashboards/flights/company3.svg"
+              alt=""
+            />
             <div class="start">
               <span>07:23 am</span>
               <span>Paris ORLY</span>
@@ -196,7 +208,10 @@ const options = ref(['All Flights', 'All Options'])
 
           <!--Flight-->
           <a class="flight-card">
-            <img src="/@dds/sets/illustrations/dashboards/flights/company1.svg" alt="" />
+            <img
+              src="/@dds/assets/illustrations/dashboards/flights/company1.svg"
+              alt=""
+            />
             <div class="start">
               <span>10:12 am</span>
               <span>Paris ORLY</span>

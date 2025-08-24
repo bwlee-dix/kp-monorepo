@@ -49,7 +49,7 @@
           />
           <img
             class="dark-image-l centered-mockup"
-            src="/@dds/sets/illustrations/landing/app-1-dark.webp"
+            src="/@dds/assets/illustrations/landing/app-1-dark.webp"
             alt=""
           />
         </div>

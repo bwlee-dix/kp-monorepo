@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useDarkmode } from '/@dds/stores/darkmode'
-import { useUserSession } from '/@dds/ores/userSession'
+import { useUserSession } from '/@dds/stores/userSession'
 import { useNotyf } from '../../composable/useNotyf'
 import sleep from '../../utils/sleep'
 

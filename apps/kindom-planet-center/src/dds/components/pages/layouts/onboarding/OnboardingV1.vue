@@ -16,7 +16,7 @@
           />
           <img
             class="dark-image"
-            src="/@dds/sets/illustrations/onboarding/set2-1-dark.svg"
+            src="/@dds/assets/illustrations/onboarding/set2-1-dark.svg"
             alt=""
           />
           <div class="onboarding-content">
@@ -34,12 +34,12 @@
         <div class="onboarding-card">
           <img
             class="light-image"
-            src="/@dds/sets/illustrations/onboarding/set2-2.svg"
+            src="/@dds/assets/illustrations/onboarding/set2-2.svg"
             alt=""
           />
           <img
             class="dark-image"
-            src="/@dds/sets/illustrations/onboarding/set2-2-dark.svg"
+            src="/@dds/assets/illustrations/onboarding/set2-2-dark.svg"
             alt=""
           />
           <div class="onboarding-content">
@@ -57,12 +57,12 @@
         <div class="onboarding-card">
           <img
             class="light-image"
-            src="/@dds/sets/illustrations/onboarding/set2-3.svg"
+            src="/@dds/assets/illustrations/onboarding/set2-3.svg"
             alt=""
           />
           <img
             class="dark-image"
-            src="/@dds/sets/illustrations/onboarding/set2-3-dark.svg"
+            src="/@dds/assets/illustrations/onboarding/set2-3-dark.svg"
             alt=""
           />
           <div class="onboarding-content">

@@ -6,7 +6,7 @@ import { onceImageErrored } from '/@dds/utils/via-placeholder'
   <div class="is-chat-placeholder animated preFadeInUp fadeInUp is-hidden">
     <div class="caption">
       <img
-        src="/@dds/sets/illustrations/placeholders/having-coffee.svg"
+        src="/@dds/assets/illustrations/placeholders/having-coffee.svg"
         alt=""
         @error.once="onceImageErrored(150)"
       />

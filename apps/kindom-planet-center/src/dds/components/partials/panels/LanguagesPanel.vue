@@ -145,12 +145,12 @@ watch(locale, () => {
         <div class="img-wrap has-text-centered">
           <img
             class="light-image"
-            src="/@dds/sets/illustrations/right-panel/languages.svg"
+            src="/@dds/assets/illustrations/right-panel/languages.svg"
             alt=""
           />
           <img
             class="dark-image"
-            src="/@dds/sets/illustrations/right-panel/languages-dark.svg"
+            src="/@dds/assets/illustrations/right-panel/languages-dark.svg"
             alt=""
           />
         </div>

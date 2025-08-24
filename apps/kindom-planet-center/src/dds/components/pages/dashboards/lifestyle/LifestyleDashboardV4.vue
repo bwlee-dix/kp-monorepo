@@ -12,7 +12,7 @@ import { onceImageErrored } from '/@dds/utils/via-placeholder'
             <div class="illustration-header-2">
               <div class="header-image">
                 <img
-                  src="/@dds/sets/illustrations/dashboards/lifestyle/reading.svg"
+                  src="/@dds/assets/illustrations/dashboards/lifestyle/reading.svg"
                   alt=""
                 />
               </div>

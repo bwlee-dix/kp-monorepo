@@ -1265,7 +1265,7 @@ const closeModal = () => {
                         icon="feather:eye"
                         @click="openPreviewModal"
                       >
-                        Preview Web Application
+                        Preview App
                       </VButton>
                     </div>
                   </div>
@@ -1704,7 +1704,7 @@ const closeModal = () => {
     >
       <div class="native-modal preview-modal" @click.stop>
         <div class="native-modal-header">
-          <h3>Web Application Preview</h3>
+          <h3>Preview App</h3>
           <button
             type="button"
             class="close-button"
@@ -3546,6 +3546,7 @@ const closeModal = () => {
   max-height: calc(95vh - 68px);
   height: calc(95vh - 68px);
   overflow-y: auto;
+  scrollbar-width: none;
 }
 
 .preview-tabs {

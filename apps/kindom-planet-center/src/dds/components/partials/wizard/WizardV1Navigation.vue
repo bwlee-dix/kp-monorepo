@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useDropdown } from '/@dds/composable/useDropdown'
-import { useWizard } from '/@dds/commposable/useWizard'
-import { useDarkmode } from '/@dds/ores/darkmode'
+import { useWizard } from '/@dds/composable/useWizard'
+import { useDarkmode } from '/@dds/stores/darkmode'
 import { onceImageErrored } from '/@dds/utils/via-placeholder'
 
 const darkmode = useDarkmode()
@@ -211,6 +211,9 @@ const wizard = useWizard()
   }
 
   .wizard-dropdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
 
     .is-trigger {
