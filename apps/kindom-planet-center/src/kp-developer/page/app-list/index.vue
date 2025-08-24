@@ -54,6 +54,9 @@ const clickApp = (id: string) => {
 const clickWebBuilder = () => {
   router.push('/builder-landing')
 }
+const clickNewApp = () => {
+  router.push('/new-app')
+}
 </script>
 
 <template>
@@ -74,7 +77,7 @@ const clickWebBuilder = () => {
           </span>
           <span>New App By KP Builder</span>
         </VButton>
-        <VButton color="primary" raised @click="isBigFormOpen = true">
+        <VButton color="primary" raised @click="clickNewApp">
           <span class="icon">
             <i aria-hidden="true" class="fas fa-plus" />
           </span>

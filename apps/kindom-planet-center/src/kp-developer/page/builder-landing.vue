@@ -15,10 +15,27 @@ const accept = async () => {
   isLoading.value = true
 
   await sleep()
-  router.push('/builder')
+
+  // App name과 description을 query parameters로 전달
+  const queryParams: any = {}
+  if (appName.value) {
+    queryParams.appName = appName.value
+  }
+  if (appDescription.value) {
+    queryParams.appDescription = appDescription.value
+  }
+
+  router.push({
+    path: '/builder',
+    query: queryParams,
+  })
 
   isLoading.value = false
 }
+
+// App information
+const appName = ref('')
+const appDescription = ref('')
 </script>
 
 <template>
@@ -54,61 +71,51 @@ const accept = async () => {
           <div class="wrapper-inner">
             <div class="action-box">
               <div class="box-content">
-                <VAvatar
-                  size="big"
-                  picture="/demo/avatars/16.jpg"
-                  badge="/demo/photos/apps/9.png"
-                />
+                <div id="form-step-0" class="form-section is-active">
+                  <h3 class="form-section-title">
+                    <span>App Information</span>
+                  </h3>
+
+                  <div class="form-section-inner">
+                    <div class="fieldset">
+                      <div class="column is-12">
+                        <VField label="App Name *">
+                          <VControl>
+                            <VInput
+                              v-model="appName"
+                              type="text"
+                              placeholder="Ex: A cool project"
+                            />
+                          </VControl>
+                        </VField>
+                      </div>
+                      <div class="column is-12">
+                        <VField label="Description">
+                          <VControl fullwidth>
+                            <VTextarea
+                              v-model="appDescription"
+                              class="textarea"
+                              rows="4"
+                              placeholder="Tell us about any details you'd like us to know..."
+                              autocomplete="off"
+                              autocapitalize="off"
+                              spellcheck="true"
+                            />
+                          </VControl>
+                        </VField>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
                 <h3 class="dark-inverted">
-                  Jason G. has invited you to the
-                  <span class="is-dark-primary">Banking Solution Website</span>
-                  project.
+                  코드 한 줄 없이 <span class="is-dark-primary">KP Builder</span>를
+                  이용하여 <br />
+                  간단하기 앱을 만들 수 있습니다.
                 </h3>
 
-                <div class="sender-message is-dark-card-bordered is-dark-bg-4">
-                  <h4 class="dark-inverted">Message from Jason</h4>
-                  <p>
-                    Hey Erik, It would be really cool if you could give us a hand on this
-                    project. There are a lot of tasks popping out every day and I feel the
-                    team is getting a bit overwhelmed. We'd love to have you board.
-                  </p>
-                </div>
-                <div class="people-wrap">
-                  <div class="people">
-                    <div>
-                      <Tippy class="has-help-cursor" interactive placement="bottom">
-                        <VAvatar size="small" picture="/demo/avatars/21.jpg" />
-                        <template #content>
-                          <UserPopoverContent :user="popovers.user21" />
-                        </template>
-                      </Tippy>
-                    </div>
-
-                    <div>
-                      <Tippy class="has-help-cursor" interactive placement="bottom">
-                        <VAvatar size="small" color="h-purple" initials="SC" />
-                        <template #content>
-                          <UserPopoverContent :user="popovers.user120" />
-                        </template>
-                      </Tippy>
-                    </div>
-
-                    <div>
-                      <Tippy class="has-help-cursor" interactive placement="bottom">
-                        <VAvatar size="small" picture="/demo/avatars/39.jpg" />
-                        <template #content>
-                          <UserPopoverContent :user="popovers.user39" />
-                        </template>
-                      </Tippy>
-                    </div>
-                  </div>
-                  <div class="people-text">
-                    <p>And 5 others are already members of this project</p>
-                  </div>
-                </div>
                 <div class="buttons">
-                  <VButton dark-outlined> Decline </VButton>
+                  <VButton dark-outlined> Maybe later </VButton>
                   <VButton
                     color="primary"
                     :loading="isLoading"
@@ -117,7 +124,7 @@ const accept = async () => {
                     @keydown.space.prevent="accept"
                     @click="accept"
                   >
-                    Accept
+                    Start Now
                   </VButton>
                 </div>
               </div>

@@ -26,11 +26,11 @@ const currentHelp = ref(-1)
 const isB2C = ref(true)
 const type = ref('')
 const options = ref<string[]>([])
+const route = useRoute()
 
 // App information
-const appName = ref('')
-const appDescription = ref('')
-
+const appName = ref((route.query.appName as string) || '')
+const appDescription = ref((route.query.appDescription as string) || '')
 // Field data
 const fieldName = ref('')
 const fieldDescription = ref('')
@@ -1428,86 +1428,108 @@ const closeModal = () => {
               </ul>
 
               <!-- iPhone Preview -->
-              <div v-if="currentStep >= 2 && pages.length > 0" class="iphone-preview">
+              <div v-if="currentStep >= 0" class="iphone-preview">
                 <div class="iphone-frame">
                   <div class="iphone-notch" />
                   <div class="iphone-screen">
-                    <div class="preview-header">
-                      <h3>{{ getCurrentPage()?.name || 'Page Name' }}</h3>
-                      <p>{{ getCurrentPage()?.description || 'Page Description' }}</p>
+                    <!-- Step 0-1: App Information Splash Screen -->
+                    <div v-if="currentStep <= 1" class="splash-screen">
+                      <!-- <div class="app-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                      </div> -->
+                      <div class="app-title">
+                        {{ appName || 'Your App' }}
+                      </div>
+                      <div class="app-description">
+                        {{ appDescription || 'Tap to start your journey' }}
+                      </div>
+                      <div class="splash-button">
+                        <span>Get Started</span>
+                      </div>
                     </div>
 
-                    <div class="preview-content">
-                      <div
-                        v-for="field in getCurrentPageFields()"
-                        :key="field.id"
-                        class="preview-field"
-                      >
-                        <div class="field-label">
-                          {{ field.name }}
-                          <span v-if="field.required" class="required">*</span>
-                        </div>
-
-                        <div class="field-value">
-                          <!-- Text/Textarea -->
-                          <div
-                            v-if="field.type === 'Text' || field.type === 'Textarea'"
-                            class="text-preview"
-                          >
-                            {{ field.description || 'Sample text content' }}
-                          </div>
-
-                          <!-- Number -->
-                          <div v-else-if="field.type === 'Number'" class="number-preview">
-                            123
-                          </div>
-
-                          <!-- Date -->
-                          <div v-else-if="field.type === 'Date'" class="date-preview">
-                            {{ new Date().toISOString().split('T')[0] }}
-                          </div>
-
-                          <!-- Radio -->
-                          <div v-else-if="field.type === 'Radio'" class="radio-preview">
-                            <div
-                              v-for="(option, index) in field.options"
-                              :key="index"
-                              class="radio-option"
-                            >
-                              <div
-                                class="radio-dot"
-                                :class="{ 'is-selected': index === 0 }"
-                              />
-                              <span>{{ option }}</span>
-                            </div>
-                          </div>
-
-                          <!-- Multi-Select -->
-                          <div
-                            v-else-if="field.type === 'Multi-Select'"
-                            class="multiselect-preview"
-                          >
-                            <div
-                              v-for="(option, index) in field.options"
-                              :key="index"
-                              class="checkbox-option"
-                            >
-                              <div
-                                class="checkbox-square"
-                                :class="{ 'is-selected': index === 0 }"
-                              />
-                              <span>{{ option }}</span>
-                            </div>
-                          </div>
-                        </div>
+                    <!-- Step 2+: Form Preview -->
+                    <div v-else class="form-preview">
+                      <div class="preview-header">
+                        <h3>{{ getCurrentPage()?.name || 'Page Name' }}</h3>
+                        <p>{{ getCurrentPage()?.description || 'Page Description' }}</p>
                       </div>
 
-                      <div
-                        v-if="getCurrentPageFields().length === 0"
-                        class="no-fields-preview"
-                      >
-                        <i class="iconify" data-icon="feather:plus-circle" />
-                        <span>Add fields to see preview</span>
+                      <div class="preview-content">
+                        <div
+                          v-for="field in getCurrentPageFields()"
+                          :key="field.id"
+                          class="preview-field"
+                        >
+                          <div class="field-label">
+                            {{ field.name }}
+                            <span v-if="field.required" class="required">*</span>
+                          </div>
+
+                          <div class="field-value">
+                            <!-- Text/Textarea -->
+                            <div
+                              v-if="field.type === 'Text' || field.type === 'Textarea'"
+                              class="text-preview"
+                            >
+                              {{ field.description || 'Sample text content' }}
+                            </div>
+
+                            <!-- Number -->
+                            <div
+                              v-else-if="field.type === 'Number'"
+                              class="number-preview"
+                            >
+                              123
+                            </div>
+
+                            <!-- Date -->
+                            <div v-else-if="field.type === 'Date'" class="date-preview">
+                              {{ new Date().toISOString().split('T')[0] }}
+                            </div>
+
+                            <!-- Radio -->
+                            <div v-else-if="field.type === 'Radio'" class="radio-preview">
+                              <div
+                                v-for="(option, index) in field.options"
+                                :key="index"
+                                class="radio-option"
+                              >
+                                <div
+                                  class="radio-dot"
+                                  :class="{ 'is-selected': index === 0 }"
+                                />
+                                <span>{{ option }}</span>
+                              </div>
+                            </div>
+
+                            <!-- Multi-Select -->
+                            <div
+                              v-else-if="field.type === 'Multi-Select'"
+                              class="multiselect-preview"
+                            >
+                              <div
+                                v-for="(option, index) in field.options"
+                                :key="index"
+                                class="checkbox-option"
+                              >
+                                <div
+                                  class="checkbox-square"
+                                  :class="{ 'is-selected': index === 0 }"
+                                />
+                                <span>{{ option }}</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div
+                          v-if="getCurrentPageFields().length === 0"
+                          class="no-fields-preview"
+                        >
+                          <i class="iconify" data-icon="feather:plus-circle" />
+                          <span>Add fields to see preview</span>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -2897,24 +2919,73 @@ const closeModal = () => {
             opacity: 0.3;
           }
 
-          .preview-header {
-            text-align: left;
-            margin-bottom: 1.5rem;
-            flex-shrink: 0;
-            margin-left: 4px;
-            margin-right: 4px;
+          .splash-screen {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            padding: 2rem 1rem;
+            text-align: center;
 
-            h3 {
-              font-size: 1.2rem;
-              font-weight: 600;
-              color: var(--dark-text);
-              margin: 0 0 0.5rem 0;
+            .app-icon {
+              font-size: 3rem;
+              color: var(--primary);
+              margin-bottom: 1.5rem;
             }
 
-            p {
+            .app-title {
+              font-size: 2rem;
+              font-weight: 600;
+              color: var(--dark-text);
+              margin-bottom: 0.75rem;
+              line-height: 1.2;
+            }
+
+            .app-description {
               font-size: 0.9rem;
               color: var(--light-text);
-              margin: 0;
+              margin-bottom: 2rem;
+              line-height: 1.4;
+              padding: 0 0.5rem;
+            }
+
+            .splash-button {
+              background: var(--primary);
+              color: white;
+              padding: 0.75rem 1.5rem;
+              border-radius: 25px;
+              font-weight: 500;
+              font-size: 0.9rem;
+              display: inline-block;
+              box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            }
+          }
+
+          .form-preview {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+
+            .preview-header {
+              text-align: left;
+              margin-bottom: 1.5rem;
+              flex-shrink: 0;
+              margin-left: 4px;
+              margin-right: 4px;
+
+              h3 {
+                font-size: 1.2rem;
+                font-weight: 600;
+                color: var(--dark-text);
+                margin: 0 0 0.5rem 0;
+              }
+
+              p {
+                font-size: 0.9rem;
+                color: var(--light-text);
+                margin: 0;
+              }
             }
           }
 
