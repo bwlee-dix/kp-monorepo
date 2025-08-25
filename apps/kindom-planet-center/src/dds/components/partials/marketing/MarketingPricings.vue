@@ -85,7 +85,7 @@
       <div class="cta-block no-border">
         <div class="head-text">
           <h3>Want to learn more?</h3>
-          <p>Check out the Vuero documentation</p>
+          <p>Check out the Kingdom Planet documentation</p>
         </div>
         <div class="head-action">
           <div class="buttons">

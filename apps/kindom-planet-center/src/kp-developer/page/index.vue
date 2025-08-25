@@ -1,6 +1,6 @@
 <script setup lang="ts">
 useHead({
-  title: 'Vuero - A complete Vue 3 design system',
+  title: 'Kingdom Planet Developer Center',
 })
 </script>
 
@@ -60,8 +60,9 @@ useHead({
               <div class="column">
                 <h1 class="title is-1 is-bold">Easier development. Beautiful projects</h1>
                 <h3 class="pt-2 subtitle is-4 light-text">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Isto modo ne
-                  improbos quidem.
+                  Build and manage your apps with powerful tools and seamless APIs.<br />
+                  From authentication to storage, everything you need to launch and grow
+                  is here.
                 </h3>
                 <div class="buttons is-centered">
                   <VButton color="primary" bold rounded raised> Get Started </VButton>
@@ -146,7 +147,7 @@ useHead({
       }
 
       h3 {
-        max-width: 520px;
+        // max-width: 520px;
       }
 
       .hero-mockup {

@@ -4,7 +4,7 @@
       <div class="footer-head">
         <div class="head-text">
           <h3>Ready to get started?</h3>
-          <p>Get your Vuero copy now</p>
+          <p>Get your Kingdom Planet copy now</p>
         </div>
         <div class="head-action">
           <div class="buttons">
@@ -12,7 +12,7 @@
               href="http://go.cssninja.io/buy-vuero"
               class="button v-button is-primary is-rounded raised action-button"
             >
-              Buy Vuero
+              Subscribe Kingdom Planet
             </a>
             <a
               target="_blank"
@@ -20,7 +20,7 @@
               class="button chat-button"
             >
               <span>Join us on Discord</span>
-              <i class="iconify ml-1" data-icon="feather:external-link" />
+              <i class="ml-1 iconify" data-icon="feather:external-link" />
             </a>
           </div>
         </div>
@@ -32,8 +32,8 @@
             <AnimatedLogo width="36px" height="36px" />
 
             <div class="footer-description p-t-10 p-b-10">
-              Vuero is built for developers and designers. It's modular approach lets you
-              create awesome navbars with incredible layouts and elements.
+              Kingdom Planet is built for developers and designers. It's modular approach
+              lets you create awesome navbars with incredible layouts and elements.
             </div>
           </div>
           <div>
@@ -79,7 +79,7 @@
             <!-- Column -->
             <div class="column">
               <ul class="footer-column">
-                <li class="column-header">Vuero</li>
+                <li class="column-header">Kingdom Planet</li>
                 <li class="column-item">
                   <a href="https://cssninja.io/faq/quality" target="_blank">Quality</a>
                 </li>

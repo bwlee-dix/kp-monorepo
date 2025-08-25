@@ -4,7 +4,7 @@
       <!--Title-->
       <div class="section-title has-text-centered">
         <h2 class="title is-2">Top Tier Product</h2>
-        <h4>Vuero has been carefully handcrafted.</h4>
+        <h4>Kingdom Planet has been carefully handcrafted.</h4>
       </div>
 
       <!-- Feature -->
@@ -24,9 +24,9 @@
         <div class="column is-5">
           <h2 class="title m-b-10 is-centered-tablet-portrait">Incredible UI</h2>
           <p class="section-feature-description is-centered-tablet-portrait">
-            Vuero's UI has been carefully thought and designed, and is simply one of the
-            best you'll find on the market. It's visual power and its modularity will let
-            you build great apps seamlessly.
+            Kingdom Planet's UI has been carefully thought and designed, and is simply one
+            of the best you'll find on the market. It's visual power and its modularity
+            will let you build great apps seamlessly.
           </p>
         </div>
       </div>
@@ -49,8 +49,8 @@
         <div class="column is-5 is-offset-1">
           <h2 class="title m-b-10 is-centered-tablet-portrait">Playful Vectors</h2>
           <p class="section-feature-description is-centered-tablet-portrait">
-            Vuero ships with a lot of svg illustrations representing various elements that
-            can be used in a website, following very high quality standards.
+            Kingdom Planet ships with a lot of svg illustrations representing various
+            elements that can be used in a website, following very high quality standards.
           </p>
         </div>
         <div class="column is-6 has-text-centered h-hidden-mobile">
@@ -83,7 +83,7 @@
         <div class="column is-5">
           <h2 class="title m-b-10 is-centered-tablet-portrait">Handcrafted UI</h2>
           <p class="section-feature-description is-centered-tablet-portrait">
-            Vuero ships with it's own component library based on the Bulma.io CSS
+            Kingdom Planet ships with it's own component library based on the Bulma.io CSS
             framework. Each component has been carefully handcrafted and natively supports
             dark mode.
           </p>
@@ -94,21 +94,15 @@
       <div class="cta-block no-border">
         <div class="head-text">
           <h3>Want to learn more?</h3>
-          <p>Check out the Vuero documentation</p>
+          <p>Check out the Kingdom Planet documentation</p>
         </div>
         <div class="head-action">
           <div class="buttons">
-            <VButton
-              class="action-button"
-              color="primary"
-              rounded
-              elevated
-              href="https://docs.cssninja.io/vuero"
-            >
+            <VButton class="action-button" color="primary" rounded elevated href="#">
               Read the Docs
             </VButton>
             <a
-              href="https://cssninja.io"
+              href="#"
               target="_blank"
               rel="noopener"
               class="button chat-button is-secondary"

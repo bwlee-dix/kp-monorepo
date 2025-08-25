@@ -2,9 +2,9 @@
   <div class="section">
     <div class="container">
       <!--Title-->
-      <div class="section-title has-text-centered py-6">
+      <div class="py-6 section-title has-text-centered">
         <h2 class="title is-2">Awesome Features</h2>
-        <h4>Vuero has been carefully handcrafted.</h4>
+        <h4>Kingdom Planet has been carefully handcrafted.</h4>
       </div>
 
       <!--Content-->
@@ -18,9 +18,9 @@
                   <i aria-hidden="true" class="lnil lnil-layout-alt-2" />
                 </VIconBox>
 
-                <h4 class="title is-5">Nice Vectors</h4>
+                <h4 class="title is-5">Powerful APIs</h4>
                 <p class="subtitle is-6 light-text">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Seamless authentication, storage, and data APIs to build faster.
                 </p>
               </div>
             </div>
@@ -33,9 +33,9 @@
                   <i aria-hidden="true" class="lnil lnil-layers" />
                 </VIconBox>
 
-                <h4 class="title is-5">Icon title</h4>
+                <h4 class="title is-5">Easy Project Setup</h4>
                 <p class="subtitle is-6 light-text">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Create and register apps in minutes, with clear onboarding.
                 </p>
               </div>
             </div>
@@ -48,9 +48,9 @@
                   <i aria-hidden="true" class="lnil lnil-grid-alt" />
                 </VIconBox>
 
-                <h4 class="title is-5">Icon title</h4>
+                <h4 class="title is-5">Team Collaboration</h4>
                 <p class="subtitle is-6 light-text">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Manage developers, roles, and permissions all in one place.
                 </p>
               </div>
             </div>
@@ -63,9 +63,9 @@
                   <i aria-hidden="true" class="lnil lnil-bulb" />
                 </VIconBox>
 
-                <h4 class="title is-5">Icon title</h4>
+                <h4 class="title is-5">Integrated Dashboard</h4>
                 <p class="subtitle is-6 light-text">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Monitor usage, API keys, and performance metrics in real time.
                 </p>
               </div>
             </div>
@@ -78,9 +78,9 @@
                   <i aria-hidden="true" class="lnil lnil-cog" />
                 </VIconBox>
 
-                <h4 class="title is-5">Icon title</h4>
+                <h4 class="title is-5">Scalable Storage</h4>
                 <p class="subtitle is-6 light-text">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Secure and reliable cloud storage for your projects.
                 </p>
               </div>
             </div>
@@ -93,9 +93,9 @@
                   <i aria-hidden="true" class="lnil lnil-plug" />
                 </VIconBox>
 
-                <h4 class="title is-5">Icon title</h4>
+                <h4 class="title is-5">Service Management</h4>
                 <p class="subtitle is-6 light-text">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Connect services, manage configurations, and deploy instantly.
                 </p>
               </div>
             </div>
@@ -108,9 +108,9 @@
                   <i aria-hidden="true" class="lnil lnil-folder-alt" />
                 </VIconBox>
 
-                <h4 class="title is-5">Icon title</h4>
+                <h4 class="title is-5">Modern UI Components</h4>
                 <p class="subtitle is-6 light-text">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Prebuilt, customizable UI kits for faster development.
                 </p>
               </div>
             </div>
@@ -123,9 +123,9 @@
                   <i aria-hidden="true" class="lnil lnil-timer" />
                 </VIconBox>
 
-                <h4 class="title is-5">Icon title</h4>
+                <h4 class="title is-5">Secure Authentication</h4>
                 <p class="subtitle is-6 light-text">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Built-in identity and token management for apps and users.
                 </p>
               </div>
             </div>
@@ -138,9 +138,9 @@
                   <i aria-hidden="true" class="lnil lnil-pie-chart-alt" />
                 </VIconBox>
 
-                <h4 class="title is-5">Icon title</h4>
+                <h4 class="title is-5">Performance Insights</h4>
                 <p class="subtitle is-6 light-text">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Track usage trends and optimize your applications.
                 </p>
               </div>
             </div>
@@ -153,9 +153,9 @@
                   <i aria-hidden="true" class="lnil lnil-licencse" />
                 </VIconBox>
 
-                <h4 class="title is-5">Icon title</h4>
+                <h4 class="title is-5">Payment Integration</h4>
                 <p class="subtitle is-6 light-text">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Built-in Stripe and Bootpay support for global payments.
                 </p>
               </div>
             </div>
@@ -168,9 +168,9 @@
                   <i aria-hidden="true" class="lnil lnil-grow" />
                 </VIconBox>
 
-                <h4 class="title is-5">Icon title</h4>
+                <h4 class="title is-5">Documentation & Guides</h4>
                 <p class="subtitle is-6 light-text">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Developer-friendly docs and examples for every API.
                 </p>
               </div>
             </div>
@@ -183,9 +183,9 @@
                   <i aria-hidden="true" class="lnil lnil-bank" />
                 </VIconBox>
 
-                <h4 class="title is-5">Icon title</h4>
+                <h4 class="title is-5">Token Rewards</h4>
                 <p class="subtitle is-6 light-text">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Earn platform tokens as you build, launch, and grow your projects.
                 </p>
               </div>
             </div>
@@ -196,21 +196,15 @@
         <div class="cta-block no-border">
           <div class="head-text">
             <h3>Want to learn more?</h3>
-            <p>Check out the Vuero documentation</p>
+            <p>Check out the Kingdom Planet documentation</p>
           </div>
           <div class="head-action">
             <div class="buttons">
-              <VButton
-                class="action-button"
-                color="primary"
-                rounded
-                elevated
-                href="https://docs.cssninja.io/vuero"
-              >
+              <VButton class="action-button" color="primary" rounded elevated href="#">
                 Read the Docs
               </VButton>
               <a
-                href="https://cssninja.io"
+                href="#"
                 target="_blank"
                 rel="noopener"
                 class="button chat-button is-secondary"

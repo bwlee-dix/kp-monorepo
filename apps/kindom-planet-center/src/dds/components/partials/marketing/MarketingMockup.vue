@@ -4,11 +4,11 @@
       <!--Title-->
       <div class="section-title has-text-centered">
         <h2 class="title is-2">Impecable UI/UX</h2>
-        <h4>Vuero has been carefully handcrafted.</h4>
+        <h4>Kingdom Planet has been carefully handcrafted.</h4>
       </div>
 
       <div class="centered-mockup-wrapper">
-        <div class="mockup-container mb-6">
+        <div class="mb-6 mockup-container">
           <!--Hexagon shapes-->
           <img
             class="hexagon hexagon-1 light-image-l"
@@ -57,22 +57,22 @@
           <div class="column is-4">
             <h3 class="title is-4">Bulma 0.9.1</h3>
             <p class="subtitle is-6 light-text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Summum ením bonum
-              exposuit vacuitatem.
+              Lightweight and responsive CSS framework to build layouts faster. Flexible
+              grid, modern components, and easy customization.
             </p>
           </div>
           <div class="column is-4">
             <h3 class="title is-4">Clean Code</h3>
             <p class="subtitle is-6 light-text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Summum ením bonum
-              exposuit vacuitatem.
+              Built with clarity and maintainability in mind. Well-structured codebase
+              that scales with your projects.
             </p>
           </div>
           <div class="column is-4">
             <h3 class="title is-4">Modern UI</h3>
             <p class="subtitle is-6 light-text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Summum ením bonum
-              exposuit vacuitatem.
+              Sleek, intuitive, and accessible interface design. Crafted to deliver
+              seamless user experiences on any device.
             </p>
           </div>
         </div>

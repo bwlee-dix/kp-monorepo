@@ -15,7 +15,7 @@ const wizard = useWizard()
 <template>
   <nav class="wizard-navigation">
     <RouterLink to="/" class="wizard-brand">
-      <AnimatedLogo width="38px" height="38px" />
+      <img src="/images/kp_logo.png" alt="" class="logo" />
     </RouterLink>
 
     <div class="navbar-item is-wizard-title">
@@ -41,7 +41,7 @@ const wizard = useWizard()
           :class="[wizard.step < 1 && 'is-disabled']"
           class="dropdown-item kill-drop"
           tabindex="0"
-          to="/wizard-v1"
+          to="/new-app"
           @click.passive="close"
         >
           Step 1: Project Type
@@ -50,7 +50,7 @@ const wizard = useWizard()
           :class="[wizard.step < 2 && 'is-disabled']"
           class="dropdown-item kill-drop"
           tabindex="0"
-          to="/wizard-v1/project-info"
+          to="/new-app/project-info"
           @click.passive="close"
         >
           Step 2: Project Info
@@ -59,7 +59,7 @@ const wizard = useWizard()
           :class="[wizard.step < 3 && 'is-disabled']"
           class="dropdown-item kill-drop"
           tabindex="0"
-          to="/wizard-v1/project-details"
+          to="/new-app/project-details"
           @click.passive="close"
         >
           Step 3: Project Details
@@ -68,7 +68,7 @@ const wizard = useWizard()
           :class="[wizard.step < 4 && 'is-disabled']"
           class="dropdown-item kill-drop"
           tabindex="0"
-          to="/wizard-v1/project-files"
+          to="/new-app/project-files"
           @click.passive="close"
         >
           Step 4: Project Files
@@ -77,7 +77,7 @@ const wizard = useWizard()
           :class="[wizard.step < 5 && 'is-disabled']"
           class="dropdown-item kill-drop"
           tabindex="0"
-          to="/wizard-v1/project-team"
+          to="/new-app/project-team"
           @click.passive="close"
         >
           Step 5: Team Members
@@ -86,7 +86,7 @@ const wizard = useWizard()
           :class="[wizard.step < 6 && 'is-disabled']"
           class="dropdown-item kill-drop"
           tabindex="0"
-          to="/wizard-v1/project-tools"
+          to="/new-app/project-tools"
           @click.passive="close"
         >
           Step 6: Project Tools
@@ -95,7 +95,7 @@ const wizard = useWizard()
           :class="[wizard.step < 7 && 'is-disabled']"
           class="dropdown-item kill-drop"
           tabindex="0"
-          to="/wizard-v1/project-review"
+          to="/new-app/project-review"
           @click.passive="close"
         >
           Step 7: Preview

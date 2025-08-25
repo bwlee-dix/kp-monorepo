@@ -161,7 +161,7 @@ watch(
           <RouterLink to="/app-list" class="sidebar-block-logo">
             <img src="/images/kp_logo.png" alt="" class="logo" />
           </RouterLink>
-          <h3>KP Admin</h3>
+          <h3 class="site-title">Admin Center</h3>
         </template>
         <template #menu>
           <VDropdown title="Apps" spaced>
@@ -317,5 +317,11 @@ watch(
     font-weight: 500;
     color: var(--dark-text);
   }
+}
+.site-title {
+  font-family: var(--font-alt);
+  font-weight: 600;
+  font-size: 1.3rem;
+  color: var(--dark-text);
 }
 </style>

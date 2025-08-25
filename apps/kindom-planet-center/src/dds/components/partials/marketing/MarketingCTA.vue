@@ -25,10 +25,10 @@
           <VAvatar class="v-avatar-16" picture="/demo/avatars/11.jpg" size="large" />
           <div class="boxed-cta-content has-text-centered">
             <h2 class="title is-1">Get Started Now</h2>
-            <h3 class="subtitle">
+            <!-- <h3 class="subtitle">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sin te auctoritas
               commovebat, nobisne omnibus.
-            </h3>
+            </h3> -->
             <a class="button v-button is-rounded is-bold"> Start your Free Trial </a>
           </div>
         </div>

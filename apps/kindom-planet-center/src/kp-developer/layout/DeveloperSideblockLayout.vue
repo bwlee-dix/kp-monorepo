@@ -134,7 +134,7 @@ onMounted(() => {
               class="logo"
             />
           </RouterLink>
-          <h3>Developer</h3>
+          <h3 class="site-title">Developer Center</h3>
         </template>
         <template #menu>
           <VDropdown title="GMMA" full-width spaced>
@@ -280,5 +280,11 @@ onMounted(() => {
 
 .logo {
   border-radius: 4px;
+}
+.site-title {
+  font-family: var(--font-alt);
+  font-weight: 600;
+  font-size: 1.3rem;
+  color: var(--dark-text);
 }
 </style>

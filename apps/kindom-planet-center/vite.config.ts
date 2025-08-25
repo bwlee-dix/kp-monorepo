@@ -180,8 +180,8 @@ export default defineConfig({
      */
     VueRouter({
       // routesFolder: 'src/dds/pages',
-      routesFolder: 'src/kp-developer/page',
-      // routesFolder: 'src/kp-admin/page',
+      // routesFolder: 'src/kp-developer/page',
+      routesFolder: 'src/kp-admin/page',
       dts: './types/router.d.ts',
 
       /**

@@ -53,17 +53,17 @@ watchEffect(() => {
     <div class="navbar-menu" :class="[isMobileNavOpen && 'is-active']">
       <div class="navbar-start">
         <div class="navbar-item">
-          <a href="/" class="nav-link is-active"> Landing </a>
+          <a href="/" class="nav-link is-active"> Home </a>
         </div>
 
         <div class="navbar-item">
           <RouterLink
-            to="/#vuero-demos"
+            to="/#"
             class="nav-link is-scroll"
             @click.passive="
               () => {
-                scrollTo('#vuero-demos', 800, { offset: -50 })
-                isMobileNavOpen = false
+                // scrollTo('#vuero-demos', 800, { offset: -50 })
+                // isMobileNavOpen = false
               }
             "
           >
@@ -72,26 +72,11 @@ watchEffect(() => {
         </div>
 
         <div class="navbar-item">
-          <RouterLink
-            to="/#vuero-components"
-            class="nav-link is-scroll"
-            @click.passive="
-              () => {
-                scrollTo('#vuero-components', 800, { offset: -50 })
-                isMobileNavOpen = false
-              }
-            "
-          >
-            UI Elements
-          </RouterLink>
+          <a href="#" class="nav-link">Docs</a>
         </div>
 
         <div class="navbar-item">
-          <a href="https://docs.cssninja.io/vuero" class="nav-link">Docs</a>
-        </div>
-
-        <div class="navbar-item">
-          <a href="https://cssninja.io" class="nav-link">Support</a>
+          <a href="#" class="nav-link">Support</a>
         </div>
       </div>
 

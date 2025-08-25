@@ -1,6 +1,6 @@
 <script setup lang="ts">
 useHead({
-  title: 'Vuero - A complete Vue 3 design system',
+  title: 'Kingdom Planet Admin Center',
 })
 </script>
 
@@ -58,10 +58,11 @@ useHead({
           <div class="container">
             <div class="columns is-vcentered has-text-centered">
               <div class="column">
-                <h1 class="title is-1 is-bold">Easier development. Beautiful projects</h1>
+                <h1 class="title is-1 is-bold">Smarter management. Seamless control.</h1>
                 <h3 class="pt-2 subtitle is-4 light-text">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Isto modo ne
-                  improbos quidem.
+                  Oversee apps, users, and services with powerful admin tools. <br />From
+                  analytics to permissions, everything you need to operate with confidence
+                  is here.
                 </h3>
                 <div class="buttons is-centered">
                   <VButton color="primary" bold rounded raised> Get Started </VButton>
@@ -146,7 +147,7 @@ useHead({
       }
 
       h3 {
-        max-width: 520px;
+        // max-width: 520px;
       }
 
       .hero-mockup {
