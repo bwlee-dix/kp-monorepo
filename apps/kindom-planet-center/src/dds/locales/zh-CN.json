@@ -1,0 +1,70 @@
+{
+  "common": {
+    "select-language": "选择语言",
+    "cancel-label": "取消"
+  },
+  "auth": {
+    "title": "现在就加入我们",
+    "subtitle": "从创建你的账户开始",
+    "label": {
+      "promotional": "接收促销优惠"
+    },
+    "action": {
+      "login": "我已经有一个账户",
+      "signup": "注册"
+    },
+    "placeholder": {
+      "name": "姓名",
+      "email": "电子邮件地址",
+      "password": "密码",
+      "passwordCheck": "密码验证"
+    },
+    "errors": {
+      "name": {
+        "required": "您的姓名是必填的"
+      },
+      "email": {
+        "required": "输入你的电子邮件，它将是登录的必要条件",
+        "format": "请输入一个有效的电子邮件"
+      },
+      "password": {
+        "required": "请输入你的密码，至少有8个字符，登录时必须输入",
+        "length": "密码应至少包含8个字符"
+      },
+      "passwordCheck": {
+        "required": "请确认您的密码",
+        "match": "该密码不匹配"
+      }
+    }
+  },
+  "pages": {
+    "dashboard-personnal-1": {
+      "page-title": "個人 1"
+    },
+    "not-found": {
+      "page-title": "未找到页面",
+      "page-heading": "我们找不到这个页面",
+      "page-body": "看起来我们找不到这个页面。如果问题仍然存在，请再试一次或联系管理员。",
+      "page-button": "带我回去"
+    }
+  },
+  "components": {
+    "v-reload-prompt": {
+      "offline-ready": "{appName}已准备好脱机工作",
+      "need-refresh": "新版本的{appName}已经可用，点击重新加载按钮来更新。",
+      "reload-button": "重新加载",
+      "close-button": "关闭"
+    },
+    "v-flex-pagination": {
+      "goto-page-title": "转到第{page}页"
+    },
+    "v-credit-card": {
+      "holder-label": "持卡人姓名",
+      "number-label": "卡号",
+      "expiration-label": "到期",
+      "cvc-label": "安全代码",
+      "valid-label": "有效",
+      "valid-thru-label": "突破"
+    }
+  }
+}

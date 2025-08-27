@@ -1,0 +1,70 @@
+{
+  "common": {
+    "select-language": "Sprache auswählen",
+    "cancel-label": "Abbrechen"
+  },
+  "auth": {
+    "title": "Jetzt mitmachen",
+    "subtitle": "Beginnen Sie mit der Erstellung Ihres Kontos",
+    "label": {
+      "promotional": "Erhalten Sie Werbeangebote"
+    },
+    "action": {
+      "login": "Ich habe bereits ein Konto",
+      "signup": "Registrieren"
+    },
+    "placeholder": {
+      "name": "Name",
+      "email": "Mailadresse",
+      "password": "Passwort",
+      "passwordCheck": "Passwortüberprüfung"
+    },
+    "errors": {
+      "name": {
+        "required": "Ihr Name, Vorname ist erforderlich"
+      },
+      "email": {
+        "required": "Geben Sie Ihre E-Mail ein, sie wird für die Anmeldung benötigt",
+        "format": "Bitte geben Sie eine gültige E-Mail ein"
+      },
+      "password": {
+        "required": "Geben Sie Ihr Passwort mit mindestens 8 Zeichen ein, es wird für die Anmeldung benötigt",
+        "length": "Das Passwort sollte mindestens 8 Zeichen enthalten"
+      },
+      "passwordCheck": {
+        "required": "Bitte bestätigen Sie Ihr Passwort",
+        "match": "Das Passwort stimmt nicht überein"
+      }
+    }
+  },
+  "pages": {
+    "dashboard-personnal-1": {
+      "page-title": "Persönlich 1"
+    },
+    "not-found": {
+      "page-title": "Seite nicht gefunden",
+      "page-heading": "Wir konnten diese Seite nicht finden",
+      "page-body": "Die Seite konnte nicht gefunden werden. Bitte versuchen Sie es erneut oder wenden Sie sich an einen Administrator, wenn das Problem weiterhin besteht.",
+      "page-button": "Bringen Sie mich zurück"
+    }
+  },
+  "components": {
+    "v-reload-prompt": {
+      "offline-ready": "{appName} ist bereit, offline zu arbeiten",
+      "need-refresh": "Eine neue Version von {appName} ist verfügbar, klicken Sie auf die Schaltfläche Neu laden, um sie zu aktualisieren.",
+      "reload-button": "Neu laden",
+      "close-button": "Schließen"
+    },
+    "v-flex-pagination": {
+      "goto-page-title": "Gehe zu Seite {page}"
+    },
+    "v-credit-card": {
+      "holder-label": "Karteninhabername",
+      "number-label": "Kartennummer",
+      "expiration-label": "Ablauf",
+      "cvc-label": "Sicherheitscode",
+      "valid-label": "GÜLTIG",
+      "valid-thru-label": "BIS"
+    }
+  }
+}

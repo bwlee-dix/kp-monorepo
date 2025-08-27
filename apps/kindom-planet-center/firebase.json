@@ -1,0 +1,19 @@
+{
+  "hosting": {
+    "public": "dist",
+    // "site": "kingdom-planet-developer-dev-gui",
+    // "site": "kp-center-dev-developer-gui",
+    "site": "kp-center-dev-admin-gui",
+
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "frameworksBackend": {
+      "region": "us-central1"
+    },
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
