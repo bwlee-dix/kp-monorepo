@@ -44,5 +44,10 @@
     "scripts/**/*.ts",
     "*.config.ts"
   ],
-  "exclude": ["bulma-colors.ts"]
+  "exclude": ["bulma-colors.ts"],
+  "references": [
+    {
+      "path": "../../lib/dds"
+    }
+  ]
 }

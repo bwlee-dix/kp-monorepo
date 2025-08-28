@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { Button } from '@kingdom-planet-center/dds'
 import { useDarkmode } from '/@dds/stores/darkmode'
 import { useUserSession } from '/@dds/stores/userSession'
 import { useNotyf } from '/@dds/composable/useNotyf'
@@ -33,6 +34,7 @@ const handleLogin = async () => {
 
 <template>
   <div class="auth-wrapper">
+    <Button text="Click me" />
     <div class="auth-wrapper-inner is-single">
       <!--Fake navigation-->
       <div class="auth-nav">
